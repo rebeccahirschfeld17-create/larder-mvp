@@ -333,9 +333,10 @@
     .demo-role .demo-only { display: flex; }
     .demo-role .page:not(#page-demo) { display: none !important; }
     .demo-role #page-demo.active { display: block !important; }
+    #page-dashboard .hero,
     #page-demo .hero { grid-template-columns: 1fr; }
-    .client-role [data-report-tab="ushg"],
-    .client-role [data-report-tab="nobu"] { display: none; }
+    .client-role [data-report-tab="client2"],
+    .client-role [data-report-tab="client3"] { display: none; }
     .client-role .workflow-card { display: none; }
     .client-role #page-report { display: none !important; }
 
@@ -1995,7 +1996,7 @@
         </button>
         <button class="auth-option" onclick="signIn('client')">
           <span class="auth-icon"><i class="ti ti-building-store"></i></span>
-          <span><p>Major Food Group client</p><span>Access the client portal, approvals, requested documents, and shared reports.</span></span>
+          <span><p>Sample Restaurant Group 1 client</p><span>Access the client portal, approvals, requested documents, and shared reports.</span></span>
           <i class="ti ti-arrow-right"></i>
         </button>
         <button class="auth-option" onclick="signIn('demo')">
@@ -2078,12 +2079,6 @@
               <div class="hero-stat"><span>Client savings</span><strong>$687K</strong></div>
             </div>
           </div>
-          <div class="insight-card">
-            <small>Most urgent</small>
-            <h3>Major Food Group has a June 3 renewal deadline.</h3>
-            <p>Review the Sysco recommendation, then share the client report or request approval from the client portal.</p>
-            <button class="btn" style="margin-top: 1rem;" onclick="showPage('report')">Review client report</button>
-          </div>
         </div>
 
         <div class="dashboard-focus">
@@ -2097,13 +2092,13 @@
             <div class="focus-list">
               <div class="focus-item">
                 <div class="focus-icon"><i class="ti ti-alert-triangle"></i></div>
-                <div><p>Review Major Food Group report</p><span>Sysco and Heartland are the two highest-value recommendations.</span></div>
-                <button class="btn btn-mini" onclick="showClientReport('mfg')">Open</button>
+                <div><p>Review Sample Restaurant Group 1 report</p><span>Food Distributor A and Payment Processor A are the two highest-value recommendations.</span></div>
+                <button class="btn btn-mini" onclick="showClientReport('client1')">Open</button>
               </div>
               <div class="focus-item">
                 <div class="focus-icon"><i class="ti ti-upload"></i></div>
-                <div><p>Ask client for missing files</p><span>Sysco purchase summary and waste invoices are still marked needed.</span></div>
-                <button class="btn btn-mini" onclick="showClientReport('mfg')">Work</button>
+                <div><p>Ask client for missing files</p><span>Food Distributor A purchase summary and waste invoices are still marked needed.</span></div>
+                <button class="btn btn-mini" onclick="showClientReport('client1')">Work</button>
               </div>
               <div class="focus-item">
                 <div class="focus-icon"><i class="ti ti-file-search"></i></div>
@@ -2121,9 +2116,9 @@
               <span class="badge badge-info" id="operator-queue-count">0 active</span>
             </div>
             <div class="pipeline-summary" id="operator-pipeline-summary">
-              <div class="pipeline-item"><div><span>Major Food Group</span><strong>Client ready</strong></div><i class="ti ti-chart-bar"></i></div>
-              <div class="pipeline-item"><div><span>USHG</span><strong>Approved</strong></div><i class="ti ti-check"></i></div>
-              <div class="pipeline-item"><div><span>Nobu</span><strong>Draft</strong></div><i class="ti ti-pencil"></i></div>
+              <div class="pipeline-item"><div><span>Sample Restaurant Group 1</span><strong>Client ready</strong></div><i class="ti ti-chart-bar"></i></div>
+              <div class="pipeline-item"><div><span>Sample 2</span><strong>Approved</strong></div><i class="ti ti-check"></i></div>
+              <div class="pipeline-item"><div><span>Sample 3</span><strong>Draft</strong></div><i class="ti ti-pencil"></i></div>
             </div>
           </div>
         </div>
@@ -2133,9 +2128,9 @@
       <section class="page" id="page-clients">
         <div class="topbar"><div class="page-header"><h1>Clients</h1><p>Restaurant groups and their portfolio status</p></div><button class="btn btn-primary" onclick="showPage('addclient')"><i class="ti ti-plus"></i> Add client</button></div>
         <div class="card">
-          <div class="client-row"><div class="avatar">MF</div><div class="client-info"><p>Major Food Group</p><span>14 locations - 18 contracts - $3.2M annual vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 72%;"></div></div></div><span class="badge badge-success">$492K identified</span><button class="btn" onclick="openClientReportModal('mfg')"><i class="ti ti-chart-bar"></i> View report</button></div>
-          <div class="client-row"><div class="avatar" style="background: var(--green-soft); color: var(--green);">UH</div><div class="client-info"><p>Union Square Hospitality Group</p><span>11 locations - 15 contracts - $1.8M annual vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 55%; background: var(--green);"></div></div></div><span class="badge badge-success">$141K identified</span><button class="btn" onclick="openClientReportModal('ushg')"><i class="ti ti-chart-bar"></i> View report</button></div>
-          <div class="client-row"><div class="avatar" style="background: var(--amber-soft); color: var(--amber);">NH</div><div class="client-info"><p>Nobu Hospitality NYC</p><span>8 locations - 8 contracts - $890K annual vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 30%; background: var(--amber);"></div></div></div><span class="badge badge-warning">$73K draft</span><button class="btn" onclick="openClientReportModal('nobu')"><i class="ti ti-chart-bar"></i> View report</button></div>
+          <div class="client-row"><div class="avatar">S1</div><div class="client-info"><p>Sample Restaurant Group 1</p><span>14 locations - 18 contracts - $3.2M annual vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 72%;"></div></div></div><span class="badge badge-success">$492K identified</span><button class="btn" onclick="openClientReportModal('client1')"><i class="ti ti-chart-bar"></i> View report</button></div>
+          <div class="client-row"><div class="avatar" style="background: var(--green-soft); color: var(--green);">S2</div><div class="client-info"><p>Sample Restaurant Group 2</p><span>11 locations - 15 contracts - $1.8M annual vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 55%; background: var(--green);"></div></div></div><span class="badge badge-success">$141K identified</span><button class="btn" onclick="openClientReportModal('client2')"><i class="ti ti-chart-bar"></i> View report</button></div>
+          <div class="client-row"><div class="avatar" style="background: var(--amber-soft); color: var(--amber);">S3</div><div class="client-info"><p>Sample Restaurant Group 3</p><span>8 locations - 8 contracts - $890K annual vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 30%; background: var(--amber);"></div></div></div><span class="badge badge-warning">$73K draft</span><button class="btn" onclick="openClientReportModal('client3')"><i class="ti ti-chart-bar"></i> View report</button></div>
         </div>
       </section>
 
@@ -2153,7 +2148,7 @@
 
         <div class="hero">
           <div class="hero-card">
-            <h2>Major Food Group: $492K in savings opportunities, with the evidence to act.</h2>
+            <h2>Sample Restaurant Group 1: $492K in savings opportunities, with the evidence to act.</h2>
             <p>VendorIQ reviews contracts, statements, and invoices, then turns the findings into specific actions the client can approve.</p>
             <div class="hero-stats">
               <div class="hero-stat"><span>Source files</span><strong>3</strong></div>
@@ -2164,7 +2159,7 @@
         </div>
 
         <div class="demo-outcome">
-          <div><span>Client</span><strong>Major Food Group</strong></div>
+          <div><span>Client</span><strong>Sample Restaurant Group 1</strong></div>
           <div><span>Best first action</span><strong>Payment RFP</strong></div>
           <div><span>Near-term leverage</span><strong>June 3 renewal</strong></div>
         </div>
@@ -2183,8 +2178,8 @@
               <div class="card-header"><div><span class="card-title">Step 1: Collect the files already sitting in the business</span><div class="card-meta">Buyer question: “What do you need from us?”</div></div><span class="badge badge-success">Ready</span></div>
               <div class="demo-script">VendorIQ starts with normal operating files: vendor agreements, processor statements, invoices, and renewal notices. The client does not need to prepare a special data room.</div>
               <div class="evidence-grid">
-                <div class="evidence-card"><i class="ti ti-file-invoice"></i><p>Heartland statement</p><span>Card volume, effective rate, monthly fees, chargebacks. Used to validate $252K opportunity.</span></div>
-                <div class="evidence-card"><i class="ti ti-contract"></i><p>Sysco agreement</p><span>June 3 notice window, escalation language, missing MFN protection. Used to validate $181K opportunity.</span></div>
+                <div class="evidence-card"><i class="ti ti-file-invoice"></i><p>Payment Processor A statement</p><span>Card volume, effective rate, monthly fees, chargebacks. Used to validate $252K opportunity.</span></div>
+                <div class="evidence-card"><i class="ti ti-contract"></i><p>Food Distributor A agreement</p><span>June 3 notice window, escalation language, missing MFN protection. Used to validate $181K opportunity.</span></div>
               </div>
               <div class="workflow-actions" style="justify-content: flex-start; margin-top: 1rem;"><button class="btn btn-primary" onclick="nextDemoStep()">Extract terms</button></div>
             </div>
@@ -2195,8 +2190,8 @@
               <table>
                 <thead><tr><th>Source</th><th>Extracted term</th><th>Risk</th><th>Evidence</th></tr></thead>
                 <tbody>
-                  <tr><td>Heartland statement</td><td>Effective processing cost: 3.08%</td><td><span class="badge badge-danger">Above benchmark</span></td><td>Monthly fee stack + card volume</td></tr>
-                  <tr><td>Sysco agreement</td><td>Notice window closes Jun 3, 2026</td><td><span class="badge badge-danger">Urgent</span></td><td>Renewal and non-renewal clause</td></tr>
+                  <tr><td>Payment Processor A statement</td><td>Effective processing cost: 3.08%</td><td><span class="badge badge-danger">Above benchmark</span></td><td>Monthly fee stack + card volume</td></tr>
+                  <tr><td>Food Distributor A agreement</td><td>Notice window closes Jun 3, 2026</td><td><span class="badge badge-danger">Urgent</span></td><td>Renewal and non-renewal clause</td></tr>
                 </tbody>
               </table>
               <div class="workflow-actions" style="justify-content: flex-start; margin-top: 1rem;"><button class="btn btn-primary" onclick="nextDemoStep()">Show savings math</button></div>
@@ -2206,7 +2201,7 @@
               <div class="card-header"><div><span class="card-title">Step 3: Show the savings math</span><div class="card-meta">Buyer question: “Can I trust the number?”</div></div><span class="badge badge-success">$492K identified</span></div>
               <div class="demo-script">Each recommendation has a current baseline, a target benchmark, an annualized estimate, and a confidence level. The buyer can see why VendorIQ believes the opportunity is real.</div>
               <div class="demo-proof">
-                <div><span>Highest-confidence action</span><p>Run a payment processor RFP against Heartland’s current effective rate.</p></div>
+                <div><span>Highest-confidence action</span><p>Run a payment processor RFP against Payment Processor A’s current effective rate.</p></div>
                 <div><span>Why now</span><p>The client has enough card volume to negotiate, and the statement shows stacked fees that can be benchmarked quickly.</p></div>
               </div>
               <table>
@@ -2222,12 +2217,12 @@
             <div class="card demo-panel" data-demo-panel="3">
               <div class="card-header"><div><span class="card-title">Step 4: Turn the recommendation into work</span><div class="card-meta">Buyer question: “What happens after you find the savings?”</div></div><span class="badge badge-danger">Work now</span></div>
               <div class="demo-script">VendorIQ does not stop at a report. The finding becomes a draft RFP, renewal notice, negotiation brief, or client approval request.</div>
-              <textarea class="workspace-output">Payment Processor RFP - Major Food Group
+              <textarea class="workspace-output">Payment Processor RFP - Sample Restaurant Group 1
 
-Current processor: Heartland Payment
+Current processor: Payment Processor A
 Annual card volume: $12M
 Target effective rate: 2.10%
-Vendors to invite: Toast, Fiserv, Adyen
+Vendors to invite: Processor B, Processor C, Processor D
 Estimated savings: $252K
 
 Request:
@@ -2241,8 +2236,8 @@ Please provide proposed pricing, interchange-plus details, monthly fees, chargeb
               <div class="card-header"><div><span class="card-title">Step 5: Give the client a decision, not a pile of analysis</span><div class="card-meta">Buyer question: “How do we approve and move forward?”</div></div><span class="badge badge-success">Buyer-ready</span></div>
               <div class="demo-script">The client sees clear decisions, supporting evidence, and the next action. Internal work stays internal.</div>
               <div class="approval-panel">
-                <div class="approval-row"><div><p>Authorize payment processor RFP</p><span class="card-meta">Request proposals from hospitality-focused processors and benchmark against Heartland. $252K estimated savings.</span></div><span class="badge badge-warning">Approval needed</span></div>
-                <div class="approval-row"><div><p>Send Sysco notice and begin renegotiation</p><span class="card-meta">Notice preserves leverage before June 3. $181K estimated savings.</span></div><span class="badge badge-warning">Approval needed</span></div>
+                <div class="approval-row"><div><p>Authorize payment processor RFP</p><span class="card-meta">Request proposals from hospitality-focused processors and benchmark against Payment Processor A. $252K estimated savings.</span></div><span class="badge badge-warning">Approval needed</span></div>
+                <div class="approval-row"><div><p>Send Food Distributor A notice and begin renegotiation</p><span class="card-meta">Notice preserves leverage before June 3. $181K estimated savings.</span></div><span class="badge badge-warning">Approval needed</span></div>
               </div>
               <div class="workflow-actions" style="justify-content: flex-start; margin-top: 1rem;">
                 <button class="btn btn-primary" onclick="setDemoStep(0)">Restart demo</button>
@@ -2275,7 +2270,7 @@ Please provide proposed pricing, interchange-plus details, monthly fees, chargeb
           </div>
           <div class="upload-message" id="upload-message"></div>
           <div style="margin-top: 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;">
-            <div><label>Client</label><select id="analysis-client"><option>Major Food Group</option><option>Union Square Hospitality Group</option><option>Nobu Hospitality NYC</option></select></div>
+            <div><label>Client</label><select id="analysis-client"><option>Sample Restaurant Group 1</option><option>Sample Restaurant Group 2</option><option>Sample Restaurant Group 3</option></select></div>
             <div><label>Contract category</label><select id="analysis-category"><option>Food distribution</option><option>Linen & uniforms</option><option>Payment processing</option><option>Pest control</option><option>Waste management</option><option>Equipment maintenance</option><option>Technology</option><option>Other</option></select></div>
           </div>
           <button class="btn btn-primary" onclick="startAnalysis()" style="margin-top: 0.5rem;"><i class="ti ti-file-search"></i> Review contract</button>
@@ -2296,11 +2291,11 @@ Please provide proposed pricing, interchange-plus details, monthly fees, chargeb
       </section>
 
       <section class="page" id="page-report">
-        <div class="topbar"><div class="page-header"><h1 id="report-title">Major Food Group workspace</h1><p id="report-subtitle">14 locations - audit completed May 2026</p></div><button class="btn" onclick="exportCurrentReport()"><i class="ti ti-download"></i> Export summary</button></div>
+        <div class="topbar"><div class="page-header"><h1 id="report-title">Sample Restaurant Group 1 workspace</h1><p id="report-subtitle">14 locations - audit completed May 2026</p></div><button class="btn" onclick="exportCurrentReport()"><i class="ti ti-download"></i> Export summary</button></div>
         <div class="report-tabs">
-          <button class="filter-chip active" data-report-tab="mfg" onclick="setReportClient('mfg')">Major Food Group</button>
-          <button class="filter-chip" data-report-tab="ushg" onclick="setReportClient('ushg')">USHG</button>
-          <button class="filter-chip" data-report-tab="nobu" onclick="setReportClient('nobu')">Nobu Hospitality</button>
+          <button class="filter-chip active" data-report-tab="client1" onclick="setReportClient('client1')">Sample Restaurant Group 1</button>
+          <button class="filter-chip" data-report-tab="client2" onclick="setReportClient('client2')">Sample 2</button>
+          <button class="filter-chip" data-report-tab="client3" onclick="setReportClient('client3')">Sample Restaurant Group 3</button>
         </div>
 
         <div class="card report-summary">
@@ -2342,8 +2337,8 @@ Please provide proposed pricing, interchange-plus details, monthly fees, chargeb
               <span class="badge badge-warning" id="action-priority-badge">High</span>
             </div>
             <h3 id="action-title">Payment processing consolidation</h3>
-            <p id="action-description">Issue RFP to three hospitality-focused processors and benchmark against Heartland.</p>
-            <div class="workspace-field"><span>Client</span><strong id="action-client">Major Food Group</strong></div>
+            <p id="action-description">Issue RFP to three hospitality-focused processors and benchmark against Payment Processor A.</p>
+            <div class="workspace-field"><span>Client</span><strong id="action-client">Sample Restaurant Group 1</strong></div>
             <div class="workspace-field"><span>Savings estimate</span><strong class="positive" id="action-savings">$252K</strong></div>
             <div class="workspace-field"><span>Current spend</span><strong id="action-spend">$520K</strong></div>
             <div class="workspace-field"><span>Next step</span><strong id="action-next-step">Prepare outreach and validate benchmark assumptions.</strong></div>
@@ -2376,7 +2371,7 @@ Please provide proposed pricing, interchange-plus details, monthly fees, chargeb
       <section class="page client-only" id="page-clientreport">
         <div class="topbar">
           <div class="page-header">
-            <h1>Major Food Group savings report</h1>
+            <h1>Sample Restaurant Group 1 savings report</h1>
             <p>Summary of savings opportunities and decisions requested by VendorIQ</p>
           </div>
           <button class="btn" onclick="exportCurrentReport()"><i class="ti ti-download"></i> Export summary</button>
@@ -2411,8 +2406,8 @@ Please provide proposed pricing, interchange-plus details, monthly fees, chargeb
           <table>
             <thead><tr><th>Recommendation</th><th>Why it matters</th><th>Savings</th><th>Priority</th></tr></thead>
             <tbody>
-              <tr><td class="vendor-name">Authorize payment processor RFP</td><td>Benchmark Heartland against hospitality-focused processors.</td><td class="amount positive">$252K</td><td><span class="badge badge-danger">High</span></td></tr>
-              <tr><td class="vendor-name">Send Sysco notice and renegotiate</td><td>Preserve leverage before the June 3 renewal window.</td><td class="amount positive">$181K</td><td><span class="badge badge-danger">High</span></td></tr>
+              <tr><td class="vendor-name">Authorize payment processor RFP</td><td>Benchmark Payment Processor A against hospitality-focused processors.</td><td class="amount positive">$252K</td><td><span class="badge badge-danger">High</span></td></tr>
+              <tr><td class="vendor-name">Send Food Distributor A notice and renegotiate</td><td>Preserve leverage before the June 3 renewal window.</td><td class="amount positive">$181K</td><td><span class="badge badge-danger">High</span></td></tr>
               <tr><td class="vendor-name">Approve waste volume audit</td><td>Validate location volume and request consolidated pricing.</td><td class="amount positive">$40K</td><td><span class="badge badge-warning">Medium</span></td></tr>
               <tr><td class="vendor-name">Review pest control renewal</td><td>Benchmark location-count pricing before renewal.</td><td class="amount positive">$19K</td><td><span class="badge badge-info">Low</span></td></tr>
             </tbody>
@@ -2423,7 +2418,7 @@ Please provide proposed pricing, interchange-plus details, monthly fees, chargeb
       <section class="page" id="page-clientportal">
         <div class="topbar">
           <div class="page-header">
-            <h1>Major Food Group action center</h1>
+            <h1>Sample Restaurant Group 1 action center</h1>
             <p>The decisions and files needed to move savings forward</p>
           </div>
           <div class="header-actions">
@@ -2439,7 +2434,7 @@ Please provide proposed pricing, interchange-plus details, monthly fees, chargeb
           </div>
           <div class="summary-stack">
             <div class="metric"><div class="metric-label">Engagement status</div><div class="metric-value" style="font-size: 18px;"><span class="badge badge-success" id="client-portal-status">Ready for review</span></div><div class="metric-sub">18 contracts reviewed</div></div>
-            <div class="metric"><div class="metric-label">Decision deadline</div><div class="metric-value" style="font-size: 20px;">June 3</div><div class="metric-sub" style="color: var(--amber);">Sysco notice window</div></div>
+            <div class="metric"><div class="metric-label">Decision deadline</div><div class="metric-value" style="font-size: 20px;">June 3</div><div class="metric-sub" style="color: var(--amber);">Food Distributor A notice window</div></div>
           </div>
         </div>
 
@@ -2453,8 +2448,8 @@ Please provide proposed pricing, interchange-plus details, monthly fees, chargeb
               <span class="badge badge-warning" id="approval-count">0 approved</span>
             </div>
             <div class="approval-panel">
-              <div class="approval-row"><div><p>Authorize payment processor RFP</p><span class="card-meta">VendorIQ will request proposals from three hospitality-focused processors and benchmark against Heartland. $252K estimated savings.</span></div><button class="btn approval-btn" data-approval="processor" onclick="toggleApproval(this)">Approve</button></div>
-              <div class="approval-row"><div><p>Send Sysco notice and begin renegotiation</p><span class="card-meta">Notice preserves leverage before June 3. Target terms: MFN clause and 2% escalation cap. $181K estimated savings.</span></div><button class="btn approval-btn" data-approval="sysco" onclick="toggleApproval(this)">Approve</button></div>
+              <div class="approval-row"><div><p>Authorize payment processor RFP</p><span class="card-meta">VendorIQ will request proposals from three hospitality-focused processors and benchmark against Payment Processor A. $252K estimated savings.</span></div><button class="btn approval-btn" data-approval="processor" onclick="toggleApproval(this)">Approve</button></div>
+              <div class="approval-row"><div><p>Send Food Distributor A notice and begin renegotiation</p><span class="card-meta">Notice preserves leverage before June 3. Target terms: MFN clause and 2% escalation cap. $181K estimated savings.</span></div><button class="btn approval-btn" data-approval="distributor" onclick="toggleApproval(this)">Approve</button></div>
               <div class="approval-row"><div><p>Approve waste volume audit</p><span class="card-meta">VendorIQ will reconcile invoice volume by location and prepare a consolidated rate request. $40K estimated savings.</span></div><button class="btn approval-btn" data-approval="waste" onclick="toggleApproval(this)">Approve</button></div>
             </div>
           </div>
@@ -2489,8 +2484,8 @@ Please provide proposed pricing, interchange-plus details, monthly fees, chargeb
           </div>
           <div class="upload-list" id="client-upload-list"></div>
           <div class="document-list">
-            <label class="document-item"><input type="checkbox" checked onchange="updateDocumentStatus()"><div><p class="vendor-name">Latest Heartland processing statement</p><span class="card-meta">Received May 18</span></div><span class="badge badge-success">Received</span></label>
-            <label class="document-item"><input type="checkbox" onchange="updateDocumentStatus()"><div><p class="vendor-name">Sysco trailing 12-month purchase summary</p><span class="card-meta">Needed for MFN benchmark</span></div><span class="badge badge-warning">Needed</span></label>
+            <label class="document-item"><input type="checkbox" checked onchange="updateDocumentStatus()"><div><p class="vendor-name">Latest Payment Processor A processing statement</p><span class="card-meta">Received May 18</span></div><span class="badge badge-success">Received</span></label>
+            <label class="document-item"><input type="checkbox" onchange="updateDocumentStatus()"><div><p class="vendor-name">Food Distributor A trailing 12-month purchase summary</p><span class="card-meta">Needed for MFN benchmark</span></div><span class="badge badge-warning">Needed</span></label>
             <label class="document-item"><input type="checkbox" onchange="updateDocumentStatus()"><div><p class="vendor-name">Waste invoice sample by location</p><span class="card-meta">Needed for consolidated rate request</span></div><span class="badge badge-warning">Needed</span></label>
           </div>
         </div>
@@ -2498,7 +2493,7 @@ Please provide proposed pricing, interchange-plus details, monthly fees, chargeb
 
       <section class="page" id="page-addclient">
         <div class="topbar"><div class="page-header"><h1>Add client</h1><p>Set up a new restaurant group for contract auditing</p></div></div>
-        <div class="card" style="max-width: 640px;"><div class="form-row"><div><label>Group name</label><input type="text" placeholder="e.g. Major Food Group"></div><div><label>Number of locations</label><input type="text" placeholder="e.g. 14"></div></div><div class="form-row"><div><label>Primary contact name</label><input type="text" placeholder="CFO or COO name"></div><div><label>Contact email</label><input type="email" placeholder="contact@group.com"></div></div><label>Estimated annual vendor spend</label><select><option>Under $500K</option><option>$500K - $1M</option><option selected>$1M - $3M</option><option>$3M - $10M</option><option>Over $10M</option></select><label>Vendor categories to audit</label><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px;"><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox" checked> Food distribution</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox" checked> Payment processing</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Linen & uniforms</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Pest control</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Waste management</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Equipment maintenance</label></div><label>Notes for this engagement</label><textarea rows="3" placeholder="Referral source, key priorities, timeline..."></textarea><button class="btn btn-primary" onclick="sendPrompt('I just added a new client. What should my first steps be for onboarding them and starting the vendor contract audit?')"><i class="ti ti-check"></i> Add client and start audit</button></div>
+        <div class="card" style="max-width: 640px;"><div class="form-row"><div><label>Group name</label><input type="text" placeholder="e.g. Sample Restaurant Group 1"></div><div><label>Number of locations</label><input type="text" placeholder="e.g. 14"></div></div><div class="form-row"><div><label>Primary contact name</label><input type="text" placeholder="CFO or COO name"></div><div><label>Contact email</label><input type="email" placeholder="contact@group.com"></div></div><label>Estimated annual vendor spend</label><select><option>Under $500K</option><option>$500K - $1M</option><option selected>$1M - $3M</option><option>$3M - $10M</option><option>Over $10M</option></select><label>Vendor categories to audit</label><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px;"><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox" checked> Food distribution</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox" checked> Payment processing</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Linen & uniforms</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Pest control</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Waste management</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Equipment maintenance</label></div><label>Notes for this engagement</label><textarea rows="3" placeholder="Referral source, key priorities, timeline..."></textarea><button class="btn btn-primary" onclick="sendPrompt('I just added a new client. What should my first steps be for onboarding them and starting the vendor contract audit?')"><i class="ti ti-check"></i> Add client and start audit</button></div>
       </section>
     </main>
   </div>
@@ -2533,8 +2528,8 @@ Please provide proposed pricing, interchange-plus details, monthly fees, chargeb
 
   <script>
     const reports = {
-      mfg: {
-        title: 'Savings report - Major Food Group',
+      client1: {
+        title: 'Savings report - Sample Restaurant Group 1',
         subtitle: '14 locations - audit completed May 2026',
         spend: '$3.2M',
         savings: '$492K',
@@ -2550,14 +2545,14 @@ Please provide proposed pricing, interchange-plus details, monthly fees, chargeb
           ['Pest control', '$62K', '$19K', 'Renegotiation at renewal', 'Low']
         ],
         timeline: [
-          ['Payment processing consolidation', 'Issue RFP to 3 hospitality-focused processors. Target completion before Heartland renewal July 8.', '$252K', 'High'],
-          ['Sysco renegotiation', 'Send notice of non-renewal by Jun 3 to trigger renegotiation. Request MFN clause and 2% escalation cap.', '$181K', 'High'],
+          ['Payment processing consolidation', 'Issue RFP to 3 hospitality-focused processors. Target completion before Payment Processor A renewal July 8.', '$252K', 'High'],
+          ['Food Distributor A renegotiation', 'Send notice of non-renewal by Jun 3 to trigger renegotiation. Request MFN clause and 2% escalation cap.', '$181K', 'High'],
           ['Waste management audit', 'Request volume summary from current provider and compare against consolidated rate schedule.', '$40K', 'Medium'],
           ['Pest control renewal review', 'Benchmark current location-count pricing and prepare a renewal counteroffer.', '$19K', 'Low']
         ]
       },
-      ushg: {
-        title: 'Savings report - Union Square Hospitality Group',
+      client2: {
+        title: 'Savings report - Sample Restaurant Group 2',
         subtitle: '11 locations - audit completed May 2026',
         spend: '$1.8M',
         savings: '$141K',
@@ -2573,13 +2568,13 @@ Please provide proposed pricing, interchange-plus details, monthly fees, chargeb
           ['POS support', '$74K', '$8K', 'Seat count correction', 'Low']
         ],
         timeline: [
-          ['Consolidate linen vendors', 'Move 11 locations from 4 vendors to one rate card before Imperial Dade renewal June 11.', '$91K', 'High'],
+          ['Consolidate linen vendors', 'Move 11 locations from 4 vendors to one rate card before Linen Vendor A renewal June 11.', '$91K', 'High'],
           ['Normalize janitorial SKUs', 'Lock preferred items and remove location-level substitutions from recurring orders.', '$28K', 'Medium'],
           ['Audit uniform replacement charges', 'Review trailing 12-month damage and replacement fees by location.', '$14K', 'Medium']
         ]
       },
-      nobu: {
-        title: 'Savings report - Nobu Hospitality NYC',
+      client3: {
+        title: 'Savings report - Sample Restaurant Group 3',
         subtitle: '8 locations - audit in progress May 2026',
         spend: '$890K',
         savings: '$73K',
@@ -2595,20 +2590,20 @@ Please provide proposed pricing, interchange-plus details, monthly fees, chargeb
         ],
         timeline: [
           ['Pest control renegotiation', 'Request revised pricing for 8-location coverage and remove legacy auto-renewal language.', '$54K', 'High'],
-          ['Ecolab scope review', 'Separate required sanitation coverage from optional service add-ons before July 1 renewal.', '$11K', 'Medium'],
+          ['Sanitation vendor scope review', 'Separate required sanitation coverage from optional service add-ons before July 1 renewal.', '$11K', 'Medium'],
           ['Maintenance coverage cleanup', 'Compare equipment list against current service schedule and remove duplicate coverage.', '$8K', 'Low']
         ]
       }
     };
 
-    let currentReportClient = 'mfg';
+    let currentReportClient = 'client1';
     let selectedContractFile = null;
     let selectedContractText = '';
     let currentUser = null;
     let currentCategoryIndex = 0;
     let selectedWorkspaceAction = null;
     let workspaceDrafts = {};
-    let modalReportClient = 'mfg';
+    let modalReportClient = 'client1';
     let clientUploadedFiles = [];
     let operatorContracts = [];
     const users = {
@@ -2618,7 +2613,7 @@ Please provide proposed pricing, interchange-plus details, monthly fees, chargeb
         role: 'operator'
       },
       client: {
-        name: 'Major Food Group',
+        name: 'Sample Restaurant Group 1',
         roleLabel: 'Client stakeholder',
         role: 'client'
       },
@@ -2780,9 +2775,9 @@ Please provide proposed pricing, interchange-plus details, monthly fees, chargeb
       }
 
       document.getElementById('operator-pipeline-summary').innerHTML = `
-        <div class="pipeline-item"><div><span>Major Food Group</span><strong>Review report</strong></div><i class="ti ti-chart-bar"></i></div>
-        <div class="pipeline-item"><div><span>USHG</span><strong>Approved</strong></div><i class="ti ti-check"></i></div>
-        <div class="pipeline-item"><div><span>Nobu</span><strong>Needs source file</strong></div><i class="ti ti-upload"></i></div>
+        <div class="pipeline-item"><div><span>Sample Restaurant Group 1</span><strong>Review report</strong></div><i class="ti ti-chart-bar"></i></div>
+        <div class="pipeline-item"><div><span>Sample 2</span><strong>Approved</strong></div><i class="ti ti-check"></i></div>
+        <div class="pipeline-item"><div><span>Sample 3</span><strong>Needs source file</strong></div><i class="ti ti-upload"></i></div>
       `;
     }
 
@@ -2808,11 +2803,11 @@ Please provide proposed pricing, interchange-plus details, monthly fees, chargeb
 
     function openContractReport(clientName) {
       const map = {
-        'Major Food Group': 'mfg',
-        'Union Square Hospitality Group': 'ushg',
-        'Nobu Hospitality NYC': 'nobu'
+        'Sample Restaurant Group 1': 'client1',
+        'Sample Restaurant Group 2': 'client2',
+        'Sample Restaurant Group 3': 'client3'
       };
-      showClientReport(map[clientName] || 'mfg');
+      showClientReport(map[clientName] || 'client1');
     }
 
     function clientDisplayName(report) {
@@ -2850,7 +2845,7 @@ Please provide proposed pricing, interchange-plus details, monthly fees, chargeb
         'Food distribution': {
           label: 'Prepare notice',
           icon: 'ti ti-mail-forward',
-          prompt: 'Prepare the Sysco non-renewal notice and renegotiation request with MFN and escalation-cap language.'
+          prompt: 'Prepare the Food Distributor A non-renewal notice and renegotiation request with MFN and escalation-cap language.'
         },
         'Waste management': {
           label: 'Request invoices',
@@ -2922,10 +2917,10 @@ Please provide proposed pricing, interchange-plus details, monthly fees, chargeb
           title: 'RFP builder',
           outputTitle: 'Processor RFP draft',
           fields: [
-            { id: 'current_processor', label: 'Current processor', value: 'Heartland Payment' },
+            { id: 'current_processor', label: 'Current processor', value: 'Payment Processor A' },
             { id: 'card_volume', label: 'Annual card volume', value: '$12M' },
             { id: 'target_rate', label: 'Target effective rate', value: '2.10%' },
-            { id: 'vendors', label: 'Vendors to invite', value: 'Toast, Fiserv, Adyen' },
+            { id: 'vendors', label: 'Vendors to invite', value: 'Processor B, Processor C, Processor D' },
             ...common.fields
           ],
           checklist: ['Confirm trailing 3-month statements', 'Calculate current effective rate', 'Select 3 processor targets', 'Draft RFP email'],
@@ -2947,7 +2942,7 @@ Approve VendorIQ to issue this RFP and compare responses against the current ${f
           title: 'Notice and renegotiation prep',
           outputTitle: 'Vendor notice draft',
           fields: [
-            { id: 'vendor', label: 'Vendor', value: 'Sysco Northeast' },
+            { id: 'vendor', label: 'Vendor', value: 'Food Distributor A' },
             { id: 'deadline', label: 'Notice deadline', value: 'June 3, 2026' },
             { id: 'terms', label: 'Target terms', value: 'MFN clause, 2% escalation cap, audit rights' },
             { id: 'contact', label: 'Vendor contact', value: 'Account manager' },
@@ -3060,8 +3055,8 @@ ${action.evidence}`
     }
 
     function setReportClient(clientKey) {
-      if (currentUser?.role === 'client' && clientKey !== 'mfg') {
-        clientKey = 'mfg';
+      if (currentUser?.role === 'client' && clientKey !== 'client1') {
+        clientKey = 'client1';
       }
       currentReportClient = clientKey;
       const report = reports[clientKey];
@@ -3093,7 +3088,7 @@ ${action.evidence}`
     }
 
     function selectReportAction(clientKey, index) {
-      if (currentUser?.role === 'client') clientKey = 'mfg';
+      if (currentUser?.role === 'client') clientKey = 'client1';
       currentReportClient = clientKey;
       const report = reports[clientKey];
       const row = report.categories[index];
@@ -3202,7 +3197,7 @@ ${action.evidence}`
     }
 
     function selectCategoryDetail(clientKey, index) {
-      if (currentUser?.role === 'client') clientKey = 'mfg';
+      if (currentUser?.role === 'client') clientKey = 'client1';
       currentCategoryIndex = index;
       const report = reports[clientKey];
       const row = report.categories[index];
@@ -3367,9 +3362,9 @@ ${action.evidence}`
 
     function inferVendorName(fileName, category) {
       const cleanName = fileName.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ').trim();
-      const knownVendors = ['Sysco', 'Ecolab', 'Cintas', 'Imperial Dade', 'Heartland', 'Toast', 'Waste Management', 'Orkin'];
+      const knownVendors = ['Food Distributor A', 'Linen Vendor A', 'Uniform Vendor A', 'Supply Vendor A', 'Payment Processor A', 'Processor B', 'Waste Vendor A', 'Pest Vendor A'];
       const match = knownVendors.find(vendor => cleanName.toLowerCase().includes(vendor.toLowerCase()));
-      if (match) return match === 'Sysco' ? 'Sysco Northeast' : match;
+      if (match) return match === 'Food Distributor A' ? 'Food Distributor A' : match;
       const defaults = {
         'Food distribution': 'Primary distribution vendor',
         'Linen & uniforms': 'Linen service vendor',
@@ -3499,7 +3494,7 @@ ${action.evidence}`
       document.getElementById('signed-in-name').textContent = currentUser.name;
       document.getElementById('signed-in-role').textContent = currentUser.roleLabel;
       await loadBackendState();
-      if (currentUser.role === 'client') setReportClient('mfg');
+      if (currentUser.role === 'client') setReportClient('client1');
       if (currentUser.role === 'demo') {
         showPage('demo');
         setDemoStep(0);
@@ -3547,13 +3542,13 @@ ${action.evidence}`
         status.textContent = 'Approved';
         status.className = 'badge badge-success';
         if (syncReport) {
-          reports.mfg.reviewState = 'Approved';
-          reports.mfg.status = 'Final';
-          apiRequest('/api/reports/mfg/state', {
+          reports.client1.reviewState = 'Approved';
+          reports.client1.status = 'Final';
+          apiRequest('/api/reports/client1/state', {
             method: 'PATCH',
             body: JSON.stringify({ reviewState: 'Approved', status: 'Final' })
           });
-          if (currentReportClient === 'mfg') setReportClient('mfg');
+          if (currentReportClient === 'client1') setReportClient('client1');
         }
       }
     }
@@ -3607,7 +3602,7 @@ ${action.evidence}`
       const incoming = [...files].filter(file => file.size <= 25 * 1024 * 1024);
       const uploaded = [];
       for (const file of incoming) {
-        const stored = await uploadFile(file, 'client', 'mfg', 'Client document');
+        const stored = await uploadFile(file, 'client', 'client1', 'Client document');
         uploaded.push(stored
           ? { id: stored.id, name: stored.originalName, size: stored.size, url: stored.url, stored: true }
           : file
