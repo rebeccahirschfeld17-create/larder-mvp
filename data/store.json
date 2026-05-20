@@ -1,26 +1,26 @@
 {
   "reports": {
     "client1": {
-      "reviewState": "Draft",
-      "status": "Draft"
+      "reviewState": "Awaiting approval",
+      "status": "Final"
     },
     "client2": {
       "reviewState": "Approved",
       "status": "Final"
     },
     "client3": {
-      "reviewState": "Draft",
-      "status": "Draft"
+      "reviewState": "Documents needed",
+      "status": "Documents needed"
     }
   },
   "contracts": [
     {
       "id": "demo-distributor",
-      "client": "Sample Restaurant Group 1",
+      "client": "Client 1",
       "vendor": "Food Distributor A",
       "category": "Food distribution",
       "source": "Seeded demo record",
-      "status": "In client report",
+      "status": "Report final",
       "renewalDate": "Jun 3, 2026",
       "annualValue": "$2.1M",
       "risk": "High",
@@ -31,11 +31,11 @@
     },
     {
       "id": "demo-processor",
-      "client": "Sample Restaurant Group 1",
+      "client": "Client 1",
       "vendor": "Payment Processor A",
       "category": "Payment processing",
       "source": "Seeded demo record",
-      "status": "Ready for report",
+      "status": "Recommendations ready",
       "renewalDate": "Jul 8, 2026",
       "annualValue": "$520K",
       "risk": "High",
@@ -45,11 +45,11 @@
     },
     {
       "id": "demo-sanitation",
-      "client": "Sample Restaurant Group 3",
+      "client": "Client 3",
       "vendor": "Sanitation Vendor A",
       "category": "Sanitation",
       "source": "Seeded demo record",
-      "status": "Needs source file",
+      "status": "Documents needed",
       "renewalDate": "Jul 1, 2026",
       "annualValue": "$180K",
       "risk": "Medium",
@@ -58,7 +58,9 @@
       "createdAt": "2026-05-19T23:54:00.000Z"
     }
   ],
-  "approvals": {},
+  "approvals": {
+    "processor": false
+  },
   "questions": [],
   "documents": [
     {

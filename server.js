@@ -11,14 +11,14 @@ const STORE_PATH = path.join(DATA_DIR, 'store.json');
 
 const initialStore = {
   reports: {
-    client1: { reviewState: 'Client ready', status: 'Final' },
+    client1: { reviewState: 'Awaiting approval', status: 'Final' },
     client2: { reviewState: 'Approved', status: 'Final' },
-    client3: { reviewState: 'Draft', status: 'Draft' }
+    client3: { reviewState: 'Documents needed', status: 'Documents needed' }
   },
   contracts: [
     {
       id: 'demo-distributor',
-      client: 'Sample Restaurant Group 1',
+      client: 'Client 1',
       vendor: 'Food Distributor A',
       category: 'Food distribution',
       source: 'Seeded demo record',
@@ -32,11 +32,11 @@ const initialStore = {
     },
     {
       id: 'demo-processor',
-      client: 'Sample Restaurant Group 1',
+      client: 'Client 1',
       vendor: 'Payment Processor A',
       category: 'Payment processing',
       source: 'Seeded demo record',
-      status: 'Ready for report',
+      status: 'Recommendations ready',
       renewalDate: 'Jul 8, 2026',
       annualValue: '$520K',
       risk: 'High',
@@ -46,11 +46,11 @@ const initialStore = {
     },
     {
       id: 'demo-sanitation',
-      client: 'Sample Restaurant Group 3',
+      client: 'Client 3',
       vendor: 'Sanitation Vendor A',
       category: 'Sanitation',
       source: 'Seeded demo record',
-      status: 'Needs source file',
+      status: 'Documents needed',
       renewalDate: 'Jul 1, 2026',
       annualValue: '$180K',
       risk: 'Medium',
@@ -70,8 +70,8 @@ const initialStore = {
 };
 
 const users = {
-  operator: { name: 'Rebecca Hirschfeld', roleLabel: 'VendorIQ operator', role: 'operator' },
-  client: { name: 'Sample Restaurant Group 1', roleLabel: 'Client stakeholder', role: 'client', clientKey: 'client1' },
+  operator: { name: 'Rebecca Hirschfeld', roleLabel: 'Larder operator', role: 'operator' },
+  client: { name: 'Client 1', roleLabel: 'Client stakeholder', role: 'client', clientKey: 'client1' },
   demo: { name: 'Buyer demo', roleLabel: 'Prospect walkthrough', role: 'demo' }
 };
 
@@ -301,7 +301,7 @@ async function main() {
     });
   });
   server.listen(PORT, () => {
-    console.log(`VendorIQ backend running at http://localhost:${PORT}`);
+    console.log(`Larder backend running at http://localhost:${PORT}`);
   });
 }
 
