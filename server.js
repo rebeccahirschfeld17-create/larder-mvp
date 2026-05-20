@@ -71,7 +71,8 @@ const initialStore = {
 
 const users = {
   operator: { name: 'Rebecca Hirschfeld', roleLabel: 'VendorIQ operator', role: 'operator' },
-  client: { name: 'Major Food Group', roleLabel: 'Client stakeholder', role: 'client', clientKey: 'mfg' }
+  client: { name: 'Major Food Group', roleLabel: 'Client stakeholder', role: 'client', clientKey: 'mfg' },
+  demo: { name: 'Buyer demo', roleLabel: 'Prospect walkthrough', role: 'demo' }
 };
 
 function send(res, status, body, headers = {}) {

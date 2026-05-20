@@ -1,8 +1,8 @@
 {
   "reports": {
     "mfg": {
-      "reviewState": "Client ready",
-      "status": "Final"
+      "reviewState": "Draft",
+      "status": "Draft"
     },
     "ushg": {
       "reviewState": "Approved",
@@ -20,13 +20,14 @@
       "vendor": "Sysco Northeast",
       "category": "Food distribution",
       "source": "Seeded demo record",
-      "status": "Reviewing terms",
+      "status": "In client report",
       "renewalDate": "Jun 3, 2026",
       "annualValue": "$2.1M",
       "risk": "High",
       "savings": "$181K",
       "owner": "Rebecca",
-      "createdAt": "2026-05-19T23:54:00.000Z"
+      "createdAt": "2026-05-19T23:54:00.000Z",
+      "updatedAt": "2026-05-20T02:22:37.018Z"
     },
     {
       "id": "demo-heartland",

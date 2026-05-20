@@ -251,9 +251,19 @@
     }
 
     .client-role .view-switch { display: none; }
+    .operator-role .view-switch { display: none; }
+    .demo-only { display: none; }
+    .demo-role .view-switch,
+    .demo-role .operator-only,
+    .demo-role .client-only,
+    .demo-role .sidebar-footer { display: none !important; }
+    .demo-role .demo-only { display: flex; }
+    .demo-role .page:not(#page-demo) { display: none !important; }
+    .demo-role #page-demo.active { display: block !important; }
     .client-role [data-report-tab="ushg"],
     .client-role [data-report-tab="nobu"] { display: none; }
     .client-role .workflow-card { display: none; }
+    .client-role #page-report { display: none !important; }
 
     .sidebar-footer {
       margin-top: auto;
@@ -441,6 +451,59 @@
       font-size: 13px;
       color: var(--muted);
       line-height: 1.55;
+    }
+
+    .dashboard-focus {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .focus-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .focus-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      border: 1px solid var(--line-soft);
+      border-radius: 4px;
+      background: var(--panel-soft);
+    }
+
+    .focus-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: #fff;
+      color: var(--ink);
+      flex-shrink: 0;
+    }
+
+    .focus-item p {
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 3px;
+    }
+
+    .focus-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .summary-stack {
+      display: grid;
+      gap: 10px;
     }
 
     .metrics {
@@ -698,6 +761,107 @@
       color: var(--green);
     }
 
+    .demo-layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .demo-steps {
+      display: grid;
+      gap: 8px;
+      position: sticky;
+      top: 1rem;
+    }
+
+    .demo-step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid var(--line);
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .demo-step.active {
+      border-color: var(--ink);
+      background: #f8f8f6;
+      box-shadow: inset 3px 0 0 var(--ink);
+    }
+
+    .demo-step-number {
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      background: var(--panel-soft);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .demo-step p {
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+
+    .demo-step span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .demo-panel {
+      display: none;
+    }
+
+    .demo-panel.active {
+      display: block;
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .evidence-card {
+      border: 1px solid var(--line-soft);
+      background: var(--panel-soft);
+      padding: 12px;
+    }
+
+    .evidence-card i {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .evidence-card p {
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .evidence-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .demo-script {
+      border-left: 3px solid var(--ink);
+      padding: 10px 12px;
+      margin-bottom: 1rem;
+      background: #fbfbfa;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
     .client-row, .opportunity-item {
       display: flex;
       align-items: center;
@@ -737,6 +901,43 @@
       font-size: 13px;
       color: var(--muted);
       line-height: 1.45;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      background: rgba(16, 16, 16, 0.45);
+      z-index: 50;
+    }
+
+    .modal-backdrop.show {
+      display: flex;
+    }
+
+    .report-modal {
+      width: min(860px, 100%);
+      max-height: min(760px, 92vh);
+      overflow: auto;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-md);
+      border-radius: 4px;
+    }
+
+    .modal-body {
+      padding: 1rem;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 8px;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      padding: 0 1rem 1rem;
     }
 
     .progress-bar {
@@ -923,6 +1124,223 @@
       margin-bottom: 1rem;
     }
 
+    .report-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .report-summary h2 {
+      font-size: 26px;
+      line-height: 1.15;
+      margin-bottom: 0.7rem;
+    }
+
+    .report-summary p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+      max-width: 680px;
+    }
+
+    .report-facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 1rem;
+    }
+
+    .report-fact {
+      border: 1px solid var(--line-soft);
+      background: var(--panel-soft);
+      padding: 10px;
+      border-radius: 4px;
+    }
+
+    .report-fact span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .report-fact strong {
+      font-size: 18px;
+    }
+
+    .report-decision {
+      display: grid;
+      gap: 10px;
+    }
+
+    .report-status-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .report-status-row:last-child {
+      border-bottom: none;
+    }
+
+    .report-status-row span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .report-status-row strong {
+      font-size: 13px;
+      text-align: right;
+    }
+
+    .report-action-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .report-action {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      border: 1px solid var(--line-soft);
+      border-radius: 4px;
+      background: var(--panel-soft);
+    }
+
+    .report-action-number {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: #fff;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .report-action p {
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 3px;
+    }
+
+    .report-action span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .report-support-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.85fr);
+      gap: 1rem;
+    }
+
+    .report-workspace {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.75fr);
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .action-workspace {
+      position: sticky;
+      top: 1rem;
+    }
+
+    .action-workspace h3 {
+      font-size: 19px;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .action-workspace p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+
+    .workspace-field {
+      padding: 10px 0;
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .workspace-field span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .workspace-field strong {
+      display: block;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .workspace-tools {
+      display: grid;
+      gap: 12px;
+      margin-top: 1rem;
+    }
+
+    .workspace-tools h4 {
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .workspace-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .workspace-checklist {
+      display: grid;
+      gap: 7px;
+    }
+
+    .workspace-checklist label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+      padding: 8px 0;
+      color: var(--ink);
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .workspace-output {
+      min-height: 180px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .workspace-message {
+      min-height: 18px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 750;
+    }
+
     .category-detail {
       border-top: 1px solid var(--line);
       margin-top: 1rem;
@@ -1055,6 +1473,15 @@
       .workflow-actions { justify-content: flex-start; }
       .workflow-steps { grid-template-columns: 1fr; }
       .operator-workbench { grid-template-columns: 1fr; }
+      .dashboard-focus { grid-template-columns: 1fr; }
+      .report-hero,
+      .report-support-grid,
+      .report-workspace { grid-template-columns: 1fr; }
+      .workspace-form { grid-template-columns: 1fr; }
+      .demo-layout,
+      .evidence-grid { grid-template-columns: 1fr; }
+      .demo-steps { position: static; }
+      .action-workspace { position: static; }
     }
 
     .subtle-link {
@@ -1294,7 +1721,7 @@
       <div class="auth-brand">
         <div class="brand-mark"><i class="ti ti-contract" aria-hidden="true"></i></div>
         <h1>VendorIQ</h1>
-        <p>Sign in as a VendorIQ operator or a client stakeholder to see the role-specific contract review workflow.</p>
+        <p>VendorIQ helps restaurant groups find savings hidden inside vendor contracts, invoices, renewals, and approval workflows.</p>
       </div>
       <div class="auth-options">
         <button class="auth-option" onclick="signIn('operator')">
@@ -1305,6 +1732,11 @@
         <button class="auth-option" onclick="signIn('client')">
           <span class="auth-icon"><i class="ti ti-building-store"></i></span>
           <span><p>Major Food Group client</p><span>Access the client portal, approvals, requested documents, and shared reports.</span></span>
+          <i class="ti ti-arrow-right"></i>
+        </button>
+        <button class="auth-option" onclick="signIn('demo')">
+          <span class="auth-icon"><i class="ti ti-presentation-analytics"></i></span>
+          <span><p>Buyer demo</p><span>Open a guided prospect walkthrough without entering the VendorIQ team workspace.</span></span>
           <i class="ti ti-arrow-right"></i>
         </button>
       </div>
@@ -1328,11 +1760,14 @@
       <div class="nav-item operator-only" onclick="showPage('clients')">
         <i class="ti ti-building-store" aria-hidden="true"></i> <span>Clients</span>
       </div>
+      <div class="nav-item operator-only" onclick="showPage('demo')">
+        <i class="ti ti-presentation-analytics" aria-hidden="true"></i> <span>Buyer demo</span>
+      </div>
       <div class="nav-item operator-only" onclick="showPage('analyze')">
         <i class="ti ti-file-search" aria-hidden="true"></i> <span>Analyze contract</span>
       </div>
       <div class="nav-item operator-only" onclick="showPage('report')">
-        <i class="ti ti-chart-bar" aria-hidden="true"></i> <span>Reports</span>
+        <i class="ti ti-chart-bar" aria-hidden="true"></i> <span>Workspace</span>
       </div>
       <div class="nav-item operator-only" onclick="showPage('addclient')">
         <i class="ti ti-plus" aria-hidden="true"></i> <span>Add client</span>
@@ -1340,11 +1775,17 @@
       <div class="nav-item client-only" onclick="showPage('clientportal')">
         <i class="ti ti-report-analytics" aria-hidden="true"></i> <span>Action center</span>
       </div>
-      <div class="nav-item client-only" onclick="showPage('report')">
+      <div class="nav-item client-only" onclick="showPage('clientreport')">
         <i class="ti ti-chart-bar" aria-hidden="true"></i> <span>Savings report</span>
       </div>
+      <div class="nav-item demo-only active" onclick="setDemoStep(0)">
+        <i class="ti ti-presentation-analytics" aria-hidden="true"></i> <span>Buyer demo</span>
+      </div>
+      <div class="nav-item demo-only" onclick="signOut()">
+        <i class="ti ti-arrow-left" aria-hidden="true"></i> <span>Main site</span>
+      </div>
       <div class="sidebar-footer">
-        <p>$487K found</p>
+        <p>$687K found</p>
         <span>Reviewed savings pipeline across active restaurant clients.</span>
         <div class="user-panel">
           <strong id="signed-in-name">Not signed in</strong>
@@ -1359,118 +1800,205 @@
         <div class="topbar">
           <div class="page-header">
             <h1>Dashboard</h1>
-            <p>Contract exposure, renewal deadlines, and savings pipeline</p>
+            <p>A simple worklist for the VendorIQ team</p>
           </div>
           <div class="header-actions">
-            <div class="search-pill"><i class="ti ti-search"></i> Search contracts, vendors, clients</div>
             <button class="btn btn-primary" onclick="showPage('analyze')"><i class="ti ti-file-search"></i> Analyze contract</button>
           </div>
         </div>
 
-        <div class="status-strip">
-          <div class="status-cell"><span>Workspace</span><strong>Restaurant advisory portfolio</strong></div>
-          <div class="status-cell"><span>Data refresh</span><strong>May 19, 2026 at 7:54 PM</strong></div>
-          <div class="status-cell"><span>Review owner</span><strong>Operations finance</strong></div>
-          <div class="status-cell"><span>Confidence</span><strong>34 of 41 contracts verified</strong></div>
-        </div>
-
         <div class="hero">
           <div class="hero-card">
-            <h2>Portfolio spend and contract exposure</h2>
-            <p>Track renewal risk, vendor concentration, and savings opportunities across multi-location restaurant groups.</p>
+            <h2>Start here: three client items need attention.</h2>
+            <p>This dashboard is for running the engagement day to day: review new contracts, follow up with clients, and move finished reports toward approval.</p>
             <div class="hero-stats">
-              <div class="hero-stat"><span>Audited spend</span><strong>$5.9M</strong></div>
-              <div class="hero-stat"><span>Savings rate</span><strong>8.3%</strong></div>
-              <div class="hero-stat"><span>Urgent actions</span><strong>6</strong></div>
+              <div class="hero-stat"><span>Needs action</span><strong>3</strong></div>
+              <div class="hero-stat"><span>Contracts in queue</span><strong id="dashboard-contract-count">3</strong></div>
+              <div class="hero-stat"><span>Client savings</span><strong>$687K</strong></div>
             </div>
           </div>
           <div class="insight-card">
-            <small>Review note</small>
-            <h3>Payment processing needs owner follow-up this week.</h3>
-            <p>Three accounts have fragmented processors and renewal windows inside 60 days. Confirm current effective rates before issuing RFPs.</p>
-            <button class="btn" style="margin-top: 1rem;" onclick="showPage('report')">View report</button>
+            <small>Most urgent</small>
+            <h3>Major Food Group has a June 3 renewal deadline.</h3>
+            <p>Review the Sysco recommendation, then share the client report or request approval from the client portal.</p>
+            <button class="btn" style="margin-top: 1rem;" onclick="showPage('report')">Review client report</button>
           </div>
         </div>
 
-        <div class="toolbar">
-          <div class="toolbar-group">
-            <span class="filter-chip">All clients</span>
-            <span class="filter-chip">Renewals &lt; 90 days</span>
-            <span class="filter-chip">Savings above $25K</span>
-          </div>
-          <span class="subtle-link">Showing verified contracts only</span>
-        </div>
-
-        <div class="metrics">
-          <div class="metric"><div class="metric-label">Active clients</div><div class="metric-value">3</div></div>
-          <div class="metric"><div class="metric-label">Contracts tracked</div><div class="metric-value" id="dashboard-contract-count">41</div></div>
-          <div class="metric"><div class="metric-label">Savings identified</div><div class="metric-value">$487K</div><div class="metric-sub">Up across portfolio</div></div>
-          <div class="metric"><div class="metric-label">Renewals this month</div><div class="metric-value">6</div><div class="metric-sub" style="color: var(--amber);">Action needed</div></div>
-        </div>
-
-        <div class="operator-workbench">
+        <div class="dashboard-focus">
           <div class="card">
             <div class="card-header">
               <div>
-                <span class="card-title">Operator contract queue</span>
-                <div class="card-meta">Use seeded records until real contracts arrive; uploaded contracts appear here automatically.</div>
+                <span class="card-title">Today</span>
+                <div class="card-meta">What the VendorIQ team should do next</div>
+              </div>
+            </div>
+            <div class="focus-list">
+              <div class="focus-item">
+                <div class="focus-icon"><i class="ti ti-alert-triangle"></i></div>
+                <div><p>Review Major Food Group report</p><span>Sysco and Heartland are the two highest-value recommendations.</span></div>
+                <button class="btn btn-mini" onclick="showClientReport('mfg')">Open</button>
+              </div>
+              <div class="focus-item">
+                <div class="focus-icon"><i class="ti ti-upload"></i></div>
+                <div><p>Ask client for missing files</p><span>Sysco purchase summary and waste invoices are still marked needed.</span></div>
+                <button class="btn btn-mini" onclick="showClientReport('mfg')">Work</button>
+              </div>
+              <div class="focus-item">
+                <div class="focus-icon"><i class="ti ti-file-search"></i></div>
+                <div><p>Review uploaded contracts</p><span>New or seeded contracts appear in the queue below.</span></div>
+                <button class="btn btn-mini" onclick="showPage('analyze')">Upload</button>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <span class="card-title">Client status</span>
+                <div class="card-meta">Where each account stands</div>
               </div>
               <span class="badge badge-info" id="operator-queue-count">0 active</span>
             </div>
-            <table>
-              <thead><tr><th>Client</th><th>Vendor</th><th>Stage</th><th>Risk</th><th>Renewal</th><th>Savings</th><th>Action</th></tr></thead>
-              <tbody id="operator-contract-rows"></tbody>
-            </table>
-          </div>
-          <div class="card">
-            <div class="card-header">
-              <div>
-                <span class="card-title">Pipeline snapshot</span>
-                <div class="card-meta">What the VendorIQ team should clear next</div>
-              </div>
+            <div class="pipeline-summary" id="operator-pipeline-summary">
+              <div class="pipeline-item"><div><span>Major Food Group</span><strong>Client ready</strong></div><i class="ti ti-chart-bar"></i></div>
+              <div class="pipeline-item"><div><span>USHG</span><strong>Approved</strong></div><i class="ti ti-check"></i></div>
+              <div class="pipeline-item"><div><span>Nobu</span><strong>Draft</strong></div><i class="ti ti-pencil"></i></div>
             </div>
-            <div class="pipeline-summary" id="operator-pipeline-summary"></div>
           </div>
         </div>
 
         <div class="card">
           <div class="card-header">
             <div>
-              <span class="card-title">Urgent renewals</span>
-              <div class="card-meta">Sorted by notice deadline</div>
+              <span class="card-title">Contract queue</span>
+              <div class="card-meta">Click Advance as a contract moves from uploaded, to reviewed, to ready for the client report</div>
             </div>
-            <span class="badge badge-danger">6 expiring soon</span>
+            <span class="badge badge-info">Operator worklist</span>
           </div>
           <table>
-            <thead><tr><th>Client</th><th>Vendor</th><th>Category</th><th>Renewal date</th><th>Annual value</th><th>Status</th></tr></thead>
-            <tbody>
-              <tr><td>Major Food Group</td><td class="vendor-name">Sysco Northeast</td><td>Food distribution</td><td>Jun 3, 2026</td><td class="amount">$2.1M</td><td><span class="badge badge-danger">14 days</span></td></tr>
-              <tr><td>USHG</td><td class="vendor-name">Imperial Dade</td><td>Linen & uniforms</td><td>Jun 11, 2026</td><td class="amount">$340K</td><td><span class="badge badge-danger">22 days</span></td></tr>
-              <tr><td>Nobu Hospitality</td><td class="vendor-name">Ecolab</td><td>Sanitation</td><td>Jul 1, 2026</td><td class="amount">$180K</td><td><span class="badge badge-warning">43 days</span></td></tr>
-              <tr><td>Major Food Group</td><td class="vendor-name">Heartland Payment</td><td>Payment processing</td><td>Jul 8, 2026</td><td class="amount">$520K</td><td><span class="badge badge-warning">49 days</span></td></tr>
-              <tr><td>USHG</td><td class="vendor-name">Cintas</td><td>Uniforms</td><td>Jul 22, 2026</td><td class="amount">$95K</td><td><span class="badge badge-info">63 days</span></td></tr>
-            </tbody>
+            <thead><tr><th>Client</th><th>Vendor</th><th>Stage</th><th>Risk</th><th>Renewal</th><th>Savings</th><th>Action</th></tr></thead>
+            <tbody id="operator-contract-rows"></tbody>
           </table>
         </div>
 
-        <div class="card">
-          <div class="card-header">
-            <span class="card-title">Top savings opportunities</span>
-            <span class="badge badge-success">$487K identified</span>
-          </div>
-          <div class="opportunity-item"><div class="opp-icon" style="background: var(--amber-soft);"><i class="ti ti-credit-card" style="font-size:17px; color: var(--amber);"></i></div><div class="opp-details"><p>Payment processing consolidation - Major Food Group</p><span>Fragmented across 3 processors. Consolidating to one negotiated rate saves ~2.1% across $12M in card volume</span></div><div class="opp-amount">$252K/yr</div></div>
-          <div class="opportunity-item"><div class="opp-icon" style="background: var(--green-soft);"><i class="ti ti-shirt" style="font-size:17px; color: var(--green);"></i></div><div class="opp-details"><p>Linen vendor consolidation - USHG</p><span>11 locations using 4 different vendors. Market rate for volume is 28% below current blended rate</span></div><div class="opp-amount">$141K/yr</div></div>
-          <div class="opportunity-item"><div class="opp-icon" style="background: var(--blue-soft);"><i class="ti ti-bug" style="font-size:17px; color: var(--blue);"></i></div><div class="opp-details"><p>Pest control renegotiation - Nobu Hospitality</p><span>Auto-renewed 3x without renegotiation. Current rate is 34% above market for location count</span></div><div class="opp-amount">$54K/yr</div></div>
-          <div class="opportunity-item"><div class="opp-icon" style="background: var(--red-soft);"><i class="ti ti-trash" style="font-size:17px; color: var(--red);"></i></div><div class="opp-details"><p>Waste management consolidation - Major Food Group</p><span>Locations 4, 7, and 9 on legacy contracts. Volume discount available with current provider</span></div><div class="opp-amount">$40K/yr</div></div>
-        </div>
       </section>
 
       <section class="page" id="page-clients">
         <div class="topbar"><div class="page-header"><h1>Clients</h1><p>Restaurant groups and their portfolio status</p></div><button class="btn btn-primary" onclick="showPage('addclient')"><i class="ti ti-plus"></i> Add client</button></div>
         <div class="card">
-          <div class="client-row"><div class="avatar">MF</div><div class="client-info"><p>Major Food Group</p><span>14 locations - 18 contracts - $3.2M annual vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 72%;"></div></div></div><span class="badge badge-success">$292K identified</span><button class="btn" onclick="showClientReport('mfg')"><i class="ti ti-chart-bar"></i> View report</button></div>
-          <div class="client-row"><div class="avatar" style="background: var(--green-soft); color: var(--green);">UH</div><div class="client-info"><p>Union Square Hospitality Group</p><span>11 locations - 15 contracts - $1.8M annual vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 55%; background: var(--green);"></div></div></div><span class="badge badge-success">$141K identified</span><button class="btn" onclick="showClientReport('ushg')"><i class="ti ti-chart-bar"></i> View report</button></div>
-          <div class="client-row"><div class="avatar" style="background: var(--amber-soft); color: var(--amber);">NH</div><div class="client-info"><p>Nobu Hospitality NYC</p><span>8 locations - 8 contracts - $890K annual vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 30%; background: var(--amber);"></div></div></div><span class="badge badge-warning">$73K draft</span><button class="btn" onclick="showClientReport('nobu')"><i class="ti ti-chart-bar"></i> View report</button></div>
+          <div class="client-row"><div class="avatar">MF</div><div class="client-info"><p>Major Food Group</p><span>14 locations - 18 contracts - $3.2M annual vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 72%;"></div></div></div><span class="badge badge-success">$492K identified</span><button class="btn" onclick="openClientReportModal('mfg')"><i class="ti ti-chart-bar"></i> View report</button></div>
+          <div class="client-row"><div class="avatar" style="background: var(--green-soft); color: var(--green);">UH</div><div class="client-info"><p>Union Square Hospitality Group</p><span>11 locations - 15 contracts - $1.8M annual vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 55%; background: var(--green);"></div></div></div><span class="badge badge-success">$141K identified</span><button class="btn" onclick="openClientReportModal('ushg')"><i class="ti ti-chart-bar"></i> View report</button></div>
+          <div class="client-row"><div class="avatar" style="background: var(--amber-soft); color: var(--amber);">NH</div><div class="client-info"><p>Nobu Hospitality NYC</p><span>8 locations - 8 contracts - $890K annual vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 30%; background: var(--amber);"></div></div></div><span class="badge badge-warning">$73K draft</span><button class="btn" onclick="openClientReportModal('nobu')"><i class="ti ti-chart-bar"></i> View report</button></div>
+        </div>
+      </section>
+
+      <section class="page" id="page-demo">
+        <div class="topbar">
+          <div class="page-header">
+            <h1>Buyer demo</h1>
+            <p>Major Food Group: from source files to approval-ready savings action</p>
+          </div>
+          <div class="header-actions">
+            <button class="btn" onclick="setDemoStep(0)"><i class="ti ti-reload"></i> Restart</button>
+            <button class="btn btn-primary" onclick="nextDemoStep()"><i class="ti ti-arrow-right"></i> Next step</button>
+          </div>
+        </div>
+
+        <div class="hero">
+          <div class="hero-card">
+            <h2>Major Food Group: $492K in savings, with proof.</h2>
+            <p>A short walkthrough showing how VendorIQ turns vendor files into evidence-backed recommendations and approval-ready actions.</p>
+            <div class="hero-stats">
+              <div class="hero-stat"><span>Source files</span><strong>3</strong></div>
+              <div class="hero-stat"><span>Contracts reviewed</span><strong>18</strong></div>
+              <div class="hero-stat"><span>Savings identified</span><strong>$492K</strong></div>
+            </div>
+          </div>
+          <div class="insight-card">
+            <small>How to use this demo</small>
+            <h3>Move through the five steps in order.</h3>
+            <p>Each step answers one buyer question. Keep the walkthrough focused on trust, math, and next action.</p>
+            <button class="btn" style="margin-top: 1rem;" onclick="setDemoStep(0)">Start walkthrough</button>
+          </div>
+        </div>
+
+        <div class="demo-layout">
+          <div class="demo-steps">
+            <div class="demo-step active" data-demo-step="0" onclick="setDemoStep(0)"><div class="demo-step-number">1</div><div><p>Upload evidence</p><span>Contracts, statements, invoices</span></div></div>
+            <div class="demo-step" data-demo-step="1" onclick="setDemoStep(1)"><div class="demo-step-number">2</div><div><p>Extract terms</p><span>Renewal, rate, clause risk</span></div></div>
+            <div class="demo-step" data-demo-step="2" onclick="setDemoStep(2)"><div class="demo-step-number">3</div><div><p>Prove savings</p><span>Formula and confidence</span></div></div>
+            <div class="demo-step" data-demo-step="3" onclick="setDemoStep(3)"><div class="demo-step-number">4</div><div><p>Work action</p><span>Generate RFP or notice</span></div></div>
+            <div class="demo-step" data-demo-step="4" onclick="setDemoStep(4)"><div class="demo-step-number">5</div><div><p>Client approval</p><span>Approve and track files</span></div></div>
+          </div>
+
+          <div>
+            <div class="card demo-panel active" data-demo-panel="0">
+              <div class="card-header"><div><span class="card-title">Step 1: Evidence packet</span><div class="card-meta">Buyer question: “What files do you need from me?”</div></div><span class="badge badge-success">Ready</span></div>
+              <div class="demo-script">Say: “VendorIQ starts with files the client already has and organizes them into an evidence packet.”</div>
+              <div class="evidence-grid">
+                <div class="evidence-card"><i class="ti ti-file-invoice"></i><p>Heartland statement</p><span>Card volume, effective rate, monthly fees, chargebacks. Used to validate $252K opportunity.</span></div>
+                <div class="evidence-card"><i class="ti ti-contract"></i><p>Sysco agreement</p><span>June 3 notice window, escalation language, missing MFN protection. Used to validate $181K opportunity.</span></div>
+              </div>
+              <div class="workflow-actions" style="justify-content: flex-start; margin-top: 1rem;"><button class="btn btn-primary" onclick="nextDemoStep()">Extract terms</button></div>
+            </div>
+
+            <div class="card demo-panel" data-demo-panel="1">
+              <div class="card-header"><div><span class="card-title">Step 2: Extracted terms</span><div class="card-meta">Buyer question: “What did you find in the documents?”</div></div><span class="badge badge-info">AI-assisted review</span></div>
+              <div class="demo-script">Say: “The product pulls out the terms that affect money and timing.”</div>
+              <table>
+                <thead><tr><th>Source</th><th>Extracted term</th><th>Risk</th><th>Evidence</th></tr></thead>
+                <tbody>
+                  <tr><td>Heartland statement</td><td>Effective processing cost: 3.08%</td><td><span class="badge badge-danger">Above benchmark</span></td><td>Monthly fee stack + card volume</td></tr>
+                  <tr><td>Sysco agreement</td><td>Notice window closes Jun 3, 2026</td><td><span class="badge badge-danger">Urgent</span></td><td>Renewal and non-renewal clause</td></tr>
+                </tbody>
+              </table>
+              <div class="workflow-actions" style="justify-content: flex-start; margin-top: 1rem;"><button class="btn btn-primary" onclick="nextDemoStep()">Show savings math</button></div>
+            </div>
+
+            <div class="card demo-panel" data-demo-panel="2">
+              <div class="card-header"><div><span class="card-title">Step 3: Savings math</span><div class="card-meta">Buyer question: “Do I trust the savings estimate?”</div></div><span class="badge badge-success">$492K identified</span></div>
+              <div class="demo-script">Say: “The savings are tied to a baseline, target, and confidence level.”</div>
+              <table>
+                <thead><tr><th>Opportunity</th><th>Current baseline</th><th>Benchmark / target</th><th>Annual savings</th><th>Confidence</th></tr></thead>
+                <tbody>
+                  <tr><td>Payment processing</td><td>$12M card volume at 3.08%</td><td>2.10% target effective rate</td><td class="amount positive">$252K</td><td>High</td></tr>
+                  <tr><td>Food distribution</td><td>$2.1M spend with uncapped escalation</td><td>MFN + 2% escalation cap</td><td class="amount positive">$181K</td><td>High</td></tr>
+                </tbody>
+              </table>
+              <div class="workflow-actions" style="justify-content: flex-start; margin-top: 1rem;"><button class="btn btn-primary" onclick="nextDemoStep()">Create action</button></div>
+            </div>
+
+            <div class="card demo-panel" data-demo-panel="3">
+              <div class="card-header"><div><span class="card-title">Step 4: Action workspace</span><div class="card-meta">Buyer question: “What happens after you find the savings?”</div></div><span class="badge badge-danger">Work now</span></div>
+              <div class="demo-script">Say: “The recommendation becomes a work product the team can send or refine.”</div>
+              <textarea class="workspace-output">Payment Processor RFP - Major Food Group
+
+Current processor: Heartland Payment
+Annual card volume: $12M
+Target effective rate: 2.10%
+Vendors to invite: Toast, Fiserv, Adyen
+Estimated savings: $252K
+
+Request:
+Please provide proposed pricing, interchange-plus details, monthly fees, chargeback fees, hardware/software requirements, and implementation timeline for a multi-location hospitality group.</textarea>
+              <div class="workflow-actions" style="justify-content: flex-start; margin-top: 1rem;">
+                <button class="btn btn-primary" onclick="nextDemoStep()">Show client approval</button>
+              </div>
+            </div>
+
+            <div class="card demo-panel" data-demo-panel="4">
+              <div class="card-header"><div><span class="card-title">Step 5: Client approval</span><div class="card-meta">Buyer question: “How do we approve and move forward?”</div></div><span class="badge badge-success">Buyer-ready</span></div>
+              <div class="demo-script">Say: “The client does not see internal work tools. They see decisions, supporting documents, and a clean approval path.”</div>
+              <div class="approval-panel">
+                <div class="approval-row"><div><p>Authorize payment processor RFP</p><span class="card-meta">Request proposals from hospitality-focused processors and benchmark against Heartland. $252K estimated savings.</span></div><span class="badge badge-warning">Approval needed</span></div>
+                <div class="approval-row"><div><p>Send Sysco notice and begin renegotiation</p><span class="card-meta">Notice preserves leverage before June 3. $181K estimated savings.</span></div><span class="badge badge-warning">Approval needed</span></div>
+              </div>
+              <div class="workflow-actions" style="justify-content: flex-start; margin-top: 1rem;">
+                <button class="btn btn-primary" onclick="setDemoStep(0)">Restart demo</button>
+                <button class="btn" onclick="signOut()">Return to main site</button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1517,60 +2045,150 @@
       </section>
 
       <section class="page" id="page-report">
-        <div class="topbar"><div class="page-header"><h1 id="report-title">Savings report - Major Food Group</h1><p id="report-subtitle">14 locations - audit completed May 2026</p></div><button class="btn" onclick="exportCurrentReport()"><i class="ti ti-download"></i> Export to PDF</button></div>
+        <div class="topbar"><div class="page-header"><h1 id="report-title">Major Food Group workspace</h1><p id="report-subtitle">14 locations - audit completed May 2026</p></div><button class="btn" onclick="exportCurrentReport()"><i class="ti ti-download"></i> Export summary</button></div>
         <div class="report-tabs">
           <button class="filter-chip active" data-report-tab="mfg" onclick="setReportClient('mfg')">Major Food Group</button>
           <button class="filter-chip" data-report-tab="ushg" onclick="setReportClient('ushg')">USHG</button>
           <button class="filter-chip" data-report-tab="nobu" onclick="setReportClient('nobu')">Nobu Hospitality</button>
         </div>
-        <div class="card workflow-card">
-          <div>
-            <div class="card-header" style="margin-bottom: 0;">
-              <div>
-                <span class="card-title">Review workflow</span>
-                <div class="card-meta" id="review-state-note">Internal draft is being prepared.</div>
-              </div>
-              <span class="badge badge-warning" id="review-state-badge">Draft</span>
+
+        <div class="card report-summary">
+          <div class="card-header">
+            <div>
+              <span class="card-title">Client summary</span>
+              <div class="card-meta">Use this to understand the account before working the actions below</div>
             </div>
-            <div class="workflow-steps" id="review-steps"></div>
+            <span class="badge badge-info" id="report-status">Final</span>
           </div>
-          <div class="workflow-actions">
-            <button class="btn" id="review-prev-btn" onclick="moveReportState(-1)"><i class="ti ti-arrow-left"></i> Move back</button>
-            <button class="btn btn-primary" id="review-next-btn" onclick="moveReportState(1)"><i class="ti ti-arrow-right"></i> Advance</button>
+            <h2 id="report-summary-title">$492K in annual savings identified.</h2>
+            <p id="report-summary-copy">VendorIQ found the savings below by reviewing vendor contracts, renewal windows, and category benchmarks. The table shows what to do first and why it matters.</p>
+            <div class="report-facts">
+              <div class="report-fact"><span>Spend reviewed</span><strong id="report-spend">$3.2M</strong></div>
+              <div class="report-fact"><span>Savings rate</span><strong id="report-rate">9.1%</strong></div>
+              <div class="report-fact"><span>Contracts reviewed</span><strong id="report-contracts">18</strong></div>
+              <div class="report-fact"><span>VendorIQ fee</span><strong id="report-fee">$73K</strong></div>
+            </div>
+        </div>
+
+        <div class="report-workspace">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <span class="card-title">Recommended actions</span>
+                <div class="card-meta">Select an action to work it in the panel on the right</div>
+              </div>
+              <span class="badge badge-success" id="report-savings">$492K</span>
+            </div>
+            <table><thead><tr><th>Action</th><th>Category</th><th>Savings</th><th>Timing</th><th>Status</th></tr></thead><tbody id="report-plan-rows"></tbody></table>
+          </div>
+
+          <div class="card action-workspace">
+            <div class="card-header">
+              <div>
+                <span class="card-title">Action workspace</span>
+                <div class="card-meta">Work the selected recommendation</div>
+              </div>
+              <span class="badge badge-warning" id="action-priority-badge">High</span>
+            </div>
+            <h3 id="action-title">Payment processing consolidation</h3>
+            <p id="action-description">Issue RFP to three hospitality-focused processors and benchmark against Heartland.</p>
+            <div class="workspace-field"><span>Client</span><strong id="action-client">Major Food Group</strong></div>
+            <div class="workspace-field"><span>Savings estimate</span><strong class="positive" id="action-savings">$252K</strong></div>
+            <div class="workspace-field"><span>Current spend</span><strong id="action-spend">$520K</strong></div>
+            <div class="workspace-field"><span>Next step</span><strong id="action-next-step">Prepare outreach and validate benchmark assumptions.</strong></div>
+            <div class="workspace-field"><span>Evidence</span><strong id="action-evidence">Rate spread across processors, card volume concentration, and effective fee benchmark.</strong></div>
+            <div class="workspace-tools">
+              <div>
+                <h4 id="workspace-form-title">Task inputs</h4>
+                <div class="workspace-form" id="workspace-form"></div>
+              </div>
+              <div>
+                <h4>Checklist</h4>
+                <div class="workspace-checklist" id="workspace-checklist"></div>
+              </div>
+              <div>
+                <h4 id="workspace-output-title">Work product</h4>
+                <textarea class="workspace-output" id="workspace-output" placeholder="Generate the work product for this action..."></textarea>
+              </div>
+              <div class="workspace-message" id="workspace-message"></div>
+            </div>
+            <div class="workflow-actions" style="justify-content: flex-start; margin-top: 1rem;">
+              <button class="btn btn-primary" id="action-primary-btn" onclick="runSelectedAction()"><i class="ti ti-send"></i> Generate</button>
+              <button class="btn" onclick="saveWorkspaceProgress()"><i class="ti ti-device-floppy"></i> Save progress</button>
+              <button class="btn" onclick="markWorkspaceReady()"><i class="ti ti-check"></i> Mark ready</button>
+              <button class="btn" id="action-secondary-btn" onclick="runSecondaryAction()"><i class="ti ti-file-search"></i> Review source</button>
+            </div>
           </div>
         </div>
-        <div class="metrics">
-          <div class="metric"><div class="metric-label">Total spend audited</div><div class="metric-value" id="report-spend">$3.2M</div></div>
-          <div class="metric"><div class="metric-label">Savings identified</div><div class="metric-value positive" id="report-savings">$292K</div><div class="metric-sub" id="report-rate">9.1% of total spend</div></div>
-          <div class="metric"><div class="metric-label">Contracts reviewed</div><div class="metric-value" id="report-contracts">18</div></div>
-          <div class="metric"><div class="metric-label">Your fee (25%)</div><div class="metric-value" id="report-fee">$73K</div><div class="metric-sub">On savings captured</div></div>
+      </section>
+
+      <section class="page client-only" id="page-clientreport">
+        <div class="topbar">
+          <div class="page-header">
+            <h1>Major Food Group savings report</h1>
+            <p>Summary of savings opportunities and decisions requested by VendorIQ</p>
+          </div>
+          <button class="btn" onclick="exportCurrentReport()"><i class="ti ti-download"></i> Export summary</button>
         </div>
-        <div class="card"><div class="card-header"><span class="card-title">Savings by category</span><span class="badge badge-info" id="report-status">Final</span></div><table><thead><tr><th>Category</th><th>Current spend</th><th>Savings opportunity</th><th>Method</th><th>Priority</th></tr></thead><tbody id="report-category-rows"></tbody></table><div class="category-detail" id="category-detail"></div></div>
-        <div class="card"><div class="card-header"><span class="card-title">Implementation timeline</span></div><div id="report-timeline"></div></div>
+
+        <div class="card report-summary">
+          <div class="card-header">
+            <div>
+              <span class="card-title">Savings summary</span>
+              <div class="card-meta">Prepared for client review</div>
+            </div>
+            <span class="badge badge-info">Final</span>
+          </div>
+          <h2>$492K in annual savings identified.</h2>
+          <p>VendorIQ found the largest opportunities in payment processing, food distribution, waste management, and pest control. Approvals are handled in the Action center.</p>
+          <div class="report-facts">
+            <div class="report-fact"><span>Spend reviewed</span><strong>$3.2M</strong></div>
+            <div class="report-fact"><span>Savings rate</span><strong>15.4%</strong></div>
+            <div class="report-fact"><span>Contracts reviewed</span><strong>18</strong></div>
+            <div class="report-fact"><span>VendorIQ fee</span><strong>$123K</strong></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <span class="card-title">Recommended actions</span>
+              <div class="card-meta">Client-facing decisions and expected savings</div>
+            </div>
+            <button class="btn btn-primary" onclick="showPage('clientportal')"><i class="ti ti-check"></i> Go to approvals</button>
+          </div>
+          <table>
+            <thead><tr><th>Recommendation</th><th>Why it matters</th><th>Savings</th><th>Priority</th></tr></thead>
+            <tbody>
+              <tr><td class="vendor-name">Authorize payment processor RFP</td><td>Benchmark Heartland against hospitality-focused processors.</td><td class="amount positive">$252K</td><td><span class="badge badge-danger">High</span></td></tr>
+              <tr><td class="vendor-name">Send Sysco notice and renegotiate</td><td>Preserve leverage before the June 3 renewal window.</td><td class="amount positive">$181K</td><td><span class="badge badge-danger">High</span></td></tr>
+              <tr><td class="vendor-name">Approve waste volume audit</td><td>Validate location volume and request consolidated pricing.</td><td class="amount positive">$40K</td><td><span class="badge badge-warning">Medium</span></td></tr>
+              <tr><td class="vendor-name">Review pest control renewal</td><td>Benchmark location-count pricing before renewal.</td><td class="amount positive">$19K</td><td><span class="badge badge-info">Low</span></td></tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section class="page" id="page-clientportal">
         <div class="topbar">
           <div class="page-header">
             <h1>Major Food Group action center</h1>
-            <p>Approvals, open questions, and documents needed by VendorIQ</p>
+            <p>The decisions and files needed to move savings forward</p>
           </div>
           <div class="header-actions">
             <button class="btn" onclick="focusQuestionBox()"><i class="ti ti-message"></i> Ask a question</button>
-            <button class="btn btn-primary" onclick="showPage('report')"><i class="ti ti-chart-bar"></i> View full report</button>
+            <button class="btn btn-primary" onclick="showPage('clientreport')"><i class="ti ti-chart-bar"></i> View full report</button>
           </div>
         </div>
 
         <div class="client-summary">
           <div class="client-hero">
-            <h2>Three decisions are needed to start the highest-value work.</h2>
-            <p>This page is for actions and communication. Use the full report for the detailed savings model, category assumptions, and implementation timeline.</p>
+            <h2>$492K in annual savings is ready for review.</h2>
+            <p>VendorIQ has finished the contract review. The next step is to approve the highest-value actions and send the two supporting files still needed.</p>
           </div>
-          <div class="card" style="margin-bottom: 0;">
-            <div class="card-header"><span class="card-title">Engagement status</span><span class="badge badge-success" id="client-portal-status">Ready for review</span></div>
-            <div class="status-cell" style="border: 0; padding: 0 0 12px;"><span>Contracts reviewed</span><strong>18 of 18 complete</strong></div>
-            <div class="status-cell" style="border: 0; padding: 0 0 12px;"><span>Decision deadline</span><strong>June 3, 2026</strong></div>
-            <div class="status-cell" style="border: 0; padding: 0;"><span>VendorIQ contact</span><strong>Rebecca Hirschfeld</strong></div>
+          <div class="summary-stack">
+            <div class="metric"><div class="metric-label">Engagement status</div><div class="metric-value" style="font-size: 18px;"><span class="badge badge-success" id="client-portal-status">Ready for review</span></div><div class="metric-sub">18 contracts reviewed</div></div>
+            <div class="metric"><div class="metric-label">Decision deadline</div><div class="metric-value" style="font-size: 20px;">June 3</div><div class="metric-sub" style="color: var(--amber);">Sysco notice window</div></div>
           </div>
         </div>
 
@@ -1604,13 +2222,6 @@
           </div>
         </div>
 
-        <div class="metrics">
-          <div class="metric"><div class="metric-label">Savings identified</div><div class="metric-value positive">$292K</div><div class="metric-sub">Annualized estimate</div></div>
-          <div class="metric"><div class="metric-label">High priority items</div><div class="metric-value risk-high">2</div><div class="metric-sub">Need decision this month</div></div>
-          <div class="metric"><div class="metric-label">Contracts at risk</div><div class="metric-value risk-medium">4</div><div class="metric-sub">Renewal exposure</div></div>
-          <div class="metric"><div class="metric-label">Implementation window</div><div class="metric-value">45d</div><div class="metric-sub">Recommended timeline</div></div>
-        </div>
-
         <div class="card">
           <div class="card-header">
             <div>
@@ -1632,15 +2243,6 @@
             <label class="document-item"><input type="checkbox" onchange="updateDocumentStatus()"><div><p class="vendor-name">Waste invoice sample by location</p><span class="card-meta">Needed for consolidated rate request</span></div><span class="badge badge-warning">Needed</span></label>
           </div>
         </div>
-
-        <div class="card">
-          <div class="card-header"><span class="card-title">Recent activity</span><span class="badge badge-info">Updated today</span></div>
-          <div class="decision-list">
-            <div class="decision-item"><div class="decision-number"><i class="ti ti-file-check"></i></div><div><p class="vendor-name">VendorIQ finished contract review</p><span class="card-meta">18 contracts reviewed and grouped into four savings opportunities.</span></div><span class="badge badge-success">Done</span></div>
-            <div class="decision-item"><div class="decision-number"><i class="ti ti-alert-triangle"></i></div><div><p class="vendor-name">Sysco renewal deadline approaching</p><span class="card-meta">Non-renewal notice should be sent before June 3 to preserve leverage.</span></div><span class="badge badge-danger">Action</span></div>
-            <div class="decision-item"><div class="decision-number"><i class="ti ti-message"></i></div><div><p class="vendor-name">Next VendorIQ follow-up</p><span class="card-meta">Pending approval decisions and requested document checklist.</span></div><span class="badge badge-warning">Waiting</span></div>
-          </div>
-        </div>
       </section>
 
       <section class="page" id="page-addclient">
@@ -1650,16 +2252,44 @@
     </main>
   </div>
 
+  <div class="modal-backdrop" id="client-report-modal" onclick="closeClientReportModal(event)">
+    <div class="report-modal" role="dialog" aria-modal="true" aria-labelledby="modal-report-title">
+      <div class="modal-body">
+        <div class="card-header">
+          <div>
+            <span class="card-title" id="modal-report-title">Client report</span>
+            <div class="card-meta" id="modal-report-subtitle">Report summary</div>
+          </div>
+          <button class="btn btn-mini" onclick="closeClientReportModal()"><i class="ti ti-x"></i> Close</button>
+        </div>
+        <div class="report-facts" style="margin-bottom: 1rem;">
+          <div class="report-fact"><span>Savings identified</span><strong id="modal-report-savings">$0</strong></div>
+          <div class="report-fact"><span>Spend reviewed</span><strong id="modal-report-spend">$0</strong></div>
+          <div class="report-fact"><span>Contracts reviewed</span><strong id="modal-report-contracts">0</strong></div>
+          <div class="report-fact"><span>Status</span><strong id="modal-report-status">Draft</strong></div>
+        </div>
+        <table>
+          <thead><tr><th>Action</th><th>Category</th><th>Savings</th><th>Timing</th><th>Priority</th></tr></thead>
+          <tbody id="modal-report-actions"></tbody>
+        </table>
+      </div>
+      <div class="modal-actions">
+        <button class="btn" onclick="closeClientReportModal()">Close</button>
+        <button class="btn btn-primary" id="modal-open-workspace-btn" onclick="openModalReportWorkspace()"><i class="ti ti-arrow-right"></i> Open workspace</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     const reports = {
       mfg: {
         title: 'Savings report - Major Food Group',
         subtitle: '14 locations - audit completed May 2026',
         spend: '$3.2M',
-        savings: '$292K',
-        rate: '9.1% of total spend',
+        savings: '$492K',
+        rate: '15.4% of total spend',
         contracts: '18',
-        fee: '$73K',
+        fee: '$123K',
         status: 'Final',
         reviewState: 'Client ready',
         categories: [
@@ -1671,7 +2301,8 @@
         timeline: [
           ['Payment processing consolidation', 'Issue RFP to 3 hospitality-focused processors. Target completion before Heartland renewal July 8.', '$252K', 'High'],
           ['Sysco renegotiation', 'Send notice of non-renewal by Jun 3 to trigger renegotiation. Request MFN clause and 2% escalation cap.', '$181K', 'High'],
-          ['Waste management audit', 'Request volume summary from current provider and compare against consolidated rate schedule.', '$40K', 'Medium']
+          ['Waste management audit', 'Request volume summary from current provider and compare against consolidated rate schedule.', '$40K', 'Medium'],
+          ['Pest control renewal review', 'Benchmark current location-count pricing and prepare a renewal counteroffer.', '$19K', 'Low']
         ]
       },
       ushg: {
@@ -1724,6 +2355,9 @@
     let selectedContractText = '';
     let currentUser = null;
     let currentCategoryIndex = 0;
+    let selectedWorkspaceAction = null;
+    let workspaceDrafts = {};
+    let modalReportClient = 'mfg';
     let clientUploadedFiles = [];
     let operatorContracts = [];
     const users = {
@@ -1736,13 +2370,18 @@
         name: 'Major Food Group',
         roleLabel: 'Client stakeholder',
         role: 'client'
+      },
+      demo: {
+        name: 'Buyer demo',
+        roleLabel: 'Prospect walkthrough',
+        role: 'demo'
       }
     };
     const reportStates = ['Draft', 'Internal review', 'Client ready', 'Approved', 'Implemented'];
     const stateNotes = {
       'Draft': 'Operator is still validating contract terms, assumptions, and savings math.',
       'Internal review': 'Ready for VendorIQ QA before anything is shown to the client.',
-      'Client ready': 'Approved internally and ready to share through the client view.',
+      'Client ready': 'Approved internally and ready to share with the client.',
       'Approved': 'Client has approved the recommendation package.',
       'Implemented': 'Savings actions have been completed or handed off for tracking.'
     };
@@ -1838,6 +2477,12 @@
       return `<span class="badge ${className}">${priority}</span>`;
     }
 
+    function statusBadge(status) {
+      const key = status.toLowerCase();
+      const className = key.includes('now') ? 'badge-danger' : key.includes('approval') || key.includes('prepare') ? 'badge-warning' : 'badge-info';
+      return `<span class="badge ${className}">${status}</span>`;
+    }
+
     function contractRiskBadge(risk) {
       const key = String(risk || '').toLowerCase();
       const className = key === 'high' ? 'badge-danger' : key === 'medium' ? 'badge-warning' : key === 'unreviewed' ? 'badge-info' : 'badge-success';
@@ -1861,7 +2506,7 @@
       if (!rows) return;
       const contracts = operatorContracts || [];
       document.getElementById('operator-queue-count').textContent = `${contracts.length} active`;
-      document.getElementById('dashboard-contract-count').textContent = String(Math.max(41, contracts.length));
+      document.getElementById('dashboard-contract-count').textContent = String(contracts.length);
       if (contracts.length === 0) {
         rows.innerHTML = '<tr><td colspan="7">No contract records yet. Upload a sample contract or use seeded demo records.</td></tr>';
       } else {
@@ -1883,13 +2528,10 @@
         `).join('');
       }
 
-      const needsReview = contracts.filter(contract => ['Uploaded', 'Reviewing terms', 'Unreviewed'].includes(contract.status) || contract.risk === 'Unreviewed').length;
-      const ready = contracts.filter(contract => contract.status === 'Ready for report').length;
-      const missing = contracts.filter(contract => contract.status === 'Needs source file').length;
       document.getElementById('operator-pipeline-summary').innerHTML = `
-        <div class="pipeline-item"><div><span>Needs review</span><strong>${needsReview}</strong></div><i class="ti ti-file-search"></i></div>
-        <div class="pipeline-item"><div><span>Ready for report</span><strong>${ready}</strong></div><i class="ti ti-chart-bar"></i></div>
-        <div class="pipeline-item"><div><span>Waiting on client files</span><strong>${missing}</strong></div><i class="ti ti-upload"></i></div>
+        <div class="pipeline-item"><div><span>Major Food Group</span><strong>Review report</strong></div><i class="ti ti-chart-bar"></i></div>
+        <div class="pipeline-item"><div><span>USHG</span><strong>Approved</strong></div><i class="ti ti-check"></i></div>
+        <div class="pipeline-item"><div><span>Nobu</span><strong>Needs source file</strong></div><i class="ti ti-upload"></i></div>
       `;
     }
 
@@ -1922,17 +2564,263 @@
       showClientReport(map[clientName] || 'mfg');
     }
 
+    function clientDisplayName(report) {
+      return report.title.replace('Savings report - ', '');
+    }
+
+    function reportSummaryCopy(report) {
+      const highPriority = report.categories.filter(row => row[4] === 'High').map(row => row[0].toLowerCase());
+      const focus = highPriority.length
+        ? highPriority.slice(0, 2).join(' and ')
+        : report.categories.slice(0, 2).map(row => row[0].toLowerCase()).join(' and ');
+      return `The strongest opportunities are ${focus}. The savings plan below shows the recommended action, expected savings, timing, and priority in one place.`;
+    }
+
+    function timingForPriority(priority) {
+      if (priority === 'High') return 'Next 14-30 days';
+      if (priority === 'Medium') return 'Next 45-60 days';
+      return 'At renewal';
+    }
+
+    function actionStatus(priority, index) {
+      if (priority === 'High' && index === 0) return 'Work now';
+      if (priority === 'High') return 'Needs approval';
+      if (priority === 'Medium') return 'Prepare';
+      return 'Track';
+    }
+
+    function actionControls(category) {
+      const controls = {
+        'Payment processing': {
+          label: 'Build RFP',
+          icon: 'ti ti-file-export',
+          prompt: 'Build a payment processor RFP package with vendor shortlist, benchmark assumptions, and request email.'
+        },
+        'Food distribution': {
+          label: 'Prepare notice',
+          icon: 'ti ti-mail-forward',
+          prompt: 'Prepare the Sysco non-renewal notice and renegotiation request with MFN and escalation-cap language.'
+        },
+        'Waste management': {
+          label: 'Request invoices',
+          icon: 'ti ti-file-invoice',
+          prompt: 'Prepare a client request for waste invoice samples by location and a provider volume summary.'
+        },
+        'Pest control': {
+          label: 'Benchmark pricing',
+          icon: 'ti ti-scale',
+          prompt: 'Create a pest control pricing benchmark checklist and renewal counteroffer outline.'
+        },
+        'Linen & uniforms': {
+          label: 'Build rate card',
+          icon: 'ti ti-shirt',
+          prompt: 'Build a consolidated linen and uniform rate-card comparison for the client.'
+        },
+        'Janitorial supplies': {
+          label: 'Normalize SKUs',
+          icon: 'ti ti-list-check',
+          prompt: 'Create a SKU normalization worksheet for janitorial supplies and recurring substitutions.'
+        },
+        'Uniform replacement fees': {
+          label: 'Audit fees',
+          icon: 'ti ti-receipt',
+          prompt: 'Create a uniform replacement-fee audit checklist and vendor question list.'
+        },
+        'POS support': {
+          label: 'Check seat count',
+          icon: 'ti ti-device-desktop-analytics',
+          prompt: 'Prepare a POS support seat-count validation checklist.'
+        },
+        'Sanitation': {
+          label: 'Review scope',
+          icon: 'ti ti-clipboard-check',
+          prompt: 'Create a sanitation scope review checklist and vendor clarification request.'
+        },
+        'Equipment maintenance': {
+          label: 'Find duplicates',
+          icon: 'ti ti-tools',
+          prompt: 'Prepare an equipment maintenance duplicate-coverage review checklist.'
+        }
+      };
+      return controls[category] || {
+        label: 'Work action',
+        icon: 'ti ti-player-play',
+        prompt: 'Prepare the next work step for this VendorIQ recommendation.'
+      };
+    }
+
+    function workspaceKey(client, category) {
+      return `${client}::${category}`;
+    }
+
+    function fieldValue(fields, id, fallback = '') {
+      const field = fields.find(item => item.id === id);
+      return field?.value || fallback;
+    }
+
+    function workspaceTemplate(action) {
+      const common = {
+        fields: [
+          { id: 'owner', label: 'Owner', value: 'Rebecca' },
+          { id: 'due', label: 'Due date', value: timingForPriority(action.priority) }
+        ],
+        checklist: ['Validate source contract', 'Confirm savings math', 'Prepare client-facing next step']
+      };
+      const templates = {
+        'Payment processing': {
+          title: 'RFP builder',
+          outputTitle: 'Processor RFP draft',
+          fields: [
+            { id: 'current_processor', label: 'Current processor', value: 'Heartland Payment' },
+            { id: 'card_volume', label: 'Annual card volume', value: '$12M' },
+            { id: 'target_rate', label: 'Target effective rate', value: '2.10%' },
+            { id: 'vendors', label: 'Vendors to invite', value: 'Toast, Fiserv, Adyen' },
+            ...common.fields
+          ],
+          checklist: ['Confirm trailing 3-month statements', 'Calculate current effective rate', 'Select 3 processor targets', 'Draft RFP email'],
+          build: fields => `Payment Processor RFP - ${action.client}
+
+Current processor: ${fieldValue(fields, 'current_processor')}
+Annual card volume: ${fieldValue(fields, 'card_volume')}
+Target effective rate: ${fieldValue(fields, 'target_rate')}
+Vendors to invite: ${fieldValue(fields, 'vendors')}
+Estimated savings: ${action.savings}
+
+Request:
+Please provide proposed pricing, interchange-plus details, monthly fees, chargeback fees, hardware/software requirements, and implementation timeline for a multi-location hospitality group.
+
+Decision needed:
+Approve VendorIQ to issue this RFP and compare responses against the current ${fieldValue(fields, 'current_processor')} effective rate.`
+        },
+        'Food distribution': {
+          title: 'Notice and renegotiation prep',
+          outputTitle: 'Vendor notice draft',
+          fields: [
+            { id: 'vendor', label: 'Vendor', value: 'Sysco Northeast' },
+            { id: 'deadline', label: 'Notice deadline', value: 'June 3, 2026' },
+            { id: 'terms', label: 'Target terms', value: 'MFN clause, 2% escalation cap, audit rights' },
+            { id: 'contact', label: 'Vendor contact', value: 'Account manager' },
+            ...common.fields
+          ],
+          checklist: ['Confirm notice language', 'Validate renewal date', 'Attach spend summary', 'Prepare renegotiation ask'],
+          build: fields => `Subject: Notice and renegotiation request - ${action.client}
+
+To ${fieldValue(fields, 'contact')},
+
+VendorIQ is reviewing the current ${fieldValue(fields, 'vendor')} agreement for ${action.client}. Before the ${fieldValue(fields, 'deadline')} notice window, we would like to discuss revised commercial terms.
+
+Requested updates:
+${fieldValue(fields, 'terms')}
+
+Savings opportunity: ${action.savings}
+
+Please send available times to review pricing, escalation language, and comparable volume terms.`
+        },
+        'Waste management': {
+          title: 'Client document request',
+          outputTitle: 'Document request draft',
+          fields: [
+            { id: 'provider', label: 'Current provider', value: 'Current waste provider' },
+            { id: 'locations', label: 'Locations to sample', value: 'Locations 4, 7, and 9' },
+            { id: 'files', label: 'Files needed', value: 'Recent invoices, pickup schedule, volume summary' },
+            ...common.fields
+          ],
+          checklist: ['Request sample invoices', 'Collect pickup schedule', 'Confirm location volume', 'Compare consolidated rate'],
+          build: fields => `Document request - ${action.client}
+
+To complete the waste management audit, please upload:
+${fieldValue(fields, 'files')}
+
+Provider: ${fieldValue(fields, 'provider')}
+Locations: ${fieldValue(fields, 'locations')}
+Estimated savings: ${action.savings}
+
+Once received, VendorIQ will reconcile location volume against the current pickup schedule and prepare a consolidated rate request.`
+        },
+        'Pest control': {
+          title: 'Benchmark and counteroffer',
+          outputTitle: 'Counteroffer outline',
+          fields: [
+            { id: 'vendor', label: 'Vendor', value: 'Current pest provider' },
+            { id: 'locations', label: 'Location count', value: '14 locations' },
+            { id: 'benchmark', label: 'Benchmark target', value: 'Current market rate for location count' },
+            ...common.fields
+          ],
+          checklist: ['Confirm current rate', 'Compare location-count pricing', 'Identify auto-renewal language', 'Prepare counteroffer'],
+          build: fields => `Pest control counteroffer - ${action.client}
+
+Vendor: ${fieldValue(fields, 'vendor')}
+Location count: ${fieldValue(fields, 'locations')}
+Benchmark target: ${fieldValue(fields, 'benchmark')}
+Estimated savings: ${action.savings}
+
+Counteroffer:
+Request revised pricing based on current location count, removal of legacy auto-renewal language, and clearer service-level terms.`
+        }
+      };
+      return templates[action.category] || {
+        title: `${action.category} workspace`,
+        outputTitle: 'Action draft',
+        fields: [
+          { id: 'vendor', label: 'Vendor', value: action.title },
+          { id: 'target', label: 'Target outcome', value: action.nextStep },
+          ...common.fields
+        ],
+        checklist: common.checklist,
+        build: fields => `${action.title} - ${action.client}
+
+Category: ${action.category}
+Savings estimate: ${action.savings}
+Target outcome: ${fieldValue(fields, 'target', action.nextStep)}
+
+Next step:
+${action.nextStep}
+
+Evidence:
+${action.evidence}`
+      };
+    }
+
+    function collectWorkspaceFields() {
+      return [...document.querySelectorAll('[data-workspace-field]')].map(input => ({
+        id: input.dataset.workspaceField,
+        label: input.dataset.workspaceLabel,
+        value: input.value.trim()
+      }));
+    }
+
+    function renderWorkspaceTools() {
+      if (!selectedWorkspaceAction) return;
+      const key = workspaceKey(selectedWorkspaceAction.client, selectedWorkspaceAction.category);
+      const saved = workspaceDrafts[key];
+      const template = workspaceTemplate(selectedWorkspaceAction);
+      const savedFields = saved?.fields || [];
+      document.getElementById('workspace-form-title').textContent = template.title;
+      document.getElementById('workspace-output-title').textContent = template.outputTitle;
+      document.getElementById('workspace-form').innerHTML = template.fields.map(field => {
+        const value = fieldValue(savedFields, field.id, field.value);
+        return `<div><label>${field.label}</label><input type="text" data-workspace-field="${field.id}" data-workspace-label="${field.label}" value="${value}"></div>`;
+      }).join('');
+      document.getElementById('workspace-checklist').innerHTML = template.checklist.map((item, index) => `
+        <label><input type="checkbox" data-workspace-check="${index}" ${saved?.checks?.[index] ? 'checked' : ''}> ${item}</label>
+      `).join('');
+      document.getElementById('workspace-output').value = saved?.output || '';
+      document.getElementById('workspace-message').textContent = saved?.ready ? 'Marked ready for client follow-up.' : '';
+    }
+
     function setReportClient(clientKey) {
       if (currentUser?.role === 'client' && clientKey !== 'mfg') {
         clientKey = 'mfg';
       }
       currentReportClient = clientKey;
       const report = reports[clientKey];
-      document.getElementById('report-title').textContent = report.title;
+      document.getElementById('report-title').textContent = `${clientDisplayName(report)} workspace`;
       document.getElementById('report-subtitle').textContent = report.subtitle;
+      document.getElementById('report-summary-title').textContent = `${report.savings} in annual savings identified.`;
+      document.getElementById('report-summary-copy').textContent = reportSummaryCopy(report);
       document.getElementById('report-spend').textContent = report.spend;
       document.getElementById('report-savings').textContent = report.savings;
-      document.getElementById('report-rate').textContent = report.rate;
+      document.getElementById('report-rate').textContent = report.rate.replace(' of total spend', '').replace(' of reviewed spend', '');
       document.getElementById('report-contracts').textContent = report.contracts;
       document.getElementById('report-fee').textContent = report.fee;
       document.getElementById('report-status').textContent = report.status;
@@ -1941,25 +2829,99 @@
       document.querySelectorAll('[data-report-tab]').forEach(tab => {
         tab.classList.toggle('active', tab.dataset.reportTab === clientKey);
       });
-      document.getElementById('report-category-rows').innerHTML = report.categories.map(row => `
-        <tr class="clickable-row" onclick="selectCategoryDetail('${clientKey}', ${report.categories.indexOf(row)})">
+      document.getElementById('report-plan-rows').innerHTML = report.categories.map((row, index) => `
+        <tr class="clickable-row" onclick="selectReportAction('${clientKey}', ${index})">
+          <td class="vendor-name">${report.timeline[index]?.[0] || row[3]}</td>
           <td>${row[0]}</td>
-          <td>${row[1]}</td>
           <td class="amount positive">${row[2]}</td>
-          <td>${row[3]}</td>
-          <td>${priorityBadge(row[4])}</td>
+          <td>${timingForPriority(row[4])}</td>
+          <td>${statusBadge(workspaceDrafts[workspaceKey(clientDisplayName(report), row[0])]?.ready ? 'Ready' : actionStatus(row[4], index))}</td>
         </tr>
       `).join('');
-      document.getElementById('report-timeline').innerHTML = report.timeline.map((item, index) => `
-        <div class="opportunity-item">
-          <div class="opp-icon" style="background: ${item[3] === 'High' ? 'var(--red-soft)' : item[3] === 'Medium' ? 'var(--amber-soft)' : 'var(--blue-soft)'};">
-            <span style="font-size: 13px; font-weight: 800; color: ${item[3] === 'High' ? 'var(--red)' : item[3] === 'Medium' ? 'var(--amber)' : 'var(--blue)'};">${index + 1}</span>
-          </div>
-          <div class="opp-details"><p>${item[0]}</p><span>${item[1]}</span></div>
-          <div class="opp-amount">${item[2]}</div>
-        </div>
-      `).join('');
-      selectCategoryDetail(clientKey, 0);
+      selectReportAction(clientKey, 0);
+    }
+
+    function selectReportAction(clientKey, index) {
+      if (currentUser?.role === 'client') clientKey = 'mfg';
+      currentReportClient = clientKey;
+      const report = reports[clientKey];
+      const row = report.categories[index];
+      if (!report || !row) return;
+      const detail = getCategoryDetail(report, row, index);
+      const timeline = report.timeline[index] || [row[3], detail.nextAction, row[2], row[4]];
+      const controls = actionControls(row[0]);
+      selectedWorkspaceAction = {
+        client: clientDisplayName(report),
+        category: row[0],
+        title: timeline[0],
+        index,
+        savings: row[2],
+        spend: row[1],
+        priority: row[4],
+        nextStep: detail.nextAction,
+        evidence: detail.evidence,
+        prompt: controls.prompt
+      };
+      document.querySelectorAll('#report-plan-rows tr').forEach((tr, rowIndex) => {
+        tr.classList.toggle('active', rowIndex === index);
+      });
+      document.getElementById('action-title').textContent = timeline[0];
+      document.getElementById('action-description').textContent = timeline[1];
+      document.getElementById('action-client').textContent = clientDisplayName(report);
+      document.getElementById('action-savings').textContent = row[2];
+      document.getElementById('action-spend').textContent = row[1];
+      document.getElementById('action-next-step').textContent = detail.nextAction;
+      document.getElementById('action-evidence').textContent = detail.evidence;
+      document.getElementById('action-priority-badge').textContent = actionStatus(row[4], index);
+      document.getElementById('action-priority-badge').className = `badge ${row[4] === 'High' ? 'badge-danger' : row[4] === 'Medium' ? 'badge-warning' : 'badge-info'}`;
+      document.getElementById('action-primary-btn').innerHTML = `<i class="${controls.icon}"></i> ${controls.label}`;
+      document.getElementById('action-secondary-btn').innerHTML = row[0] === 'Waste management'
+        ? '<i class="ti ti-upload"></i> Track files'
+        : '<i class="ti ti-file-search"></i> Review source';
+      renderWorkspaceTools();
+    }
+
+    function runSelectedAction() {
+      if (!selectedWorkspaceAction) return;
+      const template = workspaceTemplate(selectedWorkspaceAction);
+      const output = template.build(collectWorkspaceFields());
+      document.getElementById('workspace-output').value = output;
+      document.getElementById('workspace-message').textContent = `${template.outputTitle} generated. Review and edit before marking ready.`;
+      saveWorkspaceProgress(false);
+    }
+
+    function saveWorkspaceProgress(showMessage = true) {
+      if (!selectedWorkspaceAction) return;
+      const key = workspaceKey(selectedWorkspaceAction.client, selectedWorkspaceAction.category);
+      workspaceDrafts[key] = {
+        fields: collectWorkspaceFields(),
+        checks: [...document.querySelectorAll('[data-workspace-check]')].map(input => input.checked),
+        output: document.getElementById('workspace-output').value,
+        ready: workspaceDrafts[key]?.ready || false
+      };
+      if (showMessage) {
+        document.getElementById('workspace-message').textContent = 'Progress saved in this workspace.';
+      }
+    }
+
+    function markWorkspaceReady() {
+      if (!selectedWorkspaceAction) return;
+      saveWorkspaceProgress(false);
+      const key = workspaceKey(selectedWorkspaceAction.client, selectedWorkspaceAction.category);
+      workspaceDrafts[key].ready = true;
+      document.getElementById('workspace-message').textContent = 'Marked ready for client follow-up.';
+      document.getElementById('action-priority-badge').textContent = 'Ready';
+      document.getElementById('action-priority-badge').className = 'badge badge-success';
+      const activeRow = document.querySelector('#report-plan-rows tr.active td:last-child');
+      if (activeRow) activeRow.innerHTML = statusBadge('Ready');
+    }
+
+    function runSecondaryAction() {
+      if (selectedWorkspaceAction?.category === 'Waste management') {
+        showPage('clientportal');
+        return;
+      }
+      showPage('analyze');
     }
 
     function getCategoryDetail(report, row, index) {
@@ -2018,18 +2980,22 @@
 
     function renderReportWorkflow(state) {
       const currentIndex = reportStates.indexOf(state);
-      document.getElementById('review-state-badge').textContent = state;
-      document.getElementById('review-state-badge').className = `badge ${stateBadgeClass(state)}`;
-      document.getElementById('review-state-note').textContent = stateNotes[state];
-      document.getElementById('review-steps').innerHTML = reportStates.map((step, index) => {
-        const className = index < currentIndex ? 'workflow-step done' : index === currentIndex ? 'workflow-step active' : 'workflow-step';
-        return `<div class="${className}">${step}</div>`;
-      }).join('');
-      document.getElementById('review-prev-btn').disabled = currentIndex === 0;
-      document.getElementById('review-next-btn').disabled = currentIndex === reportStates.length - 1;
-      document.getElementById('review-next-btn').innerHTML = currentIndex === reportStates.length - 2
-        ? '<i class="ti ti-check"></i> Mark implemented'
-        : '<i class="ti ti-arrow-right"></i> Advance';
+      const badge = document.getElementById('review-state-badge');
+      const note = document.getElementById('review-state-note');
+      const prev = document.getElementById('review-prev-btn');
+      const next = document.getElementById('review-next-btn');
+      if (badge) {
+        badge.textContent = state;
+        badge.className = `badge ${stateBadgeClass(state)}`;
+      }
+      if (note) note.textContent = stateNotes[state];
+      if (prev) prev.disabled = currentIndex === 0;
+      if (next) {
+        next.disabled = currentIndex === reportStates.length - 1;
+        next.innerHTML = currentIndex === reportStates.length - 2
+          ? '<i class="ti ti-check"></i> Mark implemented'
+          : '<i class="ti ti-arrow-right"></i> Advance';
+      }
     }
 
     async function moveReportState(direction) {
@@ -2053,6 +3019,37 @@
     function showClientReport(clientKey) {
       setReportClient(clientKey);
       showPage('report');
+    }
+
+    function openClientReportModal(clientKey) {
+      modalReportClient = clientKey;
+      const report = reports[clientKey];
+      document.getElementById('modal-report-title').textContent = `${clientDisplayName(report)} report`;
+      document.getElementById('modal-report-subtitle').textContent = report.subtitle;
+      document.getElementById('modal-report-savings').textContent = report.savings;
+      document.getElementById('modal-report-spend').textContent = report.spend;
+      document.getElementById('modal-report-contracts').textContent = report.contracts;
+      document.getElementById('modal-report-status').textContent = report.status;
+      document.getElementById('modal-report-actions').innerHTML = report.categories.map((row, index) => `
+        <tr>
+          <td class="vendor-name">${report.timeline[index]?.[0] || row[3]}</td>
+          <td>${row[0]}</td>
+          <td class="amount positive">${row[2]}</td>
+          <td>${timingForPriority(row[4])}</td>
+          <td>${priorityBadge(row[4])}</td>
+        </tr>
+      `).join('');
+      document.getElementById('client-report-modal').classList.add('show');
+    }
+
+    function closeClientReportModal(event) {
+      if (event && event.target.id !== 'client-report-modal') return;
+      document.getElementById('client-report-modal').classList.remove('show');
+    }
+
+    function openModalReportWorkspace() {
+      closeClientReportModal();
+      showClientReport(modalReportClient);
     }
 
     function exportCurrentReport() {
@@ -2191,8 +3188,34 @@
       sendPrompt(`Generate a full client savings report for ${client} based on the uploaded ${vendor} contract analysis`);
     }
 
+    let currentDemoStep = 0;
+
+    function setDemoStep(index) {
+      currentDemoStep = Math.max(0, Math.min(4, index));
+      document.querySelectorAll('[data-demo-step]').forEach(step => {
+        step.classList.toggle('active', Number(step.dataset.demoStep) === currentDemoStep);
+      });
+      document.querySelectorAll('[data-demo-panel]').forEach(panel => {
+        panel.classList.toggle('active', Number(panel.dataset.demoPanel) === currentDemoStep);
+      });
+    }
+
+    function nextDemoStep() {
+      setDemoStep(currentDemoStep >= 4 ? 0 : currentDemoStep + 1);
+    }
+
+    async function startBuyerDemo() {
+      await signIn('demo');
+    }
+
     function showPage(name) {
-      if (currentUser?.role === 'client' && !['clientportal', 'report'].includes(name)) {
+      if (currentUser?.role === 'demo') {
+        name = 'demo';
+      }
+      if (currentUser?.role === 'client' && name === 'report') {
+        name = 'clientreport';
+      }
+      if (currentUser?.role === 'client' && !['clientportal', 'clientreport'].includes(name)) {
         name = 'clientportal';
       }
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -2220,12 +3243,17 @@
         body: JSON.stringify({ type })
       });
       currentUser = result?.user || users[type];
-      document.body.classList.remove('auth-view', 'operator-role', 'client-role');
+      document.body.classList.remove('auth-view', 'operator-role', 'client-role', 'demo-role');
       document.body.classList.add(`${currentUser.role}-role`);
       document.getElementById('signed-in-name').textContent = currentUser.name;
       document.getElementById('signed-in-role').textContent = currentUser.roleLabel;
       await loadBackendState();
       if (currentUser.role === 'client') setReportClient('mfg');
+      if (currentUser.role === 'demo') {
+        showPage('demo');
+        setDemoStep(0);
+        return;
+      }
       switchView(currentUser.role === 'client' ? 'client' : 'operator');
     }
 
@@ -2404,6 +3432,10 @@
       alert('Prompt queued: ' + prompt);
     }
 
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeClientReportModal();
+    });
+
     const contractInput = document.getElementById('contract-file-input');
     const uploadZone = document.getElementById('contract-upload-zone');
     const clientUploadInput = document.getElementById('client-upload-input');
@@ -2438,6 +3470,10 @@
       });
     });
     clientUploadZone.addEventListener('drop', event => handleClientUpload(event.dataTransfer.files));
+
+    if (window.location.hash === '#buyer-demo') {
+      startBuyerDemo();
+    }
   </script>
 </body>
 </html>
