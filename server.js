@@ -64,7 +64,7 @@ const initialStore = {
   documents: [
     { label: 'Latest Payment Processor A processing statement', received: true },
     { label: 'Food Distributor A trailing 12-month purchase summary', received: false },
-    { label: 'Waste invoice sample by venue', received: false }
+    { label: 'Waste invoice sample by restaurant', received: false }
   ],
   uploads: []
 };

@@ -2196,7 +2196,7 @@
       border-radius: 4px;
     }
 
-    /* Larder polish pass: make the product feel like a real hospitality operating desk. */
+    /* Larder polish pass: make the product feel like a real restaurant operating desk. */
     .card,
     .metric,
     .hero-card,
@@ -2396,14 +2396,14 @@
   </style>
 </head>
 <body class="auth-view operator-view">
-  <h1 class="sr-only">Larder - Vendor intelligence for premium hospitality.</h1>
+  <h1 class="sr-only">Larder - Vendor intelligence for premium restaurant operators.</h1>
 
   <div class="auth-screen">
     <div class="auth-card">
       <div class="auth-brand">
         <div class="brand-mark"><i class="ti ti-contract" aria-hidden="true"></i></div>
         <h1>Larder</h1>
-        <p>We help premium hospitality teams find savings, manage renewals, and make better vendor decisions.</p>
+        <p>We help premium restaurant operators find savings, manage renewals, and make better vendor decisions.</p>
       </div>
       <div class="auth-options">
         <button class="auth-option" onclick="signIn('operator')">
@@ -2477,7 +2477,7 @@
       </div>
       <div class="sidebar-footer">
         <p>$706K found</p>
-        <span>Vendor intelligence across premium hospitality contracts, invoices, renewals, and approvals.</span>
+        <span>Vendor intelligence across restaurant contracts, invoices, renewals, and approvals.</span>
         <div class="user-panel">
           <strong id="signed-in-name">Not signed in</strong>
           <span id="signed-in-role">Select a role</span>
@@ -2537,7 +2537,7 @@
             <div class="card-header">
               <div>
                 <span class="card-title">Account ledger</span>
-                <div class="card-meta">Open work across active hospitality clients</div>
+                <div class="card-meta">Open work across active restaurant clients</div>
               </div>
               <span class="badge badge-info" id="operator-queue-count">3 accounts</span>
             </div>
@@ -2570,11 +2570,11 @@
       </section>
 
       <section class="page" id="page-clients">
-        <div class="topbar"><div class="page-header"><h1>Clients</h1><p>Hospitality accounts by savings identified, open actions, vendor spend, and status</p></div><button class="btn btn-primary" onclick="showPage('addclient')"><i class="ti ti-plus"></i> Add client</button></div>
+        <div class="topbar"><div class="page-header"><h1>Clients</h1><p>Restaurant accounts by savings identified, open actions, vendor spend, and status</p></div><button class="btn btn-primary" onclick="showPage('addclient')"><i class="ti ti-plus"></i> Add client</button></div>
         <div class="card">
-          <div class="client-row"><div class="avatar">C1</div><div class="client-info"><p>Client 1</p><span>Flagship hospitality group - 4 open actions - $3.2M vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 72%;"></div></div></div><span class="badge badge-success">$492K found</span><button class="btn" onclick="openClientReportModal('client1')"><i class="ti ti-chart-bar"></i> View account</button></div>
-          <div class="client-row"><div class="avatar" style="background: var(--green-soft); color: var(--green);">C2</div><div class="client-info"><p>Client 2</p><span>Boutique hotel operator - 3 open actions - $1.8M vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 55%; background: var(--green);"></div></div></div><span class="badge badge-success">$141K found</span><button class="btn" onclick="openClientReportModal('client2')"><i class="ti ti-chart-bar"></i> View account</button></div>
-          <div class="client-row"><div class="avatar" style="background: var(--amber-soft); color: var(--amber);">C3</div><div class="client-info"><p>Client 3</p><span>Independent resort group - 2 open actions - $890K vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 30%; background: var(--amber);"></div></div></div><span class="badge badge-warning">$73K draft</span><button class="btn" onclick="openClientReportModal('client3')"><i class="ti ti-chart-bar"></i> View account</button></div>
+          <div class="client-row"><div class="avatar">C1</div><div class="client-info"><p>Client 1</p><span>Flagship restaurant group - 4 open actions - $3.2M vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 72%;"></div></div></div><span class="badge badge-success">$492K found</span><button class="btn" onclick="openClientReportModal('client1')"><i class="ti ti-chart-bar"></i> View account</button></div>
+          <div class="client-row"><div class="avatar" style="background: var(--green-soft); color: var(--green);">C2</div><div class="client-info"><p>Client 2</p><span>Fine dining restaurant operator - 3 open actions - $1.8M vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 55%; background: var(--green);"></div></div></div><span class="badge badge-success">$141K found</span><button class="btn" onclick="openClientReportModal('client2')"><i class="ti ti-chart-bar"></i> View account</button></div>
+          <div class="client-row"><div class="avatar" style="background: var(--amber-soft); color: var(--amber);">C3</div><div class="client-info"><p>Client 3</p><span>Independent restaurant group - 2 open actions - $890K vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 30%; background: var(--amber);"></div></div></div><span class="badge badge-warning">$73K draft</span><button class="btn" onclick="openClientReportModal('client3')"><i class="ti ti-chart-bar"></i> View account</button></div>
         </div>
       </section>
 
@@ -2582,7 +2582,7 @@
         <div class="topbar">
           <div class="page-header">
             <h1>Product demo</h1>
-            <p>How a hospitality client request moves from files to approved vendor action</p>
+            <p>How a restaurant client request moves from files to approved vendor action</p>
           </div>
           <div class="header-actions">
             <button class="btn" onclick="setDemoStep(0)"><i class="ti ti-reload"></i> Restart</button>
@@ -2649,7 +2649,7 @@
               <div class="demo-script">Questions have their own tab so approvals do not get buried. The client can ask about assumptions, timing, vendor impact, or missing files before deciding.</div>
               <textarea class="workspace-output">Can you show how the Payment Processor A savings estimate changes if implementation takes 60 days instead of 30?
 
-Also confirm whether the Food Distributor A notice preserves service continuity across our hospitality venues.</textarea>
+Also confirm whether the Food Distributor A notice preserves service continuity for our restaurants.</textarea>
               <div class="workflow-actions" style="justify-content: flex-start; margin-top: 1rem;">
                 <button class="btn btn-primary" onclick="nextDemoStep()">Show report</button>
               </div>
@@ -2747,7 +2747,7 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
       </section>
 
       <section class="page" id="page-report">
-        <div class="topbar"><div class="page-header"><h1 id="report-title">Client 1 workspace</h1><p id="report-subtitle">Premium hospitality audit completed May 2026</p></div><button class="btn" onclick="exportCurrentReport()"><i class="ti ti-download"></i> Export summary</button></div>
+        <div class="topbar"><div class="page-header"><h1 id="report-title">Client 1 workspace</h1><p id="report-subtitle">Premium restaurant audit completed May 2026</p></div><button class="btn" onclick="exportCurrentReport()"><i class="ti ti-download"></i> Export summary</button></div>
         <div class="report-tabs">
           <button class="filter-chip active" data-report-tab="client1" onclick="setReportClient('client1')">Client 1</button>
           <button class="filter-chip" data-report-tab="client2" onclick="setReportClient('client2')">Client 2</button>
@@ -2763,7 +2763,7 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
             <span class="badge badge-info" id="report-status">Report final</span>
           </div>
             <h2 id="report-summary-title">$492K in annual savings identified.</h2>
-            <p id="report-summary-copy">Larder found the vendor intelligence below by reviewing contracts, renewal windows, risk signals, and hospitality category benchmarks. The table shows what to do first and why it matters.</p>
+            <p id="report-summary-copy">Larder found the vendor intelligence below by reviewing contracts, renewal windows, risk signals, and restaurant category benchmarks. The table shows what to do first and why it matters.</p>
             <div class="report-facts">
               <div class="report-fact"><span>Spend reviewed</span><strong id="report-spend">$3.2M</strong></div>
               <div class="report-fact"><span>Savings rate</span><strong id="report-rate">15.4%</strong></div>
@@ -2797,7 +2797,7 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
               <small id="selected-action-meta">Payment processing - $252K - Next 14-30 days</small>
             </div>
             <h3 id="action-title">Payment processing consolidation</h3>
-            <p id="action-description">Issue RFP to three hospitality-focused processors and benchmark against Payment Processor A.</p>
+            <p id="action-description">Issue RFP to three restaurant-focused processors and benchmark against Payment Processor A.</p>
             <div class="workspace-field"><span>Client</span><strong id="action-client">Client 1</strong></div>
             <div class="workspace-field"><span>Savings estimate</span><strong class="positive" id="action-savings">$252K</strong></div>
             <div class="workspace-field"><span>Current spend</span><strong id="action-spend">$520K</strong></div>
@@ -2917,19 +2917,19 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
             <div class="document-list" style="margin-top: 0;">
               <div class="document-item"><div><p class="vendor-name">Payment Processor A processing statement</p><span class="card-meta">Used to calculate current effective rate and fee stack.</span></div><span class="badge badge-success">Reviewed</span></div>
               <div class="document-item"><div><p class="vendor-name">Food Distributor A purchase summary</p><span class="card-meta">Used to benchmark pricing, escalation terms, and renewal leverage.</span></div><span class="badge badge-success">Reviewed</span></div>
-              <div class="document-item"><div><p class="vendor-name">Waste invoice sample by venue</p><span class="card-meta">Used to estimate volume consolidation savings.</span></div><span class="badge badge-warning">Needs final sample</span></div>
+              <div class="document-item"><div><p class="vendor-name">Waste invoice sample by restaurant</p><span class="card-meta">Used to estimate volume consolidation savings.</span></div><span class="badge badge-warning">Needs final sample</span></div>
             </div>
           </div>
           <div class="card">
             <div class="card-header">
               <div>
-                <span class="card-title">Hospitality methodology</span>
-                <div class="card-meta">How Larder frames savings for premium restaurants and hotels</div>
+                <span class="card-title">Restaurant methodology</span>
+                <div class="card-meta">How Larder frames savings for premium restaurant operators</div>
               </div>
             </div>
             <div class="report-action-list">
               <div class="report-action"><div class="report-action-number">1</div><div><p>Normalize spend by category.</p><span>Statements, purchase summaries, and invoice samples were grouped by vendor category.</span></div></div>
-              <div class="report-action"><div class="report-action-number">2</div><div><p>Benchmark against hospitality operating data.</p><span>Effective rates, renewal terms, and escalation clauses were compared against restaurant and hotel operating norms.</span></div></div>
+              <div class="report-action"><div class="report-action-number">2</div><div><p>Benchmark against restaurant operating data.</p><span>Effective rates, renewal terms, and escalation clauses were compared against premium restaurant operating norms.</span></div></div>
               <div class="report-action"><div class="report-action-number">3</div><div><p>Prioritize actionable decisions.</p><span>Recommendations were ranked by savings, confidence, urgency, and operational effort.</span></div></div>
             </div>
           </div>
@@ -3144,7 +3144,7 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
         <div class="topbar">
           <div class="page-header">
             <h1>Documents</h1>
-            <p>Upload source files from restaurant, hotel, and hospitality vendor relationships for Larder to process in Vendor intake</p>
+            <p>Upload source files from restaurant vendor relationships for Larder to process in Vendor intake</p>
           </div>
           <button class="btn" onclick="showPage('clientapprovals')"><i class="ti ti-check"></i> Go to approvals</button>
         </div>
@@ -3166,15 +3166,15 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
           <div class="document-list">
             <div class="document-item" data-document-index="0"><div><p class="vendor-name">Latest Payment Processor A processing statement</p><span class="card-meta">Received May 18</span></div><span class="badge badge-success">Received</span></div>
             <div class="document-item" data-document-index="1"><div><p class="vendor-name">Food Distributor A trailing 12-month purchase summary</p><span class="card-meta">Needed for MFN benchmark</span></div><span class="badge badge-warning">Needed</span></div>
-            <div class="document-item" data-document-index="2"><div><p class="vendor-name">Waste invoice sample by venue</p><span class="card-meta">Needed for consolidated rate request</span></div><span class="badge badge-warning">Needed</span></div>
+            <div class="document-item" data-document-index="2"><div><p class="vendor-name">Waste invoice sample by restaurant</p><span class="card-meta">Needed for consolidated rate request</span></div><span class="badge badge-warning">Needed</span></div>
           </div>
           <div class="empty-state" id="documents-complete-state" hidden>All requested source documents are received. Larder can complete intake and keep the report evidence trail current.</div>
         </div>
       </section>
 
       <section class="page" id="page-addclient">
-        <div class="topbar"><div class="page-header"><h1>Add client</h1><p>Set up a premium restaurant group, hotel group, or hospitality operator for vendor intelligence review</p></div></div>
-        <div class="card" style="max-width: 640px;"><div class="form-row"><div><label>Group name</label><input type="text" placeholder="e.g. Client 1"></div><div><label>Hospitality profile</label><input type="text" placeholder="e.g. Boutique hotel group"></div></div><div class="form-row"><div><label>Primary contact name</label><input type="text" placeholder="CFO or COO name"></div><div><label>Contact email</label><input type="email" placeholder="contact@group.com"></div></div><label>Estimated annual vendor spend</label><select><option>Under $500K</option><option>$500K - $1M</option><option selected>$1M - $3M</option><option>$3M - $10M</option><option>Over $10M</option></select><label>Vendor categories to audit</label><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px;"><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox" checked> Food distribution</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox" checked> Payment processing</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Linen & uniforms</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Pest control</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Waste management</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Equipment maintenance</label></div><label>Notes for this engagement</label><textarea rows="3" placeholder="Referral source, service standards, timeline..."></textarea><button class="btn btn-primary" onclick="sendPrompt('I just added a new premium hospitality client. What should my first steps be for onboarding them and starting the vendor intelligence review?')"><i class="ti ti-check"></i> Add client and start review</button></div>
+        <div class="topbar"><div class="page-header"><h1>Add client</h1><p>Set up a premium restaurant operator for vendor intelligence review</p></div></div>
+        <div class="card" style="max-width: 640px;"><div class="form-row"><div><label>Group name</label><input type="text" placeholder="e.g. Client 1"></div><div><label>Restaurant profile</label><input type="text" placeholder="e.g. Fine dining group"></div></div><div class="form-row"><div><label>Primary contact name</label><input type="text" placeholder="CFO or COO name"></div><div><label>Contact email</label><input type="email" placeholder="contact@group.com"></div></div><label>Estimated annual vendor spend</label><select><option>Under $500K</option><option>$500K - $1M</option><option selected>$1M - $3M</option><option>$3M - $10M</option><option>Over $10M</option></select><label>Vendor categories to audit</label><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px;"><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox" checked> Food distribution</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox" checked> Payment processing</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Linen & uniforms</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Pest control</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Waste management</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Equipment maintenance</label></div><label>Notes for this engagement</label><textarea rows="3" placeholder="Referral source, service standards, timeline..."></textarea><button class="btn btn-primary" onclick="sendPrompt('I just added a new premium restaurant client. What should my first steps be for onboarding them and starting the vendor intelligence review?')"><i class="ti ti-check"></i> Add client and start review</button></div>
       </section>
     </main>
   </div>
@@ -3210,7 +3210,7 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
     const reports = {
       client1: {
         title: 'Savings report - Client 1',
-        subtitle: 'Premium hospitality audit completed May 2026',
+        subtitle: 'Premium restaurant audit completed May 2026',
         spend: '$3.2M',
         savings: '$492K',
         rate: '15.4% of total spend',
@@ -3228,7 +3228,7 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
           ['Pest control', '$62K', '$19K', 'Renegotiation at renewal', 'Low']
         ],
         timeline: [
-          ['Payment processing consolidation', 'Issue RFP to 3 hospitality-focused processors. Complete before Payment Processor A renewal July 8.', '$252K', 'High'],
+          ['Payment processing consolidation', 'Issue RFP to 3 restaurant-focused processors. Complete before Payment Processor A renewal July 8.', '$252K', 'High'],
           ['Food Distributor A renegotiation', 'Send notice of non-renewal by Jun 3 to trigger renegotiation. Request MFN clause and 2% escalation cap.', '$181K', 'High'],
           ['Waste management audit', 'Request volume summary from current provider and compare against consolidated rate schedule.', '$40K', 'Medium'],
           ['Pest control renewal review', 'Benchmark current service-tier pricing and prepare a renewal counteroffer.', '$19K', 'Low']
@@ -3236,7 +3236,7 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
       },
       client2: {
         title: 'Savings report - Client 2',
-        subtitle: 'Boutique hotel audit completed May 2026',
+        subtitle: 'Fine dining restaurant audit completed May 2026',
         spend: '$1.8M',
         savings: '$141K',
         rate: '7.8% of total spend',
@@ -3254,14 +3254,14 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
           ['POS support', '$74K', '$8K', 'Seat count correction', 'Low']
         ],
         timeline: [
-          ['Consolidate linen vendors', 'Move from fragmented suppliers to one premium hospitality rate card before Linen Vendor A renewal June 11.', '$91K', 'High'],
-          ['Normalize janitorial SKUs', 'Lock preferred items and remove venue-level substitutions from recurring orders.', '$28K', 'Medium'],
-          ['Audit uniform replacement charges', 'Review trailing 12-month damage and replacement fees by venue.', '$14K', 'Medium']
+          ['Consolidate linen vendors', 'Move from fragmented suppliers to one premium restaurant rate card before Linen Vendor A renewal June 11.', '$91K', 'High'],
+          ['Normalize janitorial SKUs', 'Lock preferred items and remove restaurant-level substitutions from recurring orders.', '$28K', 'Medium'],
+          ['Audit uniform replacement charges', 'Review trailing 12-month damage and replacement fees by restaurant.', '$14K', 'Medium']
         ]
       },
       client3: {
         title: 'Savings report - Client 3',
-        subtitle: 'Independent resort audit in progress May 2026',
+        subtitle: 'Independent restaurant audit in progress May 2026',
         spend: '$890K',
         savings: '$73K',
         rate: '8.2% of reviewed spend',
@@ -3278,7 +3278,7 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
           ['Equipment maintenance', '$146K', '$8K', 'Duplicate coverage removal', 'Low']
         ],
         timeline: [
-          ['Pest control renegotiation', 'Request revised pricing for premium hospitality coverage and remove legacy auto-renewal language.', '$54K', 'High'],
+          ['Pest control renegotiation', 'Request revised pricing for premium restaurant coverage and remove legacy auto-renewal language.', '$54K', 'High'],
           ['Sanitation vendor scope review', 'Separate required sanitation coverage from optional service add-ons before July 1 renewal.', '$11K', 'Medium'],
           ['Maintenance coverage cleanup', 'Compare equipment list against current service schedule and remove duplicate coverage.', '$8K', 'Low']
         ]
@@ -3299,7 +3299,7 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
     let requestedDocuments = [
       { label: 'Latest Payment Processor A processing statement', received: true },
       { label: 'Food Distributor A trailing 12-month purchase summary', received: false },
-      { label: 'Waste invoice sample by venue', received: false }
+      { label: 'Waste invoice sample by restaurant', received: false }
     ];
     const users = {
       operator: {
@@ -3573,7 +3573,7 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
         'Waste management': {
           label: 'Request invoices',
           icon: 'ti ti-file-invoice',
-          prompt: 'Prepare a client request for waste invoice samples by venue and a provider volume summary.'
+          prompt: 'Prepare a client request for waste invoice samples by restaurant and a provider volume summary.'
         },
         'Pest control': {
           label: 'Benchmark pricing',
@@ -3674,7 +3674,7 @@ Vendors to invite: ${fieldValue(fields, 'vendors')}
 Estimated savings: ${action.savings}
 
 Request:
-Please provide proposed pricing, interchange-plus details, monthly fees, chargeback fees, hardware/software requirements, and implementation timeline for a premium hospitality group.
+Please provide proposed pricing, interchange-plus details, monthly fees, chargeback fees, hardware/software requirements, and implementation timeline for a premium restaurant group.
 
 Decision needed:
 Approve Larder to issue this RFP and compare responses against the current ${fieldValue(fields, 'current_processor')} effective rate.`
@@ -3708,28 +3708,28 @@ Please send available times to review pricing, escalation language, and comparab
           outputTitle: 'Document request draft',
           fields: [
             { id: 'provider', label: 'Current provider', value: 'Current waste provider' },
-            { id: 'venues', label: 'Venues to sample', value: 'Primary restaurant, bar, and event space' },
+            { id: 'restaurants', label: 'Restaurants to sample', value: 'Primary restaurant, bar, and private dining' },
             { id: 'files', label: 'Files needed', value: 'Recent invoices, pickup schedule, volume summary' },
             ...common.fields
           ],
-          checklist: ['Request sample invoices', 'Collect pickup schedule', 'Confirm venue volume', 'Compare consolidated rate'],
+          checklist: ['Request sample invoices', 'Collect pickup schedule', 'Confirm restaurant volume', 'Compare consolidated rate'],
           build: fields => `Document request - ${action.client}
 
 To complete the waste management audit, please upload:
 ${fieldValue(fields, 'files')}
 
 Provider: ${fieldValue(fields, 'provider')}
-Venues: ${fieldValue(fields, 'venues')}
+Restaurants: ${fieldValue(fields, 'restaurants')}
 Estimated savings: ${action.savings}
 
-Once received, Larder will reconcile venue volume against the current pickup schedule and prepare a consolidated rate request.`
+Once received, Larder will reconcile restaurant volume against the current pickup schedule and prepare a consolidated rate request.`
         },
         'Pest control': {
           title: 'Benchmark and counteroffer',
           outputTitle: 'Counteroffer outline',
           fields: [
             { id: 'vendor', label: 'Vendor', value: 'Current pest provider' },
-            { id: 'service_profile', label: 'Service profile', value: 'Premium hospitality coverage' },
+            { id: 'service_profile', label: 'Service profile', value: 'Premium restaurant coverage' },
             { id: 'benchmark', label: 'Benchmark basis', value: 'Current market rate for service tier' },
             ...common.fields
           ],
@@ -3742,7 +3742,7 @@ Benchmark basis: ${fieldValue(fields, 'benchmark')}
 Estimated savings: ${action.savings}
 
 Counteroffer:
-Request revised pricing based on the current premium hospitality service profile, removal of legacy auto-renewal language, and clearer service-level terms.`
+Request revised pricing based on the current premium restaurant service profile, removal of legacy auto-renewal language, and clearer service-level terms.`
         }
       };
       return templates[action.category] || {
@@ -3972,10 +3972,10 @@ ${action.evidence}`
       const evidence = {
         'Payment processing': 'Rate spread across processors, card volume concentration, and effective fee benchmark.',
         'Food distribution': 'Escalation clause, missing MFN protection, and comparable volume discount schedule.',
-        'Waste management': 'Venue-level invoice variance and inconsistent pickup frequency across legacy contracts.',
+        'Waste management': 'Restaurant-level invoice variance and inconsistent pickup frequency across legacy contracts.',
         'Pest control': 'Repeated auto-renewals and service-tier pricing above current market rate.',
         'Linen & uniforms': 'Fragmented vendor rate cards and inconsistent replacement fee terms.',
-        'Janitorial supplies': 'Recurring order substitutions and duplicate SKUs across hospitality purchasing.',
+        'Janitorial supplies': 'Recurring order substitutions and duplicate SKUs across restaurant purchasing.',
         'Uniform replacement fees': 'Damage and replacement fees above negotiated thresholds.',
         'POS support': 'Seat count and support tier mismatch against actual usage.',
         'Sanitation': 'Bundled optional services and uncapped escalation language.',
