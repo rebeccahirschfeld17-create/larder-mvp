@@ -10,27 +10,31 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
   <style>
     :root {
-      --bg: #f6f6f4;
+      --bg: #f4f5f2;
       --panel: #ffffff;
-      --panel-soft: #f8f8f7;
-      --ink: #101010;
-      --muted: #666666;
-      --muted-light: #8a8a8a;
-      --line: #d7d7d2;
-      --line-soft: #e8e8e3;
-      --blue: #2563eb;
-      --blue-dark: #1d4ed8;
-      --blue-soft: #eff5ff;
-      --green: #067647;
-      --green-soft: #ecfdf3;
-      --amber: #b54708;
-      --amber-soft: #fffaeb;
-      --red: #b42318;
-      --red-soft: #fef3f2;
-      --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.05);
-      --shadow-md: 0 10px 30px rgba(16, 24, 40, 0.08);
-      --radius-lg: 4px;
-      --radius-md: 4px;
+      --panel-soft: #f8faf7;
+      --panel-tint: #eef4ef;
+      --ink: #18201c;
+      --muted: #5f675f;
+      --muted-light: #8b9389;
+      --line: #d9ded5;
+      --line-soft: #e8ece4;
+      --brand: #173f35;
+      --brand-2: #2f6b5d;
+      --accent: #d6a84f;
+      --blue: #2f5f9f;
+      --blue-dark: #244c82;
+      --blue-soft: #eef4fb;
+      --green: #1d6b4f;
+      --green-soft: #edf8f2;
+      --amber: #a76616;
+      --amber-soft: #fff7e8;
+      --red: #a64232;
+      --red-soft: #fff0ed;
+      --shadow-sm: 0 1px 2px rgba(24, 32, 28, 0.04);
+      --shadow-md: 0 16px 40px rgba(24, 32, 28, 0.10);
+      --radius-lg: 6px;
+      --radius-md: 5px;
       --radius-sm: 3px;
     }
 
@@ -66,76 +70,97 @@
       min-height: 100vh;
       display: none;
       place-items: center;
-      padding: 1.5rem;
-      background: var(--bg);
+      padding: clamp(2rem, 6vw, 5rem);
+      background:
+        linear-gradient(90deg, #fbfcfa 0 58%, var(--bg) 58% 100%);
     }
 
     .auth-view .auth-screen { display: grid; }
 
     .auth-card {
-      width: min(920px, 100%);
+      width: min(1080px, 100%);
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      border: 1px solid var(--line);
-      background: #fff;
-      box-shadow: var(--shadow-md);
+      grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.7fr);
+      gap: clamp(2rem, 7vw, 5.5rem);
+      align-items: center;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+      overflow: visible;
+      border-radius: 0;
     }
 
     .auth-brand {
-      padding: 2rem;
-      border-right: 1px solid var(--line);
-      background: #f8f8f6;
+      padding: 0;
+      border-right: 0;
+      background: transparent;
     }
 
     .auth-brand h1 {
-      font-size: 28px;
-      line-height: 1.1;
-      margin: 1.25rem 0 0.75rem;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 0.95;
+      margin: 0 0 1.2rem;
+      color: var(--brand);
+      letter-spacing: -0.04em;
     }
 
     .auth-brand p {
       color: var(--muted);
-      line-height: 1.55;
-      font-size: 14px;
+      line-height: 1.6;
+      font-size: 18px;
+      max-width: 590px;
     }
 
     .auth-options {
-      padding: 2rem;
+      padding: 0;
       display: grid;
-      gap: 12px;
+      gap: 0;
       align-content: center;
+      border-top: 1px solid var(--line);
     }
 
     .auth-option {
       width: 100%;
       display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 12px;
+      grid-template-columns: 1fr;
+      gap: 0;
       align-items: center;
-      padding: 14px;
-      border: 1px solid var(--line);
-      background: #fff;
+      padding: 18px 0;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      background: transparent;
       color: var(--ink);
       text-align: left;
       cursor: pointer;
       font: inherit;
-      border-radius: 4px;
+      border-radius: 0;
+      box-shadow: none;
     }
 
     .auth-option:hover {
-      border-color: var(--ink);
-      background: #fbfbfa;
+      border-color: var(--line);
+      background: rgba(23, 63, 53, 0.06);
+      box-shadow: none;
+      color: var(--brand);
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    .auth-option:hover span,
+    .auth-option:hover p {
+      color: var(--brand);
     }
 
     .auth-option p {
       font-weight: 800;
-      font-size: 14px;
-      margin-bottom: 3px;
+      font-size: 16px;
+      margin-bottom: 6px;
     }
 
     .auth-option span {
       color: var(--muted);
-      font-size: 12px;
+      font-size: 13px;
+      line-height: 1.5;
     }
 
     .auth-icon {
@@ -144,14 +169,15 @@
       display: grid;
       place-items: center;
       border: 1px solid var(--line);
-      background: #f8f8f6;
+      background: var(--panel-tint);
       border-radius: 4px;
+      color: var(--brand);
     }
 
     .sidebar {
       width: 232px;
       min-width: 232px;
-      background: #ffffff;
+      background: #fbfcfa;
       border-right: 1px solid var(--line);
       display: flex;
       flex-direction: column;
@@ -162,34 +188,80 @@
     }
 
     .sidebar-logo {
+      display: block;
       padding: 0.35rem 0.55rem 1.1rem;
       margin-bottom: 0.45rem;
     }
 
     .brand-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 4px;
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
       display: grid;
       place-items: center;
-      color: #fff;
-      background: #111827;
+      color: var(--brand);
+      background: #fff;
+      border: 1px solid var(--brand);
       box-shadow: none;
-      margin-bottom: 0.7rem;
+      margin-bottom: 0;
+      position: relative;
+      overflow: hidden;
+      font-size: 0;
     }
 
+    .brand-mark i { display: none; }
+
+    .auth-brand .brand-mark,
+    .sidebar-logo .brand-mark {
+      display: none;
+    }
+
+    .brand-mark::before {
+      content: "";
+      width: 22px;
+      height: 18px;
+      border-left: 3px solid var(--brand);
+      background:
+        linear-gradient(var(--brand) 0 0) 0 2px / 20px 2px no-repeat,
+        linear-gradient(var(--brand-2) 0 0) 0 8px / 16px 2px no-repeat,
+        linear-gradient(var(--brand-2) 0 0) 0 14px / 12px 2px no-repeat;
+      z-index: 1;
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .auth-brand .brand-mark {
+      width: 46px;
+      height: 46px;
+      margin-bottom: 1.15rem;
+    }
+
+    .auth-brand .brand-mark::before { transform: scale(1.08); }
     .sidebar-logo p {
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 800;
       letter-spacing: 0;
-      color: var(--ink);
+      color: var(--brand);
+      line-height: 1;
     }
 
     .sidebar-logo span {
       display: block;
-      font-size: 11px;
-      color: var(--muted);
-      margin-top: 3px;
+      font-size: 10px;
+      color: var(--muted-light);
+      margin-top: 7px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .nav-item {
@@ -200,24 +272,25 @@
       margin: 1px 0;
       border-radius: 4px;
       font-size: 13px;
-      color: #4b4b4b;
+      color: var(--muted);
       cursor: pointer;
       transition: 0.18s ease;
     }
 
     .nav-item:hover {
-      background: #f3f3f0;
-      color: var(--ink);
+      background: #eff4ef;
+      color: var(--brand);
     }
 
     .nav-item.active {
-      color: var(--ink);
-      background: #eeeeea;
+      color: var(--brand);
+      background: #e9f1ec;
       font-weight: 700;
+      box-shadow: inset 3px 0 0 var(--brand);
     }
 
-    .nav-item i { font-size: 17px; color: #6d6d6d; }
-    .nav-item.active i { color: var(--ink); }
+    .nav-item i { font-size: 17px; color: var(--muted-light); }
+    .nav-item.active i { color: var(--brand); }
 
     .view-switch {
       display: grid;
@@ -226,7 +299,7 @@
       padding: 0.45rem;
       margin: 0 0 0.85rem;
       border: 1px solid var(--line);
-      background: #f7f7f4;
+      background: var(--panel-tint);
       border-radius: 4px;
     }
 
@@ -247,7 +320,7 @@
     .view-option.active {
       color: var(--ink);
       background: #fff;
-      box-shadow: var(--shadow-sm);
+      box-shadow: none;
     }
 
     .client-role .view-switch { display: none; }
@@ -260,6 +333,7 @@
     .demo-role .demo-only { display: flex; }
     .demo-role .page:not(#page-demo) { display: none !important; }
     .demo-role #page-demo.active { display: block !important; }
+    #page-demo .hero { grid-template-columns: 1fr; }
     .client-role [data-report-tab="ushg"],
     .client-role [data-report-tab="nobu"] { display: none; }
     .client-role .workflow-card { display: none; }
@@ -269,7 +343,7 @@
       margin-top: auto;
       padding: 0.85rem;
       border-radius: 4px;
-      background: #f7f7f4;
+      background: var(--panel-tint);
       color: var(--ink);
       border: 1px solid var(--line-soft);
       box-shadow: none;
@@ -307,7 +381,7 @@
     .main {
       flex: 1;
       overflow-y: auto;
-      padding: 1.25rem 1.5rem 2rem;
+      padding: 1.65rem 2rem 2.5rem;
     }
 
     .page { display: none; animation: fadeUp 0.22s ease; }
@@ -333,7 +407,7 @@
       line-height: 1.15;
       font-weight: 800;
       letter-spacing: 0;
-      color: var(--ink);
+      color: var(--brand);
     }
 
     .page-header p {
@@ -365,25 +439,30 @@
     .hero {
       display: grid;
       grid-template-columns: 1.4fr 0.8fr;
-      gap: 1rem;
-      margin-bottom: 1.25rem;
+      gap: 1px;
+      margin-bottom: 1.4rem;
+      border: 1px solid var(--line);
+      background: var(--line);
+      border-radius: 4px;
+      overflow: hidden;
     }
 
     .hero-card {
       position: relative;
       overflow: hidden;
-      border-radius: 8px;
-      padding: 1.25rem;
+      padding: 1.4rem;
       color: var(--ink);
       background: #ffffff;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow-sm);
+      border: 0;
+      box-shadow: none;
     }
 
     .hero-card h2 {
-      font-size: 21px;
+      font-size: 23px;
+      line-height: 1.16;
       letter-spacing: 0;
       margin-bottom: 8px;
+      color: var(--brand);
     }
 
     .hero-card p {
@@ -425,11 +504,10 @@
     }
 
     .insight-card {
-      border-radius: 8px;
-      padding: 1.25rem;
+      padding: 1.4rem;
       background: #ffffff;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow-sm);
+      border: 0;
+      box-shadow: none;
     }
 
     .insight-card small {
@@ -444,6 +522,7 @@
       margin-top: 0.55rem;
       font-size: 17px;
       letter-spacing: 0;
+      color: var(--brand);
     }
 
     .insight-card p {
@@ -456,13 +535,14 @@
     .dashboard-focus {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
-      gap: 1rem;
-      margin-bottom: 1rem;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
     }
 
     .focus-list {
       display: grid;
-      gap: 10px;
+      gap: 0;
+      border-top: 1px solid var(--line-soft);
     }
 
     .focus-item {
@@ -470,10 +550,16 @@
       grid-template-columns: auto 1fr auto;
       gap: 12px;
       align-items: center;
-      padding: 12px;
-      border: 1px solid var(--line-soft);
-      border-radius: 4px;
-      background: var(--panel-soft);
+      padding: 13px 0;
+      border: 0;
+      border-bottom: 1px solid var(--line-soft);
+      background: #fff;
+      transition: 0.18s ease;
+    }
+
+    .focus-item:hover {
+      background: #fbfcfa;
+      box-shadow: none;
     }
 
     .focus-icon {
@@ -483,8 +569,8 @@
       place-items: center;
       border: 1px solid var(--line);
       border-radius: 4px;
-      background: #fff;
-      color: var(--ink);
+      background: var(--panel-tint);
+      color: var(--brand);
       flex-shrink: 0;
     }
 
@@ -509,16 +595,20 @@
     .metrics {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
+      gap: 1px;
       margin-bottom: 1.25rem;
+      border: 1px solid var(--line);
+      background: var(--line);
+      border-radius: 4px;
+      overflow: hidden;
     }
 
     .metric {
       background: #ffffff;
-      border: 1px solid var(--line);
-      border-radius: 8px;
+      border: 0;
+      border-radius: 0;
       padding: 0.95rem 1rem;
-      box-shadow: var(--shadow-sm);
+      box-shadow: none;
     }
 
     .metric-label {
@@ -542,10 +632,10 @@
     .card {
       background: #ffffff;
       border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      padding: 1rem;
-      margin-bottom: 1rem;
-      box-shadow: var(--shadow-sm);
+      border-radius: 4px;
+      padding: 1rem 1.05rem;
+      margin-bottom: 1.25rem;
+      box-shadow: none;
     }
 
     .card-header {
@@ -553,13 +643,16 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--line-soft);
     }
 
     .card-title {
       font-size: 16px;
       font-weight: 800;
       letter-spacing: 0;
+      color: var(--brand);
     }
 
     .badge {
@@ -574,10 +667,10 @@
       white-space: nowrap;
     }
 
-    .badge-danger { background: var(--red-soft); color: var(--red); border: 1px solid #fecdca; }
-    .badge-warning { background: var(--amber-soft); color: var(--amber); border: 1px solid #fedf89; }
-    .badge-success { background: var(--green-soft); color: var(--green); border: 1px solid #abefc6; }
-    .badge-info { background: var(--blue-soft); color: var(--blue); border: 1px solid #b2ddff; }
+    .badge-danger { background: var(--red-soft); color: var(--red); border: 1px solid #f1c6bd; }
+    .badge-warning { background: var(--amber-soft); color: var(--amber); border: 1px solid #edd2a2; }
+    .badge-success { background: var(--green-soft); color: var(--green); border: 1px solid #b9decb; }
+    .badge-info { background: var(--blue-soft); color: var(--blue); border: 1px solid #c6d7ee; }
 
     table {
       width: 100%;
@@ -606,15 +699,15 @@
 
     tr:last-child td { border-bottom: none; }
     tbody tr { transition: 0.15s ease; }
-    tbody tr:hover td { background: #fafafa; }
+    tbody tr:hover td { background: #f9fbf8; }
 
     .clickable-row {
       cursor: pointer;
     }
 
     .clickable-row.active td {
-      background: #f8f8f6;
-      box-shadow: inset 3px 0 0 var(--ink);
+      background: var(--panel-soft);
+      box-shadow: inset 3px 0 0 var(--brand);
     }
 
     .btn {
@@ -623,40 +716,46 @@
       justify-content: center;
       gap: 7px;
       padding: 8px 12px;
-      border-radius: 8px;
+      border-radius: 4px;
       font-size: 13px;
       font-weight: 720;
       cursor: pointer;
       border: 1px solid var(--line);
       background: #fff;
       color: var(--ink);
-      box-shadow: none;
+      box-shadow: 0 1px 0 rgba(24, 32, 28, 0.02);
       transition: 0.18s ease;
     }
 
     .btn:hover {
-      background: #f9fafb;
+      background: #f7faf7;
+      border-color: var(--brand-2);
     }
 
     .btn-primary {
-      background: var(--ink);
+      background: var(--brand);
       color: white;
       border-color: transparent;
     }
 
+    .btn-primary:hover {
+      background: #102d26;
+      border-color: transparent;
+    }
+
     .upload-zone {
-      border: 1.5px dashed #b8c4d9;
-      border-radius: 8px;
+      border: 1.5px dashed #b8c8bd;
+      border-radius: 4px;
       padding: 2.7rem;
       text-align: center;
       cursor: pointer;
       transition: 0.18s ease;
-      background: #fcfcfd;
+      background: #fbfcfa;
     }
 
     .upload-zone:hover {
-      border-color: var(--ink);
-      background: #f6f6f4;
+      border-color: var(--brand-2);
+      background: #f3f7f3;
     }
 
     .upload-zone.dragging {
@@ -672,8 +771,8 @@
       place-items: center;
       margin: 0 auto 14px;
       font-size: 26px;
-      color: var(--ink);
-      background: #eeeeea;
+      color: var(--brand);
+      background: var(--panel-tint);
     }
 
     .upload-zone p { font-size: 15px; font-weight: 720; }
@@ -706,9 +805,9 @@
       display: grid;
       place-items: center;
       border: 1px solid var(--line);
-      background: #f8f8f6;
+      background: var(--panel-tint);
       border-radius: 4px;
-      color: var(--ink);
+      color: var(--brand);
       flex-shrink: 0;
     }
 
@@ -736,10 +835,10 @@
 
     .analysis-result {
       border: 1px solid var(--line);
-      border-left: 3px solid var(--ink);
+      border-left: 3px solid var(--brand);
       padding: 1rem 1.1rem;
-      background: #fcfcfd;
-      border-radius: 8px;
+      background: #fff;
+      border-radius: 4px;
       margin-bottom: 0.75rem;
     }
 
@@ -784,12 +883,13 @@
       border: 1px solid var(--line);
       background: #fff;
       cursor: pointer;
+      box-shadow: none;
     }
 
     .demo-step.active {
-      border-color: var(--ink);
-      background: #f8f8f6;
-      box-shadow: inset 3px 0 0 var(--ink);
+      border-color: var(--brand);
+      background: #eef5ef;
+      box-shadow: inset 3px 0 0 var(--brand);
     }
 
     .demo-step-number {
@@ -798,7 +898,7 @@
       display: grid;
       place-items: center;
       border: 1px solid var(--line);
-      background: var(--panel-soft);
+      background: #fff;
       font-size: 12px;
       font-weight: 800;
     }
@@ -822,21 +922,74 @@
       display: block;
     }
 
-    .evidence-grid {
+    .demo-outcome {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      margin: 1rem 0 1.2rem;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .demo-outcome div {
+      background: #fff;
+      padding: 12px;
+    }
+
+    .demo-outcome span,
+    .demo-proof span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .demo-outcome strong {
+      display: block;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .demo-proof {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 1px;
+      margin-bottom: 1rem;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .demo-proof div {
+      background: #fff;
+      padding: 12px;
+    }
+
+    .demo-proof p {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--ink);
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 10px;
     }
 
     .evidence-card {
       border: 1px solid var(--line-soft);
-      background: var(--panel-soft);
+      background: #fff;
       padding: 12px;
+      box-shadow: none;
     }
 
     .evidence-card i {
       font-size: 20px;
       margin-bottom: 10px;
+      color: var(--brand);
     }
 
     .evidence-card p {
@@ -853,12 +1006,12 @@
     }
 
     .demo-script {
-      border-left: 3px solid var(--ink);
-      padding: 10px 12px;
+      border-left: 3px solid var(--brand);
+      padding: 11px 12px;
       margin-bottom: 1rem;
-      background: #fbfbfa;
-      color: var(--muted);
-      font-size: 13px;
+      background: var(--panel-soft);
+      color: var(--ink);
+      font-size: 14px;
       line-height: 1.55;
     }
 
@@ -877,14 +1030,15 @@
       width: 42px;
       height: 42px;
       border-radius: 8px;
-      background: #eeeeea;
+      background: var(--panel-tint);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 13px;
       font-weight: 800;
-      color: var(--ink);
+      color: var(--brand);
       flex-shrink: 0;
+      border: 1px solid var(--line-soft);
     }
 
     .client-info, .opp-details { flex: 1; }
@@ -924,7 +1078,7 @@
       overflow: auto;
       background: #fff;
       border: 1px solid var(--line);
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 18px 45px rgba(24, 32, 28, 0.16);
       border-radius: 4px;
     }
 
@@ -942,7 +1096,7 @@
 
     .progress-bar {
       height: 6px;
-      background: #ecece8;
+      background: var(--line-soft);
       border-radius: 6px;
       margin-top: 9px;
       overflow: hidden;
@@ -951,7 +1105,7 @@
     .progress-fill {
       height: 100%;
       border-radius: 6px;
-      background: var(--ink);
+      background: var(--brand);
     }
 
     .opp-icon {
@@ -976,7 +1130,7 @@
       padding: 10px 12px;
       font-size: 14px;
       border: 1px solid var(--line);
-      border-radius: 8px;
+      border-radius: 4px;
       background: #fff;
       color: var(--ink);
       margin-bottom: 12px;
@@ -985,8 +1139,8 @@
     }
 
     input:focus, select:focus, textarea:focus {
-      border-color: var(--ink);
-      box-shadow: 0 0 0 3px rgba(16,16,16,0.08);
+      border-color: var(--brand-2);
+      box-shadow: 0 0 0 3px rgba(47, 107, 93, 0.12);
     }
 
     label {
@@ -1008,8 +1162,8 @@
       gap: 5px;
       padding: 5px;
       margin-bottom: 1.25rem;
-      border-radius: 8px;
-      background: #eeeeea;
+      border-radius: 4px;
+      background: var(--panel-tint);
     }
 
     .tab {
@@ -1017,14 +1171,14 @@
       font-size: 13px;
       color: var(--muted);
       cursor: pointer;
-      border-radius: 6px;
+      border-radius: 3px;
       font-weight: 720;
     }
 
     .tab.active {
       color: var(--ink);
       background: #fff;
-      box-shadow: var(--shadow-sm);
+      box-shadow: none;
     }
 
     .report-section { margin-bottom: 1.5rem; }
@@ -1104,7 +1258,7 @@
     .filter-chip {
       padding: 6px 9px;
       border: 1px solid var(--line);
-      background: #f8f8f6;
+      background: #fff;
       color: var(--ink);
       border-radius: 3px;
       font-size: 12px;
@@ -1112,8 +1266,8 @@
     }
 
     .filter-chip.active {
-      background: var(--ink);
-      border-color: var(--ink);
+      background: var(--brand);
+      border-color: var(--brand);
       color: #fff;
     }
 
@@ -1147,15 +1301,19 @@
     .report-facts {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
+      gap: 1px;
       margin-top: 1rem;
+      border: 1px solid var(--line-soft);
+      background: var(--line-soft);
+      border-radius: 4px;
+      overflow: hidden;
     }
 
     .report-fact {
-      border: 1px solid var(--line-soft);
-      background: var(--panel-soft);
+      border: 0;
+      background: #fff;
       padding: 10px;
-      border-radius: 4px;
+      border-radius: 0;
     }
 
     .report-fact span {
@@ -1203,7 +1361,8 @@
 
     .report-action-list {
       display: grid;
-      gap: 10px;
+      gap: 0;
+      border-top: 1px solid var(--line-soft);
     }
 
     .report-action {
@@ -1211,10 +1370,11 @@
       grid-template-columns: auto 1fr auto;
       gap: 12px;
       align-items: center;
-      padding: 12px;
-      border: 1px solid var(--line-soft);
-      border-radius: 4px;
-      background: var(--panel-soft);
+      padding: 13px 0;
+      border: 0;
+      border-bottom: 1px solid var(--line-soft);
+      border-radius: 0;
+      background: #fff;
     }
 
     .report-action-number {
@@ -1350,15 +1510,19 @@
     .detail-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
+      gap: 1px;
       margin-top: 0.85rem;
+      border: 1px solid var(--line-soft);
+      background: var(--line-soft);
+      border-radius: 4px;
+      overflow: hidden;
     }
 
     .detail-cell {
-      border: 1px solid var(--line-soft);
-      background: #f8f8f6;
+      border: 0;
+      background: #fff;
       padding: 10px;
-      border-radius: 4px;
+      border-radius: 0;
     }
 
     .detail-cell span {
@@ -1387,15 +1551,19 @@
     .workflow-steps {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 8px;
+      gap: 1px;
       margin-top: 0.8rem;
+      border: 1px solid var(--line);
+      background: var(--line);
+      border-radius: 4px;
+      overflow: hidden;
     }
 
     .workflow-step {
-      border: 1px solid var(--line);
-      background: #f8f8f6;
+      border: 0;
+      background: #fff;
       padding: 8px;
-      border-radius: 4px;
+      border-radius: 0;
       color: var(--muted);
       font-size: 11px;
       font-weight: 800;
@@ -1403,9 +1571,9 @@
     }
 
     .workflow-step.active {
-      color: var(--ink);
-      background: #fff;
-      border-color: var(--ink);
+      color: var(--brand);
+      background: var(--panel-tint);
+      border-color: var(--brand-2);
     }
 
     .workflow-step.done {
@@ -1430,7 +1598,8 @@
 
     .pipeline-summary {
       display: grid;
-      gap: 10px;
+      gap: 0;
+      border-top: 1px solid var(--line-soft);
     }
 
     .pipeline-item {
@@ -1438,10 +1607,11 @@
       align-items: center;
       justify-content: space-between;
       gap: 10px;
-      padding: 12px;
-      border: 1px solid var(--line-soft);
-      background: var(--panel-soft);
-      border-radius: 4px;
+      padding: 12px 0;
+      border: 0;
+      border-bottom: 1px solid var(--line-soft);
+      background: #fff;
+      border-radius: 0;
     }
 
     .pipeline-item span {
@@ -1518,7 +1688,9 @@
     }
 
     .client-hero {
-      background: #fff;
+      background:
+        linear-gradient(180deg, rgba(23, 63, 53, 0.04), transparent 82%),
+        #fff;
       border: 1px solid var(--line);
       padding: 1.35rem;
       border-radius: 4px;
@@ -1559,10 +1731,11 @@
       display: grid;
       place-items: center;
       border: 1px solid var(--line);
-      background: #f8f8f6;
+      background: var(--panel-tint);
       border-radius: 4px;
       font-size: 12px;
       font-weight: 800;
+      color: var(--brand);
     }
 
     .client-actions-grid {
@@ -1630,7 +1803,7 @@
 
     .client-upload-zone {
       border: 1.5px dashed var(--line);
-      background: #fcfcfb;
+      background: #fff;
       padding: 1.1rem;
       text-align: center;
       cursor: pointer;
@@ -1640,8 +1813,8 @@
 
     .client-upload-zone:hover,
     .client-upload-zone.dragging {
-      border-color: var(--ink);
-      background: #f6f6f4;
+      border-color: var(--brand-2);
+      background: var(--panel-soft);
     }
 
     .upload-list {
@@ -1667,6 +1840,89 @@
     .operator-view .client-only { display: none; }
     .client-role .operator-only { display: none; }
 
+    * {
+      box-shadow: none !important;
+    }
+
+    .auth-card,
+    .auth-option,
+    .auth-icon,
+    .brand-mark,
+    .sidebar-footer,
+    .view-switch,
+    .view-option,
+    .nav-item,
+    .search-pill,
+    .hero,
+    .hero-card,
+    .insight-card,
+    .focus-item,
+    .focus-icon,
+    .metrics,
+    .metric,
+    .card,
+    .badge,
+    .btn,
+    .upload-zone,
+    .upload-zone i,
+    .file-summary,
+    .file-summary i,
+    .analysis-result,
+    .demo-step,
+    .demo-step-number,
+    .evidence-card,
+    .avatar,
+    .report-modal,
+    .progress-bar,
+    .progress-fill,
+    .opp-icon,
+    input[type=text],
+    input[type=email],
+    select,
+    textarea,
+    .tab-bar,
+    .tab,
+    .status-strip,
+    .toolbar,
+    .filter-chip,
+    .report-facts,
+    .report-fact,
+    .report-action,
+    .report-action-number,
+    .detail-grid,
+    .detail-cell,
+    .workflow-steps,
+    .workflow-step,
+    .pipeline-item,
+    .client-hero,
+    .decision-number,
+    .client-upload-zone,
+    .upload-list-item {
+      border-radius: 0 !important;
+    }
+
+    .ti,
+    .auth-icon,
+    .focus-icon,
+    .opp-icon,
+    .upload-zone i,
+    .file-summary i,
+    .pipeline-item > i {
+      display: none !important;
+    }
+
+    .auth-option {
+      grid-template-columns: 1fr;
+    }
+
+    .focus-item {
+      grid-template-columns: 1fr auto;
+    }
+
+    .pipeline-item {
+      grid-template-columns: 1fr;
+    }
+
     .client-row,
     .opportunity-item,
     .metric,
@@ -1688,7 +1944,7 @@
 
     @media (max-width: 1000px) {
       .auth-card { grid-template-columns: 1fr; }
-      .auth-brand { border-right: 0; border-bottom: 1px solid var(--line); }
+      .auth-brand { border-right: 0; border-bottom: 0; }
       .sidebar { width: 92px; min-width: 92px; padding: 0.8rem; }
       .sidebar-logo span, .sidebar-logo p, .nav-item span, .sidebar-footer { display: none; }
       .brand-mark { margin: 0 auto; }
@@ -1701,6 +1957,14 @@
     }
 
     @media (max-width: 700px) {
+      .auth-screen {
+        place-items: start;
+        padding: 1.5rem;
+        background: var(--bg);
+      }
+      .auth-brand {
+        padding-bottom: 1.5rem;
+      }
       .app { display: block; }
       .sidebar { position: relative; width: 100%; height: auto; min-width: 0; flex-direction: row; overflow-x: auto; }
       .main { padding: 1rem; }
@@ -1721,7 +1985,7 @@
       <div class="auth-brand">
         <div class="brand-mark"><i class="ti ti-contract" aria-hidden="true"></i></div>
         <h1>VendorIQ</h1>
-        <p>VendorIQ helps restaurant groups find savings hidden inside vendor contracts, invoices, renewals, and approval workflows.</p>
+        <p>We help restaurant groups find savings hidden inside vendor contracts, invoices, renewals, and approval workflows.</p>
       </div>
       <div class="auth-options">
         <button class="auth-option" onclick="signIn('operator')">
@@ -1759,9 +2023,6 @@
       </div>
       <div class="nav-item operator-only" onclick="showPage('clients')">
         <i class="ti ti-building-store" aria-hidden="true"></i> <span>Clients</span>
-      </div>
-      <div class="nav-item operator-only" onclick="showPage('demo')">
-        <i class="ti ti-presentation-analytics" aria-hidden="true"></i> <span>Buyer demo</span>
       </div>
       <div class="nav-item operator-only" onclick="showPage('analyze')">
         <i class="ti ti-file-search" aria-hidden="true"></i> <span>Analyze contract</span>
@@ -1867,20 +2128,6 @@
           </div>
         </div>
 
-        <div class="card">
-          <div class="card-header">
-            <div>
-              <span class="card-title">Contract queue</span>
-              <div class="card-meta">Click Advance as a contract moves from uploaded, to reviewed, to ready for the client report</div>
-            </div>
-            <span class="badge badge-info">Operator worklist</span>
-          </div>
-          <table>
-            <thead><tr><th>Client</th><th>Vendor</th><th>Stage</th><th>Risk</th><th>Renewal</th><th>Savings</th><th>Action</th></tr></thead>
-            <tbody id="operator-contract-rows"></tbody>
-          </table>
-        </div>
-
       </section>
 
       <section class="page" id="page-clients">
@@ -1896,7 +2143,7 @@
         <div class="topbar">
           <div class="page-header">
             <h1>Buyer demo</h1>
-            <p>Major Food Group: from source files to approval-ready savings action</p>
+            <p>A five-step walkthrough of how VendorIQ turns vendor paperwork into approved savings work</p>
           </div>
           <div class="header-actions">
             <button class="btn" onclick="setDemoStep(0)"><i class="ti ti-reload"></i> Restart</button>
@@ -1906,35 +2153,35 @@
 
         <div class="hero">
           <div class="hero-card">
-            <h2>Major Food Group: $492K in savings, with proof.</h2>
-            <p>A short walkthrough showing how VendorIQ turns vendor files into evidence-backed recommendations and approval-ready actions.</p>
+            <h2>Major Food Group: $492K in savings opportunities, with the evidence to act.</h2>
+            <p>VendorIQ reviews contracts, statements, and invoices, then turns the findings into specific actions the client can approve.</p>
             <div class="hero-stats">
               <div class="hero-stat"><span>Source files</span><strong>3</strong></div>
               <div class="hero-stat"><span>Contracts reviewed</span><strong>18</strong></div>
               <div class="hero-stat"><span>Savings identified</span><strong>$492K</strong></div>
             </div>
           </div>
-          <div class="insight-card">
-            <small>How to use this demo</small>
-            <h3>Move through the five steps in order.</h3>
-            <p>Each step answers one buyer question. Keep the walkthrough focused on trust, math, and next action.</p>
-            <button class="btn" style="margin-top: 1rem;" onclick="setDemoStep(0)">Start walkthrough</button>
-          </div>
+        </div>
+
+        <div class="demo-outcome">
+          <div><span>Client</span><strong>Major Food Group</strong></div>
+          <div><span>Best first action</span><strong>Payment RFP</strong></div>
+          <div><span>Near-term leverage</span><strong>June 3 renewal</strong></div>
         </div>
 
         <div class="demo-layout">
           <div class="demo-steps">
-            <div class="demo-step active" data-demo-step="0" onclick="setDemoStep(0)"><div class="demo-step-number">1</div><div><p>Upload evidence</p><span>Contracts, statements, invoices</span></div></div>
-            <div class="demo-step" data-demo-step="1" onclick="setDemoStep(1)"><div class="demo-step-number">2</div><div><p>Extract terms</p><span>Renewal, rate, clause risk</span></div></div>
-            <div class="demo-step" data-demo-step="2" onclick="setDemoStep(2)"><div class="demo-step-number">3</div><div><p>Prove savings</p><span>Formula and confidence</span></div></div>
-            <div class="demo-step" data-demo-step="3" onclick="setDemoStep(3)"><div class="demo-step-number">4</div><div><p>Work action</p><span>Generate RFP or notice</span></div></div>
-            <div class="demo-step" data-demo-step="4" onclick="setDemoStep(4)"><div class="demo-step-number">5</div><div><p>Client approval</p><span>Approve and track files</span></div></div>
+            <div class="demo-step active" data-demo-step="0" onclick="setDemoStep(0)"><div class="demo-step-number">1</div><div><p>Collect files</p><span>What VendorIQ needs</span></div></div>
+            <div class="demo-step" data-demo-step="1" onclick="setDemoStep(1)"><div class="demo-step-number">2</div><div><p>Find leverage</p><span>What the documents reveal</span></div></div>
+            <div class="demo-step" data-demo-step="2" onclick="setDemoStep(2)"><div class="demo-step-number">3</div><div><p>Prove value</p><span>How the savings are calculated</span></div></div>
+            <div class="demo-step" data-demo-step="3" onclick="setDemoStep(3)"><div class="demo-step-number">4</div><div><p>Create action</p><span>What the team can send</span></div></div>
+            <div class="demo-step" data-demo-step="4" onclick="setDemoStep(4)"><div class="demo-step-number">5</div><div><p>Approve work</p><span>What the client decides</span></div></div>
           </div>
 
           <div>
             <div class="card demo-panel active" data-demo-panel="0">
-              <div class="card-header"><div><span class="card-title">Step 1: Evidence packet</span><div class="card-meta">Buyer question: “What files do you need from me?”</div></div><span class="badge badge-success">Ready</span></div>
-              <div class="demo-script">Say: “VendorIQ starts with files the client already has and organizes them into an evidence packet.”</div>
+              <div class="card-header"><div><span class="card-title">Step 1: Collect the files already sitting in the business</span><div class="card-meta">Buyer question: “What do you need from us?”</div></div><span class="badge badge-success">Ready</span></div>
+              <div class="demo-script">VendorIQ starts with normal operating files: vendor agreements, processor statements, invoices, and renewal notices. The client does not need to prepare a special data room.</div>
               <div class="evidence-grid">
                 <div class="evidence-card"><i class="ti ti-file-invoice"></i><p>Heartland statement</p><span>Card volume, effective rate, monthly fees, chargebacks. Used to validate $252K opportunity.</span></div>
                 <div class="evidence-card"><i class="ti ti-contract"></i><p>Sysco agreement</p><span>June 3 notice window, escalation language, missing MFN protection. Used to validate $181K opportunity.</span></div>
@@ -1943,8 +2190,8 @@
             </div>
 
             <div class="card demo-panel" data-demo-panel="1">
-              <div class="card-header"><div><span class="card-title">Step 2: Extracted terms</span><div class="card-meta">Buyer question: “What did you find in the documents?”</div></div><span class="badge badge-info">AI-assisted review</span></div>
-              <div class="demo-script">Say: “The product pulls out the terms that affect money and timing.”</div>
+              <div class="card-header"><div><span class="card-title">Step 2: Find the terms that create leverage</span><div class="card-meta">Buyer question: “What did you actually find?”</div></div><span class="badge badge-info">Document review</span></div>
+              <div class="demo-script">The product highlights only the terms that affect money, timing, or negotiating power. The goal is not a long legal summary. The goal is a short list of things worth acting on.</div>
               <table>
                 <thead><tr><th>Source</th><th>Extracted term</th><th>Risk</th><th>Evidence</th></tr></thead>
                 <tbody>
@@ -1956,8 +2203,12 @@
             </div>
 
             <div class="card demo-panel" data-demo-panel="2">
-              <div class="card-header"><div><span class="card-title">Step 3: Savings math</span><div class="card-meta">Buyer question: “Do I trust the savings estimate?”</div></div><span class="badge badge-success">$492K identified</span></div>
-              <div class="demo-script">Say: “The savings are tied to a baseline, target, and confidence level.”</div>
+              <div class="card-header"><div><span class="card-title">Step 3: Show the savings math</span><div class="card-meta">Buyer question: “Can I trust the number?”</div></div><span class="badge badge-success">$492K identified</span></div>
+              <div class="demo-script">Each recommendation has a current baseline, a target benchmark, an annualized estimate, and a confidence level. The buyer can see why VendorIQ believes the opportunity is real.</div>
+              <div class="demo-proof">
+                <div><span>Highest-confidence action</span><p>Run a payment processor RFP against Heartland’s current effective rate.</p></div>
+                <div><span>Why now</span><p>The client has enough card volume to negotiate, and the statement shows stacked fees that can be benchmarked quickly.</p></div>
+              </div>
               <table>
                 <thead><tr><th>Opportunity</th><th>Current baseline</th><th>Benchmark / target</th><th>Annual savings</th><th>Confidence</th></tr></thead>
                 <tbody>
@@ -1969,8 +2220,8 @@
             </div>
 
             <div class="card demo-panel" data-demo-panel="3">
-              <div class="card-header"><div><span class="card-title">Step 4: Action workspace</span><div class="card-meta">Buyer question: “What happens after you find the savings?”</div></div><span class="badge badge-danger">Work now</span></div>
-              <div class="demo-script">Say: “The recommendation becomes a work product the team can send or refine.”</div>
+              <div class="card-header"><div><span class="card-title">Step 4: Turn the recommendation into work</span><div class="card-meta">Buyer question: “What happens after you find the savings?”</div></div><span class="badge badge-danger">Work now</span></div>
+              <div class="demo-script">VendorIQ does not stop at a report. The finding becomes a draft RFP, renewal notice, negotiation brief, or client approval request.</div>
               <textarea class="workspace-output">Payment Processor RFP - Major Food Group
 
 Current processor: Heartland Payment
@@ -1987,8 +2238,8 @@ Please provide proposed pricing, interchange-plus details, monthly fees, chargeb
             </div>
 
             <div class="card demo-panel" data-demo-panel="4">
-              <div class="card-header"><div><span class="card-title">Step 5: Client approval</span><div class="card-meta">Buyer question: “How do we approve and move forward?”</div></div><span class="badge badge-success">Buyer-ready</span></div>
-              <div class="demo-script">Say: “The client does not see internal work tools. They see decisions, supporting documents, and a clean approval path.”</div>
+              <div class="card-header"><div><span class="card-title">Step 5: Give the client a decision, not a pile of analysis</span><div class="card-meta">Buyer question: “How do we approve and move forward?”</div></div><span class="badge badge-success">Buyer-ready</span></div>
+              <div class="demo-script">The client sees clear decisions, supporting evidence, and the next action. Internal work stays internal.</div>
               <div class="approval-panel">
                 <div class="approval-row"><div><p>Authorize payment processor RFP</p><span class="card-meta">Request proposals from hospitality-focused processors and benchmark against Heartland. $252K estimated savings.</span></div><span class="badge badge-warning">Approval needed</span></div>
                 <div class="approval-row"><div><p>Send Sysco notice and begin renegotiation</p><span class="card-meta">Notice preserves leverage before June 3. $181K estimated savings.</span></div><span class="badge badge-warning">Approval needed</span></div>
