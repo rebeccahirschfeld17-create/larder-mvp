@@ -111,6 +111,36 @@
       max-width: 590px;
     }
 
+    .auth-proof {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      max-width: 620px;
+      margin-top: 2rem;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .auth-proof div {
+      background: #fffdf7;
+      padding: 12px;
+    }
+
+    .auth-proof span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .auth-proof strong {
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
     .auth-options {
       padding: 0;
       display: grid;
@@ -540,6 +570,115 @@
       margin-bottom: 1.25rem;
     }
 
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--line);
+      background: var(--line);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .platform-cell {
+      background: #fff;
+      padding: 1rem;
+    }
+
+    .platform-cell i {
+      color: var(--brand);
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .platform-cell span,
+    .pricing-tier span,
+    .module-row span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .platform-cell strong {
+      display: block;
+      color: var(--brand);
+      font-size: 17px;
+      line-height: 1.25;
+      margin-bottom: 7px;
+    }
+
+    .platform-cell p,
+    .module-row p,
+    .pricing-tier p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .module-list {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .module-row {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .module-row i {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      background: var(--panel-tint);
+      border-radius: 4px;
+      color: var(--brand);
+    }
+
+    .module-row strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .pricing-stack {
+      display: grid;
+      gap: 10px;
+    }
+
+    .pricing-tier {
+      border: 1px solid var(--line-soft);
+      background: #fff;
+      padding: 12px;
+      border-radius: 4px;
+    }
+
+    .pricing-tier strong {
+      display: block;
+      color: var(--brand);
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .pricing-tier header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 9px;
+    }
+
     .focus-list {
       display: grid;
       gap: 0;
@@ -707,32 +846,14 @@
     }
 
     .clickable-row.active td {
-      background: #f0eadf;
-      box-shadow: inset 5px 0 0 var(--brand);
-      font-weight: 760;
+      background: #fbf8f1;
+      box-shadow: none;
     }
 
     .clickable-row.active td:first-child {
-      color: var(--brand);
-    }
-
-    .selected-row-marker {
-      display: none;
-      width: max-content;
-      margin-bottom: 5px;
-      padding: 2px 6px;
-      border: 1px solid var(--brand-2);
-      border-radius: 3px;
-      background: #fffaf1;
-      color: var(--brand);
-      font-size: 10px;
-      font-weight: 850;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .clickable-row.active .selected-row-marker {
-      display: inline-flex;
+      border-left: 3px solid var(--brand);
+      color: var(--ink);
+      font-weight: 800;
     }
 
     .btn {
@@ -1150,6 +1271,21 @@
       white-space: nowrap;
     }
 
+    .queue-table td:first-child {
+      width: 44px;
+      color: var(--muted);
+      font-weight: 850;
+    }
+
+    .queue-table .vendor-name span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+      white-space: normal;
+    }
+
     input[type=text], input[type=email], select, textarea {
       width: 100%;
       padding: 10px 12px;
@@ -1491,9 +1627,9 @@
       display: grid;
       gap: 4px;
       margin: 0 0 1rem;
-      padding: 12px;
-      border: 1px solid var(--brand-2);
-      background: #f7f1e8;
+      padding: 0 0 0.85rem;
+      border-bottom: 1px solid var(--line-soft);
+      background: transparent;
     }
 
     .selected-action-banner span {
@@ -1728,6 +1864,7 @@
       .workflow-steps { grid-template-columns: 1fr; }
       .operator-workbench { grid-template-columns: 1fr; }
       .dashboard-focus { grid-template-columns: 1fr; }
+      .platform-grid { grid-template-columns: 1fr; }
       .report-hero,
       .report-support-grid,
       .report-workspace { grid-template-columns: 1fr; }
@@ -1874,6 +2011,79 @@
       font-size: 14px;
       font-weight: 800;
       margin-bottom: 3px;
+    }
+
+    .approval-row strong {
+      display: block;
+      color: var(--green);
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .approval-impact {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .approval-impact div {
+      padding: 8px;
+      background: var(--panel-soft);
+      border: 1px solid var(--line-soft);
+    }
+
+    .approval-impact span {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 850;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    .approval-impact b {
+      font-size: 12px;
+    }
+
+    .empty-state {
+      border: 1px dashed var(--line);
+      background: var(--panel-soft);
+      padding: 14px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .client-status-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      margin-bottom: 1rem;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .client-status-strip div {
+      background: #fff;
+      padding: 11px 12px;
+    }
+
+    .client-status-strip span {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 850;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .client-status-strip strong {
+      display: block;
+      font-size: 13px;
+      line-height: 1.35;
     }
 
     .question-box textarea {
@@ -2074,7 +2284,7 @@
       .main { padding: 1rem; }
       .topbar, .card-header, .client-row, .header-actions { align-items: flex-start; flex-direction: column; }
       .search-pill { min-width: 0; width: 100%; }
-      .metrics, .form-row, .status-strip { grid-template-columns: 1fr; }
+      .metrics, .form-row, .status-strip, .client-status-strip, .auth-proof, .approval-impact { grid-template-columns: 1fr; }
       .hero-stats { flex-wrap: wrap; }
       .opportunity-item { flex-wrap: wrap; }
       table { display: block; overflow-x: auto; white-space: nowrap; }
@@ -2082,29 +2292,34 @@
   </style>
 </head>
 <body class="auth-view operator-view">
-  <h1 class="sr-only">Larder - Vendor intelligence for hospitality operators.</h1>
+  <h1 class="sr-only">Larder - Vendor intelligence operating system for premium hospitality.</h1>
 
   <div class="auth-screen">
     <div class="auth-card">
       <div class="auth-brand">
         <div class="brand-mark"><i class="ti ti-contract" aria-hidden="true"></i></div>
         <h1>Larder</h1>
-        <p>Vendor intelligence for hospitality operators.</p>
+        <p>The vendor intelligence operating system for premium hospitality. Larder turns contracts, invoices, renewals, RFPs, approvals, and benchmarks into a recurring platform operators rely on every month.</p>
+        <div class="auth-proof">
+          <div><span>Ongoing platform</span><strong>Monthly vendor workflows, modules, and approvals</strong></div>
+          <div><span>Benchmark layer</span><strong>Category intelligence from contracts, invoices, and outcomes</strong></div>
+          <div><span>Execution layer</span><strong>Approvals, RFPs, renewals, and savings work in one portal</strong></div>
+        </div>
       </div>
       <div class="auth-options">
         <button class="auth-option" onclick="signIn('operator')">
           <span class="auth-icon"><i class="ti ti-user-shield"></i></span>
-          <span><p>Larder team</p><span>Process submitted files, prepare recommendations, manage approvals, and publish reports.</span></span>
+          <span><p>Larder team</p><span>Run vendor intelligence workflows, benchmark decisions, and manage premium hospitality accounts.</span></span>
           <i class="ti ti-arrow-right"></i>
         </button>
         <button class="auth-option" onclick="signIn('client')">
           <span class="auth-icon"><i class="ti ti-building-store"></i></span>
-          <span><p>Client 1</p><span>Upload documents, approve recommended work, ask questions, and review the final report.</span></span>
+          <span><p>Client 1</p><span>Manage documents, approvals, vendor decisions, savings, and renewal visibility from the client portal.</span></span>
           <i class="ti ti-arrow-right"></i>
         </button>
         <button class="auth-option" onclick="signIn('demo')">
           <span class="auth-icon"><i class="ti ti-presentation-analytics"></i></span>
-          <span><p>Buyer demo</p><span>Open a guided walkthrough of the hospitality vendor intelligence workflow.</span></span>
+          <span><p>Product demo</p><span>Open a guided walkthrough of the vendor operating system and client workflow.</span></span>
           <i class="ti ti-arrow-right"></i>
         </button>
       </div>
@@ -2116,7 +2331,7 @@
       <div class="sidebar-logo">
         <div class="brand-mark"><i class="ti ti-contract" aria-hidden="true"></i></div>
         <p>Larder</p>
-        <span>Hospitality operators</span>
+        <span>Vendor OS</span>
       </div>
       <div class="view-switch" aria-label="Viewpoint">
         <button class="view-option active" data-view-option="operator" onclick="switchView('operator')">Larder team</button>
@@ -2153,14 +2368,14 @@
         <i class="ti ti-chart-bar" aria-hidden="true"></i> <span>Report</span>
       </div>
       <div class="nav-item demo-only active" onclick="setDemoStep(0)">
-        <i class="ti ti-presentation-analytics" aria-hidden="true"></i> <span>Buyer demo</span>
+        <i class="ti ti-presentation-analytics" aria-hidden="true"></i> <span>Product demo</span>
       </div>
       <div class="nav-item demo-only" onclick="signOut()">
         <i class="ti ti-arrow-left" aria-hidden="true"></i> <span>Main site</span>
       </div>
       <div class="sidebar-footer">
-        <p>$687K found</p>
-        <span>Vendor intelligence across active hospitality clients.</span>
+        <p>$706K found</p>
+        <span>Vendor intelligence across premium hospitality contracts, invoices, renewals, and approvals.</span>
         <div class="user-panel">
           <strong id="signed-in-name">Not signed in</strong>
           <span id="signed-in-role">Select a role</span>
@@ -2174,19 +2389,40 @@
         <div class="topbar">
           <div class="page-header">
             <h1>Dashboard</h1>
-            <p>Today’s operator queue across intake, approvals, questions, reports, and renewals.</p>
+            <p>Recurring vendor intelligence across benchmarks, approvals, renewals, and savings execution.</p>
           </div>
         </div>
 
         <div class="hero">
           <div class="hero-card">
-            <h2>Know which vendors deserve trust before they shape the guest experience.</h2>
-            <p>Larder turns contracts, invoices, renewals, and supplier records into clear vendor intelligence for restaurant groups, hotels, and hospitality operators.</p>
+            <h2>The vendor operating system for premium hospitality.</h2>
+            <p>Larder owns the recurring workflow around vendor spend: contract intelligence, invoice monitoring, renewal management, RFP execution, price benchmarks, approvals, and executive reporting. Savings prove ROI, while the platform keeps the vendor system current.</p>
             <div class="hero-stats">
-              <div class="hero-stat"><span>Intake items</span><strong id="dashboard-contract-count">3</strong></div>
-              <div class="hero-stat"><span>Awaiting approval</span><strong>3</strong></div>
-              <div class="hero-stat"><span>Renewal risk</span><strong>Jun 3</strong></div>
+              <div class="hero-stat"><span>Active accounts</span><strong>3</strong></div>
+              <div class="hero-stat"><span>Verified savings</span><strong>$706K</strong></div>
+              <div class="hero-stat"><span>Benchmark categories</span><strong>9</strong></div>
             </div>
+          </div>
+        </div>
+
+        <div class="platform-grid">
+          <div class="platform-cell">
+            <i class="ti ti-repeat"></i>
+            <span>Recurring platform</span>
+            <strong>Vendor work stays current all year</strong>
+            <p>Customers use Larder as vendor infrastructure, with monthly workflows that continue after the first audit.</p>
+          </div>
+          <div class="platform-cell">
+            <i class="ti ti-database"></i>
+            <span>Benchmark moat</span>
+            <strong>Every document improves the dataset</strong>
+            <p>Contracts, invoices, processor statements, renewal clauses, and outcomes become category intelligence.</p>
+          </div>
+          <div class="platform-cell">
+            <i class="ti ti-layers-linked"></i>
+            <span>Modular workflow</span>
+            <strong>Add the workflows each account needs</strong>
+            <p>Renewals, invoice monitoring, RFP automation, compliance, and CFO reporting support ongoing vendor management.</p>
           </div>
         </div>
 
@@ -2194,24 +2430,24 @@
           <div class="card step-card current">
             <div class="card-header">
               <div>
-                <span class="card-title">Today</span>
-                <div class="card-meta">What needs operator attention</div>
+                <span class="card-title">Platform workflow</span>
+                <div class="card-meta">The recurring jobs that make Larder sticky</div>
               </div>
             </div>
             <div class="focus-list">
               <div class="focus-item">
                 <div class="focus-icon"><i class="ti ti-alert-triangle"></i></div>
-                <div><p>Process submitted documents</p><span>Client-uploaded source files flow into Vendor intake for review and categorization.</span></div>
+                <div><p>Process new vendor evidence</p><span>Client files flow into the intelligence layer for extraction, benchmarking, and audit trail updates.</span></div>
                 <button class="btn btn-mini" onclick="showPage('analyze')">Intake</button>
               </div>
               <div class="focus-item">
                 <div class="focus-icon"><i class="ti ti-upload"></i></div>
-                <div><p>Track requested documents</p><span>Food Distributor A purchase summary and waste invoices are still marked needed.</span></div>
+                <div><p>Refresh account health</p><span>Open approvals, savings pipeline, renewal windows, and missing evidence stay visible by account.</span></div>
                 <button class="btn btn-mini" onclick="showPage('clients')">Clients</button>
               </div>
               <div class="focus-item">
                 <div class="focus-icon"><i class="ti ti-file-search"></i></div>
-                <div><p>Prepare approvals and report</p><span>Client 1 has high-value actions ready for the operator workspace.</span></div>
+                <div><p>Keep work moving</p><span>Client 1 has verified savings and recommended next workflows for invoice monitoring and RFP follow-through.</span></div>
                 <button class="btn btn-mini" onclick="showClientReport('client1')">Workspace</button>
               </div>
             </div>
@@ -2219,35 +2455,53 @@
           <div class="card step-card current">
             <div class="card-header">
               <div>
-                <span class="card-title">Client status</span>
-                <div class="card-meta">Where each account stands</div>
+                <span class="card-title">Account health</span>
+                <div class="card-meta">What needs attention across client workspaces</div>
               </div>
-              <span class="badge badge-info" id="operator-queue-count">0 active</span>
+              <span class="badge badge-info" id="operator-queue-count">3 accounts</span>
             </div>
             <div class="pipeline-summary" id="operator-pipeline-summary">
-              <div class="pipeline-item"><div><span>Client 1</span><strong>Awaiting approval</strong></div><i class="ti ti-chart-bar"></i></div>
-              <div class="pipeline-item"><div><span>Client 2</span><strong>Approved</strong></div><i class="ti ti-check"></i></div>
-              <div class="pipeline-item"><div><span>Client 3</span><strong>Documents needed</strong></div><i class="ti ti-pencil"></i></div>
+              <div class="pipeline-item"><div><span>Active workflows</span><strong>9</strong></div><i class="ti ti-repeat"></i></div>
+              <div class="pipeline-item"><div><span>Gross ROI</span><strong>3.4x</strong></div><i class="ti ti-chart-arrows-vertical"></i></div>
+              <div class="pipeline-item"><div><span>Client modules</span><strong>5 live</strong></div><i class="ti ti-box-multiple"></i></div>
             </div>
           </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <span class="card-title">Priority queue</span>
+              <div class="card-meta">Sorted by renewal leverage, client impact, and blocked decisions</div>
+            </div>
+            <span class="badge badge-danger">3 needs attention</span>
+          </div>
+          <table class="queue-table">
+            <thead><tr><th>Rank</th><th>Work item</th><th>Client</th><th>Stage</th><th>Next move</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td class="vendor-name">Food Distributor A renewal window<span>Preserve leverage before June 3 notice deadline.</span></td><td>Client 1</td><td><span class="badge badge-warning">Awaiting approval</span></td><td><button class="btn btn-mini" onclick="showPage('clientapprovals')">Approval</button></td></tr>
+              <tr><td>2</td><td class="vendor-name">Client-uploaded documents<span>Review source files and extract vendor terms.</span></td><td>Client 1</td><td><span class="badge badge-info">In intake</span></td><td><button class="btn btn-mini" onclick="showPage('analyze')">Intake</button></td></tr>
+              <tr><td>3</td><td class="vendor-name">Client 3 missing source files<span>Request documents before report can move forward.</span></td><td>Client 3</td><td><span class="badge badge-warning">Documents needed</span></td><td><button class="btn btn-mini" onclick="showPage('clients')">Clients</button></td></tr>
+            </tbody>
+          </table>
         </div>
 
       </section>
 
       <section class="page" id="page-clients">
-        <div class="topbar"><div class="page-header"><h1>Clients</h1><p>Restaurant groups and their portfolio status</p></div><button class="btn btn-primary" onclick="showPage('addclient')"><i class="ti ti-plus"></i> Add client</button></div>
+        <div class="topbar"><div class="page-header"><h1>Clients</h1><p>Accounts by savings ROI, active modules, vendor spend, and portfolio status</p></div><button class="btn btn-primary" onclick="showPage('addclient')"><i class="ti ti-plus"></i> Add client</button></div>
         <div class="card">
-          <div class="client-row"><div class="avatar">C1</div><div class="client-info"><p>Client 1</p><span>14 locations - 18 contracts - $3.2M annual vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 72%;"></div></div></div><span class="badge badge-success">$492K identified</span><button class="btn" onclick="openClientReportModal('client1')"><i class="ti ti-chart-bar"></i> View report</button></div>
-          <div class="client-row"><div class="avatar" style="background: var(--green-soft); color: var(--green);">C2</div><div class="client-info"><p>Client 2</p><span>11 locations - 15 contracts - $1.8M annual vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 55%; background: var(--green);"></div></div></div><span class="badge badge-success">$141K identified</span><button class="btn" onclick="openClientReportModal('client2')"><i class="ti ti-chart-bar"></i> View report</button></div>
-          <div class="client-row"><div class="avatar" style="background: var(--amber-soft); color: var(--amber);">C3</div><div class="client-info"><p>Client 3</p><span>8 locations - 8 contracts - $890K annual vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 30%; background: var(--amber);"></div></div></div><span class="badge badge-warning">$73K draft</span><button class="btn" onclick="openClientReportModal('client3')"><i class="ti ti-chart-bar"></i> View report</button></div>
+          <div class="client-row"><div class="avatar">C1</div><div class="client-info"><p>Client 1</p><span>Flagship hospitality group - 4 active modules - $3.2M vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 72%;"></div></div></div><span class="badge badge-success">5.0x ROI</span><button class="btn" onclick="openClientReportModal('client1')"><i class="ti ti-chart-bar"></i> View account</button></div>
+          <div class="client-row"><div class="avatar" style="background: var(--green-soft); color: var(--green);">C2</div><div class="client-info"><p>Client 2</p><span>Boutique hotel operator - 3 active modules - $1.8M vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 55%; background: var(--green);"></div></div></div><span class="badge badge-success">2.8x ROI</span><button class="btn" onclick="openClientReportModal('client2')"><i class="ti ti-chart-bar"></i> View account</button></div>
+          <div class="client-row"><div class="avatar" style="background: var(--amber-soft); color: var(--amber);">C3</div><div class="client-info"><p>Client 3</p><span>Independent resort group - 2 active modules - $890K vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 30%; background: var(--amber);"></div></div></div><span class="badge badge-warning">1.6x draft</span><button class="btn" onclick="openClientReportModal('client3')"><i class="ti ti-chart-bar"></i> View account</button></div>
         </div>
       </section>
 
       <section class="page" id="page-demo">
         <div class="topbar">
           <div class="page-header">
-            <h1>Buyer demo</h1>
-            <p>A five-step walkthrough of the current Larder client and operator workflow</p>
+            <h1>Product demo</h1>
+            <p>A five-step walkthrough of the recurring vendor intelligence platform</p>
           </div>
           <div class="header-actions">
             <button class="btn" onclick="setDemoStep(0)"><i class="ti ti-reload"></i> Restart</button>
@@ -2257,12 +2511,12 @@
 
         <div class="hero">
           <div class="hero-card">
-            <h2>Client 1: vendor risk, renewal leverage, and savings in one place.</h2>
-            <p>Clients upload source documents, Larder processes them in Vendor intake, then the client reviews approvals, asks questions, and reads the final report.</p>
+            <h2>Client 1: recurring vendor intelligence, renewal leverage, and measurable ROI.</h2>
+            <p>Operators upload source documents once, then Larder keeps the vendor system current: benchmarks, approvals, RFPs, renewals, invoices, executive reporting, and savings outcomes.</p>
             <div class="hero-stats">
-              <div class="hero-stat"><span>Source files</span><strong>3</strong></div>
-              <div class="hero-stat"><span>Contracts reviewed</span><strong>18</strong></div>
+              <div class="hero-stat"><span>Annual subscription</span><strong>$36K</strong></div>
               <div class="hero-stat"><span>Savings identified</span><strong>$492K</strong></div>
+              <div class="hero-stat"><span>Gross ROI</span><strong>5.0x</strong></div>
             </div>
           </div>
         </div>
@@ -2270,7 +2524,7 @@
         <div class="demo-outcome">
           <div><span>Client</span><strong>Client 1</strong></div>
           <div><span>Best first action</span><strong>Payment RFP</strong></div>
-          <div><span>Near-term leverage</span><strong>June 3 renewal</strong></div>
+          <div><span>Next workflow</span><strong>Invoice monitoring</strong></div>
         </div>
 
         <div class="demo-layout">
@@ -2279,12 +2533,12 @@
             <div class="demo-step" data-demo-step="1" onclick="setDemoStep(1)"><div class="demo-step-number">2</div><div><p>Vendor intake</p><span>Larder processes them</span></div></div>
             <div class="demo-step" data-demo-step="2" onclick="setDemoStep(2)"><div class="demo-step-number">3</div><div><p>Approvals</p><span>Client decides</span></div></div>
             <div class="demo-step" data-demo-step="3" onclick="setDemoStep(3)"><div class="demo-step-number">4</div><div><p>Questions</p><span>Clarify assumptions</span></div></div>
-            <div class="demo-step" data-demo-step="4" onclick="setDemoStep(4)"><div class="demo-step-number">5</div><div><p>Report</p><span>Read the summary</span></div></div>
+            <div class="demo-step" data-demo-step="4" onclick="setDemoStep(4)"><div class="demo-step-number">5</div><div><p>ROI report</p><span>Prove renewal value</span></div></div>
           </div>
 
           <div>
             <div class="card demo-panel active" data-demo-panel="0">
-              <div class="card-header"><div><span class="card-title">Step 1: Client uploads source documents</span><div class="card-meta">Buyer question: “What do you need from us?”</div></div><span class="badge badge-warning">1 of 3 received</span></div>
+              <div class="card-header"><div><span class="card-title">Step 1: Client uploads source documents</span><div class="card-meta">Client question: “What do you need from us?”</div></div><span class="badge badge-warning">1 of 3 received</span></div>
               <div class="demo-script">The client uploads normal operating files in the Documents tab: vendor agreements, processor statements, invoices, purchase summaries, and renewal notices. The requested-documents list is a status tracker, not a client-editable checklist.</div>
               <div class="evidence-grid">
                 <div class="evidence-card"><i class="ti ti-file-invoice"></i><p>Payment Processor A statement</p><span>Card volume, effective rate, monthly fees, chargebacks. Used to validate $252K opportunity.</span></div>
@@ -2294,7 +2548,7 @@
             </div>
 
             <div class="card demo-panel" data-demo-panel="1">
-              <div class="card-header"><div><span class="card-title">Step 2: Larder processes files in Vendor intake</span><div class="card-meta">Buyer question: “What happens after we upload?”</div></div><span class="badge badge-info">In intake</span></div>
+              <div class="card-header"><div><span class="card-title">Step 2: Larder processes files in Vendor intake</span><div class="card-meta">Client question: “What happens after we upload?”</div></div><span class="badge badge-info">In intake</span></div>
               <div class="demo-script">Client-submitted files appear in the operator’s Vendor intake queue. Larder can process uploaded files or add documents received outside the portal, then extract terms, deadlines, risk signals, and savings opportunities.</div>
               <table>
                 <thead><tr><th>Source</th><th>Extracted term</th><th>Risk</th><th>Evidence</th></tr></thead>
@@ -2307,7 +2561,7 @@
             </div>
 
             <div class="card demo-panel" data-demo-panel="2">
-              <div class="card-header"><div><span class="card-title">Step 3: Client reviews approvals</span><div class="card-meta">Buyer question: “What do you need us to decide?”</div></div><span class="badge badge-warning">0 approved</span></div>
+              <div class="card-header"><div><span class="card-title">Step 3: Client reviews approvals</span><div class="card-meta">Client question: “What do you need us to decide?”</div></div><span class="badge badge-warning">0 approved</span></div>
               <div class="demo-script">After Larder processes the files, the client sees a focused Approvals tab. Each approval is a decision, not a long report: authorize an RFP, send a renewal notice, or approve a vendor audit.</div>
               <div class="approval-panel">
                 <div class="approval-row"><div><p>Authorize payment processor RFP</p><span class="card-meta">Benchmark Payment Processor A against hospitality-focused processors. $252K estimated savings.</span></div><span class="badge badge-warning">Approval needed</span></div>
@@ -2317,19 +2571,19 @@
             </div>
 
             <div class="card demo-panel" data-demo-panel="3">
-              <div class="card-header"><div><span class="card-title">Step 4: Client asks questions</span><div class="card-meta">Buyer question: “Can we clarify before approving?”</div></div><span class="badge badge-info">Open</span></div>
+              <div class="card-header"><div><span class="card-title">Step 4: Client asks questions</span><div class="card-meta">Client question: “Can we clarify before approving?”</div></div><span class="badge badge-info">Open</span></div>
               <div class="demo-script">Questions have their own tab so approvals do not get buried. The client can ask about assumptions, timing, vendor impact, or missing files before deciding.</div>
               <textarea class="workspace-output">Can you show how the Payment Processor A savings estimate changes if implementation takes 60 days instead of 30?
 
-Also confirm whether the Food Distributor A notice preserves service continuity for all 14 locations.</textarea>
+Also confirm whether the Food Distributor A notice preserves service continuity across our hospitality venues.</textarea>
               <div class="workflow-actions" style="justify-content: flex-start; margin-top: 1rem;">
                 <button class="btn btn-primary" onclick="nextDemoStep()">Show report</button>
               </div>
             </div>
 
             <div class="card demo-panel" data-demo-panel="4">
-              <div class="card-header"><div><span class="card-title">Step 5: Client reviews the final report</span><div class="card-meta">Buyer question: “Where is the finished summary?”</div></div><span class="badge badge-info">Final</span></div>
-              <div class="demo-script">The Report tab holds the finished vendor intelligence summary. It is separate from approvals and questions, so the client can review the narrative without losing the action flow.</div>
+              <div class="card-header"><div><span class="card-title">Step 5: Client reviews the final report</span><div class="card-meta">Client question: “Where is the finished summary?”</div></div><span class="badge badge-info">Report final</span></div>
+              <div class="demo-script">The Report tab holds the finished vendor intelligence summary and ROI proof. It is separate from approvals and questions, so the client can review the narrative without losing the action flow.</div>
               <table>
                 <thead><tr><th>Recommendation</th><th>Why it matters</th><th>Savings</th><th>Priority</th></tr></thead>
                 <tbody>
@@ -2419,7 +2673,7 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
       </section>
 
       <section class="page" id="page-report">
-        <div class="topbar"><div class="page-header"><h1 id="report-title">Client 1 workspace</h1><p id="report-subtitle">14 locations - audit completed May 2026</p></div><button class="btn" onclick="exportCurrentReport()"><i class="ti ti-download"></i> Export summary</button></div>
+        <div class="topbar"><div class="page-header"><h1 id="report-title">Client 1 workspace</h1><p id="report-subtitle">Premium hospitality audit completed May 2026</p></div><button class="btn" onclick="exportCurrentReport()"><i class="ti ti-download"></i> Export summary</button></div>
         <div class="report-tabs">
           <button class="filter-chip active" data-report-tab="client1" onclick="setReportClient('client1')">Client 1</button>
           <button class="filter-chip" data-report-tab="client2" onclick="setReportClient('client2')">Client 2</button>
@@ -2432,15 +2686,15 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
               <span class="card-title">Client summary</span>
               <div class="card-meta">Use this to understand the account before working the actions below</div>
             </div>
-            <span class="badge badge-info" id="report-status">Final</span>
+            <span class="badge badge-info" id="report-status">Report final</span>
           </div>
             <h2 id="report-summary-title">$492K in annual savings identified.</h2>
             <p id="report-summary-copy">Larder found the vendor intelligence below by reviewing contracts, renewal windows, risk signals, and hospitality category benchmarks. The table shows what to do first and why it matters.</p>
             <div class="report-facts">
               <div class="report-fact"><span>Spend reviewed</span><strong id="report-spend">$3.2M</strong></div>
-              <div class="report-fact"><span>Savings rate</span><strong id="report-rate">9.1%</strong></div>
+              <div class="report-fact"><span>Savings rate</span><strong id="report-rate">15.4%</strong></div>
               <div class="report-fact"><span>Contracts reviewed</span><strong id="report-contracts">18</strong></div>
-              <div class="report-fact"><span>Larder fee</span><strong id="report-fee">$73K</strong></div>
+              <div class="report-fact"><span>First-year revenue</span><strong id="report-fee">$98K</strong></div>
             </div>
         </div>
 
@@ -2504,9 +2758,15 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
         <div class="topbar">
           <div class="page-header">
             <h1>Report</h1>
-            <p>Final report packet, source basis, and recommendation detail</p>
+            <p>Final report packet, source basis, recommendation detail, and ROI proof</p>
           </div>
           <button class="btn" onclick="exportCurrentReport()"><i class="ti ti-download"></i> Export summary</button>
+        </div>
+        <div class="client-status-strip">
+          <div><span>Status</span><strong data-client-context="status">Awaiting approval</strong></div>
+          <div><span>Savings identified</span><strong>$492K</strong></div>
+          <div><span>Approvals</span><strong data-client-context="approvals">0 of 3 approved</strong></div>
+          <div><span>Documents</span><strong data-client-context="documents">1 of 3 received</strong></div>
         </div>
 
         <div class="card">
@@ -2515,13 +2775,31 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
               <span class="card-title">Report packet</span>
               <div class="card-meta">What is ready for client records</div>
             </div>
-            <span class="badge badge-info">Final</span>
+            <span class="badge badge-info">Report final</span>
           </div>
           <div class="report-decision">
             <div class="report-status-row"><span>Prepared for</span><strong>Client 1 leadership</strong></div>
             <div class="report-status-row"><span>Review period</span><strong>May 2026 vendor audit</strong></div>
             <div class="report-status-row"><span>Included categories</span><strong>Payment processing, food distribution, waste, pest control</strong></div>
             <div class="report-status-row"><span>Primary follow-up</span><strong>Approve recommended actions in the Approvals tab</strong></div>
+          </div>
+        </div>
+
+        <div class="card report-summary">
+          <div class="card-header">
+            <div>
+              <span class="card-title">Audit trail</span>
+              <div class="card-meta">Why the report is decision-ready</div>
+            </div>
+            <span class="badge badge-success">Operator reviewed</span>
+          </div>
+          <h2>Every recommendation is tied to a source, a benchmark, and a next action.</h2>
+          <p>The report distinguishes confirmed savings opportunities from items that still need client documents, while also showing which recurring workflow should happen next.</p>
+          <div class="report-facts">
+            <div class="report-fact"><span>Source documents</span><strong>18</strong></div>
+            <div class="report-fact"><span>Benchmarks applied</span><strong>4 categories</strong></div>
+            <div class="report-fact"><span>Decision owners</span><strong>Client + Larder</strong></div>
+            <div class="report-fact"><span>Next workflow</span><strong>Invoice monitoring</strong></div>
           </div>
         </div>
 
@@ -2536,19 +2814,19 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
             <div class="document-list" style="margin-top: 0;">
               <div class="document-item"><div><p class="vendor-name">Payment Processor A processing statement</p><span class="card-meta">Used to calculate current effective rate and fee stack.</span></div><span class="badge badge-success">Reviewed</span></div>
               <div class="document-item"><div><p class="vendor-name">Food Distributor A purchase summary</p><span class="card-meta">Used to benchmark pricing, escalation terms, and renewal leverage.</span></div><span class="badge badge-success">Reviewed</span></div>
-              <div class="document-item"><div><p class="vendor-name">Waste invoice sample by location</p><span class="card-meta">Used to estimate volume consolidation savings.</span></div><span class="badge badge-warning">Needs final sample</span></div>
+              <div class="document-item"><div><p class="vendor-name">Waste invoice sample by venue</p><span class="card-meta">Used to estimate volume consolidation savings.</span></div><span class="badge badge-warning">Needs final sample</span></div>
             </div>
           </div>
           <div class="card">
             <div class="card-header">
               <div>
-                <span class="card-title">Methodology</span>
-                <div class="card-meta">How Larder framed the savings estimate</div>
+                <span class="card-title">Hospitality methodology</span>
+                <div class="card-meta">How Larder frames savings for premium restaurants and hotels</div>
               </div>
             </div>
             <div class="report-action-list">
               <div class="report-action"><div class="report-action-number">1</div><div><p>Normalize spend by category.</p><span>Statements, purchase summaries, and invoice samples were grouped by vendor category.</span></div></div>
-              <div class="report-action"><div class="report-action-number">2</div><div><p>Benchmark against hospitality operators.</p><span>Effective rates, renewal terms, and escalation clauses were compared against current market norms.</span></div></div>
+              <div class="report-action"><div class="report-action-number">2</div><div><p>Benchmark against hospitality operating data.</p><span>Effective rates, renewal terms, and escalation clauses were compared against restaurant and hotel operating norms.</span></div></div>
               <div class="report-action"><div class="report-action-number">3</div><div><p>Prioritize actionable decisions.</p><span>Recommendations were ranked by savings, confidence, urgency, and operational effort.</span></div></div>
             </div>
           </div>
@@ -2567,8 +2845,8 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
             <tbody>
               <tr><td class="vendor-name">Authorize payment processor RFP</td><td>Rate spread and card volume concentration make this the highest-confidence opportunity.</td><td class="amount positive">$252K</td><td>Larder</td><td><span class="badge badge-warning">Awaiting approval</span></td></tr>
               <tr><td class="vendor-name">Send Food Distributor A notice</td><td>Notice preserves leverage before the June 3 renewal window and opens renegotiation.</td><td class="amount positive">$181K</td><td>Client 1 + Larder</td><td><span class="badge badge-warning">Awaiting approval</span></td></tr>
-              <tr><td class="vendor-name">Approve waste volume audit</td><td>Location-level volume data can support a consolidated rate request.</td><td class="amount positive">$40K</td><td>Larder</td><td><span class="badge badge-info">Next wave</span></td></tr>
-              <tr><td class="vendor-name">Review pest control renewal</td><td>Location-count pricing should be benchmarked before renewal.</td><td class="amount positive">$19K</td><td>Larder</td><td><span class="badge badge-info">Next wave</span></td></tr>
+              <tr><td class="vendor-name">Approve waste volume audit</td><td>Venue-level volume data can support a consolidated rate request.</td><td class="amount positive">$40K</td><td>Larder</td><td><span class="badge badge-info">Next wave</span></td></tr>
+              <tr><td class="vendor-name">Review pest control renewal</td><td>Service-tier pricing should be benchmarked before renewal.</td><td class="amount positive">$19K</td><td>Larder</td><td><span class="badge badge-info">Next wave</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -2578,22 +2856,29 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
         <div class="topbar">
           <div class="page-header">
             <h1>Client 1 overview</h1>
-            <p>Executive summary of savings, risks, and the next decisions needed</p>
+            <p>Executive summary of savings, vendor risk, active modules, and next decisions</p>
           </div>
           <div class="header-actions">
             <button class="btn" onclick="showPage('clientquestions')"><i class="ti ti-message"></i> Ask a question</button>
             <button class="btn btn-primary" onclick="showPage('clientapprovals')"><i class="ti ti-check"></i> Review approvals</button>
           </div>
         </div>
+        <div class="client-status-strip">
+          <div><span>Status</span><strong data-client-context="status">Awaiting approval</strong></div>
+          <div><span>Savings identified</span><strong>$492K</strong></div>
+          <div><span>Annual subscription</span><strong>$36K</strong></div>
+          <div><span>Gross ROI</span><strong>5.0x</strong></div>
+        </div>
 
         <div class="client-summary">
           <div class="client-hero">
             <h2>$492K in annual savings identified.</h2>
-            <p>Larder found the largest vendor opportunities in payment processing, food distribution, waste management, and pest control. The next step is to approve the highest-confidence actions.</p>
+            <p>Larder keeps vendor intelligence current across payment processing, food distribution, waste management, and pest control. The next step is to approve the highest-confidence actions and keep the renewal and invoice monitoring workflow active.</p>
           </div>
           <div class="summary-stack">
             <div class="metric"><div class="metric-label">Spend reviewed</div><div class="metric-value" style="font-size: 20px;">$3.2M</div><div class="metric-sub">18 contracts reviewed</div></div>
             <div class="metric"><div class="metric-label">Savings rate</div><div class="metric-value" style="font-size: 20px;">15.4%</div><div class="metric-sub">Of total spend reviewed</div></div>
+            <div class="metric"><div class="metric-label">Active modules</div><div class="metric-value" style="font-size: 20px;">4</div><div class="metric-sub">Contract, renewal, RFP, reporting</div></div>
           </div>
         </div>
 
@@ -2690,7 +2975,7 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
                 <span class="card-title">Report</span>
                 <div class="card-meta">Step 5: review the finished vendor intelligence summary</div>
               </div>
-              <span class="badge badge-info">Final</span>
+              <span class="badge badge-info">Report final</span>
             </div>
             <p class="card-meta">Read the final summary after Larder has processed the documents and prepared recommendations.</p>
             <div class="workflow-actions" style="justify-content: flex-start; margin-top: 1rem;">
@@ -2708,6 +2993,12 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
           </div>
           <button class="btn" onclick="showPage('clientreport')"><i class="ti ti-chart-bar"></i> View report</button>
         </div>
+        <div class="client-status-strip">
+          <div><span>Status</span><strong data-client-context="status">Awaiting approval</strong></div>
+          <div><span>Savings identified</span><strong>$492K</strong></div>
+          <div><span>Approvals</span><strong data-client-context="approvals">0 of 3 approved</strong></div>
+          <div><span>Documents</span><strong data-client-context="documents">1 of 3 received</strong></div>
+        </div>
 
         <div class="card">
           <div class="card-header">
@@ -2717,9 +3008,34 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
             </div>
           </div>
             <div class="approval-panel">
-              <div class="approval-row"><div><p>Authorize payment processor RFP</p><span class="card-meta">Larder will request proposals from three hospitality-focused processors and benchmark against Payment Processor A. $252K estimated savings.</span></div><button class="btn approval-btn" data-approval="processor" onclick="toggleApproval(this)">Approve</button></div>
-              <div class="approval-row"><div><p>Send Food Distributor A notice and begin renegotiation</p><span class="card-meta">Notice preserves leverage before June 3. Target terms: MFN clause and 2% escalation cap. $181K estimated savings.</span></div><button class="btn approval-btn" data-approval="distributor" onclick="toggleApproval(this)">Approve</button></div>
-              <div class="approval-row"><div><p>Approve waste volume audit</p><span class="card-meta">Larder will reconcile invoice volume by location and prepare a consolidated rate request. $40K estimated savings.</span></div><button class="btn approval-btn" data-approval="waste" onclick="toggleApproval(this)">Approve</button></div>
+              <div class="approval-row">
+                <div>
+                  <strong>$252K</strong>
+                  <p>Authorize payment processor RFP</p>
+                  <span class="card-meta">Approving lets Larder request proposals from three hospitality-focused processors and benchmark against Payment Processor A.</span>
+                  <div class="approval-impact"><div><span>Urgency</span><b>High</b></div><div><span>Confidence</span><b>High</b></div><div><span>Client impact</span><b>No vendor change yet</b></div></div>
+                </div>
+                <button class="btn approval-btn" data-approval="processor" onclick="toggleApproval(this)">Approve</button>
+              </div>
+              <div class="approval-row">
+                <div>
+                  <strong>$181K</strong>
+                  <p>Send Food Distributor A notice and begin renegotiation</p>
+                  <span class="card-meta">Approving lets Larder prepare notice before June 3, then negotiate MFN language and a 2% escalation cap.</span>
+                  <div class="approval-impact"><div><span>Urgency</span><b>High</b></div><div><span>Deadline</span><b>June 3</b></div><div><span>Client impact</span><b>Preserves leverage</b></div></div>
+                </div>
+                <button class="btn approval-btn" data-approval="distributor" onclick="toggleApproval(this)">Approve</button>
+              </div>
+              <div class="approval-row">
+                <div>
+                  <strong>$40K</strong>
+                  <p>Approve waste volume audit</p>
+                  <span class="card-meta">Approving lets Larder reconcile invoice volume by venue and prepare a consolidated rate request.</span>
+                  <div class="approval-impact"><div><span>Urgency</span><b>Medium</b></div><div><span>Confidence</span><b>Medium</b></div><div><span>Client impact</span><b>Data request only</b></div></div>
+                </div>
+                <button class="btn approval-btn" data-approval="waste" onclick="toggleApproval(this)">Approve</button>
+              </div>
+              <div class="empty-state" id="approvals-complete-state" hidden>All requested approvals are complete. Larder can move these actions into execution and reflect the approved status in the final report.</div>
             </div>
           </div>
       </section>
@@ -2731,6 +3047,12 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
             <p>Send notes to Larder before approving or uploading files</p>
           </div>
           <button class="btn" onclick="showPage('clientapprovals')"><i class="ti ti-check"></i> Go to approvals</button>
+        </div>
+        <div class="client-status-strip">
+          <div><span>Status</span><strong data-client-context="status">Awaiting approval</strong></div>
+          <div><span>Savings identified</span><strong>$492K</strong></div>
+          <div><span>Approvals</span><strong data-client-context="approvals">0 of 3 approved</strong></div>
+          <div><span>Documents</span><strong data-client-context="documents">1 of 3 received</strong></div>
         </div>
 
         <div class="card question-box">
@@ -2752,9 +3074,15 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
         <div class="topbar">
           <div class="page-header">
             <h1>Documents</h1>
-            <p>Upload source files for Larder to process in Vendor intake</p>
+            <p>Upload source files from restaurant, hotel, and hospitality vendor relationships for Larder to process in Vendor intake</p>
           </div>
           <button class="btn" onclick="showPage('clientapprovals')"><i class="ti ti-check"></i> Go to approvals</button>
+        </div>
+        <div class="client-status-strip">
+          <div><span>Status</span><strong data-client-context="status">Awaiting approval</strong></div>
+          <div><span>Savings identified</span><strong>$492K</strong></div>
+          <div><span>Approvals</span><strong data-client-context="approvals">0 of 3 approved</strong></div>
+          <div><span>Documents</span><strong data-client-context="documents">1 of 3 received</strong></div>
         </div>
 
         <div class="card">
@@ -2775,14 +3103,15 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
           <div class="document-list">
             <div class="document-item" data-document-index="0"><div><p class="vendor-name">Latest Payment Processor A processing statement</p><span class="card-meta">Received May 18</span></div><span class="badge badge-success">Received</span></div>
             <div class="document-item" data-document-index="1"><div><p class="vendor-name">Food Distributor A trailing 12-month purchase summary</p><span class="card-meta">Needed for MFN benchmark</span></div><span class="badge badge-warning">Needed</span></div>
-            <div class="document-item" data-document-index="2"><div><p class="vendor-name">Waste invoice sample by location</p><span class="card-meta">Needed for consolidated rate request</span></div><span class="badge badge-warning">Needed</span></div>
+            <div class="document-item" data-document-index="2"><div><p class="vendor-name">Waste invoice sample by venue</p><span class="card-meta">Needed for consolidated rate request</span></div><span class="badge badge-warning">Needed</span></div>
           </div>
+          <div class="empty-state" id="documents-complete-state" hidden>All requested source documents are received. Larder can complete intake and keep the report evidence trail current.</div>
         </div>
       </section>
 
       <section class="page" id="page-addclient">
-        <div class="topbar"><div class="page-header"><h1>Add client</h1><p>Set up a hospitality operator for vendor intelligence review</p></div></div>
-        <div class="card" style="max-width: 640px;"><div class="form-row"><div><label>Group name</label><input type="text" placeholder="e.g. Client 1"></div><div><label>Number of locations</label><input type="text" placeholder="e.g. 14"></div></div><div class="form-row"><div><label>Primary contact name</label><input type="text" placeholder="CFO or COO name"></div><div><label>Contact email</label><input type="email" placeholder="contact@group.com"></div></div><label>Estimated annual vendor spend</label><select><option>Under $500K</option><option>$500K - $1M</option><option selected>$1M - $3M</option><option>$3M - $10M</option><option>Over $10M</option></select><label>Vendor categories to audit</label><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px;"><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox" checked> Food distribution</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox" checked> Payment processing</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Linen & uniforms</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Pest control</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Waste management</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Equipment maintenance</label></div><label>Notes for this engagement</label><textarea rows="3" placeholder="Referral source, key priorities, timeline..."></textarea><button class="btn btn-primary" onclick="sendPrompt('I just added a new client. What should my first steps be for onboarding them and starting the vendor intelligence review?')"><i class="ti ti-check"></i> Add client and start review</button></div>
+        <div class="topbar"><div class="page-header"><h1>Add client</h1><p>Set up a premium restaurant group, hotel group, or hospitality operator for vendor intelligence review</p></div></div>
+        <div class="card" style="max-width: 640px;"><div class="form-row"><div><label>Group name</label><input type="text" placeholder="e.g. Client 1"></div><div><label>Hospitality profile</label><input type="text" placeholder="e.g. Boutique hotel group"></div></div><div class="form-row"><div><label>Primary contact name</label><input type="text" placeholder="CFO or COO name"></div><div><label>Contact email</label><input type="email" placeholder="contact@group.com"></div></div><label>Estimated annual vendor spend</label><select><option>Under $500K</option><option>$500K - $1M</option><option selected>$1M - $3M</option><option>$3M - $10M</option><option>Over $10M</option></select><label>Vendor categories to audit</label><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px;"><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox" checked> Food distribution</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox" checked> Payment processing</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Linen & uniforms</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Pest control</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Waste management</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Equipment maintenance</label></div><label>Notes for this engagement</label><textarea rows="3" placeholder="Referral source, service standards, timeline..."></textarea><button class="btn btn-primary" onclick="sendPrompt('I just added a new premium hospitality client. What should my first steps be for onboarding them and starting the vendor intelligence review?')"><i class="ti ti-check"></i> Add client and start review</button></div>
       </section>
     </main>
   </div>
@@ -2798,9 +3127,9 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
         </div>
         <div class="report-facts" style="margin-bottom: 1rem;">
           <div class="report-fact"><span>Savings identified</span><strong id="modal-report-savings">$0</strong></div>
-          <div class="report-fact"><span>Spend reviewed</span><strong id="modal-report-spend">$0</strong></div>
-          <div class="report-fact"><span>Contracts reviewed</span><strong id="modal-report-contracts">0</strong></div>
-          <div class="report-fact"><span>Status</span><strong id="modal-report-status">Documents needed</strong></div>
+          <div class="report-fact"><span>Annual subscription</span><strong id="modal-report-spend">$0</strong></div>
+          <div class="report-fact"><span>Gross ROI</span><strong id="modal-report-contracts">0x</strong></div>
+          <div class="report-fact"><span>Lifecycle</span><strong id="modal-report-status">Documents needed</strong></div>
         </div>
         <table>
           <thead><tr><th>Action</th><th>Category</th><th>Savings</th><th>Timing</th><th>Priority</th></tr></thead>
@@ -2818,12 +3147,15 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
     const reports = {
       client1: {
         title: 'Savings report - Client 1',
-        subtitle: '14 locations - audit completed May 2026',
+        subtitle: 'Premium hospitality audit completed May 2026',
         spend: '$3.2M',
         savings: '$492K',
         rate: '15.4% of total spend',
         contracts: '18',
-        fee: '$123K',
+        fee: '$98K',
+        arr: '$36K',
+        successFee: '$62K',
+        roi: '5.0x',
         status: 'Final',
         reviewState: 'Awaiting approval',
         categories: [
@@ -2833,20 +3165,23 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
           ['Pest control', '$62K', '$19K', 'Renegotiation at renewal', 'Low']
         ],
         timeline: [
-          ['Payment processing consolidation', 'Issue RFP to 3 hospitality-focused processors. Target completion before Payment Processor A renewal July 8.', '$252K', 'High'],
+          ['Payment processing consolidation', 'Issue RFP to 3 hospitality-focused processors. Complete before Payment Processor A renewal July 8.', '$252K', 'High'],
           ['Food Distributor A renegotiation', 'Send notice of non-renewal by Jun 3 to trigger renegotiation. Request MFN clause and 2% escalation cap.', '$181K', 'High'],
           ['Waste management audit', 'Request volume summary from current provider and compare against consolidated rate schedule.', '$40K', 'Medium'],
-          ['Pest control renewal review', 'Benchmark current location-count pricing and prepare a renewal counteroffer.', '$19K', 'Low']
+          ['Pest control renewal review', 'Benchmark current service-tier pricing and prepare a renewal counteroffer.', '$19K', 'Low']
         ]
       },
       client2: {
         title: 'Savings report - Client 2',
-        subtitle: '11 locations - audit completed May 2026',
+        subtitle: 'Boutique hotel audit completed May 2026',
         spend: '$1.8M',
         savings: '$141K',
         rate: '7.8% of total spend',
         contracts: '15',
-        fee: '$35K',
+        fee: '$54K',
+        arr: '$36K',
+        successFee: '$18K',
+        roi: '2.8x',
         status: 'Final',
         reviewState: 'Approved',
         categories: [
@@ -2856,19 +3191,22 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
           ['POS support', '$74K', '$8K', 'Seat count correction', 'Low']
         ],
         timeline: [
-          ['Consolidate linen vendors', 'Move 11 locations from 4 vendors to one rate card before Linen Vendor A renewal June 11.', '$91K', 'High'],
-          ['Normalize janitorial SKUs', 'Lock preferred items and remove location-level substitutions from recurring orders.', '$28K', 'Medium'],
-          ['Audit uniform replacement charges', 'Review trailing 12-month damage and replacement fees by location.', '$14K', 'Medium']
+          ['Consolidate linen vendors', 'Move from fragmented suppliers to one premium hospitality rate card before Linen Vendor A renewal June 11.', '$91K', 'High'],
+          ['Normalize janitorial SKUs', 'Lock preferred items and remove venue-level substitutions from recurring orders.', '$28K', 'Medium'],
+          ['Audit uniform replacement charges', 'Review trailing 12-month damage and replacement fees by venue.', '$14K', 'Medium']
         ]
       },
       client3: {
         title: 'Savings report - Client 3',
-        subtitle: '8 locations - audit in progress May 2026',
+        subtitle: 'Independent resort audit in progress May 2026',
         spend: '$890K',
         savings: '$73K',
         rate: '8.2% of reviewed spend',
         contracts: '8',
-        fee: '$18K',
+        fee: '$43K',
+        arr: '$34K',
+        successFee: '$9K',
+        roi: '1.6x',
         status: 'Documents needed',
         reviewState: 'Documents needed',
         categories: [
@@ -2877,7 +3215,7 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
           ['Equipment maintenance', '$146K', '$8K', 'Duplicate coverage removal', 'Low']
         ],
         timeline: [
-          ['Pest control renegotiation', 'Request revised pricing for 8-location coverage and remove legacy auto-renewal language.', '$54K', 'High'],
+          ['Pest control renegotiation', 'Request revised pricing for premium hospitality coverage and remove legacy auto-renewal language.', '$54K', 'High'],
           ['Sanitation vendor scope review', 'Separate required sanitation coverage from optional service add-ons before July 1 renewal.', '$11K', 'Medium'],
           ['Maintenance coverage cleanup', 'Compare equipment list against current service schedule and remove duplicate coverage.', '$8K', 'Low']
         ]
@@ -2898,7 +3236,7 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
     let requestedDocuments = [
       { label: 'Latest Payment Processor A processing statement', received: true },
       { label: 'Food Distributor A trailing 12-month purchase summary', received: false },
-      { label: 'Waste invoice sample by location', received: false }
+      { label: 'Waste invoice sample by venue', received: false }
     ];
     const users = {
       operator: {
@@ -2912,7 +3250,7 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
         role: 'client'
       },
       demo: {
-        name: 'Buyer demo',
+        name: 'Product demo',
         roleLabel: 'Prospect walkthrough',
         role: 'demo'
       }
@@ -3069,7 +3407,7 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
       const rows = document.getElementById('operator-contract-rows');
       if (!rows) return;
       const contracts = operatorContracts || [];
-      document.getElementById('operator-queue-count').textContent = `${contracts.length} active`;
+      document.getElementById('operator-queue-count').textContent = `${contracts.length} records`;
       document.getElementById('dashboard-contract-count').textContent = String(contracts.length);
       if (contracts.length === 0) {
         rows.innerHTML = '<tr><td colspan="7">No contract records yet. Upload a sample contract or use seeded demo records.</td></tr>';
@@ -3093,12 +3431,12 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
       }
 
       document.getElementById('operator-pipeline-summary').innerHTML = `
-        <div class="pipeline-item"><div><span>Client-uploaded files</span><strong>${clientUploadedFiles.length} in intake</strong></div><i class="ti ti-upload"></i></div>
-        <div class="pipeline-item"><div><span>Approvals pending</span><strong>3 awaiting approval</strong></div><i class="ti ti-check"></i></div>
-        <div class="pipeline-item"><div><span>Questions</span><strong>${clientQuestions.length || 0} open</strong></div><i class="ti ti-message"></i></div>
-        <div class="pipeline-item"><div><span>Client 1</span><strong>Report final</strong></div><i class="ti ti-chart-bar"></i></div>
-        <div class="pipeline-item"><div><span>Client 2</span><strong>Approved</strong></div><i class="ti ti-check"></i></div>
-        <div class="pipeline-item"><div><span>Client 3</span><strong>Documents needed</strong></div><i class="ti ti-upload"></i></div>
+        <div class="pipeline-item"><div><span>Active workflows</span><strong>9</strong></div><i class="ti ti-repeat"></i></div>
+        <div class="pipeline-item"><div><span>Savings pipeline</span><strong>$706K</strong></div><i class="ti ti-chart-bar"></i></div>
+        <div class="pipeline-item"><div><span>Open questions</span><strong>${clientQuestions.length || 0}</strong></div><i class="ti ti-message"></i></div>
+        <div class="pipeline-item"><div><span>Active modules</span><strong>9</strong></div><i class="ti ti-box-multiple"></i></div>
+        <div class="pipeline-item"><div><span>Benchmark coverage</span><strong>9 categories</strong></div><i class="ti ti-database"></i></div>
+        <div class="pipeline-item"><div><span>Next workflow</span><strong>Invoice monitoring</strong></div><i class="ti ti-file-invoice"></i></div>
       `;
     }
 
@@ -3140,7 +3478,7 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
       const focus = highPriority.length
         ? highPriority.slice(0, 2).join(' and ')
         : report.categories.slice(0, 2).map(row => row[0].toLowerCase()).join(' and ');
-      return `The strongest opportunities are ${focus}. The savings plan below shows the recommended action, expected savings, timing, and priority in one place.`;
+      return `The strongest opportunities are ${focus}. The account view shows the recommended action, expected savings, timing, priority, recurring revenue, and the next expansion module in one place.`;
     }
 
     function timingForPriority(priority) {
@@ -3170,7 +3508,7 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
         'Waste management': {
           label: 'Request invoices',
           icon: 'ti ti-file-invoice',
-          prompt: 'Prepare a client request for waste invoice samples by location and a provider volume summary.'
+          prompt: 'Prepare a client request for waste invoice samples by venue and a provider volume summary.'
         },
         'Pest control': {
           label: 'Benchmark pricing',
@@ -3239,7 +3577,7 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
           fields: [
             { id: 'current_processor', label: 'Current processor', value: 'Payment Processor A' },
             { id: 'card_volume', label: 'Annual card volume', value: '$12M' },
-            { id: 'target_rate', label: 'Target effective rate', value: '2.10%' },
+            { id: 'target_rate', label: 'Goal effective rate', value: '2.10%' },
             { id: 'vendors', label: 'Vendors to invite', value: 'Processor B, Processor C, Processor D' },
             ...common.fields
           ],
@@ -3248,12 +3586,12 @@ Also confirm whether the Food Distributor A notice preserves service continuity 
 
 Current processor: ${fieldValue(fields, 'current_processor')}
 Annual card volume: ${fieldValue(fields, 'card_volume')}
-Target effective rate: ${fieldValue(fields, 'target_rate')}
+Goal effective rate: ${fieldValue(fields, 'target_rate')}
 Vendors to invite: ${fieldValue(fields, 'vendors')}
 Estimated savings: ${action.savings}
 
 Request:
-Please provide proposed pricing, interchange-plus details, monthly fees, chargeback fees, hardware/software requirements, and implementation timeline for a multi-location hospitality group.
+Please provide proposed pricing, interchange-plus details, monthly fees, chargeback fees, hardware/software requirements, and implementation timeline for a premium hospitality group.
 
 Decision needed:
 Approve Larder to issue this RFP and compare responses against the current ${fieldValue(fields, 'current_processor')} effective rate.`
@@ -3264,7 +3602,7 @@ Approve Larder to issue this RFP and compare responses against the current ${fie
           fields: [
             { id: 'vendor', label: 'Vendor', value: 'Food Distributor A' },
             { id: 'deadline', label: 'Notice deadline', value: 'June 3, 2026' },
-            { id: 'terms', label: 'Target terms', value: 'MFN clause, 2% escalation cap, audit rights' },
+            { id: 'terms', label: 'Requested terms', value: 'MFN clause, 2% escalation cap, audit rights' },
             { id: 'contact', label: 'Vendor contact', value: 'Account manager' },
             ...common.fields
           ],
@@ -3287,41 +3625,41 @@ Please send available times to review pricing, escalation language, and comparab
           outputTitle: 'Document request draft',
           fields: [
             { id: 'provider', label: 'Current provider', value: 'Current waste provider' },
-            { id: 'locations', label: 'Locations to sample', value: 'Locations 4, 7, and 9' },
+            { id: 'venues', label: 'Venues to sample', value: 'Primary restaurant, bar, and event space' },
             { id: 'files', label: 'Files needed', value: 'Recent invoices, pickup schedule, volume summary' },
             ...common.fields
           ],
-          checklist: ['Request sample invoices', 'Collect pickup schedule', 'Confirm location volume', 'Compare consolidated rate'],
+          checklist: ['Request sample invoices', 'Collect pickup schedule', 'Confirm venue volume', 'Compare consolidated rate'],
           build: fields => `Document request - ${action.client}
 
 To complete the waste management audit, please upload:
 ${fieldValue(fields, 'files')}
 
 Provider: ${fieldValue(fields, 'provider')}
-Locations: ${fieldValue(fields, 'locations')}
+Venues: ${fieldValue(fields, 'venues')}
 Estimated savings: ${action.savings}
 
-Once received, Larder will reconcile location volume against the current pickup schedule and prepare a consolidated rate request.`
+Once received, Larder will reconcile venue volume against the current pickup schedule and prepare a consolidated rate request.`
         },
         'Pest control': {
           title: 'Benchmark and counteroffer',
           outputTitle: 'Counteroffer outline',
           fields: [
             { id: 'vendor', label: 'Vendor', value: 'Current pest provider' },
-            { id: 'locations', label: 'Location count', value: '14 locations' },
-            { id: 'benchmark', label: 'Benchmark target', value: 'Current market rate for location count' },
+            { id: 'service_profile', label: 'Service profile', value: 'Premium hospitality coverage' },
+            { id: 'benchmark', label: 'Benchmark basis', value: 'Current market rate for service tier' },
             ...common.fields
           ],
-          checklist: ['Confirm current rate', 'Compare location-count pricing', 'Identify auto-renewal language', 'Prepare counteroffer'],
+          checklist: ['Confirm current rate', 'Compare service-tier pricing', 'Identify auto-renewal language', 'Prepare counteroffer'],
           build: fields => `Pest control counteroffer - ${action.client}
 
 Vendor: ${fieldValue(fields, 'vendor')}
-Location count: ${fieldValue(fields, 'locations')}
-Benchmark target: ${fieldValue(fields, 'benchmark')}
+Service profile: ${fieldValue(fields, 'service_profile')}
+Benchmark basis: ${fieldValue(fields, 'benchmark')}
 Estimated savings: ${action.savings}
 
 Counteroffer:
-Request revised pricing based on current location count, removal of legacy auto-renewal language, and clearer service-level terms.`
+Request revised pricing based on the current premium hospitality service profile, removal of legacy auto-renewal language, and clearer service-level terms.`
         }
       };
       return templates[action.category] || {
@@ -3329,7 +3667,7 @@ Request revised pricing based on current location count, removal of legacy auto-
         outputTitle: 'Action draft',
         fields: [
           { id: 'vendor', label: 'Vendor', value: action.title },
-          { id: 'target', label: 'Target outcome', value: action.nextStep },
+          { id: 'target', label: 'Desired outcome', value: action.nextStep },
           ...common.fields
         ],
         checklist: common.checklist,
@@ -3337,7 +3675,7 @@ Request revised pricing based on current location count, removal of legacy auto-
 
 Category: ${action.category}
 Savings estimate: ${action.savings}
-Target outcome: ${fieldValue(fields, 'target', action.nextStep)}
+Desired outcome: ${fieldValue(fields, 'target', action.nextStep)}
 
 Next step:
 ${action.nextStep}
@@ -3389,8 +3727,8 @@ ${action.evidence}`
       document.getElementById('report-rate').textContent = report.rate.replace(' of total spend', '').replace(' of reviewed spend', '');
       document.getElementById('report-contracts').textContent = report.contracts;
       document.getElementById('report-fee').textContent = report.fee;
-      document.getElementById('report-status').textContent = report.status;
       const lifecycleState = normalizeLifecycleState(report.reviewState);
+      document.getElementById('report-status').textContent = lifecycleState;
       document.getElementById('report-status').className = `badge ${stateBadgeClass(lifecycleState)}`;
       renderReportWorkflow(lifecycleState);
       document.querySelectorAll('[data-report-tab]').forEach(tab => {
@@ -3398,7 +3736,7 @@ ${action.evidence}`
       });
       document.getElementById('report-plan-rows').innerHTML = report.categories.map((row, index) => `
         <tr class="clickable-row" onclick="selectReportAction('${clientKey}', ${index})" aria-current="false">
-          <td class="vendor-name"><span class="selected-row-marker">Selected</span>${report.timeline[index]?.[0] || row[3]}</td>
+          <td class="vendor-name">${report.timeline[index]?.[0] || row[3]}</td>
           <td>${row[0]}</td>
           <td class="amount positive">${row[2]}</td>
           <td>${timingForPriority(row[4])}</td>
@@ -3501,10 +3839,10 @@ ${action.evidence}`
       const evidence = {
         'Payment processing': 'Rate spread across processors, card volume concentration, and effective fee benchmark.',
         'Food distribution': 'Escalation clause, missing MFN protection, and comparable volume discount schedule.',
-        'Waste management': 'Location-level invoice variance and inconsistent pickup frequency across legacy contracts.',
-        'Pest control': 'Repeated auto-renewals and location-count pricing above current market rate.',
-        'Linen & uniforms': 'Four vendor rate cards across 11 locations and inconsistent replacement fee terms.',
-        'Janitorial supplies': 'Recurring order substitutions and duplicate SKUs across location purchasing.',
+        'Waste management': 'Venue-level invoice variance and inconsistent pickup frequency across legacy contracts.',
+        'Pest control': 'Repeated auto-renewals and service-tier pricing above current market rate.',
+        'Linen & uniforms': 'Fragmented vendor rate cards and inconsistent replacement fee terms.',
+        'Janitorial supplies': 'Recurring order substitutions and duplicate SKUs across hospitality purchasing.',
         'Uniform replacement fees': 'Damage and replacement fees above negotiated thresholds.',
         'POS support': 'Seat count and support tier mismatch against actual usage.',
         'Sanitation': 'Bundled optional services and uncapped escalation language.',
@@ -3598,8 +3936,8 @@ ${action.evidence}`
       document.getElementById('modal-report-title').textContent = `${clientDisplayName(report)} report`;
       document.getElementById('modal-report-subtitle').textContent = report.subtitle;
       document.getElementById('modal-report-savings').textContent = report.savings;
-      document.getElementById('modal-report-spend').textContent = report.spend;
-      document.getElementById('modal-report-contracts').textContent = report.contracts;
+      document.getElementById('modal-report-spend').textContent = report.arr || report.spend;
+      document.getElementById('modal-report-contracts').textContent = report.roi || report.contracts;
       document.getElementById('modal-report-status').textContent = report.status;
       document.getElementById('modal-report-actions').innerHTML = report.categories.map((row, index) => `
         <tr>
@@ -3788,7 +4126,7 @@ ${action.evidence}`
       setDemoStep(currentDemoStep >= 4 ? 0 : currentDemoStep + 1);
     }
 
-    async function startBuyerDemo() {
+    async function startProductDemo() {
       await signIn('demo');
     }
 
@@ -3810,6 +4148,7 @@ ${action.evidence}`
         const action = item.getAttribute('onclick') || '';
         if (action.includes("'" + name + "'")) item.classList.add('active');
       });
+      updateClientContextStrip();
     }
 
     function switchView(view) {
@@ -3869,7 +4208,8 @@ ${action.evidence}`
 
     function updateApprovalStatus(syncReport = true) {
       const approved = document.querySelectorAll('.approval-btn.btn-primary').length;
-      document.getElementById('approval-count').textContent = `${approved} approved`;
+      const approvalText = approved === 3 ? 'Approved' : `${approved} of 3 approved`;
+      document.getElementById('approval-count').textContent = approvalText;
       const status = document.getElementById('client-portal-status');
       if (approved === 0) {
         status.textContent = 'Awaiting approval';
@@ -3890,6 +4230,24 @@ ${action.evidence}`
           if (currentReportClient === 'client1') setReportClient('client1');
         }
       }
+      const completeState = document.getElementById('approvals-complete-state');
+      if (completeState) completeState.hidden = approved < 3;
+      updateClientContextStrip();
+    }
+
+    function updateClientContextStrip() {
+      const approved = document.querySelectorAll('.approval-btn.btn-primary').length;
+      const received = requestedDocuments.filter(doc => doc.received).length;
+      const statusText = approved === 3 ? 'Approved' : approved > 0 ? 'Partially approved' : normalizeLifecycleState(reports.client1.reviewState);
+      document.querySelectorAll('[data-client-context="status"]').forEach(node => {
+        node.textContent = statusText;
+      });
+      document.querySelectorAll('[data-client-context="approvals"]').forEach(node => {
+        node.textContent = approved === 3 ? '3 of 3 approved' : `${approved} of 3 approved`;
+      });
+      document.querySelectorAll('[data-client-context="documents"]').forEach(node => {
+        node.textContent = `${received} of ${requestedDocuments.length} received`;
+      });
     }
 
     function focusQuestionBox() {
@@ -3929,7 +4287,7 @@ ${action.evidence}`
       const thread = document.getElementById('question-thread');
       if (!thread) return;
       if (!clientQuestions.length) {
-        thread.innerHTML = '<div class="portal-message">No questions yet. Sent questions will appear here with response status.</div>';
+        thread.innerHTML = '<div class="empty-state">No questions yet. When a client sends a question, it will appear here with response status so the approval trail stays clear.</div>';
         return;
       }
       thread.innerHTML = clientQuestions.map(question => `
@@ -3947,6 +4305,8 @@ ${action.evidence}`
       document.getElementById('document-status').textContent = documentStatusText;
       const summaryStatus = document.getElementById('document-status-summary');
       if (summaryStatus) summaryStatus.textContent = documentStatusText;
+      const completeState = document.getElementById('documents-complete-state');
+      if (completeState) completeState.hidden = received < requestedDocuments.length;
       document.querySelectorAll('[data-document-index]').forEach(item => {
         const index = Number(item.dataset.documentIndex);
         const status = requestedDocuments[index]?.received ? 'Received' : 'Needed';
@@ -3954,6 +4314,7 @@ ${action.evidence}`
         badge.textContent = status;
         badge.className = `badge ${status === 'Received' ? 'badge-success' : 'badge-warning'}`;
       });
+      updateClientContextStrip();
     }
 
     function openClientUploadPicker() {
@@ -3972,7 +4333,11 @@ ${action.evidence}`
       }
       clientUploadedFiles = [...clientUploadedFiles, ...uploaded];
       renderClientUploads();
-      if (incoming.length > 0) updateDocumentStatus();
+      if (incoming.length > 0) {
+        const nextNeeded = requestedDocuments.find(doc => !doc.received);
+        if (nextNeeded) nextNeeded.received = true;
+        updateDocumentStatus();
+      }
     }
 
     async function removeClientUpload(index) {
@@ -3986,7 +4351,7 @@ ${action.evidence}`
     function renderClientUploads() {
       const list = document.getElementById('client-upload-list');
       if (clientUploadedFiles.length === 0) {
-        list.innerHTML = '<div class="portal-message">No client files uploaded yet.</div>';
+        list.innerHTML = '<div class="empty-state">No extra client files uploaded yet. Uploaded files will appear here and in Larder team Vendor intake.</div>';
         renderIntakeQueue();
         renderOperatorDashboard();
         return;
@@ -4059,6 +4424,7 @@ ${action.evidence}`
     loadBackendState();
     renderClientUploads();
     renderQuestionThread();
+    updateClientContextStrip();
 
     function startAnalysis() {
       const pasteMode = document.querySelector('[data-intake-tab="paste"]').classList.contains('active');
@@ -4142,8 +4508,8 @@ ${action.evidence}`
     });
     clientUploadZone.addEventListener('drop', event => handleClientUpload(event.dataTransfer.files));
 
-    if (window.location.hash === '#buyer-demo') {
-      startBuyerDemo();
+    if (window.location.hash === '#product-demo') {
+      startProductDemo();
     }
   </script>
 </body>
