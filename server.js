@@ -11,15 +11,15 @@ const STORE_PATH = path.join(DATA_DIR, 'store.json');
 
 const initialStore = {
   reports: {
-    mfg: { reviewState: 'Client ready', status: 'Final' },
-    ushg: { reviewState: 'Approved', status: 'Final' },
-    nobu: { reviewState: 'Draft', status: 'Draft' }
+    client1: { reviewState: 'Client ready', status: 'Final' },
+    client2: { reviewState: 'Approved', status: 'Final' },
+    client3: { reviewState: 'Draft', status: 'Draft' }
   },
   contracts: [
     {
-      id: 'demo-sysco',
-      client: 'Major Food Group',
-      vendor: 'Sysco Northeast',
+      id: 'demo-distributor',
+      client: 'Sample Restaurant Group 1',
+      vendor: 'Food Distributor A',
       category: 'Food distribution',
       source: 'Seeded demo record',
       status: 'Reviewing terms',
@@ -31,9 +31,9 @@ const initialStore = {
       createdAt: '2026-05-19T23:54:00.000Z'
     },
     {
-      id: 'demo-heartland',
-      client: 'Major Food Group',
-      vendor: 'Heartland Payment',
+      id: 'demo-processor',
+      client: 'Sample Restaurant Group 1',
+      vendor: 'Payment Processor A',
       category: 'Payment processing',
       source: 'Seeded demo record',
       status: 'Ready for report',
@@ -45,9 +45,9 @@ const initialStore = {
       createdAt: '2026-05-19T23:54:00.000Z'
     },
     {
-      id: 'demo-ecolab',
-      client: 'Nobu Hospitality NYC',
-      vendor: 'Ecolab',
+      id: 'demo-sanitation',
+      client: 'Sample Restaurant Group 3',
+      vendor: 'Sanitation Vendor A',
       category: 'Sanitation',
       source: 'Seeded demo record',
       status: 'Needs source file',
@@ -62,8 +62,8 @@ const initialStore = {
   approvals: {},
   questions: [],
   documents: [
-    { label: 'Latest Heartland processing statement', received: true },
-    { label: 'Sysco trailing 12-month purchase summary', received: false },
+    { label: 'Latest Payment Processor A processing statement', received: true },
+    { label: 'Food Distributor A trailing 12-month purchase summary', received: false },
     { label: 'Waste invoice sample by location', received: false }
   ],
   uploads: []
@@ -71,7 +71,7 @@ const initialStore = {
 
 const users = {
   operator: { name: 'Rebecca Hirschfeld', roleLabel: 'VendorIQ operator', role: 'operator' },
-  client: { name: 'Major Food Group', roleLabel: 'Client stakeholder', role: 'client', clientKey: 'mfg' },
+  client: { name: 'Sample Restaurant Group 1', roleLabel: 'Client stakeholder', role: 'client', clientKey: 'client1' },
   demo: { name: 'Buyer demo', roleLabel: 'Prospect walkthrough', role: 'demo' }
 };
 

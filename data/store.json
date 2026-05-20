@@ -1,23 +1,23 @@
 {
   "reports": {
-    "mfg": {
+    "client1": {
       "reviewState": "Draft",
       "status": "Draft"
     },
-    "ushg": {
+    "client2": {
       "reviewState": "Approved",
       "status": "Final"
     },
-    "nobu": {
+    "client3": {
       "reviewState": "Draft",
       "status": "Draft"
     }
   },
   "contracts": [
     {
-      "id": "demo-sysco",
-      "client": "Major Food Group",
-      "vendor": "Sysco Northeast",
+      "id": "demo-distributor",
+      "client": "Sample Restaurant Group 1",
+      "vendor": "Food Distributor A",
       "category": "Food distribution",
       "source": "Seeded demo record",
       "status": "In client report",
@@ -30,9 +30,9 @@
       "updatedAt": "2026-05-20T02:22:37.018Z"
     },
     {
-      "id": "demo-heartland",
-      "client": "Major Food Group",
-      "vendor": "Heartland Payment",
+      "id": "demo-processor",
+      "client": "Sample Restaurant Group 1",
+      "vendor": "Payment Processor A",
       "category": "Payment processing",
       "source": "Seeded demo record",
       "status": "Ready for report",
@@ -44,9 +44,9 @@
       "createdAt": "2026-05-19T23:54:00.000Z"
     },
     {
-      "id": "demo-ecolab",
-      "client": "Nobu Hospitality NYC",
-      "vendor": "Ecolab",
+      "id": "demo-sanitation",
+      "client": "Sample Restaurant Group 3",
+      "vendor": "Sanitation Vendor A",
       "category": "Sanitation",
       "source": "Seeded demo record",
       "status": "Needs source file",
@@ -62,11 +62,11 @@
   "questions": [],
   "documents": [
     {
-      "label": "Latest Heartland processing statement",
+      "label": "Latest Payment Processor A processing statement",
       "received": true
     },
     {
-      "label": "Sysco trailing 12-month purchase summary",
+      "label": "Food Distributor A trailing 12-month purchase summary",
       "received": false
     },
     {
