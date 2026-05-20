@@ -64,7 +64,7 @@ const initialStore = {
   documents: [
     { label: 'Latest Payment Processor A processing statement', received: true },
     { label: 'Food Distributor A trailing 12-month purchase summary', received: false },
-    { label: 'Waste invoice sample by location', received: false }
+    { label: 'Waste invoice sample by venue', received: false }
   ],
   uploads: []
 };
@@ -203,6 +203,19 @@ async function handleApi(req, res) {
     store.questions.push({ id: crypto.randomUUID(), message, user, createdAt: new Date().toISOString() });
     await writeStore(store);
     return send(res, 201, { questions: store.questions });
+  }
+
+  const questionReplyMatch = url.pathname.match(/^\/api\/client\/questions\/([^/]+)\/reply$/);
+  if (req.method === 'PATCH' && questionReplyMatch) {
+    const store = await readStore();
+    const question = (store.questions || []).find(item => item.id === questionReplyMatch[1]);
+    if (!question) return send(res, 404, { error: 'Unknown question' });
+    const { reply, repliedBy } = await readJson(req);
+    question.reply = reply || question.reply;
+    question.repliedBy = repliedBy || question.repliedBy || 'Larder';
+    question.repliedAt = new Date().toISOString();
+    await writeStore(store);
+    return send(res, 200, { question, questions: store.questions });
   }
 
   if (req.method === 'POST' && url.pathname === '/api/client/documents') {
