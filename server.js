@@ -18,7 +18,7 @@ const initialStore = {
   contracts: [
     {
       id: 'demo-distributor',
-      client: 'Client 1',
+      client: 'Sample Restaurant Group',
       vendor: 'Food Distributor A',
       category: 'Food distribution',
       source: 'Seeded demo record',
@@ -32,11 +32,11 @@ const initialStore = {
     },
     {
       id: 'demo-processor',
-      client: 'Client 1',
+      client: 'Sample Restaurant Group',
       vendor: 'Payment Processor A',
       category: 'Payment processing',
       source: 'Seeded demo record',
-      status: 'Recommendations ready',
+      status: 'Actions ready',
       renewalDate: 'Jul 8, 2026',
       annualValue: '$520K',
       risk: 'High',
@@ -46,8 +46,8 @@ const initialStore = {
     },
     {
       id: 'demo-sanitation',
-      client: 'Client 3',
-      vendor: 'Sanitation Vendor A',
+      client: 'Independent Restaurant Group',
+      vendor: 'Grease & Sanitation Vendor A',
       category: 'Sanitation',
       source: 'Seeded demo record',
       status: 'Documents needed',
@@ -70,9 +70,9 @@ const initialStore = {
 };
 
 const users = {
-  operator: { name: 'Rebecca Hirschfeld', roleLabel: 'Larder operator', role: 'operator' },
-  client: { name: 'Client 1', roleLabel: 'Client stakeholder', role: 'client', clientKey: 'client1' },
-  demo: { name: 'Buyer demo', roleLabel: 'Prospect walkthrough', role: 'demo' }
+  operator: { name: 'Rebecca Hirschfeld', roleLabel: 'Larder team', role: 'operator' },
+  client: { name: 'Sample Restaurant Group', roleLabel: 'Client Portal', role: 'client', clientKey: 'client1' },
+  demo: { name: 'Product demo', roleLabel: 'Product demo', role: 'demo' }
 };
 
 function send(res, status, body, headers = {}) {

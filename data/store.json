@@ -16,7 +16,7 @@
   "contracts": [
     {
       "id": "demo-distributor",
-      "client": "Client 1",
+      "client": "Sample Restaurant Group",
       "vendor": "Food Distributor A",
       "category": "Food distribution",
       "source": "Seeded demo record",
@@ -31,11 +31,11 @@
     },
     {
       "id": "demo-processor",
-      "client": "Client 1",
+      "client": "Sample Restaurant Group",
       "vendor": "Payment Processor A",
       "category": "Payment processing",
       "source": "Seeded demo record",
-      "status": "Recommendations ready",
+      "status": "Actions ready",
       "renewalDate": "Jul 8, 2026",
       "annualValue": "$520K",
       "risk": "High",
@@ -45,8 +45,8 @@
     },
     {
       "id": "demo-sanitation",
-      "client": "Client 3",
-      "vendor": "Sanitation Vendor A",
+      "client": "Independent Restaurant Group",
+      "vendor": "Grease & Sanitation Vendor A",
       "category": "Sanitation",
       "source": "Seeded demo record",
       "status": "Documents needed",
@@ -59,7 +59,7 @@
     }
   ],
   "approvals": {
-    "processor": false
+    "processor": true
   },
   "questions": [],
   "documents": [
