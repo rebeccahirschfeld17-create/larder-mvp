@@ -1,0 +1,2443 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VendorIQ | Contract Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <style>
+    :root {
+      --bg: #f6f6f4;
+      --panel: #ffffff;
+      --panel-soft: #f8f8f7;
+      --ink: #101010;
+      --muted: #666666;
+      --muted-light: #8a8a8a;
+      --line: #d7d7d2;
+      --line-soft: #e8e8e3;
+      --blue: #2563eb;
+      --blue-dark: #1d4ed8;
+      --blue-soft: #eff5ff;
+      --green: #067647;
+      --green-soft: #ecfdf3;
+      --amber: #b54708;
+      --amber-soft: #fffaeb;
+      --red: #b42318;
+      --red-soft: #fef3f2;
+      --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.05);
+      --shadow-md: 0 10px 30px rgba(16, 24, 40, 0.08);
+      --radius-lg: 4px;
+      --radius-md: 4px;
+      --radius-sm: 3px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .app {
+      display: flex;
+      min-height: 100vh;
+      background: var(--bg);
+    }
+
+    .auth-view .app { display: none; }
+
+    .auth-screen {
+      min-height: 100vh;
+      display: none;
+      place-items: center;
+      padding: 1.5rem;
+      background: var(--bg);
+    }
+
+    .auth-view .auth-screen { display: grid; }
+
+    .auth-card {
+      width: min(920px, 100%);
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: var(--shadow-md);
+    }
+
+    .auth-brand {
+      padding: 2rem;
+      border-right: 1px solid var(--line);
+      background: #f8f8f6;
+    }
+
+    .auth-brand h1 {
+      font-size: 28px;
+      line-height: 1.1;
+      margin: 1.25rem 0 0.75rem;
+    }
+
+    .auth-brand p {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .auth-options {
+      padding: 2rem;
+      display: grid;
+      gap: 12px;
+      align-content: center;
+    }
+
+    .auth-option {
+      width: 100%;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+      font: inherit;
+      border-radius: 4px;
+    }
+
+    .auth-option:hover {
+      border-color: var(--ink);
+      background: #fbfbfa;
+    }
+
+    .auth-option p {
+      font-weight: 800;
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .auth-option span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .auth-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      background: #f8f8f6;
+      border-radius: 4px;
+    }
+
+    .sidebar {
+      width: 232px;
+      min-width: 232px;
+      background: #ffffff;
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 0.7rem;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+
+    .sidebar-logo {
+      padding: 0.35rem 0.55rem 1.1rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 4px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: #111827;
+      box-shadow: none;
+      margin-bottom: 0.7rem;
+    }
+
+    .sidebar-logo p {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0;
+      color: var(--ink);
+    }
+
+    .sidebar-logo span {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 10px;
+      margin: 1px 0;
+      border-radius: 4px;
+      font-size: 13px;
+      color: #4b4b4b;
+      cursor: pointer;
+      transition: 0.18s ease;
+    }
+
+    .nav-item:hover {
+      background: #f3f3f0;
+      color: var(--ink);
+    }
+
+    .nav-item.active {
+      color: var(--ink);
+      background: #eeeeea;
+      font-weight: 700;
+    }
+
+    .nav-item i { font-size: 17px; color: #6d6d6d; }
+    .nav-item.active i { color: var(--ink); }
+
+    .view-switch {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 5px;
+      padding: 0.45rem;
+      margin: 0 0 0.85rem;
+      border: 1px solid var(--line);
+      background: #f7f7f4;
+      border-radius: 4px;
+    }
+
+    .view-option {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      text-align: left;
+      padding: 7px 8px;
+      border-radius: 3px;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 760;
+    }
+
+    .view-option.active {
+      color: var(--ink);
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .client-role .view-switch { display: none; }
+    .client-role [data-report-tab="ushg"],
+    .client-role [data-report-tab="nobu"] { display: none; }
+    .client-role .workflow-card { display: none; }
+
+    .sidebar-footer {
+      margin-top: auto;
+      padding: 0.85rem;
+      border-radius: 4px;
+      background: #f7f7f4;
+      color: var(--ink);
+      border: 1px solid var(--line-soft);
+      box-shadow: none;
+    }
+
+    .sidebar-footer p {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .sidebar-footer span {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .user-panel {
+      margin-top: 0.85rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .user-panel strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 3px;
+    }
+
+    .user-panel button {
+      margin-top: 8px;
+      width: 100%;
+    }
+
+    .main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.25rem 1.5rem 2rem;
+    }
+
+    .page { display: none; animation: fadeUp 0.22s ease; }
+    .page.active { display: block; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .page-header h1 {
+      font-size: 25px;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: 0;
+      color: var(--ink);
+    }
+
+    .page-header p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 5px;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .search-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 280px;
+      padding: 9px 11px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: none;
+      color: var(--muted-light);
+      font-size: 13px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      padding: 1.25rem;
+      color: var(--ink);
+      background: #ffffff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-card h2 {
+      font-size: 21px;
+      letter-spacing: 0;
+      margin-bottom: 8px;
+    }
+
+    .hero-card p {
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 640px;
+      line-height: 1.55;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 0;
+      margin-top: 1.15rem;
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .hero-stat span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 20px;
+      margin-top: 5px;
+    }
+
+    .hero-stat {
+      flex: 1;
+      padding: 1rem 1rem 0 0;
+    }
+
+    .hero-stat + .hero-stat {
+      padding-left: 1rem;
+      border-left: 1px solid var(--line-soft);
+    }
+
+    .insight-card {
+      border-radius: 8px;
+      padding: 1.25rem;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .insight-card small {
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+
+    .insight-card h3 {
+      margin-top: 0.55rem;
+      font-size: 17px;
+      letter-spacing: 0;
+    }
+
+    .insight-card p {
+      margin-top: 0.55rem;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 1.25rem;
+    }
+
+    .metric {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.95rem 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .metric-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .metric-value {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .metric-sub {
+      font-size: 12px;
+      color: var(--green);
+      margin-top: 6px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .badge-danger { background: var(--red-soft); color: var(--red); border: 1px solid #fecdca; }
+    .badge-warning { background: var(--amber-soft); color: var(--amber); border: 1px solid #fedf89; }
+    .badge-success { background: var(--green-soft); color: var(--green); border: 1px solid #abefc6; }
+    .badge-info { background: var(--blue-soft); color: var(--blue); border: 1px solid #b2ddff; }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 14px;
+      overflow: hidden;
+    }
+
+    th {
+      text-align: left;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 760;
+      color: var(--muted-light);
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    td {
+      padding: 12px;
+      border-bottom: 1px solid var(--line-soft);
+      color: var(--ink);
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tbody tr { transition: 0.15s ease; }
+    tbody tr:hover td { background: #fafafa; }
+
+    .clickable-row {
+      cursor: pointer;
+    }
+
+    .clickable-row.active td {
+      background: #f8f8f6;
+      box-shadow: inset 3px 0 0 var(--ink);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 720;
+      cursor: pointer;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      box-shadow: none;
+      transition: 0.18s ease;
+    }
+
+    .btn:hover {
+      background: #f9fafb;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: white;
+      border-color: transparent;
+    }
+
+    .upload-zone {
+      border: 1.5px dashed #b8c4d9;
+      border-radius: 8px;
+      padding: 2.7rem;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.18s ease;
+      background: #fcfcfd;
+    }
+
+    .upload-zone:hover {
+      border-color: var(--ink);
+      background: #f6f6f4;
+    }
+
+    .upload-zone.dragging {
+      border-color: var(--blue);
+      background: var(--blue-soft);
+    }
+
+    .upload-zone i {
+      width: 54px;
+      height: 54px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 14px;
+      font-size: 26px;
+      color: var(--ink);
+      background: #eeeeea;
+    }
+
+    .upload-zone p { font-size: 15px; font-weight: 720; }
+    .upload-zone span { display:block; margin-top: 5px; font-size: 12px; color: var(--muted); }
+
+    .file-summary {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 12px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 4px;
+    }
+
+    .file-summary.show { display: flex; }
+
+    .file-summary-main {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .file-summary i {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      background: #f8f8f6;
+      border-radius: 4px;
+      color: var(--ink);
+      flex-shrink: 0;
+    }
+
+    .file-summary p {
+      font-size: 13px;
+      font-weight: 800;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 42vw;
+    }
+
+    .file-summary span,
+    .upload-message {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    .upload-message {
+      min-height: 16px;
+      margin-top: 10px;
+    }
+
+    .analysis-result {
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--ink);
+      padding: 1rem 1.1rem;
+      background: #fcfcfd;
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+    }
+
+    .analysis-result h4 {
+      font-size: 14px;
+      font-weight: 760;
+      margin-bottom: 5px;
+    }
+
+    .analysis-result p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .savings-amount {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--green);
+    }
+
+    .client-row, .opportunity-item {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .opportunity-item { align-items: flex-start; }
+    .client-row:last-child, .opportunity-item:last-child { border-bottom: none; }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      background: #eeeeea;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--ink);
+      flex-shrink: 0;
+    }
+
+    .client-info, .opp-details { flex: 1; }
+
+    .client-info p, .opp-details p {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .client-info span, .opp-details span {
+      display: block;
+      margin-top: 3px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .progress-bar {
+      height: 6px;
+      background: #ecece8;
+      border-radius: 6px;
+      margin-top: 9px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 6px;
+      background: var(--ink);
+    }
+
+    .opp-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .opp-amount {
+      font-size: 15px;
+      font-weight: 820;
+      color: var(--green);
+      white-space: nowrap;
+    }
+
+    input[type=text], input[type=email], select, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      margin-bottom: 12px;
+      outline: none;
+      transition: 0.15s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--ink);
+      box-shadow: 0 0 0 3px rgba(16,16,16,0.08);
+    }
+
+    label {
+      font-size: 12px;
+      font-weight: 720;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .tab-bar {
+      display: inline-flex;
+      gap: 5px;
+      padding: 5px;
+      margin-bottom: 1.25rem;
+      border-radius: 8px;
+      background: #eeeeea;
+    }
+
+    .tab {
+      padding: 8px 15px;
+      font-size: 13px;
+      color: var(--muted);
+      cursor: pointer;
+      border-radius: 6px;
+      font-weight: 720;
+    }
+
+    .tab.active {
+      color: var(--ink);
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .report-section { margin-bottom: 1.5rem; }
+
+    .report-section h3 {
+      font-size: 15px;
+      font-weight: 780;
+      margin-bottom: 0.85rem;
+      letter-spacing: -0.02em;
+    }
+
+    .analyzing { display: none; text-align: center; padding: 2.4rem; }
+    .analyzing.show { display: block; }
+
+    .spinner {
+      width: 38px;
+      height: 38px;
+      border: 3px solid #e4eaf4;
+      border-top-color: var(--ink);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 1rem;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .ai-result { display: none; }
+    .ai-result.show { display: block; }
+
+    .status-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border: 1px solid var(--line);
+      background: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .status-cell {
+      padding: 0.8rem 0.95rem;
+      border-right: 1px solid var(--line-soft);
+    }
+
+    .status-cell:last-child { border-right: none; }
+
+    .status-cell span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .status-cell strong {
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.7rem 0.85rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .toolbar-group {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .filter-chip {
+      padding: 6px 9px;
+      border: 1px solid var(--line);
+      background: #f8f8f6;
+      color: var(--ink);
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .filter-chip.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #fff;
+    }
+
+    .report-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .category-detail {
+      border-top: 1px solid var(--line);
+      margin-top: 1rem;
+      padding-top: 1rem;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 0.85rem;
+    }
+
+    .detail-cell {
+      border: 1px solid var(--line-soft);
+      background: #f8f8f6;
+      padding: 10px;
+      border-radius: 4px;
+    }
+
+    .detail-cell span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .detail-cell strong {
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .workflow-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .workflow-steps {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 0.8rem;
+    }
+
+    .workflow-step {
+      border: 1px solid var(--line);
+      background: #f8f8f6;
+      padding: 8px;
+      border-radius: 4px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .workflow-step.active {
+      color: var(--ink);
+      background: #fff;
+      border-color: var(--ink);
+    }
+
+    .workflow-step.done {
+      color: var(--green);
+      background: var(--green-soft);
+      border-color: #abefc6;
+    }
+
+    .workflow-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .operator-workbench {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .pipeline-summary {
+      display: grid;
+      gap: 10px;
+    }
+
+    .pipeline-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid var(--line-soft);
+      background: var(--panel-soft);
+      border-radius: 4px;
+    }
+
+    .pipeline-item span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+
+    .pipeline-item strong {
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .contract-row-actions {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .btn-mini {
+      padding: 6px 8px;
+      font-size: 12px;
+      box-shadow: none;
+    }
+
+    @media (max-width: 900px) {
+      .workflow-card { grid-template-columns: 1fr; }
+      .workflow-actions { justify-content: flex-start; }
+      .workflow-steps { grid-template-columns: 1fr; }
+      .operator-workbench { grid-template-columns: 1fr; }
+    }
+
+    .subtle-link {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .card-meta {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .vendor-name {
+      font-weight: 750;
+    }
+
+    .amount {
+      font-variant-numeric: tabular-nums;
+      font-weight: 760;
+    }
+
+    .risk-high { color: var(--red); font-weight: 800; }
+    .risk-medium { color: var(--amber); font-weight: 800; }
+    .risk-low { color: var(--blue); font-weight: 800; }
+    .positive { color: var(--green); }
+
+    .client-summary {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .client-hero {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 1.35rem;
+      border-radius: 4px;
+    }
+
+    .client-hero h2 {
+      font-size: 24px;
+      line-height: 1.15;
+      margin-bottom: 0.65rem;
+    }
+
+    .client-hero p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+      max-width: 740px;
+    }
+
+    .decision-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .decision-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 12px;
+      align-items: start;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .decision-item:last-child { border-bottom: none; }
+
+    .decision-number {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      background: #f8f8f6;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .client-actions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .approval-panel {
+      display: grid;
+      gap: 10px;
+    }
+
+    .approval-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .approval-row:last-child { border-bottom: none; }
+
+    .approval-row p {
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 3px;
+    }
+
+    .question-box textarea {
+      min-height: 96px;
+      resize: vertical;
+    }
+
+    .portal-message {
+      min-height: 18px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    .document-list {
+      display: grid;
+      gap: 0;
+    }
+
+    .document-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .document-item:last-child { border-bottom: none; }
+
+    .document-item input {
+      width: 16px;
+      height: 16px;
+    }
+
+    .client-upload-zone {
+      border: 1.5px dashed var(--line);
+      background: #fcfcfb;
+      padding: 1.1rem;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .client-upload-zone:hover,
+    .client-upload-zone.dragging {
+      border-color: var(--ink);
+      background: #f6f6f4;
+    }
+
+    .upload-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .upload-list-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 9px 10px;
+      border: 1px solid var(--line-soft);
+      background: #fff;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .client-view .operator-only { display: none; }
+    .operator-view .client-only { display: none; }
+    .client-role .operator-only { display: none; }
+
+    .client-row,
+    .opportunity-item,
+    .metric,
+    .hero-card,
+    .insight-card,
+    .card,
+    .search-pill,
+    .btn,
+    input[type=text],
+    input[type=email],
+    select,
+    textarea,
+    .upload-zone,
+    .upload-zone i,
+    .avatar,
+    .opp-icon {
+      border-radius: 4px;
+    }
+
+    @media (max-width: 1000px) {
+      .auth-card { grid-template-columns: 1fr; }
+      .auth-brand { border-right: 0; border-bottom: 1px solid var(--line); }
+      .sidebar { width: 92px; min-width: 92px; padding: 0.8rem; }
+      .sidebar-logo span, .sidebar-logo p, .nav-item span, .sidebar-footer { display: none; }
+      .brand-mark { margin: 0 auto; }
+      .nav-item { justify-content: center; }
+      .hero { grid-template-columns: 1fr; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .client-summary { grid-template-columns: 1fr; }
+      .client-actions-grid { grid-template-columns: 1fr; }
+      .detail-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 700px) {
+      .app { display: block; }
+      .sidebar { position: relative; width: 100%; height: auto; min-width: 0; flex-direction: row; overflow-x: auto; }
+      .main { padding: 1rem; }
+      .topbar, .card-header, .client-row, .header-actions { align-items: flex-start; flex-direction: column; }
+      .search-pill { min-width: 0; width: 100%; }
+      .metrics, .form-row, .status-strip { grid-template-columns: 1fr; }
+      .hero-stats { flex-wrap: wrap; }
+      .opportunity-item { flex-wrap: wrap; }
+      table { display: block; overflow-x: auto; white-space: nowrap; }
+    }
+  </style>
+</head>
+<body class="auth-view operator-view">
+  <h1 class="sr-only">Vendor Contract Intelligence - internal tool for reviewing restaurant group contracts and identifying savings opportunities</h1>
+
+  <div class="auth-screen">
+    <div class="auth-card">
+      <div class="auth-brand">
+        <div class="brand-mark"><i class="ti ti-contract" aria-hidden="true"></i></div>
+        <h1>VendorIQ</h1>
+        <p>Sign in as a VendorIQ operator or a client stakeholder to see the role-specific contract review workflow.</p>
+      </div>
+      <div class="auth-options">
+        <button class="auth-option" onclick="signIn('operator')">
+          <span class="auth-icon"><i class="ti ti-user-shield"></i></span>
+          <span><p>VendorIQ team</p><span>Access all clients, uploads, report states, and operator workflows.</span></span>
+          <i class="ti ti-arrow-right"></i>
+        </button>
+        <button class="auth-option" onclick="signIn('client')">
+          <span class="auth-icon"><i class="ti ti-building-store"></i></span>
+          <span><p>Major Food Group client</p><span>Access the client portal, approvals, requested documents, and shared reports.</span></span>
+          <i class="ti ti-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="app">
+    <div class="sidebar">
+      <div class="sidebar-logo">
+        <div class="brand-mark"><i class="ti ti-contract" aria-hidden="true"></i></div>
+        <p>VendorIQ</p>
+        <span>Contract Intelligence</span>
+      </div>
+      <div class="view-switch" aria-label="Viewpoint">
+        <button class="view-option active" data-view-option="operator" onclick="switchView('operator')">VendorIQ team</button>
+        <button class="view-option" data-view-option="client" onclick="switchView('client')">Client view</button>
+      </div>
+      <div class="nav-item active operator-only" onclick="showPage('dashboard')">
+        <i class="ti ti-layout-dashboard" aria-hidden="true"></i> <span>Dashboard</span>
+      </div>
+      <div class="nav-item operator-only" onclick="showPage('clients')">
+        <i class="ti ti-building-store" aria-hidden="true"></i> <span>Clients</span>
+      </div>
+      <div class="nav-item operator-only" onclick="showPage('analyze')">
+        <i class="ti ti-file-search" aria-hidden="true"></i> <span>Analyze contract</span>
+      </div>
+      <div class="nav-item operator-only" onclick="showPage('report')">
+        <i class="ti ti-chart-bar" aria-hidden="true"></i> <span>Reports</span>
+      </div>
+      <div class="nav-item operator-only" onclick="showPage('addclient')">
+        <i class="ti ti-plus" aria-hidden="true"></i> <span>Add client</span>
+      </div>
+      <div class="nav-item client-only" onclick="showPage('clientportal')">
+        <i class="ti ti-report-analytics" aria-hidden="true"></i> <span>Action center</span>
+      </div>
+      <div class="nav-item client-only" onclick="showPage('report')">
+        <i class="ti ti-chart-bar" aria-hidden="true"></i> <span>Savings report</span>
+      </div>
+      <div class="sidebar-footer">
+        <p>$487K found</p>
+        <span>Reviewed savings pipeline across active restaurant clients.</span>
+        <div class="user-panel">
+          <strong id="signed-in-name">Not signed in</strong>
+          <span id="signed-in-role">Select a role</span>
+          <button class="btn" onclick="signOut()"><i class="ti ti-logout"></i> Sign out</button>
+        </div>
+      </div>
+    </div>
+
+    <main class="main">
+      <section class="page active" id="page-dashboard">
+        <div class="topbar">
+          <div class="page-header">
+            <h1>Dashboard</h1>
+            <p>Contract exposure, renewal deadlines, and savings pipeline</p>
+          </div>
+          <div class="header-actions">
+            <div class="search-pill"><i class="ti ti-search"></i> Search contracts, vendors, clients</div>
+            <button class="btn btn-primary" onclick="showPage('analyze')"><i class="ti ti-file-search"></i> Analyze contract</button>
+          </div>
+        </div>
+
+        <div class="status-strip">
+          <div class="status-cell"><span>Workspace</span><strong>Restaurant advisory portfolio</strong></div>
+          <div class="status-cell"><span>Data refresh</span><strong>May 19, 2026 at 7:54 PM</strong></div>
+          <div class="status-cell"><span>Review owner</span><strong>Operations finance</strong></div>
+          <div class="status-cell"><span>Confidence</span><strong>34 of 41 contracts verified</strong></div>
+        </div>
+
+        <div class="hero">
+          <div class="hero-card">
+            <h2>Portfolio spend and contract exposure</h2>
+            <p>Track renewal risk, vendor concentration, and savings opportunities across multi-location restaurant groups.</p>
+            <div class="hero-stats">
+              <div class="hero-stat"><span>Audited spend</span><strong>$5.9M</strong></div>
+              <div class="hero-stat"><span>Savings rate</span><strong>8.3%</strong></div>
+              <div class="hero-stat"><span>Urgent actions</span><strong>6</strong></div>
+            </div>
+          </div>
+          <div class="insight-card">
+            <small>Review note</small>
+            <h3>Payment processing needs owner follow-up this week.</h3>
+            <p>Three accounts have fragmented processors and renewal windows inside 60 days. Confirm current effective rates before issuing RFPs.</p>
+            <button class="btn" style="margin-top: 1rem;" onclick="showPage('report')">View report</button>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <div class="toolbar-group">
+            <span class="filter-chip">All clients</span>
+            <span class="filter-chip">Renewals &lt; 90 days</span>
+            <span class="filter-chip">Savings above $25K</span>
+          </div>
+          <span class="subtle-link">Showing verified contracts only</span>
+        </div>
+
+        <div class="metrics">
+          <div class="metric"><div class="metric-label">Active clients</div><div class="metric-value">3</div></div>
+          <div class="metric"><div class="metric-label">Contracts tracked</div><div class="metric-value" id="dashboard-contract-count">41</div></div>
+          <div class="metric"><div class="metric-label">Savings identified</div><div class="metric-value">$487K</div><div class="metric-sub">Up across portfolio</div></div>
+          <div class="metric"><div class="metric-label">Renewals this month</div><div class="metric-value">6</div><div class="metric-sub" style="color: var(--amber);">Action needed</div></div>
+        </div>
+
+        <div class="operator-workbench">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <span class="card-title">Operator contract queue</span>
+                <div class="card-meta">Use seeded records until real contracts arrive; uploaded contracts appear here automatically.</div>
+              </div>
+              <span class="badge badge-info" id="operator-queue-count">0 active</span>
+            </div>
+            <table>
+              <thead><tr><th>Client</th><th>Vendor</th><th>Stage</th><th>Risk</th><th>Renewal</th><th>Savings</th><th>Action</th></tr></thead>
+              <tbody id="operator-contract-rows"></tbody>
+            </table>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <span class="card-title">Pipeline snapshot</span>
+                <div class="card-meta">What the VendorIQ team should clear next</div>
+              </div>
+            </div>
+            <div class="pipeline-summary" id="operator-pipeline-summary"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <span class="card-title">Urgent renewals</span>
+              <div class="card-meta">Sorted by notice deadline</div>
+            </div>
+            <span class="badge badge-danger">6 expiring soon</span>
+          </div>
+          <table>
+            <thead><tr><th>Client</th><th>Vendor</th><th>Category</th><th>Renewal date</th><th>Annual value</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Major Food Group</td><td class="vendor-name">Sysco Northeast</td><td>Food distribution</td><td>Jun 3, 2026</td><td class="amount">$2.1M</td><td><span class="badge badge-danger">14 days</span></td></tr>
+              <tr><td>USHG</td><td class="vendor-name">Imperial Dade</td><td>Linen & uniforms</td><td>Jun 11, 2026</td><td class="amount">$340K</td><td><span class="badge badge-danger">22 days</span></td></tr>
+              <tr><td>Nobu Hospitality</td><td class="vendor-name">Ecolab</td><td>Sanitation</td><td>Jul 1, 2026</td><td class="amount">$180K</td><td><span class="badge badge-warning">43 days</span></td></tr>
+              <tr><td>Major Food Group</td><td class="vendor-name">Heartland Payment</td><td>Payment processing</td><td>Jul 8, 2026</td><td class="amount">$520K</td><td><span class="badge badge-warning">49 days</span></td></tr>
+              <tr><td>USHG</td><td class="vendor-name">Cintas</td><td>Uniforms</td><td>Jul 22, 2026</td><td class="amount">$95K</td><td><span class="badge badge-info">63 days</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Top savings opportunities</span>
+            <span class="badge badge-success">$487K identified</span>
+          </div>
+          <div class="opportunity-item"><div class="opp-icon" style="background: var(--amber-soft);"><i class="ti ti-credit-card" style="font-size:17px; color: var(--amber);"></i></div><div class="opp-details"><p>Payment processing consolidation - Major Food Group</p><span>Fragmented across 3 processors. Consolidating to one negotiated rate saves ~2.1% across $12M in card volume</span></div><div class="opp-amount">$252K/yr</div></div>
+          <div class="opportunity-item"><div class="opp-icon" style="background: var(--green-soft);"><i class="ti ti-shirt" style="font-size:17px; color: var(--green);"></i></div><div class="opp-details"><p>Linen vendor consolidation - USHG</p><span>11 locations using 4 different vendors. Market rate for volume is 28% below current blended rate</span></div><div class="opp-amount">$141K/yr</div></div>
+          <div class="opportunity-item"><div class="opp-icon" style="background: var(--blue-soft);"><i class="ti ti-bug" style="font-size:17px; color: var(--blue);"></i></div><div class="opp-details"><p>Pest control renegotiation - Nobu Hospitality</p><span>Auto-renewed 3x without renegotiation. Current rate is 34% above market for location count</span></div><div class="opp-amount">$54K/yr</div></div>
+          <div class="opportunity-item"><div class="opp-icon" style="background: var(--red-soft);"><i class="ti ti-trash" style="font-size:17px; color: var(--red);"></i></div><div class="opp-details"><p>Waste management consolidation - Major Food Group</p><span>Locations 4, 7, and 9 on legacy contracts. Volume discount available with current provider</span></div><div class="opp-amount">$40K/yr</div></div>
+        </div>
+      </section>
+
+      <section class="page" id="page-clients">
+        <div class="topbar"><div class="page-header"><h1>Clients</h1><p>Restaurant groups and their portfolio status</p></div><button class="btn btn-primary" onclick="showPage('addclient')"><i class="ti ti-plus"></i> Add client</button></div>
+        <div class="card">
+          <div class="client-row"><div class="avatar">MF</div><div class="client-info"><p>Major Food Group</p><span>14 locations - 18 contracts - $3.2M annual vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 72%;"></div></div></div><span class="badge badge-success">$292K identified</span><button class="btn" onclick="showClientReport('mfg')"><i class="ti ti-chart-bar"></i> View report</button></div>
+          <div class="client-row"><div class="avatar" style="background: var(--green-soft); color: var(--green);">UH</div><div class="client-info"><p>Union Square Hospitality Group</p><span>11 locations - 15 contracts - $1.8M annual vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 55%; background: var(--green);"></div></div></div><span class="badge badge-success">$141K identified</span><button class="btn" onclick="showClientReport('ushg')"><i class="ti ti-chart-bar"></i> View report</button></div>
+          <div class="client-row"><div class="avatar" style="background: var(--amber-soft); color: var(--amber);">NH</div><div class="client-info"><p>Nobu Hospitality NYC</p><span>8 locations - 8 contracts - $890K annual vendor spend</span><div class="progress-bar"><div class="progress-fill" style="width: 30%; background: var(--amber);"></div></div></div><span class="badge badge-warning">$73K draft</span><button class="btn" onclick="showClientReport('nobu')"><i class="ti ti-chart-bar"></i> View report</button></div>
+        </div>
+      </section>
+
+      <section class="page" id="page-analyze">
+        <div class="topbar"><div class="page-header"><h1>Analyze contract</h1><p>Upload a vendor contract to extract terms, deadlines, and savings opportunities</p></div></div>
+        <div class="card" id="upload-card">
+          <div class="tab-bar"><div class="tab active">Upload contract</div><div class="tab">Paste text</div></div>
+          <input id="contract-file-input" type="file" accept=".pdf,.doc,.docx,.txt,.rtf,image/*" hidden>
+          <div class="upload-zone" id="contract-upload-zone" onclick="openFilePicker()">
+            <i class="ti ti-upload"></i>
+            <p>Drop a contract PDF here, or click to upload</p>
+            <span>PDF, Word, text, or scanned document - Max 25MB</span>
+          </div>
+          <div class="file-summary" id="file-summary">
+            <div class="file-summary-main">
+              <i class="ti ti-file-text"></i>
+              <div>
+                <p id="file-name">No file selected</p>
+                <span id="file-meta">Select a contract to continue</span>
+              </div>
+            </div>
+            <button class="btn" onclick="clearSelectedFile()"><i class="ti ti-x"></i> Remove</button>
+          </div>
+          <div class="upload-message" id="upload-message"></div>
+          <div style="margin-top: 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;">
+            <div><label>Client</label><select id="analysis-client"><option>Major Food Group</option><option>Union Square Hospitality Group</option><option>Nobu Hospitality NYC</option></select></div>
+            <div><label>Contract category</label><select id="analysis-category"><option>Food distribution</option><option>Linen & uniforms</option><option>Payment processing</option><option>Pest control</option><option>Waste management</option><option>Equipment maintenance</option><option>Technology</option><option>Other</option></select></div>
+          </div>
+          <button class="btn btn-primary" onclick="startAnalysis()" style="margin-top: 0.5rem;"><i class="ti ti-file-search"></i> Review contract</button>
+        </div>
+        <div class="card analyzing" id="analyzing-card"><div class="spinner"></div><p id="analysis-status" style="font-size: 14px; color: var(--muted);">Extracting contract terms...</p><p style="font-size: 12px; color: var(--muted-light); margin-top: 6px;">Reading renewal clauses, pricing, escalation terms</p></div>
+        <div class="card ai-result" id="result-card">
+          <div class="card-header"><span class="card-title" id="analysis-title">Analysis complete</span><span class="badge badge-danger" id="analysis-renewal-badge">Renewal risk</span></div>
+          <div class="status-strip">
+            <div class="status-cell"><span>Uploaded file</span><strong id="analysis-file-name">-</strong></div>
+            <div class="status-cell"><span>Client</span><strong id="analysis-client-name">-</strong></div>
+            <div class="status-cell"><span>Category</span><strong id="analysis-category-name">-</strong></div>
+            <div class="status-cell"><span>File size</span><strong id="analysis-file-size">-</strong></div>
+          </div>
+          <div class="report-section"><h3>Key terms extracted</h3><table><tr><th>Term</th><th>Value</th><th>Risk</th></tr><tbody id="analysis-terms"></tbody></table></div>
+          <div class="report-section"><h3>Savings opportunities identified</h3><div id="analysis-opportunities"></div></div>
+          <div style="display: flex; gap: 10px; margin-top: 1rem; flex-wrap: wrap;"><button class="btn btn-primary" onclick="generateUploadedReport()"><i class="ti ti-file-export"></i> Generate client report</button><button class="btn" onclick="resetAnalysis()"><i class="ti ti-plus"></i> Analyze another contract</button></div>
+        </div>
+      </section>
+
+      <section class="page" id="page-report">
+        <div class="topbar"><div class="page-header"><h1 id="report-title">Savings report - Major Food Group</h1><p id="report-subtitle">14 locations - audit completed May 2026</p></div><button class="btn" onclick="exportCurrentReport()"><i class="ti ti-download"></i> Export to PDF</button></div>
+        <div class="report-tabs">
+          <button class="filter-chip active" data-report-tab="mfg" onclick="setReportClient('mfg')">Major Food Group</button>
+          <button class="filter-chip" data-report-tab="ushg" onclick="setReportClient('ushg')">USHG</button>
+          <button class="filter-chip" data-report-tab="nobu" onclick="setReportClient('nobu')">Nobu Hospitality</button>
+        </div>
+        <div class="card workflow-card">
+          <div>
+            <div class="card-header" style="margin-bottom: 0;">
+              <div>
+                <span class="card-title">Review workflow</span>
+                <div class="card-meta" id="review-state-note">Internal draft is being prepared.</div>
+              </div>
+              <span class="badge badge-warning" id="review-state-badge">Draft</span>
+            </div>
+            <div class="workflow-steps" id="review-steps"></div>
+          </div>
+          <div class="workflow-actions">
+            <button class="btn" id="review-prev-btn" onclick="moveReportState(-1)"><i class="ti ti-arrow-left"></i> Move back</button>
+            <button class="btn btn-primary" id="review-next-btn" onclick="moveReportState(1)"><i class="ti ti-arrow-right"></i> Advance</button>
+          </div>
+        </div>
+        <div class="metrics">
+          <div class="metric"><div class="metric-label">Total spend audited</div><div class="metric-value" id="report-spend">$3.2M</div></div>
+          <div class="metric"><div class="metric-label">Savings identified</div><div class="metric-value positive" id="report-savings">$292K</div><div class="metric-sub" id="report-rate">9.1% of total spend</div></div>
+          <div class="metric"><div class="metric-label">Contracts reviewed</div><div class="metric-value" id="report-contracts">18</div></div>
+          <div class="metric"><div class="metric-label">Your fee (25%)</div><div class="metric-value" id="report-fee">$73K</div><div class="metric-sub">On savings captured</div></div>
+        </div>
+        <div class="card"><div class="card-header"><span class="card-title">Savings by category</span><span class="badge badge-info" id="report-status">Final</span></div><table><thead><tr><th>Category</th><th>Current spend</th><th>Savings opportunity</th><th>Method</th><th>Priority</th></tr></thead><tbody id="report-category-rows"></tbody></table><div class="category-detail" id="category-detail"></div></div>
+        <div class="card"><div class="card-header"><span class="card-title">Implementation timeline</span></div><div id="report-timeline"></div></div>
+      </section>
+
+      <section class="page" id="page-clientportal">
+        <div class="topbar">
+          <div class="page-header">
+            <h1>Major Food Group action center</h1>
+            <p>Approvals, open questions, and documents needed by VendorIQ</p>
+          </div>
+          <div class="header-actions">
+            <button class="btn" onclick="focusQuestionBox()"><i class="ti ti-message"></i> Ask a question</button>
+            <button class="btn btn-primary" onclick="showPage('report')"><i class="ti ti-chart-bar"></i> View full report</button>
+          </div>
+        </div>
+
+        <div class="client-summary">
+          <div class="client-hero">
+            <h2>Three decisions are needed to start the highest-value work.</h2>
+            <p>This page is for actions and communication. Use the full report for the detailed savings model, category assumptions, and implementation timeline.</p>
+          </div>
+          <div class="card" style="margin-bottom: 0;">
+            <div class="card-header"><span class="card-title">Engagement status</span><span class="badge badge-success" id="client-portal-status">Ready for review</span></div>
+            <div class="status-cell" style="border: 0; padding: 0 0 12px;"><span>Contracts reviewed</span><strong>18 of 18 complete</strong></div>
+            <div class="status-cell" style="border: 0; padding: 0 0 12px;"><span>Decision deadline</span><strong>June 3, 2026</strong></div>
+            <div class="status-cell" style="border: 0; padding: 0;"><span>VendorIQ contact</span><strong>Rebecca Hirschfeld</strong></div>
+          </div>
+        </div>
+
+        <div class="client-actions-grid">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <span class="card-title">Approvals</span>
+                <div class="card-meta">Review each requested decision and approve what VendorIQ can start</div>
+              </div>
+              <span class="badge badge-warning" id="approval-count">0 approved</span>
+            </div>
+            <div class="approval-panel">
+              <div class="approval-row"><div><p>Authorize payment processor RFP</p><span class="card-meta">VendorIQ will request proposals from three hospitality-focused processors and benchmark against Heartland. $252K estimated savings.</span></div><button class="btn approval-btn" data-approval="processor" onclick="toggleApproval(this)">Approve</button></div>
+              <div class="approval-row"><div><p>Send Sysco notice and begin renegotiation</p><span class="card-meta">Notice preserves leverage before June 3. Target terms: MFN clause and 2% escalation cap. $181K estimated savings.</span></div><button class="btn approval-btn" data-approval="sysco" onclick="toggleApproval(this)">Approve</button></div>
+              <div class="approval-row"><div><p>Approve waste volume audit</p><span class="card-meta">VendorIQ will reconcile invoice volume by location and prepare a consolidated rate request. $40K estimated savings.</span></div><button class="btn approval-btn" data-approval="waste" onclick="toggleApproval(this)">Approve</button></div>
+            </div>
+          </div>
+
+          <div class="card question-box">
+            <div class="card-header">
+              <div>
+                <span class="card-title">Questions for VendorIQ</span>
+                <div class="card-meta">Send a note before approving</div>
+              </div>
+            </div>
+            <label for="client-question">Message</label>
+            <textarea id="client-question" placeholder="Ask about assumptions, timing, vendor impact, or next steps..."></textarea>
+            <button class="btn btn-primary" onclick="submitClientQuestion()"><i class="ti ti-send"></i> Send question</button>
+            <div class="portal-message" id="question-message"></div>
+          </div>
+        </div>
+
+        <div class="metrics">
+          <div class="metric"><div class="metric-label">Savings identified</div><div class="metric-value positive">$292K</div><div class="metric-sub">Annualized estimate</div></div>
+          <div class="metric"><div class="metric-label">High priority items</div><div class="metric-value risk-high">2</div><div class="metric-sub">Need decision this month</div></div>
+          <div class="metric"><div class="metric-label">Contracts at risk</div><div class="metric-value risk-medium">4</div><div class="metric-sub">Renewal exposure</div></div>
+          <div class="metric"><div class="metric-label">Implementation window</div><div class="metric-value">45d</div><div class="metric-sub">Recommended timeline</div></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <span class="card-title">Upload contracts and supporting documents</span>
+              <div class="card-meta">Send missing contracts, invoices, or vendor statements to VendorIQ</div>
+            </div>
+            <span class="badge badge-warning" id="document-status">1 of 3 received</span>
+          </div>
+          <input id="client-upload-input" type="file" accept=".pdf,.doc,.docx,.xlsx,.xls,.csv,.txt,image/*" multiple hidden>
+          <div class="client-upload-zone" id="client-upload-zone" onclick="openClientUploadPicker()">
+            <i class="ti ti-upload"></i>
+            <p class="vendor-name">Drop files here, or click to upload</p>
+            <span class="card-meta">Contracts, statements, invoice exports, or PDFs</span>
+          </div>
+          <div class="upload-list" id="client-upload-list"></div>
+          <div class="document-list">
+            <label class="document-item"><input type="checkbox" checked onchange="updateDocumentStatus()"><div><p class="vendor-name">Latest Heartland processing statement</p><span class="card-meta">Received May 18</span></div><span class="badge badge-success">Received</span></label>
+            <label class="document-item"><input type="checkbox" onchange="updateDocumentStatus()"><div><p class="vendor-name">Sysco trailing 12-month purchase summary</p><span class="card-meta">Needed for MFN benchmark</span></div><span class="badge badge-warning">Needed</span></label>
+            <label class="document-item"><input type="checkbox" onchange="updateDocumentStatus()"><div><p class="vendor-name">Waste invoice sample by location</p><span class="card-meta">Needed for consolidated rate request</span></div><span class="badge badge-warning">Needed</span></label>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header"><span class="card-title">Recent activity</span><span class="badge badge-info">Updated today</span></div>
+          <div class="decision-list">
+            <div class="decision-item"><div class="decision-number"><i class="ti ti-file-check"></i></div><div><p class="vendor-name">VendorIQ finished contract review</p><span class="card-meta">18 contracts reviewed and grouped into four savings opportunities.</span></div><span class="badge badge-success">Done</span></div>
+            <div class="decision-item"><div class="decision-number"><i class="ti ti-alert-triangle"></i></div><div><p class="vendor-name">Sysco renewal deadline approaching</p><span class="card-meta">Non-renewal notice should be sent before June 3 to preserve leverage.</span></div><span class="badge badge-danger">Action</span></div>
+            <div class="decision-item"><div class="decision-number"><i class="ti ti-message"></i></div><div><p class="vendor-name">Next VendorIQ follow-up</p><span class="card-meta">Pending approval decisions and requested document checklist.</span></div><span class="badge badge-warning">Waiting</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="page-addclient">
+        <div class="topbar"><div class="page-header"><h1>Add client</h1><p>Set up a new restaurant group for contract auditing</p></div></div>
+        <div class="card" style="max-width: 640px;"><div class="form-row"><div><label>Group name</label><input type="text" placeholder="e.g. Major Food Group"></div><div><label>Number of locations</label><input type="text" placeholder="e.g. 14"></div></div><div class="form-row"><div><label>Primary contact name</label><input type="text" placeholder="CFO or COO name"></div><div><label>Contact email</label><input type="email" placeholder="contact@group.com"></div></div><label>Estimated annual vendor spend</label><select><option>Under $500K</option><option>$500K - $1M</option><option selected>$1M - $3M</option><option>$3M - $10M</option><option>Over $10M</option></select><label>Vendor categories to audit</label><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px;"><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox" checked> Food distribution</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox" checked> Payment processing</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Linen & uniforms</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Pest control</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Waste management</label><label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox"> Equipment maintenance</label></div><label>Notes for this engagement</label><textarea rows="3" placeholder="Referral source, key priorities, timeline..."></textarea><button class="btn btn-primary" onclick="sendPrompt('I just added a new client. What should my first steps be for onboarding them and starting the vendor contract audit?')"><i class="ti ti-check"></i> Add client and start audit</button></div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const reports = {
+      mfg: {
+        title: 'Savings report - Major Food Group',
+        subtitle: '14 locations - audit completed May 2026',
+        spend: '$3.2M',
+        savings: '$292K',
+        rate: '9.1% of total spend',
+        contracts: '18',
+        fee: '$73K',
+        status: 'Final',
+        reviewState: 'Client ready',
+        categories: [
+          ['Payment processing', '$520K', '$252K', 'Consolidation + renegotiation', 'High'],
+          ['Food distribution', '$2.1M', '$181K', 'MFN clause + escalation cap', 'High'],
+          ['Waste management', '$87K', '$40K', 'Volume consolidation', 'Medium'],
+          ['Pest control', '$62K', '$19K', 'Renegotiation at renewal', 'Low']
+        ],
+        timeline: [
+          ['Payment processing consolidation', 'Issue RFP to 3 hospitality-focused processors. Target completion before Heartland renewal July 8.', '$252K', 'High'],
+          ['Sysco renegotiation', 'Send notice of non-renewal by Jun 3 to trigger renegotiation. Request MFN clause and 2% escalation cap.', '$181K', 'High'],
+          ['Waste management audit', 'Request volume summary from current provider and compare against consolidated rate schedule.', '$40K', 'Medium']
+        ]
+      },
+      ushg: {
+        title: 'Savings report - Union Square Hospitality Group',
+        subtitle: '11 locations - audit completed May 2026',
+        spend: '$1.8M',
+        savings: '$141K',
+        rate: '7.8% of total spend',
+        contracts: '15',
+        fee: '$35K',
+        status: 'Final',
+        reviewState: 'Approved',
+        categories: [
+          ['Linen & uniforms', '$340K', '$91K', 'Vendor consolidation + volume pricing', 'High'],
+          ['Janitorial supplies', '$210K', '$28K', 'SKU rationalization', 'Medium'],
+          ['Uniform replacement fees', '$95K', '$14K', 'Damage-fee cap', 'Medium'],
+          ['POS support', '$74K', '$8K', 'Seat count correction', 'Low']
+        ],
+        timeline: [
+          ['Consolidate linen vendors', 'Move 11 locations from 4 vendors to one rate card before Imperial Dade renewal June 11.', '$91K', 'High'],
+          ['Normalize janitorial SKUs', 'Lock preferred items and remove location-level substitutions from recurring orders.', '$28K', 'Medium'],
+          ['Audit uniform replacement charges', 'Review trailing 12-month damage and replacement fees by location.', '$14K', 'Medium']
+        ]
+      },
+      nobu: {
+        title: 'Savings report - Nobu Hospitality NYC',
+        subtitle: '8 locations - audit in progress May 2026',
+        spend: '$890K',
+        savings: '$73K',
+        rate: '8.2% of reviewed spend',
+        contracts: '8',
+        fee: '$18K',
+        status: 'Draft',
+        reviewState: 'Draft',
+        categories: [
+          ['Pest control', '$62K', '$54K', 'Rate reset after repeated auto-renewals', 'High'],
+          ['Sanitation', '$180K', '$11K', 'Scope cleanup + escalation cap', 'Medium'],
+          ['Equipment maintenance', '$146K', '$8K', 'Duplicate coverage removal', 'Low']
+        ],
+        timeline: [
+          ['Pest control renegotiation', 'Request revised pricing for 8-location coverage and remove legacy auto-renewal language.', '$54K', 'High'],
+          ['Ecolab scope review', 'Separate required sanitation coverage from optional service add-ons before July 1 renewal.', '$11K', 'Medium'],
+          ['Maintenance coverage cleanup', 'Compare equipment list against current service schedule and remove duplicate coverage.', '$8K', 'Low']
+        ]
+      }
+    };
+
+    let currentReportClient = 'mfg';
+    let selectedContractFile = null;
+    let selectedContractText = '';
+    let currentUser = null;
+    let currentCategoryIndex = 0;
+    let clientUploadedFiles = [];
+    let operatorContracts = [];
+    const users = {
+      operator: {
+        name: 'Rebecca Hirschfeld',
+        roleLabel: 'VendorIQ operator',
+        role: 'operator'
+      },
+      client: {
+        name: 'Major Food Group',
+        roleLabel: 'Client stakeholder',
+        role: 'client'
+      }
+    };
+    const reportStates = ['Draft', 'Internal review', 'Client ready', 'Approved', 'Implemented'];
+    const stateNotes = {
+      'Draft': 'Operator is still validating contract terms, assumptions, and savings math.',
+      'Internal review': 'Ready for VendorIQ QA before anything is shown to the client.',
+      'Client ready': 'Approved internally and ready to share through the client view.',
+      'Approved': 'Client has approved the recommendation package.',
+      'Implemented': 'Savings actions have been completed or handed off for tracking.'
+    };
+    const API_BASE = window.location.protocol === 'file:' ? 'http://localhost:4174' : '';
+
+    async function apiRequest(path, options = {}) {
+      try {
+        const response = await fetch(`${API_BASE}${path}`, {
+          ...options,
+          headers: {
+            ...(options.body && !(options.body instanceof ArrayBuffer) ? { 'Content-Type': 'application/json' } : {}),
+            ...(options.headers || {})
+          }
+        });
+        if (!response.ok) throw new Error(`Request failed with ${response.status}`);
+        return await response.json();
+      } catch (error) {
+        console.warn('VendorIQ backend unavailable:', error.message);
+        return null;
+      }
+    }
+
+    async function uploadFile(file, scope, client = '', category = '') {
+      const body = await file.arrayBuffer();
+      const result = await apiRequest('/api/uploads', {
+        method: 'POST',
+        body,
+        headers: {
+          'x-file-name': encodeURIComponent(file.name),
+          'x-file-type': file.type || 'application/octet-stream',
+          'x-upload-scope': scope,
+          'x-client': client,
+          'x-category': category
+        }
+      });
+      return result?.upload || null;
+    }
+
+    function applyBackendState(store) {
+      if (!store) return;
+      Object.entries(store.reports || {}).forEach(([key, state]) => {
+        if (!reports[key]) return;
+        reports[key].reviewState = state.reviewState || reports[key].reviewState;
+        reports[key].status = state.status || reports[key].status;
+      });
+
+      document.querySelectorAll('.approval-btn').forEach(button => {
+        const approved = Boolean(store.approvals?.[button.dataset.approval]);
+        button.classList.toggle('btn-primary', approved);
+        button.textContent = approved ? 'Approved' : 'Approve';
+      });
+
+      const docs = document.querySelectorAll('.document-item input');
+      (store.documents || []).forEach((doc, index) => {
+        if (docs[index]) docs[index].checked = Boolean(doc.received);
+      });
+
+      clientUploadedFiles = (store.uploads || [])
+        .filter(upload => upload.scope === 'client')
+        .map(upload => ({
+          id: upload.id,
+          name: upload.originalName,
+          size: upload.size,
+          url: upload.url,
+          stored: true
+        }));
+      operatorContracts = store.contracts || [];
+
+      updateApprovalStatus(false);
+      updateDocumentStatus(false);
+      renderOperatorDashboard();
+      renderClientUploads();
+      setReportClient(currentReportClient);
+    }
+
+    async function loadBackendState() {
+      const store = await apiRequest('/api/state');
+      applyBackendState(store);
+      return store;
+    }
+
+    function stateBadgeClass(state) {
+      if (state === 'Draft') return 'badge-warning';
+      if (state === 'Internal review') return 'badge-info';
+      if (state === 'Client ready') return 'badge-success';
+      if (state === 'Approved') return 'badge-success';
+      return 'badge-info';
+    }
+
+    function priorityBadge(priority) {
+      const key = priority.toLowerCase();
+      const className = key === 'high' ? 'badge-danger' : key === 'medium' ? 'badge-warning' : 'badge-info';
+      return `<span class="badge ${className}">${priority}</span>`;
+    }
+
+    function contractRiskBadge(risk) {
+      const key = String(risk || '').toLowerCase();
+      const className = key === 'high' ? 'badge-danger' : key === 'medium' ? 'badge-warning' : key === 'unreviewed' ? 'badge-info' : 'badge-success';
+      return `<span class="badge ${className}">${risk || 'Unreviewed'}</span>`;
+    }
+
+    function contractStageBadge(stage) {
+      const key = String(stage || '').toLowerCase();
+      const className = key.includes('ready') ? 'badge-success' : key.includes('review') ? 'badge-warning' : key.includes('source') ? 'badge-danger' : 'badge-info';
+      return `<span class="badge ${className}">${stage || 'Uploaded'}</span>`;
+    }
+
+    function nextContractStage(stage) {
+      const stages = ['Needs source file', 'Uploaded', 'Reviewing terms', 'Ready for report', 'In client report'];
+      const index = stages.indexOf(stage);
+      return stages[Math.min(stages.length - 1, Math.max(0, index) + 1)] || 'Reviewing terms';
+    }
+
+    function renderOperatorDashboard() {
+      const rows = document.getElementById('operator-contract-rows');
+      if (!rows) return;
+      const contracts = operatorContracts || [];
+      document.getElementById('operator-queue-count').textContent = `${contracts.length} active`;
+      document.getElementById('dashboard-contract-count').textContent = String(Math.max(41, contracts.length));
+      if (contracts.length === 0) {
+        rows.innerHTML = '<tr><td colspan="7">No contract records yet. Upload a sample contract or use seeded demo records.</td></tr>';
+      } else {
+        rows.innerHTML = contracts.map(contract => `
+          <tr>
+            <td>${contract.client}</td>
+            <td class="vendor-name">${contract.vendor}</td>
+            <td>${contractStageBadge(contract.status)}</td>
+            <td>${contractRiskBadge(contract.risk)}</td>
+            <td>${contract.renewalDate || 'Needs review'}</td>
+            <td class="amount positive">${contract.savings || 'TBD'}</td>
+            <td>
+              <div class="contract-row-actions">
+                <button class="btn btn-mini" onclick="advanceContract('${contract.id}')"><i class="ti ti-arrow-right"></i> Advance</button>
+                <button class="btn btn-mini" onclick="openContractReport('${contract.client}')"><i class="ti ti-chart-bar"></i> Report</button>
+              </div>
+            </td>
+          </tr>
+        `).join('');
+      }
+
+      const needsReview = contracts.filter(contract => ['Uploaded', 'Reviewing terms', 'Unreviewed'].includes(contract.status) || contract.risk === 'Unreviewed').length;
+      const ready = contracts.filter(contract => contract.status === 'Ready for report').length;
+      const missing = contracts.filter(contract => contract.status === 'Needs source file').length;
+      document.getElementById('operator-pipeline-summary').innerHTML = `
+        <div class="pipeline-item"><div><span>Needs review</span><strong>${needsReview}</strong></div><i class="ti ti-file-search"></i></div>
+        <div class="pipeline-item"><div><span>Ready for report</span><strong>${ready}</strong></div><i class="ti ti-chart-bar"></i></div>
+        <div class="pipeline-item"><div><span>Waiting on client files</span><strong>${missing}</strong></div><i class="ti ti-upload"></i></div>
+      `;
+    }
+
+    async function advanceContract(contractId) {
+      const contract = operatorContracts.find(item => item.id === contractId);
+      if (!contract) return;
+      contract.status = nextContractStage(contract.status);
+      if (contract.status !== 'Needs source file' && contract.risk === 'Unreviewed') contract.risk = 'Medium';
+      renderOperatorDashboard();
+      const result = await apiRequest(`/api/contracts/${contractId}`, {
+        method: 'PATCH',
+        body: JSON.stringify({
+          status: contract.status,
+          risk: contract.risk,
+          owner: contract.owner === 'Unassigned' ? 'Rebecca' : contract.owner
+        })
+      });
+      if (result?.contracts) {
+        operatorContracts = result.contracts;
+        renderOperatorDashboard();
+      }
+    }
+
+    function openContractReport(clientName) {
+      const map = {
+        'Major Food Group': 'mfg',
+        'Union Square Hospitality Group': 'ushg',
+        'Nobu Hospitality NYC': 'nobu'
+      };
+      showClientReport(map[clientName] || 'mfg');
+    }
+
+    function setReportClient(clientKey) {
+      if (currentUser?.role === 'client' && clientKey !== 'mfg') {
+        clientKey = 'mfg';
+      }
+      currentReportClient = clientKey;
+      const report = reports[clientKey];
+      document.getElementById('report-title').textContent = report.title;
+      document.getElementById('report-subtitle').textContent = report.subtitle;
+      document.getElementById('report-spend').textContent = report.spend;
+      document.getElementById('report-savings').textContent = report.savings;
+      document.getElementById('report-rate').textContent = report.rate;
+      document.getElementById('report-contracts').textContent = report.contracts;
+      document.getElementById('report-fee').textContent = report.fee;
+      document.getElementById('report-status').textContent = report.status;
+      document.getElementById('report-status').className = `badge ${report.status === 'Draft' ? 'badge-warning' : 'badge-info'}`;
+      renderReportWorkflow(report.reviewState);
+      document.querySelectorAll('[data-report-tab]').forEach(tab => {
+        tab.classList.toggle('active', tab.dataset.reportTab === clientKey);
+      });
+      document.getElementById('report-category-rows').innerHTML = report.categories.map(row => `
+        <tr class="clickable-row" onclick="selectCategoryDetail('${clientKey}', ${report.categories.indexOf(row)})">
+          <td>${row[0]}</td>
+          <td>${row[1]}</td>
+          <td class="amount positive">${row[2]}</td>
+          <td>${row[3]}</td>
+          <td>${priorityBadge(row[4])}</td>
+        </tr>
+      `).join('');
+      document.getElementById('report-timeline').innerHTML = report.timeline.map((item, index) => `
+        <div class="opportunity-item">
+          <div class="opp-icon" style="background: ${item[3] === 'High' ? 'var(--red-soft)' : item[3] === 'Medium' ? 'var(--amber-soft)' : 'var(--blue-soft)'};">
+            <span style="font-size: 13px; font-weight: 800; color: ${item[3] === 'High' ? 'var(--red)' : item[3] === 'Medium' ? 'var(--amber)' : 'var(--blue)'};">${index + 1}</span>
+          </div>
+          <div class="opp-details"><p>${item[0]}</p><span>${item[1]}</span></div>
+          <div class="opp-amount">${item[2]}</div>
+        </div>
+      `).join('');
+      selectCategoryDetail(clientKey, 0);
+    }
+
+    function getCategoryDetail(report, row, index) {
+      const [category, spend, savings, method, priority] = row;
+      const dueBy = priority === 'High' ? 'Next 14-30 days' : priority === 'Medium' ? 'Next 45-60 days' : 'At next renewal';
+      const evidence = {
+        'Payment processing': 'Rate spread across processors, card volume concentration, and effective fee benchmark.',
+        'Food distribution': 'Escalation clause, missing MFN protection, and comparable volume discount schedule.',
+        'Waste management': 'Location-level invoice variance and inconsistent pickup frequency across legacy contracts.',
+        'Pest control': 'Repeated auto-renewals and location-count pricing above current market rate.',
+        'Linen & uniforms': 'Four vendor rate cards across 11 locations and inconsistent replacement fee terms.',
+        'Janitorial supplies': 'Recurring order substitutions and duplicate SKUs across location purchasing.',
+        'Uniform replacement fees': 'Damage and replacement fees above negotiated thresholds.',
+        'POS support': 'Seat count and support tier mismatch against actual usage.',
+        'Sanitation': 'Bundled optional services and uncapped escalation language.',
+        'Equipment maintenance': 'Duplicate coverage across service schedule and equipment list.'
+      };
+      return {
+        title: `${category} detail`,
+        description: `${method} is expected to produce ${savings} against ${spend} in current spend.`,
+        evidence: evidence[category] || 'Contract terms, invoice history, and current market benchmark.',
+        nextAction: priority === 'High' ? 'Approve VendorIQ outreach and preserve renewal leverage.' : priority === 'Medium' ? 'Gather supporting invoice detail and confirm scope.' : 'Track for renewal and validate assumptions.',
+        owner: currentUser?.role === 'client' ? 'Client + VendorIQ' : 'VendorIQ operator',
+        dueBy,
+        confidence: index === 0 ? 'High' : priority === 'Low' ? 'Directional' : 'Medium'
+      };
+    }
+
+    function selectCategoryDetail(clientKey, index) {
+      if (currentUser?.role === 'client') clientKey = 'mfg';
+      currentCategoryIndex = index;
+      const report = reports[clientKey];
+      const row = report.categories[index];
+      const detail = getCategoryDetail(report, row, index);
+      document.querySelectorAll('#report-category-rows tr').forEach((tr, rowIndex) => {
+        tr.classList.toggle('active', rowIndex === index);
+      });
+      document.getElementById('category-detail').innerHTML = `
+        <div class="card-header" style="margin-bottom: 0;">
+          <div>
+            <span class="card-title">${detail.title}</span>
+            <div class="card-meta">${detail.description}</div>
+          </div>
+          ${priorityBadge(row[4])}
+        </div>
+        <div class="detail-grid">
+          <div class="detail-cell"><span>Evidence</span><strong>${detail.evidence}</strong></div>
+          <div class="detail-cell"><span>Next action</span><strong>${detail.nextAction}</strong></div>
+          <div class="detail-cell"><span>Owner</span><strong>${detail.owner}</strong></div>
+          <div class="detail-cell"><span>Timing</span><strong>${detail.dueBy}</strong></div>
+          <div class="detail-cell"><span>Confidence</span><strong>${detail.confidence}</strong></div>
+          <div class="detail-cell"><span>Savings estimate</span><strong class="positive">${row[2]}</strong></div>
+        </div>
+      `;
+    }
+
+    function renderReportWorkflow(state) {
+      const currentIndex = reportStates.indexOf(state);
+      document.getElementById('review-state-badge').textContent = state;
+      document.getElementById('review-state-badge').className = `badge ${stateBadgeClass(state)}`;
+      document.getElementById('review-state-note').textContent = stateNotes[state];
+      document.getElementById('review-steps').innerHTML = reportStates.map((step, index) => {
+        const className = index < currentIndex ? 'workflow-step done' : index === currentIndex ? 'workflow-step active' : 'workflow-step';
+        return `<div class="${className}">${step}</div>`;
+      }).join('');
+      document.getElementById('review-prev-btn').disabled = currentIndex === 0;
+      document.getElementById('review-next-btn').disabled = currentIndex === reportStates.length - 1;
+      document.getElementById('review-next-btn').innerHTML = currentIndex === reportStates.length - 2
+        ? '<i class="ti ti-check"></i> Mark implemented'
+        : '<i class="ti ti-arrow-right"></i> Advance';
+    }
+
+    async function moveReportState(direction) {
+      const report = reports[currentReportClient];
+      const currentIndex = reportStates.indexOf(report.reviewState);
+      const nextIndex = Math.max(0, Math.min(reportStates.length - 1, currentIndex + direction));
+      report.reviewState = reportStates[nextIndex];
+      if (report.reviewState === 'Draft') report.status = 'Draft';
+      if (report.reviewState === 'Client ready' || report.reviewState === 'Approved') report.status = 'Final';
+      if (report.reviewState === 'Implemented') report.status = 'Implemented';
+      setReportClient(currentReportClient);
+      await apiRequest(`/api/reports/${currentReportClient}/state`, {
+        method: 'PATCH',
+        body: JSON.stringify({
+          reviewState: report.reviewState,
+          status: report.status
+        })
+      });
+    }
+
+    function showClientReport(clientKey) {
+      setReportClient(clientKey);
+      showPage('report');
+    }
+
+    function exportCurrentReport() {
+      sendPrompt(`Turn the ${reports[currentReportClient].title} into a professional PDF presentation with executive summary and implementation timeline`);
+    }
+
+    function formatFileSize(bytes) {
+      if (bytes < 1024) return `${bytes} B`;
+      if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+      return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+    }
+
+    function openFilePicker() {
+      document.getElementById('contract-file-input').click();
+    }
+
+    function setUploadMessage(message, type = 'info') {
+      const el = document.getElementById('upload-message');
+      el.textContent = message;
+      el.className = `upload-message ${type}`;
+    }
+
+    async function handleSelectedFile(file) {
+      if (!file) return;
+      const maxSize = 25 * 1024 * 1024;
+      if (file.size > maxSize) {
+        setUploadMessage('File is larger than 25MB. Choose a smaller contract file.', 'error');
+        return;
+      }
+
+      selectedContractFile = file;
+      selectedContractText = '';
+      document.getElementById('file-name').textContent = file.name;
+      document.getElementById('file-meta').textContent = `${formatFileSize(file.size)} - ${file.type || 'Unknown file type'}`;
+      document.getElementById('file-summary').classList.add('show');
+      setUploadMessage('File ready for review.', 'success');
+
+      if (file.type.startsWith('text/') || /\.(txt|rtf)$/i.test(file.name)) {
+        selectedContractText = await file.text();
+        setUploadMessage(`File ready for review. Text preview loaded from ${file.name}.`, 'success');
+      }
+
+      const client = document.getElementById('analysis-client').value;
+      const category = document.getElementById('analysis-category').value;
+      setUploadMessage(`Uploading ${file.name} to VendorIQ...`, 'info');
+      const upload = await uploadFile(file, 'contract', client, category);
+      setUploadMessage(upload
+        ? `File uploaded and ready for review. Stored as ${upload.originalName}.`
+        : 'File ready for review. Backend is not running, so it will stay in this browser session.',
+        upload ? 'success' : 'info'
+      );
+      if (upload) await loadBackendState();
+    }
+
+    function clearSelectedFile() {
+      selectedContractFile = null;
+      selectedContractText = '';
+      document.getElementById('contract-file-input').value = '';
+      document.getElementById('file-summary').classList.remove('show');
+      document.getElementById('file-name').textContent = 'No file selected';
+      document.getElementById('file-meta').textContent = 'Select a contract to continue';
+      setUploadMessage('');
+    }
+
+    function inferVendorName(fileName, category) {
+      const cleanName = fileName.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ').trim();
+      const knownVendors = ['Sysco', 'Ecolab', 'Cintas', 'Imperial Dade', 'Heartland', 'Toast', 'Waste Management', 'Orkin'];
+      const match = knownVendors.find(vendor => cleanName.toLowerCase().includes(vendor.toLowerCase()));
+      if (match) return match === 'Sysco' ? 'Sysco Northeast' : match;
+      const defaults = {
+        'Food distribution': 'Primary distribution vendor',
+        'Linen & uniforms': 'Linen service vendor',
+        'Payment processing': 'Payment processor',
+        'Pest control': 'Pest control vendor',
+        'Waste management': 'Waste management vendor',
+        'Equipment maintenance': 'Maintenance provider',
+        'Technology': 'Technology vendor',
+        'Other': cleanName || 'Uploaded vendor'
+      };
+      return defaults[category] || cleanName || 'Uploaded vendor';
+    }
+
+    function buildAnalysis(client, category, file) {
+      const vendor = inferVendorName(file.name, category);
+      const lowerText = selectedContractText.toLowerCase();
+      const hasAutoRenew = lowerText.includes('auto') || lowerText.includes('renew');
+      const hasEscalation = lowerText.includes('cpi') || lowerText.includes('escalat');
+      const hasTermination = lowerText.includes('terminat') || lowerText.includes('penalty');
+      const renewalDate = category === 'Payment processing' ? 'Jul 8, 2026' : category === 'Linen & uniforms' ? 'Jun 11, 2026' : category === 'Pest control' ? 'Jul 1, 2026' : 'Jun 3, 2026';
+      const savingsByCategory = {
+        'Food distribution': '$87,000/year',
+        'Linen & uniforms': '$91,000/year',
+        'Payment processing': '$252,000/year',
+        'Pest control': '$54,000/year',
+        'Waste management': '$40,000/year',
+        'Equipment maintenance': '$18,000/year',
+        'Technology': '$12,000/year',
+        'Other': '$25,000/year'
+      };
+      return {
+        vendor,
+        renewalDate,
+        terms: [
+          ['Uploaded document', file.name, '<span class="badge badge-info">Received</span>'],
+          ['Renewal window', renewalDate, '<span class="badge badge-danger">Action needed</span>'],
+          ['Auto-renewal', hasAutoRenew ? 'Likely present - confirm notice language' : 'Needs manual confirmation', hasAutoRenew ? '<span class="badge badge-danger">Review clause</span>' : '<span class="badge badge-warning">Unverified</span>'],
+          ['Annual price escalation', hasEscalation ? 'Escalation language detected' : 'Not detected in preview', hasEscalation ? '<span class="badge badge-danger">Benchmark</span>' : '<span class="badge badge-warning">Check PDF text</span>'],
+          ['Termination language', hasTermination ? 'Termination or penalty language detected' : 'Not detected in preview', hasTermination ? '<span class="badge badge-warning">Review needed</span>' : '<span class="badge badge-info">Unverified</span>']
+        ],
+        opportunities: [
+          ['Renewal leverage review', `${vendor} has a near-term renewal or notice window. Compare current pricing against category benchmarks before the renewal date. Estimated opportunity: <span class="savings-amount">${savingsByCategory[category] || '$25,000/year'}</span>.`],
+          ['Clause cleanup', 'Review auto-renewal, escalation, and termination language before sending the client-ready recommendation. Flag any missing MFN, cap, or audit-right provisions.'],
+          ['Client report update', `Add this ${category.toLowerCase()} contract to the ${client} report and mark it as uploaded for operator review.`]
+        ]
+      };
+    }
+
+    function renderAnalysis(analysis, client, category, file) {
+      document.getElementById('analysis-title').textContent = `Analysis complete - ${analysis.vendor}`;
+      document.getElementById('analysis-renewal-badge').textContent = `Renews ${analysis.renewalDate}`;
+      document.getElementById('analysis-file-name').textContent = file.name;
+      document.getElementById('analysis-client-name').textContent = client;
+      document.getElementById('analysis-category-name').textContent = category;
+      document.getElementById('analysis-file-size').textContent = formatFileSize(file.size);
+      document.getElementById('analysis-terms').innerHTML = analysis.terms.map(term => `
+        <tr><td>${term[0]}</td><td>${term[1]}</td><td>${term[2]}</td></tr>
+      `).join('');
+      document.getElementById('analysis-opportunities').innerHTML = analysis.opportunities.map(item => `
+        <div class="analysis-result"><h4>${item[0]}</h4><p>${item[1]}</p></div>
+      `).join('');
+    }
+
+    function generateUploadedReport() {
+      const client = document.getElementById('analysis-client-name').textContent;
+      const vendor = document.getElementById('analysis-title').textContent.replace('Analysis complete - ', '');
+      sendPrompt(`Generate a full client savings report for ${client} based on the uploaded ${vendor} contract analysis`);
+    }
+
+    function showPage(name) {
+      if (currentUser?.role === 'client' && !['clientportal', 'report'].includes(name)) {
+        name = 'clientportal';
+      }
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      document.getElementById('page-' + name).classList.add('active');
+      document.querySelectorAll('.nav-item').forEach(item => {
+        const action = item.getAttribute('onclick') || '';
+        if (action.includes("'" + name + "'")) item.classList.add('active');
+      });
+    }
+
+    function switchView(view) {
+      if (currentUser?.role === 'client' && view !== 'client') return;
+      document.body.classList.toggle('client-view', view === 'client');
+      document.body.classList.toggle('operator-view', view !== 'client');
+      document.querySelectorAll('.view-option').forEach(option => {
+        option.classList.toggle('active', option.dataset.viewOption === view);
+      });
+      showPage(view === 'client' ? 'clientportal' : 'dashboard');
+    }
+
+    async function signIn(type) {
+      const result = await apiRequest('/api/auth/login', {
+        method: 'POST',
+        body: JSON.stringify({ type })
+      });
+      currentUser = result?.user || users[type];
+      document.body.classList.remove('auth-view', 'operator-role', 'client-role');
+      document.body.classList.add(`${currentUser.role}-role`);
+      document.getElementById('signed-in-name').textContent = currentUser.name;
+      document.getElementById('signed-in-role').textContent = currentUser.roleLabel;
+      await loadBackendState();
+      if (currentUser.role === 'client') setReportClient('mfg');
+      switchView(currentUser.role === 'client' ? 'client' : 'operator');
+    }
+
+    function signOut() {
+      currentUser = null;
+      document.body.className = 'auth-view operator-view';
+      document.querySelectorAll('.view-option').forEach(option => {
+        option.classList.toggle('active', option.dataset.viewOption === 'operator');
+      });
+      document.getElementById('signed-in-name').textContent = 'Not signed in';
+      document.getElementById('signed-in-role').textContent = 'Select a role';
+      showPage('dashboard');
+    }
+
+    async function toggleApproval(button) {
+      const approved = !button.classList.contains('btn-primary');
+      button.classList.toggle('btn-primary', approved);
+      button.textContent = approved ? 'Approved' : 'Approve';
+      updateApprovalStatus();
+      await apiRequest('/api/client/approvals', {
+        method: 'POST',
+        body: JSON.stringify({
+          approval: button.dataset.approval,
+          approved
+        })
+      });
+    }
+
+    function updateApprovalStatus(syncReport = true) {
+      const approved = document.querySelectorAll('.approval-btn.btn-primary').length;
+      document.getElementById('approval-count').textContent = `${approved} approved`;
+      const status = document.getElementById('client-portal-status');
+      if (approved === 0) {
+        status.textContent = 'Ready for review';
+        status.className = 'badge badge-success';
+      } else if (approved < 3) {
+        status.textContent = 'Partially approved';
+        status.className = 'badge badge-warning';
+      } else {
+        status.textContent = 'Approved';
+        status.className = 'badge badge-success';
+        if (syncReport) {
+          reports.mfg.reviewState = 'Approved';
+          reports.mfg.status = 'Final';
+          apiRequest('/api/reports/mfg/state', {
+            method: 'PATCH',
+            body: JSON.stringify({ reviewState: 'Approved', status: 'Final' })
+          });
+          if (currentReportClient === 'mfg') setReportClient('mfg');
+        }
+      }
+    }
+
+    function focusQuestionBox() {
+      document.getElementById('client-question').focus();
+    }
+
+    async function submitClientQuestion() {
+      const question = document.getElementById('client-question');
+      const message = document.getElementById('question-message');
+      if (!question.value.trim()) {
+        message.textContent = 'Add a question before sending.';
+        return;
+      }
+      const questionText = question.value.trim();
+      message.textContent = 'Question sent to VendorIQ. Rebecca will follow up.';
+      question.value = '';
+      await apiRequest('/api/client/questions', {
+        method: 'POST',
+        body: JSON.stringify({
+          message: questionText,
+          user: currentUser?.name || 'Client'
+        })
+      });
+    }
+
+    function updateDocumentStatus(persist = true) {
+      const docs = document.querySelectorAll('.document-item input');
+      const received = [...docs].filter(doc => doc.checked).length;
+      document.getElementById('document-status').textContent = `${received} of ${docs.length} received`;
+      document.querySelectorAll('.document-item').forEach((item, index) => {
+        const checked = item.querySelector('input').checked;
+        const badge = item.querySelector('.badge');
+        badge.textContent = checked ? 'Received' : 'Needed';
+        badge.className = `badge ${checked ? 'badge-success' : 'badge-warning'}`;
+        if (persist) {
+          apiRequest('/api/client/documents', {
+            method: 'POST',
+            body: JSON.stringify({ index, received: checked })
+          });
+        }
+      });
+    }
+
+    function openClientUploadPicker() {
+      document.getElementById('client-upload-input').click();
+    }
+
+    async function handleClientUpload(files) {
+      const incoming = [...files].filter(file => file.size <= 25 * 1024 * 1024);
+      const uploaded = [];
+      for (const file of incoming) {
+        const stored = await uploadFile(file, 'client', 'mfg', 'Client document');
+        uploaded.push(stored
+          ? { id: stored.id, name: stored.originalName, size: stored.size, url: stored.url, stored: true }
+          : file
+        );
+      }
+      clientUploadedFiles = [...clientUploadedFiles, ...uploaded];
+      renderClientUploads();
+      if (incoming.length > 0) {
+        const unchecked = [...document.querySelectorAll('.document-item input')].find(input => !input.checked);
+        if (unchecked) {
+          unchecked.checked = true;
+          updateDocumentStatus();
+        }
+      }
+    }
+
+    async function removeClientUpload(index) {
+      const [removed] = clientUploadedFiles.splice(index, 1);
+      renderClientUploads();
+      if (removed?.id) {
+        await apiRequest(`/api/uploads/${removed.id}`, { method: 'DELETE' });
+      }
+    }
+
+    function renderClientUploads() {
+      const list = document.getElementById('client-upload-list');
+      if (clientUploadedFiles.length === 0) {
+        list.innerHTML = '<div class="portal-message">No client files uploaded yet.</div>';
+        return;
+      }
+      list.innerHTML = clientUploadedFiles.map((file, index) => `
+        <div class="upload-list-item">
+          <span><i class="ti ti-file-text"></i> ${file.name} - ${formatFileSize(file.size)}</span>
+          <button class="btn" onclick="removeClientUpload(${index})"><i class="ti ti-x"></i> Remove</button>
+        </div>
+      `).join('');
+    }
+
+    setReportClient(currentReportClient);
+    loadBackendState();
+    renderClientUploads();
+
+    function startAnalysis() {
+      if (!selectedContractFile) {
+        setUploadMessage('Choose a contract file before starting the review.', 'error');
+        openFilePicker();
+        return;
+      }
+      const client = document.getElementById('analysis-client').value;
+      const category = document.getElementById('analysis-category').value;
+      const analysis = buildAnalysis(client, category, selectedContractFile);
+      document.getElementById('analysis-status').textContent = `Extracting terms from ${selectedContractFile.name}...`;
+      document.getElementById('upload-card').style.display = 'none';
+      document.getElementById('result-card').classList.remove('show');
+      const analyzing = document.getElementById('analyzing-card');
+      analyzing.classList.add('show');
+      setTimeout(() => {
+        analyzing.classList.remove('show');
+        renderAnalysis(analysis, client, category, selectedContractFile);
+        document.getElementById('result-card').classList.add('show');
+      }, 2200);
+    }
+
+    function resetAnalysis() {
+      document.getElementById('result-card').classList.remove('show');
+      document.getElementById('analyzing-card').classList.remove('show');
+      document.getElementById('upload-card').style.display = 'block';
+      clearSelectedFile();
+    }
+
+    function sendPrompt(prompt) {
+      console.info(prompt);
+      alert('Prompt queued: ' + prompt);
+    }
+
+    const contractInput = document.getElementById('contract-file-input');
+    const uploadZone = document.getElementById('contract-upload-zone');
+    const clientUploadInput = document.getElementById('client-upload-input');
+    const clientUploadZone = document.getElementById('client-upload-zone');
+
+    contractInput.addEventListener('change', event => handleSelectedFile(event.target.files[0]));
+    ['dragenter', 'dragover'].forEach(eventName => {
+      uploadZone.addEventListener(eventName, event => {
+        event.preventDefault();
+        uploadZone.classList.add('dragging');
+      });
+    });
+    ['dragleave', 'drop'].forEach(eventName => {
+      uploadZone.addEventListener(eventName, event => {
+        event.preventDefault();
+        uploadZone.classList.remove('dragging');
+      });
+    });
+    uploadZone.addEventListener('drop', event => handleSelectedFile(event.dataTransfer.files[0]));
+
+    clientUploadInput.addEventListener('change', event => handleClientUpload(event.target.files));
+    ['dragenter', 'dragover'].forEach(eventName => {
+      clientUploadZone.addEventListener(eventName, event => {
+        event.preventDefault();
+        clientUploadZone.classList.add('dragging');
+      });
+    });
+    ['dragleave', 'drop'].forEach(eventName => {
+      clientUploadZone.addEventListener(eventName, event => {
+        event.preventDefault();
+        clientUploadZone.classList.remove('dragging');
+      });
+    });
+    clientUploadZone.addEventListener('drop', event => handleClientUpload(event.dataTransfer.files));
+  </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+{
+  "reports": {
+    "mfg": {
+      "reviewState": "Client ready",
+      "status": "Final"
+    },
+    "ushg": {
+      "reviewState": "Approved",
+      "status": "Final"
+    },
+    "nobu": {
+      "reviewState": "Draft",
+      "status": "Draft"
+    }
+  },
+  "contracts": [
+    {
+      "id": "demo-sysco",
+      "client": "Major Food Group",
+      "vendor": "Sysco Northeast",
+      "category": "Food distribution",
+      "source": "Seeded demo record",
+      "status": "Reviewing terms",
+      "renewalDate": "Jun 3, 2026",
+      "annualValue": "$2.1M",
+      "risk": "High",
+      "savings": "$181K",
+      "owner": "Rebecca",
+      "createdAt": "2026-05-19T23:54:00.000Z"
+    },
+    {
+      "id": "demo-heartland",
+      "client": "Major Food Group",
+      "vendor": "Heartland Payment",
+      "category": "Payment processing",
+      "source": "Seeded demo record",
+      "status": "Ready for report",
+      "renewalDate": "Jul 8, 2026",
+      "annualValue": "$520K",
+      "risk": "High",
+      "savings": "$252K",
+      "owner": "Rebecca",
+      "createdAt": "2026-05-19T23:54:00.000Z"
+    },
+    {
+      "id": "demo-ecolab",
+      "client": "Nobu Hospitality NYC",
+      "vendor": "Ecolab",
+      "category": "Sanitation",
+      "source": "Seeded demo record",
+      "status": "Needs source file",
+      "renewalDate": "Jul 1, 2026",
+      "annualValue": "$180K",
+      "risk": "Medium",
+      "savings": "$11K",
+      "owner": "Unassigned",
+      "createdAt": "2026-05-19T23:54:00.000Z"
+    }
+  ],
+  "approvals": {},
+  "questions": [],
+  "documents": [
+    {
+      "label": "Latest Heartland processing statement",
+      "received": true
+    },
+    {
+      "label": "Sysco trailing 12-month purchase summary",
+      "received": false
+    },
+    {
+      "label": "Waste invoice sample by location",
+      "received": false
+    }
+  ],
+  "uploads": []
+}
