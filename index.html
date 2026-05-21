@@ -115,6 +115,15 @@
       max-width: 620px;
     }
 
+    .auth-login {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .auth-login[hidden] {
+      display: none;
+    }
+
     .auth-options {
       padding: 0;
       display: grid;
@@ -1137,6 +1146,10 @@
       border: 1px solid var(--line);
       box-shadow: 0 18px 45px rgba(24, 32, 28, 0.16);
       border-radius: 4px;
+    }
+
+    .action-modal {
+      width: min(940px, 100%);
     }
 
     .modal-body {
@@ -2402,27 +2415,29 @@
 
   <div class="auth-screen">
     <div class="auth-card">
-      <div class="auth-brand">
-        <div class="brand-mark"><i class="ti ti-contract" aria-hidden="true"></i></div>
-        <h1>Larder</h1>
-        <p>We review restaurant vendor bills, contracts, and renewals, then help you approve and manage savings.</p>
-      </div>
-      <div class="auth-options">
-        <button class="auth-option" onclick="signIn('operator')">
-          <span class="auth-icon"><i class="ti ti-user-shield"></i></span>
-          <span><p>Larder team</p><span>Review bills and contracts, prepare next steps, and manage vendor follow-up.</span></span>
-          <i class="ti ti-arrow-right"></i>
-        </button>
-        <button class="auth-option" onclick="signIn('client')">
-          <span class="auth-icon"><i class="ti ti-building-store"></i></span>
-          <span><p>Client Portal</p><span>Review savings, approve next steps, upload files, and ask Larder questions.</span></span>
-          <i class="ti ti-arrow-right"></i>
-        </button>
-        <button class="auth-option" onclick="signIn('demo')">
-          <span class="auth-icon"><i class="ti ti-presentation-analytics"></i></span>
-          <span><p>Product demo</p><span>See how Larder finds savings and handles follow-up.</span></span>
-          <i class="ti ti-arrow-right"></i>
-        </button>
+      <div class="auth-login" id="auth-login">
+        <div class="auth-brand">
+          <div class="brand-mark"><i class="ti ti-contract" aria-hidden="true"></i></div>
+          <h1>Larder</h1>
+          <p>We review restaurant vendor bills, contracts, and renewals, then help you approve and manage savings.</p>
+        </div>
+        <div class="auth-options">
+          <button class="auth-option" onclick="signIn('operator')">
+            <span class="auth-icon"><i class="ti ti-user-shield"></i></span>
+            <span><p>Larder team</p><span>Review documents, prepare next steps, and manage vendor follow-up.</span></span>
+            <i class="ti ti-arrow-right"></i>
+          </button>
+          <button class="auth-option" onclick="signIn('client')">
+            <span class="auth-icon"><i class="ti ti-building-store"></i></span>
+            <span><p>Client Portal</p><span>Review savings, approve next steps, upload files, and chat with Larder.</span></span>
+            <i class="ti ti-arrow-right"></i>
+          </button>
+          <button class="auth-option" onclick="signIn('demo')">
+            <span class="auth-icon"><i class="ti ti-presentation-analytics"></i></span>
+            <span><p>Product demo</p><span>See how Larder finds savings and handles follow-up.</span></span>
+            <i class="ti ti-arrow-right"></i>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -2439,31 +2454,31 @@
         <button class="view-option" data-view-option="client" onclick="switchView('client')">Client view</button>
       </div>
       <div class="nav-item active operator-only" onclick="showPage('dashboard')">
-        <i class="ti ti-layout-dashboard" aria-hidden="true"></i> <span>Today</span>
+        <i class="ti ti-layout-dashboard" aria-hidden="true"></i> <span>Dashboard</span>
       </div>
       <div class="nav-item operator-only" onclick="showPage('clients')">
         <i class="ti ti-building-store" aria-hidden="true"></i> <span>Clients</span>
       </div>
       <div class="nav-item operator-only" onclick="showPage('analyze')">
-        <i class="ti ti-file-search" aria-hidden="true"></i> <span>Bills and contracts</span>
+        <i class="ti ti-file-search" aria-hidden="true"></i> <span>Documents</span>
       </div>
       <div class="nav-item operator-only" onclick="showPage('report')">
         <i class="ti ti-chart-bar" aria-hidden="true"></i> <span>Action workspace</span>
       </div>
       <div class="nav-item operator-only" onclick="showPage('questions')">
-        <i class="ti ti-message" aria-hidden="true"></i> <span>Questions</span>
+        <i class="ti ti-message" aria-hidden="true"></i> <span>Chat</span>
       </div>
       <div class="nav-item operator-only" onclick="showPage('addclient')">
         <i class="ti ti-plus" aria-hidden="true"></i> <span>Add client</span>
       </div>
       <div class="nav-item client-only" onclick="showPage('clientportal')">
-        <i class="ti ti-layout-dashboard" aria-hidden="true"></i> <span>Overview</span>
+        <i class="ti ti-layout-dashboard" aria-hidden="true"></i> <span>Home</span>
       </div>
       <div class="nav-item client-only" onclick="showPage('clientapprovals')">
         <i class="ti ti-checklist" aria-hidden="true"></i> <span>Approvals</span>
       </div>
       <div class="nav-item client-only" onclick="showPage('clientquestions')">
-        <i class="ti ti-message" aria-hidden="true"></i> <span>Questions</span>
+        <i class="ti ti-message" aria-hidden="true"></i> <span>Chat</span>
       </div>
       <div class="nav-item client-only" onclick="showPage('clientdocuments')">
         <i class="ti ti-files" aria-hidden="true"></i> <span>Documents</span>
@@ -2492,62 +2507,23 @@
       <section class="page active" id="page-dashboard">
         <div class="topbar">
           <div class="page-header">
-            <h1>Today</h1>
-            <p>What needs attention today.</p>
+            <h1>Dashboard</h1>
+            <p>Open client work across active restaurant accounts.</p>
           </div>
         </div>
 
-        <div class="hero">
-          <div class="hero-card">
-            <h2>3 client items need attention.</h2>
-            <p>Start with the renewal deadline, then review uploaded documents and missing source files.</p>
-            <div class="hero-stats">
-              <div class="hero-stat"><span>Due first</span><strong>Jun 3</strong></div>
-              <div class="hero-stat"><span>Awaiting approval</span><strong>$433K</strong></div>
-              <div class="hero-stat"><span>Files to review</span><strong id="dashboard-contract-count">3</strong></div>
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <span class="card-title">Snapshot</span>
             </div>
+            <span class="badge badge-info">3 accounts</span>
           </div>
-        </div>
-
-        <div class="dashboard-focus">
-          <div class="card step-card current">
-            <div class="card-header">
-              <div>
-                <span class="card-title">Next steps</span>
-                <div class="card-meta">Use this as the working list</div>
-              </div>
-            </div>
-            <div class="focus-list">
-              <div class="focus-item">
-                <div class="focus-icon"><i class="ti ti-alert-triangle"></i></div>
-                <div><p>Review uploaded documents</p><span>Client-submitted files are ready in Bills and contracts.</span></div>
-                <button class="btn btn-mini" onclick="showPage('analyze')">Files</button>
-              </div>
-              <div class="focus-item">
-                <div class="focus-icon"><i class="ti ti-upload"></i></div>
-                <div><p>Check client status</p><span>See which accounts are waiting on approvals or source files.</span></div>
-                <button class="btn btn-mini" onclick="showPage('clients')">Clients</button>
-              </div>
-              <div class="focus-item">
-                <div class="focus-icon"><i class="ti ti-file-search"></i></div>
-                <div><p>Prepare client follow-up</p><span>Sample Restaurant Group has two actions waiting for approval before Larder starts outreach.</span></div>
-                <button class="btn btn-mini" onclick="showClientReport('client1')">Workspace</button>
-              </div>
-            </div>
-          </div>
-          <div class="card step-card current">
-            <div class="card-header">
-              <div>
-                <span class="card-title">Client work</span>
-                <div class="card-meta">Open work across active restaurant clients</div>
-              </div>
-              <span class="badge badge-info" id="operator-queue-count">3 accounts</span>
-            </div>
-            <div class="pipeline-summary" id="operator-pipeline-summary">
-              <div class="pipeline-item"><div><span>Open client actions</span><strong>3</strong></div><i class="ti ti-repeat"></i></div>
-              <div class="pipeline-item"><div><span>Savings found</span><strong>$706K</strong></div><i class="ti ti-chart-arrows-vertical"></i></div>
-              <div class="pipeline-item"><div><span>Missing documents</span><strong>2</strong></div><i class="ti ti-box-multiple"></i></div>
-            </div>
+          <div class="pipeline-summary" id="operator-pipeline-summary">
+            <div class="pipeline-item"><div><span>Open queue items</span><strong>3</strong></div><i class="ti ti-list-check"></i></div>
+            <div class="pipeline-item"><div><span>Savings found</span><strong>$706K</strong></div><i class="ti ti-chart-bar"></i></div>
+            <div class="pipeline-item"><div><span>Awaiting approval</span><strong>$433K</strong></div><i class="ti ti-checklist"></i></div>
+            <div class="pipeline-item"><div><span>Missing documents</span><strong>2</strong></div><i class="ti ti-files"></i></div>
           </div>
         </div>
 
@@ -2555,7 +2531,6 @@
           <div class="card-header">
             <div>
               <span class="card-title">Priority queue</span>
-              <div class="card-meta">The next items for the Larder team to clear</div>
             </div>
             <span class="badge badge-danger">3 needs attention</span>
           </div>
@@ -2663,7 +2638,7 @@
       </section>
 
       <section class="page" id="page-analyze">
-        <div class="topbar"><div class="page-header"><h1>Bills and contracts</h1><p>Review files submitted by clients, or add documents received outside the portal.</p></div></div>
+        <div class="topbar"><div class="page-header"><h1>Documents</h1><p>Review files submitted by clients, or add documents received outside the portal.</p></div></div>
 
         <div class="card">
           <div class="card-header">
@@ -2773,59 +2748,11 @@
               <div class="workspace-action-selector-header">
                 <div>
                   <h3 style="font-size: 16px; margin: 0;">Actions to work</h3>
-                  <p>Select an action, prepare the outreach, and track vendor replies.</p>
+                  <p>Click an action to prepare outreach and track vendor replies.</p>
                 </div>
                 <span class="badge badge-warning" id="action-priority-badge">High</span>
               </div>
               <table><thead><tr><th>Action</th><th>Category</th><th>Savings</th><th>Timing</th><th>Status</th></tr></thead><tbody id="report-plan-rows"></tbody></table>
-            </div>
-            <div class="selected-action-banner">
-              <span>Selected action</span>
-              <strong id="selected-action-label">Payment processing consolidation</strong>
-              <small id="selected-action-meta">Payment processing - $252K - Next 14-30 days</small>
-            </div>
-            <h3 id="action-title">Payment processing consolidation</h3>
-            <p id="action-description">Send an RFP to three restaurant-focused processors and compare the replies against the current processor.</p>
-            <div class="workspace-field"><span>Client</span><strong id="action-client">Sample Restaurant Group</strong></div>
-            <div class="workspace-field"><span>Savings estimate</span><strong class="positive" id="action-savings">$252K</strong></div>
-            <div class="workspace-field"><span>Current spend</span><strong id="action-spend">$520K</strong></div>
-            <div class="workspace-field"><span>Next step</span><strong id="action-next-step">Prepare outreach and confirm the savings estimate.</strong></div>
-            <div class="workspace-field"><span>Why this matters</span><strong id="action-evidence">Rate spread across processors, card volume concentration, and current effective fees.</strong></div>
-            <div class="workspace-tools">
-              <div>
-                <h4 id="workspace-form-title">Task inputs</h4>
-                <div class="workspace-form" id="workspace-form"></div>
-              </div>
-              <div>
-                <h4>Checklist</h4>
-                <div class="workspace-checklist" id="workspace-checklist"></div>
-              </div>
-              <div>
-                <h4 id="workspace-output-title">Outreach draft</h4>
-                <textarea class="workspace-output" id="workspace-output" placeholder="Generate the work product for this action..."></textarea>
-              </div>
-              <div class="execution-tracker">
-                <h4>Vendor follow-up</h4>
-                <div class="execution-grid">
-                  <div class="execution-cell"><span>Status</span><strong id="execution-status">Not started</strong></div>
-                  <div class="execution-cell"><span>Sent</span><strong id="execution-sent-date">Not sent</strong></div>
-                  <div class="execution-cell"><span>Latest response</span><strong id="execution-response-date">No response yet</strong></div>
-                </div>
-                <label for="execution-log">Follow-up notes</label>
-                <textarea class="execution-log" id="execution-log" placeholder="Track vendor responses, follow-up dates, proposal notes, and client decisions..."></textarea>
-                <div class="workflow-actions" style="justify-content: flex-start;">
-                  <button class="btn" onclick="markOutreachSent()"><i class="ti ti-send"></i> Mark sent</button>
-                  <button class="btn" onclick="logVendorResponse()"><i class="ti ti-message-check"></i> Log response</button>
-                  <button class="btn" onclick="closeExecutionAction()"><i class="ti ti-check"></i> Close action</button>
-                </div>
-              </div>
-              <div class="workspace-message" id="workspace-message"></div>
-            </div>
-            <div class="workflow-actions" style="justify-content: flex-start; margin-top: 1rem;">
-              <button class="btn btn-primary" id="action-primary-btn" onclick="runSelectedAction()"><i class="ti ti-send"></i> Prepare outreach</button>
-              <button class="btn" onclick="saveWorkspaceProgress()"><i class="ti ti-device-floppy"></i> Save progress</button>
-              <button class="btn" onclick="markWorkspaceReady()"><i class="ti ti-check"></i> Mark ready</button>
-              <button class="btn" id="action-secondary-btn" onclick="runSecondaryAction()"><i class="ti ti-file-search"></i> Review source</button>
             </div>
           </div>
         </div>
@@ -2834,8 +2761,8 @@
       <section class="page" id="page-questions">
         <div class="topbar">
           <div class="page-header">
-            <h1>Questions</h1>
-            <p>Respond to client questions so approvals can keep moving.</p>
+            <h1>Chat</h1>
+            <p>Respond to client messages so approvals can keep moving.</p>
           </div>
           <button class="btn" onclick="showPage('report')"><i class="ti ti-chart-bar"></i> Open workspace</button>
         </div>
@@ -2843,7 +2770,7 @@
         <div class="card">
           <div class="card-header">
             <div>
-              <span class="card-title">Client questions</span>
+              <span class="card-title">Client chat</span>
               <div class="card-meta">Reply from Larder and keep the answer visible in the client portal</div>
             </div>
             <span class="badge badge-info" id="operator-question-count">0 open</span>
@@ -2917,30 +2844,28 @@
       <section class="page client-only" id="page-clientportal">
         <div class="topbar">
           <div class="page-header">
-            <h1>Overview</h1>
-            <p>A short view of what Larder found and what is being handled.</p>
+            <h1>Home</h1>
+            <p>Your current Larder review at a glance.</p>
           </div>
           <div class="header-actions">
-            <button class="btn" onclick="showPage('clientquestions')"><i class="ti ti-message"></i> Ask a question</button>
-            <button class="btn" onclick="showPage('clientdocuments')"><i class="ti ti-upload"></i> Upload files</button>
+            <button class="btn" onclick="showPage('clientquestions')"><i class="ti ti-message"></i> Chat with Larder</button>
           </div>
         </div>
         <div class="card">
           <div class="card-header">
             <div>
-              <span class="card-title">$492K in annual savings identified.</span>
-              <div class="card-meta">Larder reviewed your vendor files and found savings across these areas.</div>
+              <span class="card-title">$492K in savings found</span>
+              <div class="card-meta">Larder reviewed your vendor files and prepared the next steps.</div>
             </div>
           </div>
-          <div class="report-action-list">
-            <div class="report-action"><div class="report-action-number">1</div><div><p>Payment processing</p><span>Current effective rate looks high for a premium restaurant group.</span></div><span class="badge badge-danger">$252K</span></div>
-            <div class="report-action"><div class="report-action-number">2</div><div><p>Food distribution</p><span>The June 3 notice window creates a time-sensitive renegotiation opportunity.</span></div><span class="badge badge-danger">$181K</span></div>
-            <div class="report-action"><div class="report-action-number">3</div><div><p>Waste and pest control</p><span>Invoice samples can confirm pickup, service-tier, and add-on savings.</span></div><span class="badge badge-warning">$59K</span></div>
-          </div>
           <div class="report-facts" style="margin-top: 1rem; grid-template-columns: repeat(3, minmax(0, 1fr));">
-            <div class="report-fact"><span>Spend reviewed</span><strong>$3.2M</strong></div>
-            <div class="report-fact"><span>Awaiting approval</span><strong>$433K</strong></div>
-            <div class="report-fact"><span>Documents received</span><strong>1 of 3</strong></div>
+            <div class="report-fact"><span>Approvals needed</span><strong>2</strong></div>
+            <div class="report-fact"><span>Documents needed</span><strong>2</strong></div>
+            <div class="report-fact"><span>Larder handles</span><strong>Vendor follow-up</strong></div>
+          </div>
+          <div class="workflow-actions" style="justify-content: flex-start; margin-top: 1rem;">
+            <button class="btn btn-primary" onclick="showPage('clientapprovals')"><i class="ti ti-check"></i> Review approvals</button>
+            <button class="btn" onclick="showPage('clientdocuments')"><i class="ti ti-upload"></i> Upload documents</button>
           </div>
         </div>
       </section>
@@ -3005,21 +2930,21 @@
       <section class="page client-only" id="page-clientquestions">
         <div class="topbar">
           <div class="page-header">
-            <h1>Questions</h1>
-            <p>Send notes to Larder before approving or uploading files</p>
+            <h1>Chat</h1>
+            <p>Send messages to Larder before approving or uploading files.</p>
           </div>
-          <button class="btn" onclick="showPage('clientportal')"><i class="ti ti-layout-dashboard"></i> Back to overview</button>
+          <button class="btn" onclick="showPage('clientportal')"><i class="ti ti-layout-dashboard"></i> Back to home</button>
         </div>
         <div class="card question-box">
           <div class="card-header">
             <div>
-              <span class="card-title">Questions for Larder</span>
-              <div class="card-meta">Ask about assumptions, timing, vendor impact, or next steps</div>
+              <span class="card-title">Chat with Larder</span>
+              <div class="card-meta">Ask about assumptions, timing, vendor impact, or next steps.</div>
             </div>
           </div>
           <label for="client-question">Message</label>
           <textarea id="client-question" placeholder="Ask about assumptions, timing, vendor impact, or next steps..."></textarea>
-          <button class="btn btn-primary" onclick="submitClientQuestion()"><i class="ti ti-send"></i> Send question</button>
+          <button class="btn btn-primary" onclick="submitClientQuestion()"><i class="ti ti-send"></i> Send message</button>
           <div class="portal-message" id="question-message"></div>
           <div class="question-thread" id="question-thread"></div>
         </div>
@@ -3031,7 +2956,7 @@
             <h1>Documents</h1>
             <p>Upload vendor bills, contracts, statements, and renewal notices.</p>
           </div>
-          <button class="btn" onclick="showPage('clientportal')"><i class="ti ti-layout-dashboard"></i> Back to overview</button>
+          <button class="btn" onclick="showPage('clientportal')"><i class="ti ti-layout-dashboard"></i> Back to home</button>
         </div>
         <div class="card">
           <div class="card-header">
@@ -3087,6 +3012,64 @@
       <div class="modal-actions">
         <button class="btn" onclick="closeClientReportModal()">Close</button>
         <button class="btn btn-primary" id="modal-open-workspace-btn" onclick="openModalReportWorkspace()"><i class="ti ti-arrow-right"></i> Open workspace</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="action-workspace-modal" onclick="closeActionWorkspaceModal(event)">
+    <div class="report-modal action-modal" role="dialog" aria-modal="true" aria-labelledby="action-title">
+      <div class="modal-body">
+        <div class="selected-action-banner">
+          <span>Selected action</span>
+          <strong id="selected-action-label">Payment processing consolidation</strong>
+          <small id="selected-action-meta">Payment processing - $252K - Next 14-30 days</small>
+        </div>
+        <h3 id="action-title">Payment processing consolidation</h3>
+        <p id="action-description">Send an RFP to three restaurant-focused processors and compare the replies against the current processor.</p>
+        <div class="report-facts" style="grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 1rem 0;">
+          <div class="report-fact"><span>Client</span><strong id="action-client">Sample Restaurant Group</strong></div>
+          <div class="report-fact"><span>Savings estimate</span><strong class="positive" id="action-savings">$252K</strong></div>
+          <div class="report-fact"><span>Current spend</span><strong id="action-spend">$520K</strong></div>
+        </div>
+        <div class="workspace-field"><span>Next step</span><strong id="action-next-step">Prepare outreach and confirm the savings estimate.</strong></div>
+        <div class="workspace-field"><span>Why this matters</span><strong id="action-evidence">Rate spread across processors, card volume concentration, and current effective fees.</strong></div>
+        <div class="workspace-tools">
+          <div>
+            <h4 id="workspace-form-title">Task inputs</h4>
+            <div class="workspace-form" id="workspace-form"></div>
+          </div>
+          <div>
+            <h4>Checklist</h4>
+            <div class="workspace-checklist" id="workspace-checklist"></div>
+          </div>
+          <div>
+            <h4 id="workspace-output-title">Outreach draft</h4>
+            <textarea class="workspace-output" id="workspace-output" placeholder="Generate the work product for this action..."></textarea>
+          </div>
+          <div class="execution-tracker">
+            <h4>Vendor follow-up</h4>
+            <div class="execution-grid">
+              <div class="execution-cell"><span>Status</span><strong id="execution-status">Not started</strong></div>
+              <div class="execution-cell"><span>Sent</span><strong id="execution-sent-date">Not sent</strong></div>
+              <div class="execution-cell"><span>Latest response</span><strong id="execution-response-date">No response yet</strong></div>
+            </div>
+            <label for="execution-log">Follow-up notes</label>
+            <textarea class="execution-log" id="execution-log" placeholder="Track vendor responses, follow-up dates, proposal notes, and client decisions..."></textarea>
+            <div class="workflow-actions" style="justify-content: flex-start;">
+              <button class="btn" onclick="markOutreachSent()"><i class="ti ti-send"></i> Mark sent</button>
+              <button class="btn" onclick="logVendorResponse()"><i class="ti ti-message-check"></i> Log response</button>
+              <button class="btn" onclick="closeExecutionAction()"><i class="ti ti-check"></i> Close action</button>
+            </div>
+          </div>
+          <div class="workspace-message" id="workspace-message"></div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn" onclick="closeActionWorkspaceModal()"><i class="ti ti-x"></i> Close</button>
+        <button class="btn" onclick="saveWorkspaceProgress()"><i class="ti ti-device-floppy"></i> Save progress</button>
+        <button class="btn" onclick="markWorkspaceReady()"><i class="ti ti-check"></i> Mark ready</button>
+        <button class="btn" id="action-secondary-btn" onclick="runSecondaryAction()"><i class="ti ti-file-search"></i> Review source</button>
+        <button class="btn btn-primary" id="action-primary-btn" onclick="runSelectedAction()"><i class="ti ti-send"></i> Prepare outreach</button>
       </div>
     </div>
   </div>
@@ -3356,39 +3339,39 @@
 
     function renderOperatorDashboard() {
       const rows = document.getElementById('operator-contract-rows');
-      if (!rows) return;
       const contracts = operatorContracts || [];
-      document.getElementById('operator-queue-count').textContent = `${contracts.length} records`;
-      document.getElementById('dashboard-contract-count').textContent = String(contracts.length);
-      if (contracts.length === 0) {
-        rows.innerHTML = '<tr><td colspan="7">No contract records yet. Upload a sample contract or use seeded demo records.</td></tr>';
-      } else {
-        rows.innerHTML = contracts.map(contract => `
-          <tr>
-            <td>${contract.client}</td>
-            <td class="vendor-name">${contract.vendor}</td>
-            <td>${contractStageBadge(contract.status)}</td>
-            <td>${contractRiskBadge(contract.risk)}</td>
-            <td>${contract.renewalDate || 'Needs review'}</td>
-            <td class="amount positive">${contract.savings || 'TBD'}</td>
-            <td>
-              <div class="contract-row-actions">
-                <button class="btn btn-mini" onclick="advanceContract('${contract.id}')"><i class="ti ti-arrow-right"></i> Advance</button>
-                <button class="btn btn-mini" onclick="openContractReport('${contract.client}')"><i class="ti ti-chart-bar"></i> Report</button>
-              </div>
-            </td>
-          </tr>
-        `).join('');
+      if (rows) {
+        if (contracts.length === 0) {
+          rows.innerHTML = '<tr><td colspan="7">No contract records yet. Upload a sample contract or use seeded demo records.</td></tr>';
+        } else {
+          rows.innerHTML = contracts.map(contract => `
+            <tr>
+              <td>${contract.client}</td>
+              <td class="vendor-name">${contract.vendor}</td>
+              <td>${contractStageBadge(contract.status)}</td>
+              <td>${contractRiskBadge(contract.risk)}</td>
+              <td>${contract.renewalDate || 'Needs review'}</td>
+              <td class="amount positive">${contract.savings || 'TBD'}</td>
+              <td>
+                <div class="contract-row-actions">
+                  <button class="btn btn-mini" onclick="advanceContract('${contract.id}')"><i class="ti ti-arrow-right"></i> Advance</button>
+                  <button class="btn btn-mini" onclick="openContractReport('${contract.client}')"><i class="ti ti-chart-bar"></i> Report</button>
+                </div>
+              </td>
+            </tr>
+          `).join('');
+        }
       }
 
-      document.getElementById('operator-pipeline-summary').innerHTML = `
-        <div class="pipeline-item"><div><span>Open actions</span><strong>9</strong></div><i class="ti ti-repeat"></i></div>
-        <div class="pipeline-item"><div><span>Savings pipeline</span><strong>$706K</strong></div><i class="ti ti-chart-bar"></i></div>
-        <div class="pipeline-item"><div><span>Open questions</span><strong>${clientQuestions.length || 0}</strong></div><i class="ti ti-message"></i></div>
-        <div class="pipeline-item"><div><span>Client files</span><strong>9</strong></div><i class="ti ti-box-multiple"></i></div>
-        <div class="pipeline-item"><div><span>Vendor types reviewed</span><strong>9</strong></div><i class="ti ti-database"></i></div>
-        <div class="pipeline-item"><div><span>Next Larder action</span><strong>Invoice monitoring</strong></div><i class="ti ti-file-invoice"></i></div>
-      `;
+      const summary = document.getElementById('operator-pipeline-summary');
+      if (summary) {
+        summary.innerHTML = `
+          <div class="pipeline-item"><div><span>Open queue items</span><strong>3</strong></div><i class="ti ti-list-check"></i></div>
+          <div class="pipeline-item"><div><span>Savings found</span><strong>$706K</strong></div><i class="ti ti-chart-bar"></i></div>
+          <div class="pipeline-item"><div><span>Awaiting approval</span><strong>$433K</strong></div><i class="ti ti-checklist"></i></div>
+          <div class="pipeline-item"><div><span>Missing documents</span><strong>2</strong></div><i class="ti ti-files"></i></div>
+        `;
+      }
     }
 
     async function advanceContract(contractId) {
@@ -3732,7 +3715,7 @@ ${action.evidence}`
         tab.classList.toggle('active', tab.dataset.reportTab === clientKey);
       });
       document.getElementById('report-plan-rows').innerHTML = report.categories.map((row, index) => `
-        <tr class="clickable-row" onclick="selectReportAction('${clientKey}', ${index})" aria-current="false">
+        <tr class="clickable-row" onclick="selectReportAction('${clientKey}', ${index}, true)" aria-current="false">
           <td class="vendor-name">${report.timeline[index]?.[0] || row[3]}</td>
           <td>${row[0]}</td>
           <td class="amount positive">${row[2]}</td>
@@ -3743,7 +3726,7 @@ ${action.evidence}`
       selectReportAction(clientKey, 0);
     }
 
-    function selectReportAction(clientKey, index) {
+    function selectReportAction(clientKey, index, openModal = false) {
       if (currentUser?.role === 'client') clientKey = 'client1';
       currentReportClient = clientKey;
       const report = reports[clientKey];
@@ -3785,6 +3768,7 @@ ${action.evidence}`
         ? '<i class="ti ti-upload"></i> Track files'
         : '<i class="ti ti-file-search"></i> Review source';
       renderWorkspaceTools();
+      if (openModal) openActionWorkspaceModal();
     }
 
     function runSelectedAction() {
@@ -3971,10 +3955,10 @@ ${action.evidence}`
       });
     }
 
-    function showClientReport(clientKey, actionIndex = 0) {
+    function showClientReport(clientKey, actionIndex = 0, openModal = false) {
       setReportClient(clientKey);
       showPage('report');
-      selectReportAction(clientKey, actionIndex);
+      selectReportAction(clientKey, actionIndex, openModal);
     }
 
     function openClientReportModal(clientKey) {
@@ -4010,7 +3994,16 @@ ${action.evidence}`
 
     function openModalReportAction(clientKey, actionIndex) {
       closeClientReportModal();
-      showClientReport(clientKey, actionIndex);
+      showClientReport(clientKey, actionIndex, true);
+    }
+
+    function openActionWorkspaceModal() {
+      document.getElementById('action-workspace-modal').classList.add('show');
+    }
+
+    function closeActionWorkspaceModal(event) {
+      if (event && event.target.id !== 'action-workspace-modal') return;
+      document.getElementById('action-workspace-modal').classList.remove('show');
     }
 
     function slugify(value) {
@@ -4495,11 +4488,11 @@ ${action.evidence}`
       const question = document.getElementById('client-question');
       const message = document.getElementById('question-message');
       if (!question.value.trim()) {
-        message.textContent = 'Add a question before sending.';
+        message.textContent = 'Add a message before sending.';
         return;
       }
       const questionText = question.value.trim();
-      message.textContent = 'Question sent to Larder. Rebecca will follow up.';
+      message.textContent = 'Message sent to Larder. Rebecca will follow up.';
       question.value = '';
       const entry = {
         id: `local-${Date.now()}`,
@@ -4542,7 +4535,7 @@ ${action.evidence}`
     function renderQuestionThread() {
       const thread = document.getElementById('question-thread');
       if (thread && !clientQuestions.length) {
-        thread.innerHTML = '<div class="empty-state">No questions yet. When a client sends a question, it will appear here with response status so the approval trail stays clear.</div>';
+        thread.innerHTML = '<div class="empty-state">No messages yet. When a client sends a message, it will appear here with response status so the approval trail stays clear.</div>';
       } else if (thread) {
         thread.innerHTML = clientQuestions.map(question => `
           <div class="question-item">
@@ -4559,7 +4552,7 @@ ${action.evidence}`
       if (count) count.textContent = `${openQuestions} open`;
       if (!operatorThread) return;
       if (!clientQuestions.length) {
-        operatorThread.innerHTML = '<div class="empty-state">No client questions yet.</div>';
+        operatorThread.innerHTML = '<div class="empty-state">No client messages yet.</div>';
         return;
       }
       operatorThread.innerHTML = clientQuestions.map(question => `
@@ -4627,7 +4620,7 @@ ${action.evidence}`
     function renderClientUploads() {
       const list = document.getElementById('client-upload-list');
       if (clientUploadedFiles.length === 0) {
-        list.innerHTML = '<div class="empty-state">No extra client files uploaded yet. Uploaded files will appear here and in Larder team Bills and contracts.</div>';
+        list.innerHTML = '<div class="empty-state">No extra client files uploaded yet. Uploaded files will appear here for the Larder team.</div>';
         renderIntakeQueue();
         renderOperatorDashboard();
         return;
