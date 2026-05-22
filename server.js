@@ -10,69 +10,25 @@ const UPLOAD_DIR = path.join(ROOT, 'uploads');
 const STORE_PATH = path.join(DATA_DIR, 'store.json');
 
 const initialStore = {
-  reports: {
-    client1: { reviewState: 'Awaiting approval', status: 'Final' },
-    client2: { reviewState: 'Approved', status: 'Final' },
-    client3: { reviewState: 'Documents needed', status: 'Documents needed' }
-  },
-  contracts: [
-    {
-      id: 'demo-distributor',
-      client: 'Sample Restaurant Group',
-      vendor: 'Food Distributor A',
-      category: 'Food distribution',
-      source: 'Seeded demo record',
-      status: 'Reviewing terms',
-      renewalDate: 'Jun 3, 2026',
-      annualValue: '$2.1M',
-      risk: 'High',
-      savings: '$181K',
-      owner: 'Rebecca',
-      createdAt: '2026-05-19T23:54:00.000Z'
-    },
-    {
-      id: 'demo-processor',
-      client: 'Sample Restaurant Group',
-      vendor: 'Payment Processor A',
-      category: 'Payment processing',
-      source: 'Seeded demo record',
-      status: 'Actions ready',
-      renewalDate: 'Jul 8, 2026',
-      annualValue: '$520K',
-      risk: 'High',
-      savings: '$252K',
-      owner: 'Rebecca',
-      createdAt: '2026-05-19T23:54:00.000Z'
-    },
-    {
-      id: 'demo-sanitation',
-      client: 'Independent Restaurant Group',
-      vendor: 'Grease & Sanitation Vendor A',
-      category: 'Sanitation',
-      source: 'Seeded demo record',
-      status: 'Documents needed',
-      renewalDate: 'Jul 1, 2026',
-      annualValue: '$180K',
-      risk: 'Medium',
-      savings: '$11K',
-      owner: 'Unassigned',
-      createdAt: '2026-05-19T23:54:00.000Z'
-    }
-  ],
+  reports: {},
+  clients: [],
+  contracts: [],
+  actions: [],
   approvals: {},
   questions: [],
-  documents: [
-    { label: 'Latest Payment Processor A processing statement', received: true },
-    { label: 'Food Distributor A trailing 12-month purchase summary', received: false },
-    { label: 'Waste invoice sample by restaurant', received: false }
-  ],
+  documents: [],
   uploads: []
 };
 
 const users = {
   operator: { name: 'Rebecca Hirschfeld', roleLabel: 'Larder team', role: 'operator' },
-  client: { name: 'Sample Restaurant Group', roleLabel: 'Client Portal', role: 'client', clientKey: 'client1' },
-  demo: { name: 'Product demo', roleLabel: 'Product demo', role: 'demo' }
+  client: { name: 'Main Street Bistro', roleLabel: 'Client Portal', role: 'client', clientKey: 'client1', clientName: 'Main Street Bistro' },
+  demo: { name: 'Product walkthrough', roleLabel: 'Product walkthrough', role: 'demo' }
+};
+
+const operatorCredentials = {
+  username: 'rhirschfeld',
+  password: 'Larder2026!'
 };
 
 function send(res, status, body, headers = {}) {
@@ -89,6 +45,15 @@ function send(res, status, body, headers = {}) {
 
 function safeName(name) {
   return String(name || 'upload.bin').replace(/[^a-zA-Z0-9._-]/g, '_');
+}
+
+function actionIdentity(action) {
+  return [
+    action.client || '',
+    action.category || '',
+    action.title || '',
+    action.sourceFile || action.vendor || ''
+  ].map(value => String(value).trim().toLowerCase()).join('::');
 }
 
 async function ensureStore() {
@@ -171,8 +136,126 @@ async function handleApi(req, res) {
     return send(res, 200, { contracts: store.contracts || [] });
   }
 
+  if (req.method === 'POST' && url.pathname === '/api/clients') {
+    const store = await readStore();
+    const body = await readJson(req);
+    const name = String(body.name || '').trim();
+    if (!name) return send(res, 400, { error: 'Client name is required' });
+    const client = {
+      id: crypto.randomUUID(),
+      name,
+      profile: String(body.profile || '').trim(),
+      contactName: String(body.contactName || '').trim(),
+      contactEmail: String(body.contactEmail || '').trim(),
+      spendRange: String(body.spendRange || '').trim(),
+      monthlyRate: String(body.monthlyRate || '').trim(),
+      successFeeRate: String(body.successFeeRate || '').trim(),
+      categories: Array.isArray(body.categories) ? body.categories : [],
+      notes: String(body.notes || '').trim(),
+      status: 'Documents needed',
+      createdAt: new Date().toISOString()
+    };
+    store.clients ||= [];
+    store.clients.unshift(client);
+    await writeStore(store);
+    return send(res, 201, { client, clients: store.clients });
+  }
+
+  const clientMatch = url.pathname.match(/^\/api\/clients\/([^/]+)$/);
+  if (req.method === 'PATCH' && clientMatch) {
+    const store = await readStore();
+    store.clients ||= [];
+    const client = store.clients.find(item => item.id === clientMatch[1]);
+    if (!client) return send(res, 404, { error: 'Unknown client' });
+    const body = await readJson(req);
+    const previousName = client.name;
+    const name = String(body.name || '').trim();
+    if (!name) return send(res, 400, { error: 'Client name is required' });
+    Object.assign(client, {
+      name,
+      profile: String(body.profile || '').trim(),
+      contactName: String(body.contactName || '').trim(),
+      contactEmail: String(body.contactEmail || '').trim(),
+      spendRange: String(body.spendRange || '').trim(),
+      monthlyRate: String(body.monthlyRate || '').trim(),
+      successFeeRate: String(body.successFeeRate || '').trim(),
+      categories: Array.isArray(body.categories) ? body.categories : [],
+      notes: String(body.notes || '').trim(),
+      updatedAt: new Date().toISOString()
+    });
+    if (previousName && previousName !== client.name) {
+      for (const action of store.actions || []) {
+        if (action.client === previousName) action.client = client.name;
+      }
+      for (const contract of store.contracts || []) {
+        if (contract.client === previousName) contract.client = client.name;
+      }
+      for (const upload of store.uploads || []) {
+        if (upload.client === previousName) upload.client = client.name;
+      }
+    }
+    await writeStore(store);
+    return send(res, 200, { client, clients: store.clients, actions: store.actions || [], contracts: store.contracts || [], uploads: store.uploads || [] });
+  }
+
+  if (req.method === 'POST' && url.pathname === '/api/actions') {
+    const store = await readStore();
+    const body = await readJson(req);
+    const action = {
+      id: body.id || crypto.randomUUID(),
+      client: String(body.client || 'Client from upload'),
+      vendor: String(body.vendor || 'Uploaded vendor'),
+      category: String(body.category || 'Other'),
+      title: String(body.title || 'Review vendor document'),
+      description: String(body.description || ''),
+      savings: String(body.savings || 'Needs evidence'),
+      spend: String(body.spend || ''),
+      priority: String(body.priority || 'Medium'),
+      status: String(body.status || 'Actions ready'),
+      nextStep: String(body.nextStep || ''),
+      evidence: String(body.evidence || ''),
+      sourceFile: String(body.sourceFile || ''),
+      sourceUploadId: String(body.sourceUploadId || ''),
+      costMathHeadline: String(body.costMathHeadline || ''),
+      costMathRows: Array.isArray(body.costMathRows) ? body.costMathRows : [],
+      createdAt: body.createdAt || new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
+    store.actions ||= [];
+    const identity = actionIdentity(action);
+    const existingIndex = store.actions.findIndex(item =>
+      item.id === action.id ||
+      (item.sourceUploadId && item.sourceUploadId === action.sourceUploadId && item.title === action.title) ||
+      actionIdentity(item) === identity
+    );
+    if (existingIndex >= 0) {
+      store.actions[existingIndex] = { ...store.actions[existingIndex], ...action, id: store.actions[existingIndex].id };
+    } else {
+      store.actions.unshift(action);
+    }
+    await writeStore(store);
+    return send(res, 201, { action, actions: store.actions });
+  }
+
+  const actionMatch = url.pathname.match(/^\/api\/actions\/([^/]+)$/);
+  if (req.method === 'PATCH' && actionMatch) {
+    const store = await readStore();
+    store.actions ||= [];
+    const action = store.actions.find(item => item.id === actionMatch[1]);
+    if (!action) return send(res, 404, { error: 'Unknown action' });
+    const body = await readJson(req);
+    Object.assign(action, {
+      status: body.status || action.status,
+      completionNote: body.completionNote !== undefined ? String(body.completionNote || '') : action.completionNote,
+      completedAt: body.completedAt !== undefined ? String(body.completedAt || '') : action.completedAt,
+      updatedAt: new Date().toISOString()
+    });
+    await writeStore(store);
+    return send(res, 200, { action, actions: store.actions });
+  }
+
   if (req.method === 'POST' && url.pathname === '/api/auth/login') {
-    const { type } = await readJson(req);
+    const { type, username, password } = await readJson(req);
     if (!users[type]) return send(res, 401, { error: 'Unknown user type' });
     return send(res, 200, { user: users[type] });
   }
@@ -289,6 +372,23 @@ async function handleApi(req, res) {
   }
 
   const uploadMatch = url.pathname.match(/^\/api\/uploads\/([^/]+)$/);
+  if (req.method === 'PATCH' && uploadMatch) {
+    const store = await readStore();
+    const uploadId = uploadMatch[1];
+    const upload = store.uploads.find(item => item.id === uploadId);
+    if (!upload) return send(res, 404, { error: 'Unknown upload' });
+    const body = await readJson(req);
+    Object.assign(upload, {
+      client: body.client || upload.client,
+      category: body.category || upload.category,
+      status: body.status || upload.status,
+      processedAt: body.processedAt || upload.processedAt,
+      updatedAt: new Date().toISOString()
+    });
+    await writeStore(store);
+    return send(res, 200, { upload, uploads: store.uploads });
+  }
+
   if (req.method === 'DELETE' && uploadMatch) {
     const store = await readStore();
     const uploadId = uploadMatch[1];

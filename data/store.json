@@ -1,80 +1,3301 @@
 {
-  "reports": {
-    "client1": {
-      "reviewState": "Awaiting approval",
-      "status": "Final"
-    },
-    "client2": {
-      "reviewState": "Approved",
-      "status": "Final"
-    },
-    "client3": {
-      "reviewState": "Documents needed",
-      "status": "Documents needed"
-    }
-  },
-  "contracts": [
+  "reports": {},
+  "clients": [
     {
-      "id": "demo-distributor",
-      "client": "Sample Restaurant Group",
-      "vendor": "Food Distributor A",
-      "category": "Food distribution",
-      "source": "Seeded demo record",
-      "status": "Report final",
-      "renewalDate": "Jun 3, 2026",
-      "annualValue": "$2.1M",
-      "risk": "High",
-      "savings": "$181K",
-      "owner": "Rebecca",
-      "createdAt": "2026-05-19T23:54:00.000Z",
-      "updatedAt": "2026-05-20T02:22:37.018Z"
-    },
-    {
-      "id": "demo-processor",
-      "client": "Sample Restaurant Group",
-      "vendor": "Payment Processor A",
-      "category": "Payment processing",
-      "source": "Seeded demo record",
-      "status": "Actions ready",
-      "renewalDate": "Jul 8, 2026",
-      "annualValue": "$520K",
-      "risk": "High",
-      "savings": "$252K",
-      "owner": "Rebecca",
-      "createdAt": "2026-05-19T23:54:00.000Z"
-    },
-    {
-      "id": "demo-sanitation",
-      "client": "Independent Restaurant Group",
-      "vendor": "Grease & Sanitation Vendor A",
-      "category": "Sanitation",
-      "source": "Seeded demo record",
+      "id": "ef8f4259-8787-43dc-bf67-768de2a770f5",
+      "name": "Harbor Lane Cafe",
+      "profile": "Cafe",
+      "contactName": "Chad",
+      "contactEmail": "chad@hlc.com",
+      "spendRange": "$500K - $1M",
+      "monthlyRate": "$1,500",
+      "successFeeRate": "",
+      "categories": [
+        "Food distribution",
+        "Payment processing",
+        "Produce",
+        "Proteins & seafood",
+        "Linen & uniforms",
+        "Pest control",
+        "Waste management",
+        "POS & delivery platforms"
+      ],
+      "notes": "",
       "status": "Documents needed",
-      "renewalDate": "Jul 1, 2026",
-      "annualValue": "$180K",
-      "risk": "Medium",
-      "savings": "$11K",
-      "owner": "Unassigned",
-      "createdAt": "2026-05-19T23:54:00.000Z"
+      "createdAt": "2026-05-22T01:27:32.376Z"
+    },
+    {
+      "id": "08d198fb-833d-47a8-8c35-a1758d150eee",
+      "name": "Main Street Bistro",
+      "profile": "Casual",
+      "contactName": "John Smith",
+      "contactEmail": "jsmith@msb.com",
+      "spendRange": "$1M - $3M",
+      "monthlyRate": "$3,000",
+      "categories": [
+        "Food distribution",
+        "Payment processing",
+        "Produce",
+        "Proteins & seafood",
+        "Linen & uniforms",
+        "Pest control",
+        "Waste management",
+        "POS & delivery platforms"
+      ],
+      "notes": "",
+      "status": "Documents needed",
+      "createdAt": "2026-05-22T00:51:46.062Z",
+      "updatedAt": "2026-05-22T01:02:34.205Z"
     }
   ],
-  "approvals": {
-    "processor": true
-  },
+  "actions": [
+    {
+      "id": "1d1101fe-2ee3-444d-bd23-7d16de15833f-main-street-bistro-smallwares-savings-verification-4",
+      "client": "Main Street Bistro",
+      "vendor": "MarketLine Smallwares - Order Invoice",
+      "category": "Smallwares",
+      "title": "Savings verification",
+      "description": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "savings": "$192",
+      "spend": "$37,296",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Track duplicate SKUs, freight charges, and off-guide purchases.",
+      "evidence": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "sourceFile": "13-smallwares-order-invoice-marketline.pdf",
+      "sourceUploadId": "1d1101fe-2ee3-444d-bd23-7d16de15833f",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$37,296"
+        ],
+        [
+          "Base charges",
+          "$35,376"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,920"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$37,296"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected smallwares cost",
+          "$35,376"
+        ],
+        [
+          "Potential variance",
+          "$1,920"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:03.010Z",
+      "updatedAt": "2026-05-22T01:00:03.028Z"
+    },
+    {
+      "id": "1d1101fe-2ee3-444d-bd23-7d16de15833f-main-street-bistro-smallwares-missing-rebate-or-credit-3",
+      "client": "Main Street Bistro",
+      "vendor": "MarketLine Smallwares - Order Invoice",
+      "category": "Smallwares",
+      "title": "Missing rebate or credit",
+      "description": "No credits or rebates were entered, so expected allowances need to be confirmed.",
+      "savings": "$346",
+      "spend": "$37,296",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile vendor credits, allowances, and prior overpayment recovery against invoices.",
+      "evidence": "No credits or rebates were entered, so expected allowances need to be confirmed.",
+      "sourceFile": "13-smallwares-order-invoice-marketline.pdf",
+      "sourceUploadId": "1d1101fe-2ee3-444d-bd23-7d16de15833f",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$37,296"
+        ],
+        [
+          "Base charges",
+          "$35,376"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,920"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$37,296"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected smallwares cost",
+          "$35,376"
+        ],
+        [
+          "Potential variance",
+          "$1,920"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:03.010Z",
+      "updatedAt": "2026-05-22T01:00:03.024Z"
+    },
+    {
+      "id": "1d1101fe-2ee3-444d-bd23-7d16de15833f-main-street-bistro-smallwares-usage-mismatch-2",
+      "client": "Main Street Bistro",
+      "vendor": "MarketLine Smallwares - Order Invoice",
+      "category": "Smallwares",
+      "title": "Usage mismatch",
+      "description": "Billing should match actual order guide usage; Larder checks counts, locations, service frequency, and inactive services.",
+      "savings": "$384",
+      "spend": "$37,296",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile billed usage to actual service levels and request corrected billing going forward.",
+      "evidence": "Billing should match actual order guide usage; Larder checks counts, locations, service frequency, and inactive services.",
+      "sourceFile": "13-smallwares-order-invoice-marketline.pdf",
+      "sourceUploadId": "1d1101fe-2ee3-444d-bd23-7d16de15833f",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$37,296"
+        ],
+        [
+          "Base charges",
+          "$35,376"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,920"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$37,296"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected smallwares cost",
+          "$35,376"
+        ],
+        [
+          "Potential variance",
+          "$1,920"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:03.010Z",
+      "updatedAt": "2026-05-22T01:00:03.022Z"
+    },
+    {
+      "id": "1d1101fe-2ee3-444d-bd23-7d16de15833f-main-street-bistro-smallwares-invoice-price-mismatch-1",
+      "client": "Main Street Bistro",
+      "vendor": "MarketLine Smallwares - Order Invoice",
+      "category": "Smallwares",
+      "title": "Invoice price mismatch",
+      "description": "Order guide + freight terms: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "savings": "$998",
+      "spend": "$37,296",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request a price discrepancy report and recover credits for overpayments.",
+      "evidence": "Order guide + freight terms: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "sourceFile": "13-smallwares-order-invoice-marketline.pdf",
+      "sourceUploadId": "1d1101fe-2ee3-444d-bd23-7d16de15833f",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$37,296"
+        ],
+        [
+          "Base charges",
+          "$35,376"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,920"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$37,296"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected smallwares cost",
+          "$35,376"
+        ],
+        [
+          "Potential variance",
+          "$1,920"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:03.010Z",
+      "updatedAt": "2026-05-22T01:00:03.019Z"
+    },
+    {
+      "id": "1d1101fe-2ee3-444d-bd23-7d16de15833f-main-street-bistro-smallwares-fee-creep-0",
+      "client": "Main Street Bistro",
+      "vendor": "MarketLine Smallwares - Order Invoice",
+      "category": "Smallwares",
+      "title": "Fee creep",
+      "description": "Fees and add-ons are 5.1% of the calculated actual cost.",
+      "savings": "$1,920",
+      "spend": "$37,296",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
+      "evidence": "Fees and add-ons are 5.1% of the calculated actual cost.",
+      "sourceFile": "13-smallwares-order-invoice-marketline.pdf",
+      "sourceUploadId": "1d1101fe-2ee3-444d-bd23-7d16de15833f",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$37,296"
+        ],
+        [
+          "Base charges",
+          "$35,376"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,920"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$37,296"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected smallwares cost",
+          "$35,376"
+        ],
+        [
+          "Potential variance",
+          "$1,920"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:03.010Z",
+      "updatedAt": "2026-05-22T01:00:03.014Z"
+    },
+    {
+      "id": "58d3e4c3-8aea-4900-a5d0-f679cccb012e-main-street-bistro-sanitation-savings-verification-3",
+      "client": "Main Street Bistro",
+      "vendor": "BrightStock Supply - Janitorial Invoice",
+      "category": "Sanitation",
+      "title": "Savings verification",
+      "description": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "savings": "$110",
+      "spend": "$45,528",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Check future invoices for recurring surcharges, missed credits, and service frequency changes.",
+      "evidence": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "sourceFile": "12-janitorial-supplies-invoice-brightstock.pdf",
+      "sourceUploadId": "58d3e4c3-8aea-4900-a5d0-f679cccb012e",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$45,528"
+        ],
+        [
+          "Base charges",
+          "$44,424"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,104"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$45,528"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected sanitation cost",
+          "$44,424"
+        ],
+        [
+          "Potential variance",
+          "$1,104"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:02.634Z",
+      "updatedAt": "2026-05-22T01:00:02.643Z"
+    },
+    {
+      "id": "58d3e4c3-8aea-4900-a5d0-f679cccb012e-main-street-bistro-sanitation-usage-mismatch-2",
+      "client": "Main Street Bistro",
+      "vendor": "BrightStock Supply - Janitorial Invoice",
+      "category": "Sanitation",
+      "title": "Usage mismatch",
+      "description": "Billing should match actual service schedule; Larder checks counts, locations, service frequency, and inactive services.",
+      "savings": "$221",
+      "spend": "$45,528",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile billed usage to actual service levels and request corrected billing going forward.",
+      "evidence": "Billing should match actual service schedule; Larder checks counts, locations, service frequency, and inactive services.",
+      "sourceFile": "12-janitorial-supplies-invoice-brightstock.pdf",
+      "sourceUploadId": "58d3e4c3-8aea-4900-a5d0-f679cccb012e",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$45,528"
+        ],
+        [
+          "Base charges",
+          "$44,424"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,104"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$45,528"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected sanitation cost",
+          "$44,424"
+        ],
+        [
+          "Potential variance",
+          "$1,104"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:02.634Z",
+      "updatedAt": "2026-05-22T01:00:02.642Z"
+    },
+    {
+      "id": "58d3e4c3-8aea-4900-a5d0-f679cccb012e-main-street-bistro-sanitation-invoice-price-mismatch-1",
+      "client": "Main Street Bistro",
+      "vendor": "BrightStock Supply - Janitorial Invoice",
+      "category": "Sanitation",
+      "title": "Invoice price mismatch",
+      "description": "Service scope + location schedule: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "savings": "$574",
+      "spend": "$45,528",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request a price discrepancy report and recover credits for overpayments.",
+      "evidence": "Service scope + location schedule: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "sourceFile": "12-janitorial-supplies-invoice-brightstock.pdf",
+      "sourceUploadId": "58d3e4c3-8aea-4900-a5d0-f679cccb012e",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$45,528"
+        ],
+        [
+          "Base charges",
+          "$44,424"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,104"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$45,528"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected sanitation cost",
+          "$44,424"
+        ],
+        [
+          "Potential variance",
+          "$1,104"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:02.634Z",
+      "updatedAt": "2026-05-22T01:00:02.640Z"
+    },
+    {
+      "id": "58d3e4c3-8aea-4900-a5d0-f679cccb012e-main-street-bistro-sanitation-fee-creep-0",
+      "client": "Main Street Bistro",
+      "vendor": "BrightStock Supply - Janitorial Invoice",
+      "category": "Sanitation",
+      "title": "Fee creep",
+      "description": "Fees and add-ons are 2.4% of the calculated actual cost.",
+      "savings": "$1,104",
+      "spend": "$45,528",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
+      "evidence": "Fees and add-ons are 2.4% of the calculated actual cost.",
+      "sourceFile": "12-janitorial-supplies-invoice-brightstock.pdf",
+      "sourceUploadId": "58d3e4c3-8aea-4900-a5d0-f679cccb012e",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$45,528"
+        ],
+        [
+          "Base charges",
+          "$44,424"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,104"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$45,528"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected sanitation cost",
+          "$44,424"
+        ],
+        [
+          "Potential variance",
+          "$1,104"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:02.634Z",
+      "updatedAt": "2026-05-22T01:00:02.637Z"
+    },
+    {
+      "id": "ea0f24aa-dc06-44da-bca8-47d07fa76bf4-main-street-bistro-produce-savings-verification-3",
+      "client": "Main Street Bistro",
+      "vendor": "Atlantic Provisions - Proteins and Seafood Invoice",
+      "category": "Produce",
+      "title": "Savings verification",
+      "description": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "savings": "$89",
+      "spend": "$65,723",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Compare order-guide pricing and substitutions against weekly invoices.",
+      "evidence": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "sourceFile": "11-proteins-seafood-invoice-atlantic-provisions.pdf",
+      "sourceUploadId": "ea0f24aa-dc06-44da-bca8-47d07fa76bf4",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$65,723"
+        ],
+        [
+          "Base charges",
+          "$65,459"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$888"
+        ],
+        [
+          "Credits or rebates",
+          "$624"
+        ],
+        [
+          "Actual all-in cost",
+          "$65,723"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected produce cost",
+          "$64,835"
+        ],
+        [
+          "Potential variance",
+          "$888"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:02.313Z",
+      "updatedAt": "2026-05-22T01:00:02.324Z"
+    },
+    {
+      "id": "ea0f24aa-dc06-44da-bca8-47d07fa76bf4-main-street-bistro-produce-missing-rebate-or-credit-2",
+      "client": "Main Street Bistro",
+      "vendor": "Atlantic Provisions - Proteins and Seafood Invoice",
+      "category": "Produce",
+      "title": "Missing rebate or credit",
+      "description": "$624 in credits or rebates were entered; Larder still checks whether expected credits fully posted.",
+      "savings": "$160",
+      "spend": "$65,723",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile vendor credits, allowances, and prior overpayment recovery against invoices.",
+      "evidence": "$624 in credits or rebates were entered; Larder still checks whether expected credits fully posted.",
+      "sourceFile": "11-proteins-seafood-invoice-atlantic-provisions.pdf",
+      "sourceUploadId": "ea0f24aa-dc06-44da-bca8-47d07fa76bf4",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$65,723"
+        ],
+        [
+          "Base charges",
+          "$65,459"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$888"
+        ],
+        [
+          "Credits or rebates",
+          "$624"
+        ],
+        [
+          "Actual all-in cost",
+          "$65,723"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected produce cost",
+          "$64,835"
+        ],
+        [
+          "Potential variance",
+          "$888"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:02.313Z",
+      "updatedAt": "2026-05-22T01:00:02.322Z"
+    },
+    {
+      "id": "ea0f24aa-dc06-44da-bca8-47d07fa76bf4-main-street-bistro-produce-invoice-price-mismatch-1",
+      "client": "Main Street Bistro",
+      "vendor": "Atlantic Provisions - Proteins and Seafood Invoice",
+      "category": "Produce",
+      "title": "Invoice price mismatch",
+      "description": "Order guide + market check: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "savings": "$462",
+      "spend": "$65,723",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request a price discrepancy report and recover credits for overpayments.",
+      "evidence": "Order guide + market check: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "sourceFile": "11-proteins-seafood-invoice-atlantic-provisions.pdf",
+      "sourceUploadId": "ea0f24aa-dc06-44da-bca8-47d07fa76bf4",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$65,723"
+        ],
+        [
+          "Base charges",
+          "$65,459"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$888"
+        ],
+        [
+          "Credits or rebates",
+          "$624"
+        ],
+        [
+          "Actual all-in cost",
+          "$65,723"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected produce cost",
+          "$64,835"
+        ],
+        [
+          "Potential variance",
+          "$888"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:02.313Z",
+      "updatedAt": "2026-05-22T01:00:02.320Z"
+    },
+    {
+      "id": "ea0f24aa-dc06-44da-bca8-47d07fa76bf4-main-street-bistro-produce-fee-creep-0",
+      "client": "Main Street Bistro",
+      "vendor": "Atlantic Provisions - Proteins and Seafood Invoice",
+      "category": "Produce",
+      "title": "Fee creep",
+      "description": "Fees and add-ons are 1.4% of the calculated actual cost.",
+      "savings": "$888",
+      "spend": "$65,723",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
+      "evidence": "Fees and add-ons are 1.4% of the calculated actual cost.",
+      "sourceFile": "11-proteins-seafood-invoice-atlantic-provisions.pdf",
+      "sourceUploadId": "ea0f24aa-dc06-44da-bca8-47d07fa76bf4",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$65,723"
+        ],
+        [
+          "Base charges",
+          "$65,459"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$888"
+        ],
+        [
+          "Credits or rebates",
+          "$624"
+        ],
+        [
+          "Actual all-in cost",
+          "$65,723"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected produce cost",
+          "$64,835"
+        ],
+        [
+          "Potential variance",
+          "$888"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:02.313Z",
+      "updatedAt": "2026-05-22T01:00:02.317Z"
+    },
+    {
+      "id": "e5743d0c-9f33-4ef6-8764-c0c94578e50a-main-street-bistro-food-distribution-savings-verification-4",
+      "client": "Main Street Bistro",
+      "vendor": "Copper Keg Beverage - Invoice",
+      "category": "Food distribution",
+      "title": "Savings verification",
+      "description": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "savings": "$103",
+      "spend": "$81,960",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Audit new invoices against contracted pricing, rebates, and delivery fees.",
+      "evidence": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "sourceFile": "10-beverage-distributor-invoice-copper-keg.pdf",
+      "sourceUploadId": "e5743d0c-9f33-4ef6-8764-c0c94578e50a",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$81,960"
+        ],
+        [
+          "Base charges",
+          "$83,088"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,032"
+        ],
+        [
+          "Credits or rebates",
+          "$2,160"
+        ],
+        [
+          "Actual all-in cost",
+          "$81,960"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected broadline cost",
+          "$80,928"
+        ],
+        [
+          "Potential variance",
+          "$1,032"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:01.877Z",
+      "updatedAt": "2026-05-22T01:00:01.891Z"
+    },
+    {
+      "id": "e5743d0c-9f33-4ef6-8764-c0c94578e50a-main-street-bistro-food-distribution-missing-rebate-or-credit-3",
+      "client": "Main Street Bistro",
+      "vendor": "Copper Keg Beverage - Invoice",
+      "category": "Food distribution",
+      "title": "Missing rebate or credit",
+      "description": "$2,160 in credits or rebates were entered; Larder still checks whether expected credits fully posted.",
+      "savings": "$186",
+      "spend": "$81,960",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile vendor credits, allowances, and prior overpayment recovery against invoices.",
+      "evidence": "$2,160 in credits or rebates were entered; Larder still checks whether expected credits fully posted.",
+      "sourceFile": "10-beverage-distributor-invoice-copper-keg.pdf",
+      "sourceUploadId": "e5743d0c-9f33-4ef6-8764-c0c94578e50a",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$81,960"
+        ],
+        [
+          "Base charges",
+          "$83,088"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,032"
+        ],
+        [
+          "Credits or rebates",
+          "$2,160"
+        ],
+        [
+          "Actual all-in cost",
+          "$81,960"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected broadline cost",
+          "$80,928"
+        ],
+        [
+          "Potential variance",
+          "$1,032"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:01.877Z",
+      "updatedAt": "2026-05-22T01:00:01.888Z"
+    },
+    {
+      "id": "e5743d0c-9f33-4ef6-8764-c0c94578e50a-main-street-bistro-food-distribution-usage-mismatch-2",
+      "client": "Main Street Bistro",
+      "vendor": "Copper Keg Beverage - Invoice",
+      "category": "Food distribution",
+      "title": "Usage mismatch",
+      "description": "Billing should match actual purchase volume; Larder checks counts, locations, service frequency, and inactive services.",
+      "savings": "$206",
+      "spend": "$81,960",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile billed usage to actual service levels and request corrected billing going forward.",
+      "evidence": "Billing should match actual purchase volume; Larder checks counts, locations, service frequency, and inactive services.",
+      "sourceFile": "10-beverage-distributor-invoice-copper-keg.pdf",
+      "sourceUploadId": "e5743d0c-9f33-4ef6-8764-c0c94578e50a",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$81,960"
+        ],
+        [
+          "Base charges",
+          "$83,088"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,032"
+        ],
+        [
+          "Credits or rebates",
+          "$2,160"
+        ],
+        [
+          "Actual all-in cost",
+          "$81,960"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected broadline cost",
+          "$80,928"
+        ],
+        [
+          "Potential variance",
+          "$1,032"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:01.877Z",
+      "updatedAt": "2026-05-22T01:00:01.885Z"
+    },
+    {
+      "id": "e5743d0c-9f33-4ef6-8764-c0c94578e50a-main-street-bistro-food-distribution-invoice-price-mismatch-1",
+      "client": "Main Street Bistro",
+      "vendor": "Copper Keg Beverage - Invoice",
+      "category": "Food distribution",
+      "title": "Invoice price mismatch",
+      "description": "Contracted price file + rebates: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "savings": "$537",
+      "spend": "$81,960",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request a price discrepancy report and recover credits for overpayments.",
+      "evidence": "Contracted price file + rebates: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "sourceFile": "10-beverage-distributor-invoice-copper-keg.pdf",
+      "sourceUploadId": "e5743d0c-9f33-4ef6-8764-c0c94578e50a",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$81,960"
+        ],
+        [
+          "Base charges",
+          "$83,088"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,032"
+        ],
+        [
+          "Credits or rebates",
+          "$2,160"
+        ],
+        [
+          "Actual all-in cost",
+          "$81,960"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected broadline cost",
+          "$80,928"
+        ],
+        [
+          "Potential variance",
+          "$1,032"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:01.877Z",
+      "updatedAt": "2026-05-22T01:00:01.884Z"
+    },
+    {
+      "id": "e5743d0c-9f33-4ef6-8764-c0c94578e50a-main-street-bistro-food-distribution-fee-creep-0",
+      "client": "Main Street Bistro",
+      "vendor": "Copper Keg Beverage - Invoice",
+      "category": "Food distribution",
+      "title": "Fee creep",
+      "description": "Fees and add-ons are 1.3% of the calculated actual cost.",
+      "savings": "$1,032",
+      "spend": "$81,960",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
+      "evidence": "Fees and add-ons are 1.3% of the calculated actual cost.",
+      "sourceFile": "10-beverage-distributor-invoice-copper-keg.pdf",
+      "sourceUploadId": "e5743d0c-9f33-4ef6-8764-c0c94578e50a",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$81,960"
+        ],
+        [
+          "Base charges",
+          "$83,088"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,032"
+        ],
+        [
+          "Credits or rebates",
+          "$2,160"
+        ],
+        [
+          "Actual all-in cost",
+          "$81,960"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected broadline cost",
+          "$80,928"
+        ],
+        [
+          "Potential variance",
+          "$1,032"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:01.877Z",
+      "updatedAt": "2026-05-22T01:00:01.880Z"
+    },
+    {
+      "id": "40033b47-7948-49c5-85dd-d45b472857eb-main-street-bistro-waste-management-savings-verification-3",
+      "client": "Main Street Bistro",
+      "vendor": "ClearFlame Sanitation - Hood Cleaning Invoice",
+      "category": "Waste management",
+      "title": "Savings verification",
+      "description": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "savings": "$70",
+      "spend": "$28,344",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Compare new invoices with contracted pickup frequency, containers, and surcharge caps.",
+      "evidence": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "sourceFile": "09-sanitation-hood-cleaning-invoice-clearflame.pdf",
+      "sourceUploadId": "40033b47-7948-49c5-85dd-d45b472857eb",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$28,344"
+        ],
+        [
+          "Base charges",
+          "$27,648"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$696"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$28,344"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected waste cost",
+          "$27,648"
+        ],
+        [
+          "Potential variance",
+          "$696"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:01.577Z",
+      "updatedAt": "2026-05-22T01:00:01.588Z"
+    },
+    {
+      "id": "40033b47-7948-49c5-85dd-d45b472857eb-main-street-bistro-waste-management-usage-mismatch-2",
+      "client": "Main Street Bistro",
+      "vendor": "ClearFlame Sanitation - Hood Cleaning Invoice",
+      "category": "Waste management",
+      "title": "Usage mismatch",
+      "description": "Billing should match actual pickup schedule; Larder checks counts, locations, service frequency, and inactive services.",
+      "savings": "$139",
+      "spend": "$28,344",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile billed usage to actual service levels and request corrected billing going forward.",
+      "evidence": "Billing should match actual pickup schedule; Larder checks counts, locations, service frequency, and inactive services.",
+      "sourceFile": "09-sanitation-hood-cleaning-invoice-clearflame.pdf",
+      "sourceUploadId": "40033b47-7948-49c5-85dd-d45b472857eb",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$28,344"
+        ],
+        [
+          "Base charges",
+          "$27,648"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$696"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$28,344"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected waste cost",
+          "$27,648"
+        ],
+        [
+          "Potential variance",
+          "$696"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:01.577Z",
+      "updatedAt": "2026-05-22T01:00:01.586Z"
+    },
+    {
+      "id": "40033b47-7948-49c5-85dd-d45b472857eb-main-street-bistro-waste-management-invoice-price-mismatch-1",
+      "client": "Main Street Bistro",
+      "vendor": "ClearFlame Sanitation - Hood Cleaning Invoice",
+      "category": "Waste management",
+      "title": "Invoice price mismatch",
+      "description": "Pickup schedule + container mix: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "savings": "$362",
+      "spend": "$28,344",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request a price discrepancy report and recover credits for overpayments.",
+      "evidence": "Pickup schedule + container mix: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "sourceFile": "09-sanitation-hood-cleaning-invoice-clearflame.pdf",
+      "sourceUploadId": "40033b47-7948-49c5-85dd-d45b472857eb",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$28,344"
+        ],
+        [
+          "Base charges",
+          "$27,648"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$696"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$28,344"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected waste cost",
+          "$27,648"
+        ],
+        [
+          "Potential variance",
+          "$696"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:01.577Z",
+      "updatedAt": "2026-05-22T01:00:01.583Z"
+    },
+    {
+      "id": "40033b47-7948-49c5-85dd-d45b472857eb-main-street-bistro-waste-management-fee-creep-0",
+      "client": "Main Street Bistro",
+      "vendor": "ClearFlame Sanitation - Hood Cleaning Invoice",
+      "category": "Waste management",
+      "title": "Fee creep",
+      "description": "Fees and add-ons are 2.5% of the calculated actual cost.",
+      "savings": "$696",
+      "spend": "$28,344",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
+      "evidence": "Fees and add-ons are 2.5% of the calculated actual cost.",
+      "sourceFile": "09-sanitation-hood-cleaning-invoice-clearflame.pdf",
+      "sourceUploadId": "40033b47-7948-49c5-85dd-d45b472857eb",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$28,344"
+        ],
+        [
+          "Base charges",
+          "$27,648"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$696"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$28,344"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected waste cost",
+          "$27,648"
+        ],
+        [
+          "Potential variance",
+          "$696"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:01.577Z",
+      "updatedAt": "2026-05-22T01:00:01.580Z"
+    },
+    {
+      "id": "8ec45690-c03e-46c2-8a22-2ae676ffc2b8-main-street-bistro-equipment-maintenance-savings-verification-3",
+      "client": "Main Street Bistro",
+      "vendor": "SteadyFix Mechanical - Service Invoice",
+      "category": "Equipment maintenance",
+      "title": "Savings verification",
+      "description": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "savings": "$27",
+      "spend": "$1,591",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Flag duplicate coverage, inactive equipment, and recurring emergency-rate charges.",
+      "evidence": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "sourceFile": "08-equipment-maintenance-contractor-invoice-steadyfix.pdf",
+      "sourceUploadId": "8ec45690-c03e-46c2-8a22-2ae676ffc2b8",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$1,591"
+        ],
+        [
+          "Base charges",
+          "$1,321"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$270"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$1,591"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected maintenance cost",
+          "$1,321"
+        ],
+        [
+          "Potential variance",
+          "$270"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:01.318Z",
+      "updatedAt": "2026-05-22T01:00:01.329Z"
+    },
+    {
+      "id": "8ec45690-c03e-46c2-8a22-2ae676ffc2b8-main-street-bistro-equipment-maintenance-usage-mismatch-2",
+      "client": "Main Street Bistro",
+      "vendor": "SteadyFix Mechanical - Service Invoice",
+      "category": "Equipment maintenance",
+      "title": "Usage mismatch",
+      "description": "Billing should match actual covered assets; Larder checks counts, locations, service frequency, and inactive services.",
+      "savings": "$54",
+      "spend": "$1,591",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile billed usage to actual service levels and request corrected billing going forward.",
+      "evidence": "Billing should match actual covered assets; Larder checks counts, locations, service frequency, and inactive services.",
+      "sourceFile": "08-equipment-maintenance-contractor-invoice-steadyfix.pdf",
+      "sourceUploadId": "8ec45690-c03e-46c2-8a22-2ae676ffc2b8",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$1,591"
+        ],
+        [
+          "Base charges",
+          "$1,321"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$270"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$1,591"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected maintenance cost",
+          "$1,321"
+        ],
+        [
+          "Potential variance",
+          "$270"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:01.318Z",
+      "updatedAt": "2026-05-22T01:00:01.327Z"
+    },
+    {
+      "id": "8ec45690-c03e-46c2-8a22-2ae676ffc2b8-main-street-bistro-equipment-maintenance-invoice-price-mismatch-1",
+      "client": "Main Street Bistro",
+      "vendor": "SteadyFix Mechanical - Service Invoice",
+      "category": "Equipment maintenance",
+      "title": "Invoice price mismatch",
+      "description": "Covered asset list: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "savings": "$140",
+      "spend": "$1,591",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request a price discrepancy report and recover credits for overpayments.",
+      "evidence": "Covered asset list: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "sourceFile": "08-equipment-maintenance-contractor-invoice-steadyfix.pdf",
+      "sourceUploadId": "8ec45690-c03e-46c2-8a22-2ae676ffc2b8",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$1,591"
+        ],
+        [
+          "Base charges",
+          "$1,321"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$270"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$1,591"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected maintenance cost",
+          "$1,321"
+        ],
+        [
+          "Potential variance",
+          "$270"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:01.318Z",
+      "updatedAt": "2026-05-22T01:00:01.323Z"
+    },
+    {
+      "id": "8ec45690-c03e-46c2-8a22-2ae676ffc2b8-main-street-bistro-equipment-maintenance-fee-creep-0",
+      "client": "Main Street Bistro",
+      "vendor": "SteadyFix Mechanical - Service Invoice",
+      "category": "Equipment maintenance",
+      "title": "Fee creep",
+      "description": "Fees and add-ons are 17.0% of the calculated actual cost.",
+      "savings": "$270",
+      "spend": "$1,591",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
+      "evidence": "Fees and add-ons are 17.0% of the calculated actual cost.",
+      "sourceFile": "08-equipment-maintenance-contractor-invoice-steadyfix.pdf",
+      "sourceUploadId": "8ec45690-c03e-46c2-8a22-2ae676ffc2b8",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$1,591"
+        ],
+        [
+          "Base charges",
+          "$1,321"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$270"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$1,591"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected maintenance cost",
+          "$1,321"
+        ],
+        [
+          "Potential variance",
+          "$270"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:01.318Z",
+      "updatedAt": "2026-05-22T01:00:01.321Z"
+    },
+    {
+      "id": "c2d1256b-b381-46c9-b9ac-6fa7d3eaab9f-main-street-bistro-food-distribution-renewal-leverage-risk-4",
+      "client": "Main Street Bistro",
+      "vendor": "Riverbend Foods - Supply Agreement Summary",
+      "category": "Food distribution",
+      "title": "Renewal leverage risk",
+      "description": "Auto-renewal language appears present. Renewal window found as July 1, 2027.",
+      "savings": "$2,900",
+      "spend": "$1,450,000",
+      "priority": "High",
+      "status": "Actions ready",
+      "nextStep": "Calendar the notice deadline and prepare renegotiation or non-renewal outreach before leverage expires.",
+      "evidence": "Auto-renewal language appears present. Renewal window found as July 1, 2027.",
+      "sourceFile": "07-food-distribution-agreement-riverbend-foods.pdf",
+      "sourceUploadId": "c2d1256b-b381-46c9-b9ac-6fa7d3eaab9f",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$1,450,000"
+        ],
+        [
+          "Base charges",
+          "$1,450,000"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$0"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$1,450,000"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the document's stated annual purchases less the stated 1.25% rebate. Invoice history is still needed to confirm whether the rebate actually posted."
+        ],
+        [
+          "Expected broadline cost",
+          "$1,431,875"
+        ],
+        [
+          "Potential variance",
+          "$18,125"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:01.074Z",
+      "updatedAt": "2026-05-22T01:00:01.084Z"
+    },
+    {
+      "id": "c2d1256b-b381-46c9-b9ac-6fa7d3eaab9f-main-street-bistro-food-distribution-missing-rebate-or-credit-3",
+      "client": "Main Street Bistro",
+      "vendor": "Riverbend Foods - Supply Agreement Summary",
+      "category": "Food distribution",
+      "title": "Missing rebate or credit",
+      "description": "No credits or rebates were entered, so expected allowances need to be confirmed.",
+      "savings": "$3,263",
+      "spend": "$1,450,000",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile vendor credits, allowances, and prior overpayment recovery against invoices.",
+      "evidence": "No credits or rebates were entered, so expected allowances need to be confirmed.",
+      "sourceFile": "07-food-distribution-agreement-riverbend-foods.pdf",
+      "sourceUploadId": "c2d1256b-b381-46c9-b9ac-6fa7d3eaab9f",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$1,450,000"
+        ],
+        [
+          "Base charges",
+          "$1,450,000"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$0"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$1,450,000"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the document's stated annual purchases less the stated 1.25% rebate. Invoice history is still needed to confirm whether the rebate actually posted."
+        ],
+        [
+          "Expected broadline cost",
+          "$1,431,875"
+        ],
+        [
+          "Potential variance",
+          "$18,125"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:01.074Z",
+      "updatedAt": "2026-05-22T01:00:01.083Z"
+    },
+    {
+      "id": "c2d1256b-b381-46c9-b9ac-6fa7d3eaab9f-main-street-bistro-food-distribution-usage-mismatch-2",
+      "client": "Main Street Bistro",
+      "vendor": "Riverbend Foods - Supply Agreement Summary",
+      "category": "Food distribution",
+      "title": "Usage mismatch",
+      "description": "Billing should match actual purchase volume; Larder checks counts, locations, service frequency, and inactive services.",
+      "savings": "$3,625",
+      "spend": "$1,450,000",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile billed usage to actual service levels and request corrected billing going forward.",
+      "evidence": "Billing should match actual purchase volume; Larder checks counts, locations, service frequency, and inactive services.",
+      "sourceFile": "07-food-distribution-agreement-riverbend-foods.pdf",
+      "sourceUploadId": "c2d1256b-b381-46c9-b9ac-6fa7d3eaab9f",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$1,450,000"
+        ],
+        [
+          "Base charges",
+          "$1,450,000"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$0"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$1,450,000"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the document's stated annual purchases less the stated 1.25% rebate. Invoice history is still needed to confirm whether the rebate actually posted."
+        ],
+        [
+          "Expected broadline cost",
+          "$1,431,875"
+        ],
+        [
+          "Potential variance",
+          "$18,125"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:01.074Z",
+      "updatedAt": "2026-05-22T01:00:01.082Z"
+    },
+    {
+      "id": "c2d1256b-b381-46c9-b9ac-6fa7d3eaab9f-main-street-bistro-food-distribution-fee-creep-1",
+      "client": "Main Street Bistro",
+      "vendor": "Riverbend Foods - Supply Agreement Summary",
+      "category": "Food distribution",
+      "title": "Fee creep",
+      "description": "Fees and add-ons are 0.0% of the calculated actual cost.",
+      "savings": "$4,350",
+      "spend": "$1,450,000",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
+      "evidence": "Fees and add-ons are 0.0% of the calculated actual cost.",
+      "sourceFile": "07-food-distribution-agreement-riverbend-foods.pdf",
+      "sourceUploadId": "c2d1256b-b381-46c9-b9ac-6fa7d3eaab9f",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$1,450,000"
+        ],
+        [
+          "Base charges",
+          "$1,450,000"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$0"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$1,450,000"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the document's stated annual purchases less the stated 1.25% rebate. Invoice history is still needed to confirm whether the rebate actually posted."
+        ],
+        [
+          "Expected broadline cost",
+          "$1,431,875"
+        ],
+        [
+          "Potential variance",
+          "$18,125"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:01.074Z",
+      "updatedAt": "2026-05-22T01:00:01.080Z"
+    },
+    {
+      "id": "c2d1256b-b381-46c9-b9ac-6fa7d3eaab9f-main-street-bistro-food-distribution-invoice-price-mismatch-0",
+      "client": "Main Street Bistro",
+      "vendor": "Riverbend Foods - Supply Agreement Summary",
+      "category": "Food distribution",
+      "title": "Invoice price mismatch",
+      "description": "Contracted price file + rebates: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "savings": "$9,425",
+      "spend": "$1,450,000",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request a price discrepancy report and recover credits for overpayments.",
+      "evidence": "Contracted price file + rebates: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "sourceFile": "07-food-distribution-agreement-riverbend-foods.pdf",
+      "sourceUploadId": "c2d1256b-b381-46c9-b9ac-6fa7d3eaab9f",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$1,450,000"
+        ],
+        [
+          "Base charges",
+          "$1,450,000"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$0"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$1,450,000"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the document's stated annual purchases less the stated 1.25% rebate. Invoice history is still needed to confirm whether the rebate actually posted."
+        ],
+        [
+          "Expected broadline cost",
+          "$1,431,875"
+        ],
+        [
+          "Potential variance",
+          "$18,125"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:01.074Z",
+      "updatedAt": "2026-05-22T01:00:01.077Z"
+    },
+    {
+      "id": "08e3e26b-7217-4adb-b828-552fc423fa57-main-street-bistro-payment-processing-savings-verification-4",
+      "client": "Main Street Bistro",
+      "vendor": "TableLine POS - Subscription Invoice",
+      "category": "Payment processing",
+      "title": "Savings verification",
+      "description": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "savings": "$155",
+      "spend": "$24,708",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Check every new statement for effective-rate drift and reappearing fees.",
+      "evidence": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "sourceFile": "06-pos-platform-invoice-tableline.pdf",
+      "sourceUploadId": "08e3e26b-7217-4adb-b828-552fc423fa57",
+      "costMathHeadline": "Actual processor cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Card volume reviewed",
+          "$24,708"
+        ],
+        [
+          "Actual processor cost",
+          "$24,708"
+        ],
+        [
+          "True all-in rate",
+          "100.00%"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected processor cost",
+          "$23,160"
+        ],
+        [
+          "Potential variance",
+          "$1,548"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:00.772Z",
+      "updatedAt": "2026-05-22T01:00:00.783Z"
+    },
+    {
+      "id": "08e3e26b-7217-4adb-b828-552fc423fa57-main-street-bistro-payment-processing-renewal-leverage-risk-3",
+      "client": "Main Street Bistro",
+      "vendor": "TableLine POS - Subscription Invoice",
+      "category": "Payment processing",
+      "title": "Renewal leverage risk",
+      "description": "Renewal or termination language appears present, but no renewal date was found in this document.",
+      "savings": "$248",
+      "spend": "$24,708",
+      "priority": "High",
+      "status": "Actions ready",
+      "nextStep": "Calendar the notice deadline and prepare renegotiation or non-renewal outreach before leverage expires.",
+      "evidence": "Renewal or termination language appears present, but no renewal date was found in this document.",
+      "sourceFile": "06-pos-platform-invoice-tableline.pdf",
+      "sourceUploadId": "08e3e26b-7217-4adb-b828-552fc423fa57",
+      "costMathHeadline": "Actual processor cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Card volume reviewed",
+          "$24,708"
+        ],
+        [
+          "Actual processor cost",
+          "$24,708"
+        ],
+        [
+          "True all-in rate",
+          "100.00%"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected processor cost",
+          "$23,160"
+        ],
+        [
+          "Potential variance",
+          "$1,548"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:00.772Z",
+      "updatedAt": "2026-05-22T01:00:00.782Z"
+    },
+    {
+      "id": "08e3e26b-7217-4adb-b828-552fc423fa57-main-street-bistro-payment-processing-usage-mismatch-2",
+      "client": "Main Street Bistro",
+      "vendor": "TableLine POS - Subscription Invoice",
+      "category": "Payment processing",
+      "title": "Usage mismatch",
+      "description": "Billing should match actual card volume; Larder checks counts, locations, service frequency, and inactive services.",
+      "savings": "$310",
+      "spend": "$24,708",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile billed usage to actual service levels and request corrected billing going forward.",
+      "evidence": "Billing should match actual card volume; Larder checks counts, locations, service frequency, and inactive services.",
+      "sourceFile": "06-pos-platform-invoice-tableline.pdf",
+      "sourceUploadId": "08e3e26b-7217-4adb-b828-552fc423fa57",
+      "costMathHeadline": "Actual processor cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Card volume reviewed",
+          "$24,708"
+        ],
+        [
+          "Actual processor cost",
+          "$24,708"
+        ],
+        [
+          "True all-in rate",
+          "100.00%"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected processor cost",
+          "$23,160"
+        ],
+        [
+          "Potential variance",
+          "$1,548"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:00.772Z",
+      "updatedAt": "2026-05-22T01:00:00.780Z"
+    },
+    {
+      "id": "08e3e26b-7217-4adb-b828-552fc423fa57-main-street-bistro-payment-processing-invoice-price-mismatch-1",
+      "client": "Main Street Bistro",
+      "vendor": "TableLine POS - Subscription Invoice",
+      "category": "Payment processing",
+      "title": "Invoice price mismatch",
+      "description": "Effective-rate benchmark: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "savings": "$805",
+      "spend": "$24,708",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request a price discrepancy report and recover credits for overpayments.",
+      "evidence": "Effective-rate benchmark: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "sourceFile": "06-pos-platform-invoice-tableline.pdf",
+      "sourceUploadId": "08e3e26b-7217-4adb-b828-552fc423fa57",
+      "costMathHeadline": "Actual processor cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Card volume reviewed",
+          "$24,708"
+        ],
+        [
+          "Actual processor cost",
+          "$24,708"
+        ],
+        [
+          "True all-in rate",
+          "100.00%"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected processor cost",
+          "$23,160"
+        ],
+        [
+          "Potential variance",
+          "$1,548"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:00.772Z",
+      "updatedAt": "2026-05-22T01:00:00.778Z"
+    },
+    {
+      "id": "08e3e26b-7217-4adb-b828-552fc423fa57-main-street-bistro-payment-processing-fee-creep-0",
+      "client": "Main Street Bistro",
+      "vendor": "TableLine POS - Subscription Invoice",
+      "category": "Payment processing",
+      "title": "Fee creep",
+      "description": "Fees and add-ons are 6.3% of the calculated actual cost.",
+      "savings": "$1,548",
+      "spend": "$24,708",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
+      "evidence": "Fees and add-ons are 6.3% of the calculated actual cost.",
+      "sourceFile": "06-pos-platform-invoice-tableline.pdf",
+      "sourceUploadId": "08e3e26b-7217-4adb-b828-552fc423fa57",
+      "costMathHeadline": "Actual processor cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Card volume reviewed",
+          "$24,708"
+        ],
+        [
+          "Actual processor cost",
+          "$24,708"
+        ],
+        [
+          "True all-in rate",
+          "100.00%"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected processor cost",
+          "$23,160"
+        ],
+        [
+          "Potential variance",
+          "$1,548"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:00.772Z",
+      "updatedAt": "2026-05-22T01:00:00.774Z"
+    },
+    {
+      "id": "4b6c0986-b579-4b8e-9d31-87ae6fa3f976-main-street-bistro-pest-control-savings-verification-3",
+      "client": "Main Street Bistro",
+      "vendor": "Urban Shield Pest Control - Service Invoice",
+      "category": "Pest control",
+      "title": "Savings verification",
+      "description": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "savings": "$29",
+      "spend": "$12,528",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Track renewal windows and confirm billed visits match the service tier.",
+      "evidence": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "sourceFile": "05-pest-control-service-invoice-urban-shield.pdf",
+      "sourceUploadId": "4b6c0986-b579-4b8e-9d31-87ae6fa3f976",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$12,528"
+        ],
+        [
+          "Base charges",
+          "$12,240"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$288"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$12,528"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected pest control cost",
+          "$12,240"
+        ],
+        [
+          "Potential variance",
+          "$288"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:09.458Z",
+      "updatedAt": "2026-05-22T01:00:09.477Z"
+    },
+    {
+      "id": "4b6c0986-b579-4b8e-9d31-87ae6fa3f976-main-street-bistro-pest-control-usage-mismatch-2",
+      "client": "Main Street Bistro",
+      "vendor": "Urban Shield Pest Control - Service Invoice",
+      "category": "Pest control",
+      "title": "Usage mismatch",
+      "description": "Billing should match actual service schedule; Larder checks counts, locations, service frequency, and inactive services.",
+      "savings": "$58",
+      "spend": "$12,528",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile billed usage to actual service levels and request corrected billing going forward.",
+      "evidence": "Billing should match actual service schedule; Larder checks counts, locations, service frequency, and inactive services.",
+      "sourceFile": "05-pest-control-service-invoice-urban-shield.pdf",
+      "sourceUploadId": "4b6c0986-b579-4b8e-9d31-87ae6fa3f976",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$12,528"
+        ],
+        [
+          "Base charges",
+          "$12,240"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$288"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$12,528"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected pest control cost",
+          "$12,240"
+        ],
+        [
+          "Potential variance",
+          "$288"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:09.458Z",
+      "updatedAt": "2026-05-22T01:00:09.473Z"
+    },
+    {
+      "id": "4b6c0986-b579-4b8e-9d31-87ae6fa3f976-main-street-bistro-pest-control-invoice-price-mismatch-1",
+      "client": "Main Street Bistro",
+      "vendor": "Urban Shield Pest Control - Service Invoice",
+      "category": "Pest control",
+      "title": "Invoice price mismatch",
+      "description": "Service tier + renewal benchmark: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "savings": "$150",
+      "spend": "$12,528",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request a price discrepancy report and recover credits for overpayments.",
+      "evidence": "Service tier + renewal benchmark: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "sourceFile": "05-pest-control-service-invoice-urban-shield.pdf",
+      "sourceUploadId": "4b6c0986-b579-4b8e-9d31-87ae6fa3f976",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$12,528"
+        ],
+        [
+          "Base charges",
+          "$12,240"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$288"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$12,528"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected pest control cost",
+          "$12,240"
+        ],
+        [
+          "Potential variance",
+          "$288"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:09.458Z",
+      "updatedAt": "2026-05-22T01:00:09.469Z"
+    },
+    {
+      "id": "4b6c0986-b579-4b8e-9d31-87ae6fa3f976-main-street-bistro-pest-control-fee-creep-0",
+      "client": "Main Street Bistro",
+      "vendor": "Urban Shield Pest Control - Service Invoice",
+      "category": "Pest control",
+      "title": "Fee creep",
+      "description": "Fees and add-ons are 2.3% of the calculated actual cost.",
+      "savings": "$288",
+      "spend": "$12,528",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
+      "evidence": "Fees and add-ons are 2.3% of the calculated actual cost.",
+      "sourceFile": "05-pest-control-service-invoice-urban-shield.pdf",
+      "sourceUploadId": "4b6c0986-b579-4b8e-9d31-87ae6fa3f976",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$12,528"
+        ],
+        [
+          "Base charges",
+          "$12,240"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$288"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$12,528"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected pest control cost",
+          "$12,240"
+        ],
+        [
+          "Potential variance",
+          "$288"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:09.458Z",
+      "updatedAt": "2026-05-22T01:00:09.464Z"
+    },
+    {
+      "id": "77be32e5-0d5b-418e-be95-59aa04566a1f-main-street-bistro-waste-management-savings-verification-3",
+      "client": "Main Street Bistro",
+      "vendor": "Evergreen Waste Services - Invoice",
+      "category": "Waste management",
+      "title": "Savings verification",
+      "description": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "savings": "$472",
+      "spend": "$37,830",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Compare new invoices with contracted pickup frequency, containers, and surcharge caps.",
+      "evidence": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "sourceFile": "04-waste-service-invoice-evergreen-waste.pdf",
+      "sourceUploadId": "77be32e5-0d5b-418e-be95-59aa04566a1f",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$37,830"
+        ],
+        [
+          "Base charges",
+          "$33,108"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$4,722"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$37,830"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected waste cost",
+          "$33,108"
+        ],
+        [
+          "Potential variance",
+          "$4,722"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:00.076Z",
+      "updatedAt": "2026-05-22T01:00:00.087Z"
+    },
+    {
+      "id": "77be32e5-0d5b-418e-be95-59aa04566a1f-main-street-bistro-waste-management-usage-mismatch-2",
+      "client": "Main Street Bistro",
+      "vendor": "Evergreen Waste Services - Invoice",
+      "category": "Waste management",
+      "title": "Usage mismatch",
+      "description": "Billing should match actual pickup schedule; Larder checks counts, locations, service frequency, and inactive services.",
+      "savings": "$944",
+      "spend": "$37,830",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile billed usage to actual service levels and request corrected billing going forward.",
+      "evidence": "Billing should match actual pickup schedule; Larder checks counts, locations, service frequency, and inactive services.",
+      "sourceFile": "04-waste-service-invoice-evergreen-waste.pdf",
+      "sourceUploadId": "77be32e5-0d5b-418e-be95-59aa04566a1f",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$37,830"
+        ],
+        [
+          "Base charges",
+          "$33,108"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$4,722"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$37,830"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected waste cost",
+          "$33,108"
+        ],
+        [
+          "Potential variance",
+          "$4,722"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:00.076Z",
+      "updatedAt": "2026-05-22T01:00:00.085Z"
+    },
+    {
+      "id": "77be32e5-0d5b-418e-be95-59aa04566a1f-main-street-bistro-waste-management-invoice-price-mismatch-1",
+      "client": "Main Street Bistro",
+      "vendor": "Evergreen Waste Services - Invoice",
+      "category": "Waste management",
+      "title": "Invoice price mismatch",
+      "description": "Pickup schedule + container mix: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "savings": "$2,455",
+      "spend": "$37,830",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request a price discrepancy report and recover credits for overpayments.",
+      "evidence": "Pickup schedule + container mix: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "sourceFile": "04-waste-service-invoice-evergreen-waste.pdf",
+      "sourceUploadId": "77be32e5-0d5b-418e-be95-59aa04566a1f",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$37,830"
+        ],
+        [
+          "Base charges",
+          "$33,108"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$4,722"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$37,830"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected waste cost",
+          "$33,108"
+        ],
+        [
+          "Potential variance",
+          "$4,722"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:00.076Z",
+      "updatedAt": "2026-05-22T01:00:00.082Z"
+    },
+    {
+      "id": "77be32e5-0d5b-418e-be95-59aa04566a1f-main-street-bistro-waste-management-fee-creep-0",
+      "client": "Main Street Bistro",
+      "vendor": "Evergreen Waste Services - Invoice",
+      "category": "Waste management",
+      "title": "Fee creep",
+      "description": "Fees and add-ons are 12.5% of the calculated actual cost.",
+      "savings": "$4,722",
+      "spend": "$37,830",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
+      "evidence": "Fees and add-ons are 12.5% of the calculated actual cost.",
+      "sourceFile": "04-waste-service-invoice-evergreen-waste.pdf",
+      "sourceUploadId": "77be32e5-0d5b-418e-be95-59aa04566a1f",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$37,830"
+        ],
+        [
+          "Base charges",
+          "$33,108"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$4,722"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$37,830"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected waste cost",
+          "$33,108"
+        ],
+        [
+          "Potential variance",
+          "$4,722"
+        ]
+      ],
+      "createdAt": "2026-05-22T01:00:00.076Z",
+      "updatedAt": "2026-05-22T01:00:00.078Z"
+    },
+    {
+      "id": "cba908d8-be87-4c5c-b097-af6b31824b85-main-street-bistro-payment-processing-savings-verification-4",
+      "client": "Main Street Bistro",
+      "vendor": "Northstar Payments - Merchant Statement",
+      "category": "Payment processing",
+      "title": "Savings verification",
+      "description": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "savings": "$7,520",
+      "spend": "$302,250",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Check every new statement for effective-rate drift and reappearing fees.",
+      "evidence": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "sourceFile": "03-payment-processor-statement-northstar-payments.pdf",
+      "sourceUploadId": "cba908d8-be87-4c5c-b097-af6b31824b85",
+      "costMathHeadline": "Actual processor cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Card volume reviewed",
+          "$11,018,880"
+        ],
+        [
+          "Actual processor cost",
+          "$302,250"
+        ],
+        [
+          "True all-in rate",
+          "2.74%"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the statement line for interchange and assessment fees as the document-supported baseline. Processor markup, PCI, gateway, monthly, batch, and chargeback fees are treated as reviewable variance."
+        ],
+        [
+          "Expected processor cost",
+          "$227,046"
+        ],
+        [
+          "Potential variance",
+          "$75,204"
+        ]
+      ],
+      "createdAt": "2026-05-22T00:59:59.290Z",
+      "updatedAt": "2026-05-22T00:59:59.304Z"
+    },
+    {
+      "id": "cba908d8-be87-4c5c-b097-af6b31824b85-main-street-bistro-payment-processing-renewal-leverage-risk-3",
+      "client": "Main Street Bistro",
+      "vendor": "Northstar Payments - Merchant Statement",
+      "category": "Payment processing",
+      "title": "Renewal leverage risk",
+      "description": "Auto-renewal language appears present. Renewal window found as August 15, 2026.",
+      "savings": "$12,033",
+      "spend": "$302,250",
+      "priority": "High",
+      "status": "Actions ready",
+      "nextStep": "Calendar the notice deadline and prepare renegotiation or non-renewal outreach before leverage expires.",
+      "evidence": "Auto-renewal language appears present. Renewal window found as August 15, 2026.",
+      "sourceFile": "03-payment-processor-statement-northstar-payments.pdf",
+      "sourceUploadId": "cba908d8-be87-4c5c-b097-af6b31824b85",
+      "costMathHeadline": "Actual processor cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Card volume reviewed",
+          "$11,018,880"
+        ],
+        [
+          "Actual processor cost",
+          "$302,250"
+        ],
+        [
+          "True all-in rate",
+          "2.74%"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the statement line for interchange and assessment fees as the document-supported baseline. Processor markup, PCI, gateway, monthly, batch, and chargeback fees are treated as reviewable variance."
+        ],
+        [
+          "Expected processor cost",
+          "$227,046"
+        ],
+        [
+          "Potential variance",
+          "$75,204"
+        ]
+      ],
+      "createdAt": "2026-05-22T00:59:59.290Z",
+      "updatedAt": "2026-05-22T00:59:59.302Z"
+    },
+    {
+      "id": "cba908d8-be87-4c5c-b097-af6b31824b85-main-street-bistro-payment-processing-missing-rebate-or-credit-2",
+      "client": "Main Street Bistro",
+      "vendor": "Northstar Payments - Merchant Statement",
+      "category": "Payment processing",
+      "title": "Missing rebate or credit",
+      "description": "No credits or rebates were entered, so expected allowances need to be confirmed.",
+      "savings": "$13,537",
+      "spend": "$302,250",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile vendor credits, allowances, and prior overpayment recovery against invoices.",
+      "evidence": "No credits or rebates were entered, so expected allowances need to be confirmed.",
+      "sourceFile": "03-payment-processor-statement-northstar-payments.pdf",
+      "sourceUploadId": "cba908d8-be87-4c5c-b097-af6b31824b85",
+      "costMathHeadline": "Actual processor cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Card volume reviewed",
+          "$11,018,880"
+        ],
+        [
+          "Actual processor cost",
+          "$302,250"
+        ],
+        [
+          "True all-in rate",
+          "2.74%"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the statement line for interchange and assessment fees as the document-supported baseline. Processor markup, PCI, gateway, monthly, batch, and chargeback fees are treated as reviewable variance."
+        ],
+        [
+          "Expected processor cost",
+          "$227,046"
+        ],
+        [
+          "Potential variance",
+          "$75,204"
+        ]
+      ],
+      "createdAt": "2026-05-22T00:59:59.290Z",
+      "updatedAt": "2026-05-22T00:59:59.300Z"
+    },
+    {
+      "id": "cba908d8-be87-4c5c-b097-af6b31824b85-main-street-bistro-payment-processing-usage-mismatch-1",
+      "client": "Main Street Bistro",
+      "vendor": "Northstar Payments - Merchant Statement",
+      "category": "Payment processing",
+      "title": "Usage mismatch",
+      "description": "Billing should match actual card volume; Larder checks counts, locations, service frequency, and inactive services.",
+      "savings": "$15,041",
+      "spend": "$302,250",
+      "priority": "High",
+      "status": "Actions ready",
+      "nextStep": "Reconcile billed usage to actual service levels and request corrected billing going forward.",
+      "evidence": "Billing should match actual card volume; Larder checks counts, locations, service frequency, and inactive services.",
+      "sourceFile": "03-payment-processor-statement-northstar-payments.pdf",
+      "sourceUploadId": "cba908d8-be87-4c5c-b097-af6b31824b85",
+      "costMathHeadline": "Actual processor cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Card volume reviewed",
+          "$11,018,880"
+        ],
+        [
+          "Actual processor cost",
+          "$302,250"
+        ],
+        [
+          "True all-in rate",
+          "2.74%"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the statement line for interchange and assessment fees as the document-supported baseline. Processor markup, PCI, gateway, monthly, batch, and chargeback fees are treated as reviewable variance."
+        ],
+        [
+          "Expected processor cost",
+          "$227,046"
+        ],
+        [
+          "Potential variance",
+          "$75,204"
+        ]
+      ],
+      "createdAt": "2026-05-22T00:59:59.290Z",
+      "updatedAt": "2026-05-22T00:59:59.297Z"
+    },
+    {
+      "id": "cba908d8-be87-4c5c-b097-af6b31824b85-main-street-bistro-payment-processing-fee-creep-0",
+      "client": "Main Street Bistro",
+      "vendor": "Northstar Payments - Merchant Statement",
+      "category": "Payment processing",
+      "title": "Fee creep",
+      "description": "Fees and add-ons are 24.9% of the calculated actual cost.",
+      "savings": "$75,204",
+      "spend": "$302,250",
+      "priority": "High",
+      "status": "Actions ready",
+      "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
+      "evidence": "Fees and add-ons are 24.9% of the calculated actual cost.",
+      "sourceFile": "03-payment-processor-statement-northstar-payments.pdf",
+      "sourceUploadId": "cba908d8-be87-4c5c-b097-af6b31824b85",
+      "costMathHeadline": "Actual processor cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Card volume reviewed",
+          "$11,018,880"
+        ],
+        [
+          "Actual processor cost",
+          "$302,250"
+        ],
+        [
+          "True all-in rate",
+          "2.74%"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the statement line for interchange and assessment fees as the document-supported baseline. Processor markup, PCI, gateway, monthly, batch, and chargeback fees are treated as reviewable variance."
+        ],
+        [
+          "Expected processor cost",
+          "$227,046"
+        ],
+        [
+          "Potential variance",
+          "$75,204"
+        ]
+      ],
+      "createdAt": "2026-05-22T00:59:59.290Z",
+      "updatedAt": "2026-05-22T00:59:59.293Z"
+    },
+    {
+      "id": "e523bd20-7e6a-43d8-9b65-ca7a0a66e381-main-street-bistro-waste-management-savings-verification-4",
+      "client": "Main Street Bistro",
+      "vendor": "Coastal Linen Service - Monthly Invoice",
+      "category": "Waste management",
+      "title": "Savings verification",
+      "description": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "savings": "$160",
+      "spend": "$21,752",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Compare new invoices with contracted pickup frequency, containers, and surcharge caps.",
+      "evidence": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "sourceFile": "02-linen-service-invoice-coastal-linen.pdf",
+      "sourceUploadId": "e523bd20-7e6a-43d8-9b65-ca7a0a66e381",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$21,752"
+        ],
+        [
+          "Base charges",
+          "$21,056"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,596"
+        ],
+        [
+          "Credits or rebates",
+          "$900"
+        ],
+        [
+          "Actual all-in cost",
+          "$21,752"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected waste cost",
+          "$20,156"
+        ],
+        [
+          "Potential variance",
+          "$1,596"
+        ]
+      ],
+      "createdAt": "2026-05-22T00:59:38.917Z",
+      "updatedAt": "2026-05-22T00:59:38.929Z"
+    },
+    {
+      "id": "e523bd20-7e6a-43d8-9b65-ca7a0a66e381-main-street-bistro-waste-management-missing-rebate-or-credit-3",
+      "client": "Main Street Bistro",
+      "vendor": "Coastal Linen Service - Monthly Invoice",
+      "category": "Waste management",
+      "title": "Missing rebate or credit",
+      "description": "$900 in credits or rebates were entered; Larder still checks whether expected credits fully posted.",
+      "savings": "$287",
+      "spend": "$21,752",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile vendor credits, allowances, and prior overpayment recovery against invoices.",
+      "evidence": "$900 in credits or rebates were entered; Larder still checks whether expected credits fully posted.",
+      "sourceFile": "02-linen-service-invoice-coastal-linen.pdf",
+      "sourceUploadId": "e523bd20-7e6a-43d8-9b65-ca7a0a66e381",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$21,752"
+        ],
+        [
+          "Base charges",
+          "$21,056"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,596"
+        ],
+        [
+          "Credits or rebates",
+          "$900"
+        ],
+        [
+          "Actual all-in cost",
+          "$21,752"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected waste cost",
+          "$20,156"
+        ],
+        [
+          "Potential variance",
+          "$1,596"
+        ]
+      ],
+      "createdAt": "2026-05-22T00:59:38.917Z",
+      "updatedAt": "2026-05-22T00:59:38.927Z"
+    },
+    {
+      "id": "e523bd20-7e6a-43d8-9b65-ca7a0a66e381-main-street-bistro-waste-management-usage-mismatch-2",
+      "client": "Main Street Bistro",
+      "vendor": "Coastal Linen Service - Monthly Invoice",
+      "category": "Waste management",
+      "title": "Usage mismatch",
+      "description": "Billing should match actual pickup schedule; Larder checks counts, locations, service frequency, and inactive services.",
+      "savings": "$319",
+      "spend": "$21,752",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile billed usage to actual service levels and request corrected billing going forward.",
+      "evidence": "Billing should match actual pickup schedule; Larder checks counts, locations, service frequency, and inactive services.",
+      "sourceFile": "02-linen-service-invoice-coastal-linen.pdf",
+      "sourceUploadId": "e523bd20-7e6a-43d8-9b65-ca7a0a66e381",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$21,752"
+        ],
+        [
+          "Base charges",
+          "$21,056"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,596"
+        ],
+        [
+          "Credits or rebates",
+          "$900"
+        ],
+        [
+          "Actual all-in cost",
+          "$21,752"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected waste cost",
+          "$20,156"
+        ],
+        [
+          "Potential variance",
+          "$1,596"
+        ]
+      ],
+      "createdAt": "2026-05-22T00:59:38.917Z",
+      "updatedAt": "2026-05-22T00:59:38.926Z"
+    },
+    {
+      "id": "e523bd20-7e6a-43d8-9b65-ca7a0a66e381-main-street-bistro-waste-management-invoice-price-mismatch-1",
+      "client": "Main Street Bistro",
+      "vendor": "Coastal Linen Service - Monthly Invoice",
+      "category": "Waste management",
+      "title": "Invoice price mismatch",
+      "description": "Pickup schedule + container mix: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "savings": "$830",
+      "spend": "$21,752",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request a price discrepancy report and recover credits for overpayments.",
+      "evidence": "Pickup schedule + container mix: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "sourceFile": "02-linen-service-invoice-coastal-linen.pdf",
+      "sourceUploadId": "e523bd20-7e6a-43d8-9b65-ca7a0a66e381",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$21,752"
+        ],
+        [
+          "Base charges",
+          "$21,056"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,596"
+        ],
+        [
+          "Credits or rebates",
+          "$900"
+        ],
+        [
+          "Actual all-in cost",
+          "$21,752"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected waste cost",
+          "$20,156"
+        ],
+        [
+          "Potential variance",
+          "$1,596"
+        ]
+      ],
+      "createdAt": "2026-05-22T00:59:38.917Z",
+      "updatedAt": "2026-05-22T00:59:38.923Z"
+    },
+    {
+      "id": "e523bd20-7e6a-43d8-9b65-ca7a0a66e381-main-street-bistro-waste-management-fee-creep-0",
+      "client": "Main Street Bistro",
+      "vendor": "Coastal Linen Service - Monthly Invoice",
+      "category": "Waste management",
+      "title": "Fee creep",
+      "description": "Fees and add-ons are 7.3% of the calculated actual cost.",
+      "savings": "$1,596",
+      "spend": "$21,752",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
+      "evidence": "Fees and add-ons are 7.3% of the calculated actual cost.",
+      "sourceFile": "02-linen-service-invoice-coastal-linen.pdf",
+      "sourceUploadId": "e523bd20-7e6a-43d8-9b65-ca7a0a66e381",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$21,752"
+        ],
+        [
+          "Base charges",
+          "$21,056"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,596"
+        ],
+        [
+          "Credits or rebates",
+          "$900"
+        ],
+        [
+          "Actual all-in cost",
+          "$21,752"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected waste cost",
+          "$20,156"
+        ],
+        [
+          "Potential variance",
+          "$1,596"
+        ]
+      ],
+      "createdAt": "2026-05-22T00:59:38.917Z",
+      "updatedAt": "2026-05-22T00:59:38.920Z"
+    },
+    {
+      "id": "2f5a625b-cde2-4f22-8633-65b0af26752f-main-street-bistro-produce-savings-verification-4",
+      "client": "Main Street Bistro",
+      "vendor": "Harvest Valley Produce Co. - Invoice",
+      "category": "Produce",
+      "title": "Savings verification",
+      "description": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "savings": "$832",
+      "spend": "$203,008",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Compare order-guide pricing and substitutions against weekly invoices.",
+      "evidence": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "sourceFile": "01-produce-invoice-harvest-valley.pdf",
+      "sourceUploadId": "",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$203,008"
+        ],
+        [
+          "Base charges",
+          "$196,560"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$8,320"
+        ],
+        [
+          "Credits or rebates",
+          "$1,872"
+        ],
+        [
+          "Actual all-in cost",
+          "$203,008"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected produce cost",
+          "$194,688"
+        ],
+        [
+          "Potential variance",
+          "$8,320"
+        ]
+      ],
+      "createdAt": "2026-05-22T00:58:46.864Z",
+      "updatedAt": "2026-05-22T00:58:46.881Z"
+    },
+    {
+      "id": "2f5a625b-cde2-4f22-8633-65b0af26752f-main-street-bistro-produce-missing-rebate-or-credit-3",
+      "client": "Main Street Bistro",
+      "vendor": "Harvest Valley Produce Co. - Invoice",
+      "category": "Produce",
+      "title": "Missing rebate or credit",
+      "description": "$1,872 in credits or rebates were entered; Larder still checks whether expected credits fully posted.",
+      "savings": "$1,498",
+      "spend": "$203,008",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile vendor credits, allowances, and prior overpayment recovery against invoices.",
+      "evidence": "$1,872 in credits or rebates were entered; Larder still checks whether expected credits fully posted.",
+      "sourceFile": "01-produce-invoice-harvest-valley.pdf",
+      "sourceUploadId": "",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$203,008"
+        ],
+        [
+          "Base charges",
+          "$196,560"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$8,320"
+        ],
+        [
+          "Credits or rebates",
+          "$1,872"
+        ],
+        [
+          "Actual all-in cost",
+          "$203,008"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected produce cost",
+          "$194,688"
+        ],
+        [
+          "Potential variance",
+          "$8,320"
+        ]
+      ],
+      "createdAt": "2026-05-22T00:58:46.864Z",
+      "updatedAt": "2026-05-22T00:58:46.879Z"
+    },
+    {
+      "id": "2f5a625b-cde2-4f22-8633-65b0af26752f-main-street-bistro-produce-usage-mismatch-2",
+      "client": "Main Street Bistro",
+      "vendor": "Harvest Valley Produce Co. - Invoice",
+      "category": "Produce",
+      "title": "Usage mismatch",
+      "description": "Billing should match actual order volume; Larder checks counts, locations, service frequency, and inactive services.",
+      "savings": "$1,664",
+      "spend": "$203,008",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile billed usage to actual service levels and request corrected billing going forward.",
+      "evidence": "Billing should match actual order volume; Larder checks counts, locations, service frequency, and inactive services.",
+      "sourceFile": "01-produce-invoice-harvest-valley.pdf",
+      "sourceUploadId": "",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$203,008"
+        ],
+        [
+          "Base charges",
+          "$196,560"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$8,320"
+        ],
+        [
+          "Credits or rebates",
+          "$1,872"
+        ],
+        [
+          "Actual all-in cost",
+          "$203,008"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected produce cost",
+          "$194,688"
+        ],
+        [
+          "Potential variance",
+          "$8,320"
+        ]
+      ],
+      "createdAt": "2026-05-22T00:58:46.864Z",
+      "updatedAt": "2026-05-22T00:58:46.876Z"
+    },
+    {
+      "id": "2f5a625b-cde2-4f22-8633-65b0af26752f-main-street-bistro-produce-invoice-price-mismatch-1",
+      "client": "Main Street Bistro",
+      "vendor": "Harvest Valley Produce Co. - Invoice",
+      "category": "Produce",
+      "title": "Invoice price mismatch",
+      "description": "Order guide + market check: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "savings": "$4,326",
+      "spend": "$203,008",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request a price discrepancy report and recover credits for overpayments.",
+      "evidence": "Order guide + market check: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "sourceFile": "01-produce-invoice-harvest-valley.pdf",
+      "sourceUploadId": "",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$203,008"
+        ],
+        [
+          "Base charges",
+          "$196,560"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$8,320"
+        ],
+        [
+          "Credits or rebates",
+          "$1,872"
+        ],
+        [
+          "Actual all-in cost",
+          "$203,008"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected produce cost",
+          "$194,688"
+        ],
+        [
+          "Potential variance",
+          "$8,320"
+        ]
+      ],
+      "createdAt": "2026-05-22T00:58:46.864Z",
+      "updatedAt": "2026-05-22T00:58:46.872Z"
+    },
+    {
+      "id": "2f5a625b-cde2-4f22-8633-65b0af26752f-main-street-bistro-produce-fee-creep-0",
+      "client": "Main Street Bistro",
+      "vendor": "Harvest Valley Produce Co. - Invoice",
+      "category": "Produce",
+      "title": "Fee creep",
+      "description": "Fees and add-ons are 4.1% of the calculated actual cost.",
+      "savings": "$8,320",
+      "spend": "$203,008",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
+      "evidence": "Fees and add-ons are 4.1% of the calculated actual cost.",
+      "sourceFile": "01-produce-invoice-harvest-valley.pdf",
+      "sourceUploadId": "",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$203,008"
+        ],
+        [
+          "Base charges",
+          "$196,560"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$8,320"
+        ],
+        [
+          "Credits or rebates",
+          "$1,872"
+        ],
+        [
+          "Actual all-in cost",
+          "$203,008"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected produce cost",
+          "$194,688"
+        ],
+        [
+          "Potential variance",
+          "$8,320"
+        ]
+      ],
+      "createdAt": "2026-05-22T00:58:46.864Z",
+      "updatedAt": "2026-05-22T00:58:46.868Z"
+    }
+  ],
+  "contracts": [],
+  "approvals": {},
   "questions": [],
-  "documents": [
+  "documents": [],
+  "uploads": [
     {
-      "label": "Latest Payment Processor A processing statement",
-      "received": true
+      "id": "1d1101fe-2ee3-444d-bd23-7d16de15833f",
+      "originalName": "13-smallwares-order-invoice-marketline.pdf",
+      "storedName": "1779411471613-6252bf79-b00d-426b-b5d0-5211fb3f32c2-13-smallwares-order-invoice-marketline.pdf",
+      "url": "/uploads/1779411471613-6252bf79-b00d-426b-b5d0-5211fb3f32c2-13-smallwares-order-invoice-marketline.pdf",
+      "size": 1284,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Main Street Bistro",
+      "category": "Smallwares",
+      "createdAt": "2026-05-22T00:57:51.614Z",
+      "status": "Processed",
+      "processedAt": "2026-05-22T01:00:03.010Z",
+      "updatedAt": "2026-05-22T01:00:03.032Z"
     },
     {
-      "label": "Food Distributor A trailing 12-month purchase summary",
-      "received": false
+      "id": "58d3e4c3-8aea-4900-a5d0-f679cccb012e",
+      "originalName": "12-janitorial-supplies-invoice-brightstock.pdf",
+      "storedName": "1779411471634-f8527825-a84d-4d4e-ab91-f12d30e30fd5-12-janitorial-supplies-invoice-brightstock.pdf",
+      "url": "/uploads/1779411471634-f8527825-a84d-4d4e-ab91-f12d30e30fd5-12-janitorial-supplies-invoice-brightstock.pdf",
+      "size": 1282,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Main Street Bistro",
+      "category": "Sanitation",
+      "createdAt": "2026-05-22T00:57:51.635Z",
+      "status": "Processed",
+      "processedAt": "2026-05-22T01:00:02.634Z",
+      "updatedAt": "2026-05-22T01:00:02.645Z"
     },
     {
-      "label": "Waste invoice sample by restaurant",
-      "received": false
+      "id": "ea0f24aa-dc06-44da-bca8-47d07fa76bf4",
+      "originalName": "11-proteins-seafood-invoice-atlantic-provisions.pdf",
+      "storedName": "1779411471654-e8409de9-e1f8-466c-b61c-523a4707660d-11-proteins-seafood-invoice-atlantic-provisions.pdf",
+      "url": "/uploads/1779411471654-e8409de9-e1f8-466c-b61c-523a4707660d-11-proteins-seafood-invoice-atlantic-provisions.pdf",
+      "size": 1298,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Main Street Bistro",
+      "category": "Produce",
+      "createdAt": "2026-05-22T00:57:51.656Z",
+      "status": "Processed",
+      "processedAt": "2026-05-22T01:00:02.313Z",
+      "updatedAt": "2026-05-22T01:00:02.328Z"
+    },
+    {
+      "id": "e5743d0c-9f33-4ef6-8764-c0c94578e50a",
+      "originalName": "10-beverage-distributor-invoice-copper-keg.pdf",
+      "storedName": "1779411471675-d2a0f25c-c134-4865-b800-303437160248-10-beverage-distributor-invoice-copper-keg.pdf",
+      "url": "/uploads/1779411471675-d2a0f25c-c134-4865-b800-303437160248-10-beverage-distributor-invoice-copper-keg.pdf",
+      "size": 1329,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Main Street Bistro",
+      "category": "Food distribution",
+      "createdAt": "2026-05-22T00:57:51.676Z",
+      "status": "Processed",
+      "processedAt": "2026-05-22T01:00:01.877Z",
+      "updatedAt": "2026-05-22T01:00:01.894Z"
+    },
+    {
+      "id": "40033b47-7948-49c5-85dd-d45b472857eb",
+      "originalName": "09-sanitation-hood-cleaning-invoice-clearflame.pdf",
+      "storedName": "1779411471696-fc90cf30-dd29-425b-8b08-2190e80577e4-09-sanitation-hood-cleaning-invoice-clearflame.pdf",
+      "url": "/uploads/1779411471696-fc90cf30-dd29-425b-8b08-2190e80577e4-09-sanitation-hood-cleaning-invoice-clearflame.pdf",
+      "size": 1323,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Main Street Bistro",
+      "category": "Waste management",
+      "createdAt": "2026-05-22T00:57:51.696Z",
+      "status": "Processed",
+      "processedAt": "2026-05-22T01:00:01.577Z",
+      "updatedAt": "2026-05-22T01:00:01.592Z"
+    },
+    {
+      "id": "8ec45690-c03e-46c2-8a22-2ae676ffc2b8",
+      "originalName": "08-equipment-maintenance-contractor-invoice-steadyfix.pdf",
+      "storedName": "1779411471718-7a9ce54c-7e78-4484-ba3e-818a13ee33ef-08-equipment-maintenance-contractor-invoice-steadyfix.pdf",
+      "url": "/uploads/1779411471718-7a9ce54c-7e78-4484-ba3e-818a13ee33ef-08-equipment-maintenance-contractor-invoice-steadyfix.pdf",
+      "size": 1407,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Main Street Bistro",
+      "category": "Equipment maintenance",
+      "createdAt": "2026-05-22T00:57:51.719Z",
+      "status": "Processed",
+      "processedAt": "2026-05-22T01:00:01.318Z",
+      "updatedAt": "2026-05-22T01:00:01.332Z"
+    },
+    {
+      "id": "c2d1256b-b381-46c9-b9ac-6fa7d3eaab9f",
+      "originalName": "07-food-distribution-agreement-riverbend-foods.pdf",
+      "storedName": "1779411471738-75465e27-b470-4756-998b-ff37c3ee07a9-07-food-distribution-agreement-riverbend-foods.pdf",
+      "url": "/uploads/1779411471738-75465e27-b470-4756-998b-ff37c3ee07a9-07-food-distribution-agreement-riverbend-foods.pdf",
+      "size": 1696,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Main Street Bistro",
+      "category": "Food distribution",
+      "createdAt": "2026-05-22T00:57:51.739Z",
+      "status": "Processed",
+      "processedAt": "2026-05-22T01:00:01.074Z",
+      "updatedAt": "2026-05-22T01:00:01.087Z"
+    },
+    {
+      "id": "08e3e26b-7217-4adb-b828-552fc423fa57",
+      "originalName": "06-pos-platform-invoice-tableline.pdf",
+      "storedName": "1779411471756-334ffd6a-cd57-4418-b4db-3f0fea4e81f5-06-pos-platform-invoice-tableline.pdf",
+      "url": "/uploads/1779411471756-334ffd6a-cd57-4418-b4db-3f0fea4e81f5-06-pos-platform-invoice-tableline.pdf",
+      "size": 1359,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Main Street Bistro",
+      "category": "Payment processing",
+      "createdAt": "2026-05-22T00:57:51.757Z",
+      "status": "Processed",
+      "processedAt": "2026-05-22T01:00:00.772Z",
+      "updatedAt": "2026-05-22T01:00:00.787Z"
+    },
+    {
+      "id": "4b6c0986-b579-4b8e-9d31-87ae6fa3f976",
+      "originalName": "05-pest-control-service-invoice-urban-shield.pdf",
+      "storedName": "1779411471775-5349eab2-ba07-47e4-84e6-53e9cbc4c9d7-05-pest-control-service-invoice-urban-shield.pdf",
+      "url": "/uploads/1779411471775-5349eab2-ba07-47e4-84e6-53e9cbc4c9d7-05-pest-control-service-invoice-urban-shield.pdf",
+      "size": 1351,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Main Street Bistro",
+      "category": "Pest control",
+      "createdAt": "2026-05-22T00:57:51.775Z",
+      "status": "Processed",
+      "processedAt": "2026-05-22T01:00:09.457Z",
+      "updatedAt": "2026-05-22T01:00:09.482Z"
+    },
+    {
+      "id": "77be32e5-0d5b-418e-be95-59aa04566a1f",
+      "originalName": "04-waste-service-invoice-evergreen-waste.pdf",
+      "storedName": "1779411471794-f9ecdde3-0294-4761-aa9a-35e14ca5ae15-04-waste-service-invoice-evergreen-waste.pdf",
+      "url": "/uploads/1779411471794-f9ecdde3-0294-4761-aa9a-35e14ca5ae15-04-waste-service-invoice-evergreen-waste.pdf",
+      "size": 1361,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Main Street Bistro",
+      "category": "Waste management",
+      "createdAt": "2026-05-22T00:57:51.795Z",
+      "status": "Processed",
+      "processedAt": "2026-05-22T01:00:00.075Z",
+      "updatedAt": "2026-05-22T01:00:00.090Z"
+    },
+    {
+      "id": "cba908d8-be87-4c5c-b097-af6b31824b85",
+      "originalName": "03-payment-processor-statement-northstar-payments.pdf",
+      "storedName": "1779411471813-da5cb5d7-1356-4498-afc5-f4629e71e992-03-payment-processor-statement-northstar-payments.pdf",
+      "url": "/uploads/1779411471813-da5cb5d7-1356-4498-afc5-f4629e71e992-03-payment-processor-statement-northstar-payments.pdf",
+      "size": 1478,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Main Street Bistro",
+      "category": "Payment processing",
+      "createdAt": "2026-05-22T00:57:51.815Z",
+      "status": "Processed",
+      "processedAt": "2026-05-22T00:59:59.289Z",
+      "updatedAt": "2026-05-22T00:59:59.307Z"
+    },
+    {
+      "id": "e523bd20-7e6a-43d8-9b65-ca7a0a66e381",
+      "originalName": "02-linen-service-invoice-coastal-linen.pdf",
+      "storedName": "1779411471833-cab9103a-e6ad-423d-b3bb-bd014a66aacc-02-linen-service-invoice-coastal-linen.pdf",
+      "url": "/uploads/1779411471833-cab9103a-e6ad-423d-b3bb-bd014a66aacc-02-linen-service-invoice-coastal-linen.pdf",
+      "size": 1398,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Main Street Bistro",
+      "category": "Waste management",
+      "createdAt": "2026-05-22T00:57:51.834Z",
+      "status": "Processed",
+      "processedAt": "2026-05-22T00:59:38.917Z",
+      "updatedAt": "2026-05-22T00:59:38.931Z"
+    },
+    {
+      "id": "2f5a625b-cde2-4f22-8633-65b0af26752f",
+      "originalName": "01-produce-invoice-harvest-valley.pdf",
+      "storedName": "1779411471852-b1ebd83c-2280-4ba7-897e-84ef97b50a34-01-produce-invoice-harvest-valley.pdf",
+      "url": "/uploads/1779411471852-b1ebd83c-2280-4ba7-897e-84ef97b50a34-01-produce-invoice-harvest-valley.pdf",
+      "size": 1601,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Main Street Bistro",
+      "category": "Produce",
+      "createdAt": "2026-05-22T00:57:51.853Z",
+      "status": "Processed",
+      "processedAt": "2026-05-22T00:58:39.243Z",
+      "updatedAt": "2026-05-22T00:58:39.271Z"
     }
-  ],
-  "uploads": []
+  ]
 }
