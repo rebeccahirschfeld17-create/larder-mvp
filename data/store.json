@@ -3098,7 +3098,9 @@
     }
   ],
   "contracts": [],
-  "approvals": {},
+  "approvals": {
+    "processor": true
+  },
   "questions": [],
   "documents": [],
   "uploads": [
@@ -3297,5 +3299,6 @@
       "processedAt": "2026-05-22T00:58:39.243Z",
       "updatedAt": "2026-05-22T00:58:39.271Z"
     }
-  ]
+  ],
+  "pricingIntel": []
 }

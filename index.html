@@ -193,6 +193,51 @@
       width: min(620px, 100%);
     }
 
+    .benchmark-screen {
+      width: min(760px, 100%);
+    }
+
+    .benchmark-note {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+      margin-top: -0.35rem;
+    }
+
+    .benchmark-result {
+      display: grid;
+      gap: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .benchmark-result[hidden] {
+      display: none;
+    }
+
+    .benchmark-verdict {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 12px 0;
+      border-top: 1px solid var(--line-soft);
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .benchmark-verdict p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+      max-width: 460px;
+    }
+
+    .benchmark-verdict strong {
+      color: var(--ink);
+      font-size: 24px;
+    }
+
     .team-login-actions {
       display: flex;
       gap: 8px;
@@ -2248,6 +2293,168 @@
       flex-wrap: wrap;
     }
 
+    .ledger-summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      border: 1px solid var(--line-soft);
+      background: var(--line-soft);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .ledger-summary div {
+      background: #fff;
+      padding: 12px;
+    }
+
+    .ledger-summary span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .ledger-summary strong {
+      font-size: 18px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .ledger-row-main {
+      min-width: 240px;
+    }
+
+    .ledger-row-main p {
+      font-weight: 820;
+      margin-bottom: 4px;
+    }
+
+    .ledger-row-main span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .ledger-formula {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+      max-width: 420px;
+      white-space: normal;
+    }
+
+    .ledger-cost-stack {
+      display: grid;
+      gap: 5px;
+      min-width: 150px;
+    }
+
+    .ledger-cost-stack div {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .ledger-cost-stack strong {
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .ledger-evidence {
+      min-width: 180px;
+    }
+
+    .ledger-evidence p {
+      font-weight: 760;
+      margin-bottom: 4px;
+    }
+
+    .ledger-action-cell {
+      display: grid;
+      gap: 8px;
+      min-width: 210px;
+    }
+
+    .ledger-action-cell .btn {
+      justify-self: start;
+    }
+
+    .ledger-mechanism-stack {
+      display: grid;
+      gap: 5px;
+      min-width: 260px;
+    }
+
+    .ledger-mechanism-stack div {
+      display: grid;
+      grid-template-columns: 82px minmax(0, 1fr);
+      gap: 8px;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .ledger-mechanism-stack span {
+      color: var(--muted);
+      font-weight: 760;
+    }
+
+    .ledger-variance-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      max-width: 360px;
+    }
+
+    .lifecycle-alert-list {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--line-soft);
+      margin-bottom: 1rem;
+    }
+
+    .lifecycle-alert {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .lifecycle-alert p {
+      font-weight: 820;
+      margin-bottom: 3px;
+    }
+
+    .lifecycle-alert span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .lifecycle-terms {
+      display: grid;
+      gap: 5px;
+      min-width: 190px;
+    }
+
+    .lifecycle-terms div {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .lifecycle-terms strong {
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+    }
+
     .btn-mini {
       padding: 6px 8px;
       font-size: 12px;
@@ -2260,6 +2467,7 @@
       .workflow-steps { grid-template-columns: 1fr; }
       .operator-workbench { grid-template-columns: 1fr; }
       .dashboard-focus { grid-template-columns: 1fr; }
+      .ledger-summary { grid-template-columns: 1fr; }
       .report-hero,
       .report-support-grid,
       .report-workspace { grid-template-columns: 1fr; }
@@ -2477,6 +2685,44 @@
 
     .approval-impact b {
       font-size: 12px;
+    }
+
+    .approval-preview {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      margin-top: 10px;
+      border: 1px solid var(--line-soft);
+      background: var(--line-soft);
+    }
+
+    .approval-preview div {
+      background: #fff;
+      padding: 9px;
+    }
+
+    .approval-preview span {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 850;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .approval-preview b {
+      display: block;
+      color: var(--ink);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .approval-expectation {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
     }
 
     .empty-state {
@@ -2902,7 +3148,7 @@
       .main { padding: 1rem; }
       .topbar, .card-header, .client-row, .header-actions { align-items: flex-start; flex-direction: column; }
       .search-pill { min-width: 0; width: 100%; }
-      .metrics, .form-row, .status-strip, .approval-impact { grid-template-columns: 1fr; }
+      .metrics, .form-row, .status-strip, .approval-impact, .approval-preview { grid-template-columns: 1fr; }
       .hero-stats { flex-wrap: wrap; }
       .opportunity-item { flex-wrap: wrap; }
       table { display: block; overflow-x: auto; white-space: nowrap; }
@@ -2910,7 +3156,7 @@
   </style>
 </head>
 <body class="auth-view operator-view">
-  <h1 class="sr-only">Larder - Managed vendor savings for premium restaurant operators.</h1>
+  <h1 class="sr-only">Larder - Managed vendor savings for multi-location restaurant operators.</h1>
 
   <div class="auth-screen">
     <div class="auth-card">
@@ -2918,9 +3164,14 @@
         <div class="auth-brand">
           <div class="brand-mark"><i class="ti ti-contract" aria-hidden="true"></i></div>
           <h1>Larder</h1>
-          <p>Managed vendor savings for restaurants. Upload your bills and contracts; Larder finds savings, flags renewal risks, and handles vendor follow-up after you approve each action.</p>
+          <p>Managed vendor savings for restaurant groups. Upload bills and contracts once; Larder models vendor spend across locations, flags renewal risk, and manages vendor follow-up after approval.</p>
         </div>
         <div class="auth-options">
+          <button class="auth-option" onclick="showBenchmarkReport()">
+            <span class="auth-icon"><i class="ti ti-chart-bar"></i></span>
+            <span><p>Free benchmark</p><span>Check card processing and food spend against market before uploading contracts.</span></span>
+            <i class="ti ti-arrow-right"></i>
+          </button>
           <button class="auth-option" onclick="signIn('operator')">
             <span class="auth-icon"><i class="ti ti-user-shield"></i></span>
             <span><p>Larder team</p><span>Review documents, prepare next steps, and manage savings follow-through.</span></span>
@@ -2928,7 +3179,7 @@
           </button>
           <button class="auth-option" onclick="signIn('client')">
             <span class="auth-icon"><i class="ti ti-building-store"></i></span>
-            <span><p>Main Street Bistro</p><span>Review savings, approve next steps, upload files, and chat with Larder.</span></span>
+            <span><p>Main Street Hospitality Group</p><span>Review group savings, approve next steps, upload files, and chat with Larder.</span></span>
             <i class="ti ti-arrow-right"></i>
           </button>
           <button class="auth-option" onclick="signIn('demo')">
@@ -2956,6 +3207,33 @@
           <div class="auth-error" id="team-login-error"></div>
         </form>
       </div>
+      <div class="auth-login benchmark-screen" id="benchmark-screen" hidden>
+        <div class="auth-brand">
+          <div class="brand-mark"><i class="ti ti-chart-bar" aria-hidden="true"></i></div>
+          <h1>Free benchmark</h1>
+          <p>Enter a few operating numbers. Larder returns a directional market read without asking for contracts, statements, or vendor files.</p>
+        </div>
+        <form class="team-login-form" id="benchmark-form" onsubmit="runBenchmarkReport(event)">
+          <div class="form-row">
+            <div><label for="benchmark-group">Group name</label><input id="benchmark-group" type="text" placeholder="Restaurant group"></div>
+            <div><label for="benchmark-region">Region</label><select id="benchmark-region"><option>Mid-Atlantic</option><option>Northeast</option><option>Southeast</option><option>Midwest</option><option>Southwest</option><option>West Coast</option><option>National</option></select></div>
+          </div>
+          <div class="form-row">
+            <div><label for="benchmark-locations">Locations</label><input id="benchmark-locations" type="number" min="1" value="10"></div>
+            <div><label for="benchmark-card-volume">Annual card volume</label><input id="benchmark-card-volume" type="text" inputmode="decimal" placeholder="$6,000,000"></div>
+          </div>
+          <div class="form-row">
+            <div><label for="benchmark-current-rate">Current effective processor rate</label><input id="benchmark-current-rate" type="text" inputmode="decimal" placeholder="3.4%"></div>
+            <div><label for="benchmark-food-spend">Annual food spend</label><input id="benchmark-food-spend" type="text" inputmode="decimal" placeholder="$2,400,000"></div>
+          </div>
+          <p class="benchmark-note">This is a first-pass market signal. Larder only converts it into a savings action after reviewing statements, contracts, and renewal terms.</p>
+          <div class="team-login-actions">
+            <button class="btn btn-primary" type="submit"><i class="ti ti-chart-arrows"></i> Run benchmark</button>
+            <button class="btn" type="button" onclick="hideBenchmarkReport()"><i class="ti ti-arrow-left"></i> Back</button>
+          </div>
+          <div class="benchmark-result" id="benchmark-result" hidden></div>
+        </form>
+      </div>
     </div>
   </div>
 
@@ -2974,7 +3252,16 @@
         <i class="ti ti-layout-dashboard" aria-hidden="true"></i> <span>Dashboard</span>
       </div>
       <div class="nav-item operator-only" onclick="showPage('clients')">
-        <i class="ti ti-building-store" aria-hidden="true"></i> <span>Clients</span>
+        <i class="ti ti-building-store" aria-hidden="true"></i> <span>Groups</span>
+      </div>
+      <div class="nav-item operator-only" onclick="showPage('ledger')">
+        <i class="ti ti-table-options" aria-hidden="true"></i> <span>Cost Ledger</span>
+      </div>
+      <div class="nav-item operator-only" onclick="showPage('lifecycle')">
+        <i class="ti ti-calendar-alert" aria-hidden="true"></i> <span>Lifecycle</span>
+      </div>
+      <div class="nav-item operator-only" onclick="showPage('pricing')">
+        <i class="ti ti-database-dollar" aria-hidden="true"></i> <span>Pricing Intel</span>
       </div>
       <div class="nav-item operator-only" onclick="showPage('analyze')">
         <i class="ti ti-file-search" aria-hidden="true"></i> <span>Documents</span>
@@ -2986,7 +3273,7 @@
         <i class="ti ti-message" aria-hidden="true"></i> <span>Chat</span>
       </div>
       <div class="nav-item operator-only" onclick="openNewClientForm()">
-        <i class="ti ti-plus" aria-hidden="true"></i> <span>Add client</span>
+        <i class="ti ti-plus" aria-hidden="true"></i> <span>Add group</span>
       </div>
       <div class="nav-item client-only" onclick="showPage('clientportal')">
         <i class="ti ti-layout-dashboard" aria-hidden="true"></i> <span>Home</span>
@@ -3011,7 +3298,7 @@
       </div>
       <div class="sidebar-footer">
         <p>$706K found</p>
-        <span>Managed restaurant vendor savings across distributors, processors, linen, waste, pest, POS, and equipment.</span>
+        <span>Managed vendor savings for multi-location restaurant groups across distributors, processors, linen, waste, pest, POS, and equipment.</span>
         <div class="user-panel">
           <strong id="signed-in-name">Not signed in</strong>
           <span id="signed-in-role">Select a role</span>
@@ -3025,7 +3312,7 @@
         <div class="topbar">
           <div class="page-header">
             <h1>Dashboard</h1>
-            <p>Open client work across active restaurant accounts.</p>
+            <p>Open work across active restaurant group accounts.</p>
           </div>
         </div>
 
@@ -3038,8 +3325,8 @@
           </div>
           <div class="pipeline-summary" id="operator-pipeline-summary">
             <div class="pipeline-item"><div><span>Open queue items</span><strong>0</strong></div><i class="ti ti-list-check"></i></div>
-            <div class="pipeline-item"><div><span>Client files</span><strong>0</strong></div><i class="ti ti-files"></i></div>
-            <div class="pipeline-item"><div><span>Parsed reviews</span><strong>0</strong></div><i class="ti ti-file-search"></i></div>
+            <div class="pipeline-item"><div><span>Group files</span><strong>0</strong></div><i class="ti ti-files"></i></div>
+            <div class="pipeline-item"><div><span>Lifecycle alerts</span><strong>0</strong></div><i class="ti ti-calendar-alert"></i></div>
             <div class="pipeline-item"><div><span>Pending actions</span><strong>0</strong></div><i class="ti ti-checklist"></i></div>
           </div>
         </div>
@@ -3052,9 +3339,9 @@
             <span class="badge badge-info" id="operator-priority-count">0 need attention</span>
           </div>
           <table class="queue-table">
-            <thead><tr><th>Rank</th><th>Work item</th><th>Client</th><th>Stage</th><th>Next move</th></tr></thead>
+            <thead><tr><th>Rank</th><th>Work item</th><th>Group</th><th>Stage</th><th>Next move</th></tr></thead>
             <tbody>
-              <tr><td colspan="5"><div class="empty-state">No active work yet. Client uploads and manually added vendor files will appear here.</div></td></tr>
+              <tr><td colspan="5"><div class="empty-state">No active work yet. Group uploads and manually added vendor files will appear here.</div></td></tr>
             </tbody>
           </table>
         </div>
@@ -3062,9 +3349,77 @@
       </section>
 
       <section class="page" id="page-clients">
-        <div class="topbar"><div class="page-header"><h1>Clients</h1><p>Restaurant accounts by savings identified, open actions, vendor spend, and status</p></div><button class="btn btn-primary" onclick="openNewClientForm()"><i class="ti ti-plus"></i> Add client</button></div>
+        <div class="topbar"><div class="page-header"><h1>Groups</h1><p>Multi-location operators by combined spend, locations, savings identified, and open work.</p></div><button class="btn btn-primary" onclick="openNewClientForm()"><i class="ti ti-plus"></i> Add group</button></div>
         <div class="card" id="client-list-card">
-          <div class="empty-state">No clients yet. Add a client or have a client upload a source document to start a review.</div>
+          <div class="empty-state">No restaurant groups yet. Add a group or have an operator upload source documents to start a review.</div>
+        </div>
+      </section>
+
+      <section class="page" id="page-ledger">
+        <div class="topbar">
+          <div class="page-header">
+            <h1>Cost Ledger</h1>
+            <p>Larder Cost Ledger Engine: entitlement baseline, usage normalization, category playbook, and verification status by vendor.</p>
+          </div>
+          <div class="header-actions">
+            <select class="workspace-client-switcher" id="ledger-client-filter" onchange="setLedgerClientFilter(this.value)">
+              <option value="all">All groups</option>
+            </select>
+            <select class="workspace-client-switcher" id="ledger-stage-filter" onchange="setLedgerStageFilter(this.value)">
+              <option value="all">All stages</option>
+              <option value="Needs baseline">Needs baseline</option>
+              <option value="Variance detected">Variance detected</option>
+              <option value="Vendor action">Vendor action</option>
+              <option value="Verified">Verified</option>
+            </select>
+            <button class="btn" onclick="showPage('analyze')"><i class="ti ti-file-search"></i> Review documents</button>
+          </div>
+        </div>
+
+        <div class="card" id="cost-ledger-container">
+          <div class="empty-state">No ledger entries yet. Process a vendor document to create the first cost record.</div>
+        </div>
+      </section>
+
+      <section class="page" id="page-lifecycle">
+        <div class="topbar">
+          <div class="page-header">
+            <h1>Lifecycle</h1>
+            <p>Ongoing contract monitoring for renewals, notice windows, escalators, and market checks.</p>
+          </div>
+          <div class="header-actions">
+            <select class="workspace-client-switcher" id="lifecycle-client-filter" onchange="setLifecycleClientFilter(this.value)">
+              <option value="all">All groups</option>
+            </select>
+            <button class="btn" onclick="showPage('analyze')"><i class="ti ti-file-search"></i> Add evidence</button>
+            <button class="btn" onclick="showPage('report')"><i class="ti ti-checklist"></i> Open actions</button>
+          </div>
+        </div>
+
+        <div class="card" id="contract-lifecycle-container">
+          <div class="empty-state">No lifecycle records yet. Upload agreements, rate cards, renewal notices, or processor statements to start monitoring.</div>
+        </div>
+      </section>
+
+      <section class="page" id="page-pricing">
+        <div class="topbar">
+          <div class="page-header">
+            <h1>Pricing Intel</h1>
+            <p>Network pricing database built from closed vendor outcomes by category, region, volume tier, and vendor.</p>
+          </div>
+          <div class="header-actions">
+            <select class="workspace-client-switcher" id="pricing-category-filter" onchange="setPricingCategoryFilter(this.value)">
+              <option value="all">All categories</option>
+            </select>
+            <select class="workspace-client-switcher" id="pricing-region-filter" onchange="setPricingRegionFilter(this.value)">
+              <option value="all">All regions</option>
+            </select>
+            <button class="btn" onclick="showPage('report')"><i class="ti ti-checklist"></i> Close actions</button>
+          </div>
+        </div>
+
+        <div class="card" id="pricing-intel-container">
+          <div class="empty-state">No pricing intelligence yet. Completed actions will become reusable market benchmarks.</div>
         </div>
       </section>
 
@@ -3082,16 +3437,16 @@
 
         <div class="demo-layout">
           <div class="demo-steps">
-            <div class="demo-step active" data-demo-step="0" onclick="setDemoStep(0)"><div class="demo-step-number">1</div><div><p>Client uploads</p></div></div>
+            <div class="demo-step active" data-demo-step="0" onclick="setDemoStep(0)"><div class="demo-step-number">1</div><div><p>Group uploads</p></div></div>
             <div class="demo-step" data-demo-step="1" onclick="setDemoStep(1)"><div class="demo-step-number">2</div><div><p>Larder finds savings</p></div></div>
-            <div class="demo-step" data-demo-step="2" onclick="setDemoStep(2)"><div class="demo-step-number">3</div><div><p>Client approves</p></div></div>
+            <div class="demo-step" data-demo-step="2" onclick="setDemoStep(2)"><div class="demo-step-number">3</div><div><p>Group approves</p></div></div>
             <div class="demo-step" data-demo-step="3" onclick="setDemoStep(3)"><div class="demo-step-number">4</div><div><p>Larder executes</p></div></div>
             <div class="demo-step" data-demo-step="4" onclick="setDemoStep(4)"><div class="demo-step-number">5</div><div><p>Report updates</p></div></div>
           </div>
 
           <div>
             <div class="card demo-panel active" data-demo-panel="0">
-              <div class="card-header"><div><span class="card-title">Client uploads the source files</span><div class="card-meta">Contracts, statements, invoices, renewal notices</div></div><span class="badge badge-warning">1 of 3 received</span></div>
+              <div class="card-header"><div><span class="card-title">Group uploads the source files</span><div class="card-meta">Contracts, statements, invoices, renewal notices</div></div><span class="badge badge-warning">1 of 3 received</span></div>
               <div class="demo-script">The client does not have to organize a procurement project. They upload the files they already have, and Larder turns those files into a managed vendor savings review.</div>
               <div class="evidence-grid">
                 <div class="evidence-card"><i class="ti ti-file-invoice"></i><p>Payment processor statement</p><span>Used to calculate effective rate and fee stack.</span></div>
@@ -3117,11 +3472,11 @@
             </div>
 
             <div class="card demo-panel" data-demo-panel="2">
-              <div class="card-header"><div><span class="card-title">Client approves what Larder can start</span><div class="card-meta">No long report required to make the decision</div></div><span class="badge badge-warning">Approval needed</span></div>
+              <div class="card-header"><div><span class="card-title">Group approves what Larder can start</span><div class="card-meta">No long report required to make the decision</div></div><span class="badge badge-warning">Approval needed</span></div>
               <div class="demo-script">The client gets a short list of decisions. Approval tells Larder to begin outreach, manage responses, and return when another decision is needed.</div>
               <div class="approval-panel">
-                <div class="approval-row"><div><p>Authorize payment processor RFP</p><span class="card-meta">Larder will send the RFP, manage responses, and bring back the best option. $252K estimated savings.</span></div><span class="badge badge-warning">Approval needed</span></div>
-                <div class="approval-row"><div><p>Send distributor notice and begin renegotiation</p><span class="card-meta">Larder will prepare notice, begin outreach, and track the renegotiation. $181K estimated savings.</span></div><span class="badge badge-warning">Approval needed</span></div>
+                <div class="approval-row"><div><p>Authorize payment processor RFP</p><span class="card-meta">Larder will send the RFP, manage responses, and bring back the best option. $252K estimated savings.</span><div class="approval-preview"><div><span>Send</span><b>Processor RFP and fee stack</b></div><div><span>To</span><b>Three processors plus incumbent</b></div><div><span>By</span><b>1 business day</b></div><div><span>Expect</span><b>Questions about statements or gateway setup</b></div></div></div><span class="badge badge-warning">Approval needed</span></div>
+                <div class="approval-row"><div><p>Send distributor notice and begin renegotiation</p><span class="card-meta">Larder will prepare notice, begin outreach, and track the renegotiation. $181K estimated savings.</span><div class="approval-preview"><div><span>Send</span><b>Notice and renegotiation ask</b></div><div><span>To</span><b>Distributor account and contract contacts</b></div><div><span>By</span><b>Before notice deadline</b></div><div><span>Expect</span><b>Vendor may call to preserve terms</b></div></div></div><span class="badge badge-warning">Approval needed</span></div>
               </div>
               <div class="workflow-actions" style="justify-content: flex-start; margin-top: 1rem;"><button class="btn btn-primary" onclick="nextDemoStep()">Next</button></div>
             </div>
@@ -3158,10 +3513,10 @@
 
       <section class="page" id="page-analyze">
         <div class="topbar">
-          <div class="page-header"><h1>Documents</h1><p>Review files submitted by clients, or add documents received outside the portal.</p></div>
+          <div class="page-header"><h1>Documents</h1><p>Evidence intake only: receive files, parse terms, and identify what source material is missing.</p></div>
           <div class="header-actions">
             <select class="workspace-client-switcher" id="document-client-filter" onchange="setDocumentClientFilter(this.value)">
-              <option value="all">All clients</option>
+              <option value="all">All groups</option>
             </select>
           </div>
         </div>
@@ -3169,26 +3524,26 @@
         <div class="card">
           <div class="card-header">
             <div>
-              <span class="card-title">Files needing review</span>
-              <div class="card-meta">Unreviewed client uploads stay here until Larder processes them</div>
+              <span class="card-title">Evidence inbox</span>
+              <div class="card-meta">Unreviewed files stay here until intake converts them into ledger evidence</div>
             </div>
             <span class="badge badge-info" id="intake-queue-count">0 files</span>
           </div>
           <div id="intake-queue-list">
-            <div class="portal-message">No client files uploaded yet.</div>
+            <div class="portal-message">No group files uploaded yet.</div>
           </div>
         </div>
 
         <div class="card">
           <div class="card-header">
             <div>
-              <span class="card-title">Reviewed client folders</span>
-              <div class="card-meta">Processed files are stored by client after review</div>
+              <span class="card-title">Evidence archive</span>
+              <div class="card-meta">Processed files are stored by client after they feed the Cost Ledger</div>
             </div>
             <span class="badge badge-success" id="reviewed-folder-count">0 reviewed</span>
           </div>
           <div class="document-list" id="reviewed-document-folders">
-            <div class="empty-state">No reviewed client files yet.</div>
+            <div class="empty-state">No reviewed group files yet.</div>
           </div>
         </div>
 
@@ -3229,7 +3584,7 @@
           <div class="upload-message" id="upload-message"></div>
           <div class="parser-summary" id="parser-summary"></div>
           <div style="margin-top: 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;">
-            <div><label>Client</label><select id="analysis-client"><option>Client from upload</option></select></div>
+            <div><label>Group</label><select id="analysis-client"><option>Client from upload</option></select></div>
             <div><label>Vendor category</label><select id="analysis-category" onchange="populateCostInputs({ preserveValues: true })"><option>Food distribution</option><option>Produce</option><option>Proteins & seafood</option><option>Beverage</option><option>Linen & uniforms</option><option>Payment processing</option><option>Pest control</option><option>Waste management</option><option>Sanitation</option><option>Equipment maintenance</option><option>POS & delivery platforms</option><option>Smallwares</option><option>Janitorial supplies</option><option>Other</option></select></div>
           </div>
           <details class="review-assumptions">
@@ -3268,7 +3623,7 @@
             <summary>Show parsed details</summary>
             <table><tr><th>Field</th><th>What Larder found</th><th>Status</th></tr><tbody id="analysis-terms"></tbody></table>
           </details>
-          <div style="display: flex; gap: 10px; margin-top: 1rem; flex-wrap: wrap;"><button class="btn btn-primary" onclick="showPage('report')"><i class="ti ti-chart-bar"></i> Open action workspace</button><button class="btn" onclick="resetAnalysis()"><i class="ti ti-plus"></i> Process another file</button></div>
+          <div style="display: flex; gap: 10px; margin-top: 1rem; flex-wrap: wrap;"><button class="btn btn-primary" onclick="showPage('ledger')"><i class="ti ti-table-options"></i> Open cost ledger</button><button class="btn" onclick="resetAnalysis()"><i class="ti ti-plus"></i> Process another file</button></div>
         </div>
       </section>
 
@@ -3276,11 +3631,11 @@
         <div class="topbar">
           <div class="page-header">
             <h1 id="report-title">Action workspace</h1>
-            <p id="report-subtitle">Generated actions will appear here after Larder reviews uploaded vendor documents.</p>
+            <p id="report-subtitle">Execution center for vendor outreach, approval work, follow-up, and invoice verification.</p>
           </div>
           <div class="header-actions">
             <select class="workspace-client-switcher" id="action-client-filter" onchange="setActionClientFilter(this.value)">
-              <option value="all">All clients</option>
+              <option value="all">All groups</option>
             </select>
             <select class="workspace-client-switcher" id="action-vendor-filter" onchange="setActionVendorFilter(this.value)">
               <option value="all">All vendors</option>
@@ -3289,7 +3644,7 @@
           </div>
         </div>
         <div class="card report-summary" id="action-workspace-container">
-          <div class="empty-state">No action workspace yet. Upload or process a client document to create the first review.</div>
+          <div class="empty-state">No action workspace yet. Upload or process a group document to create the first review.</div>
         </div>
       </section>
 
@@ -3331,7 +3686,7 @@
       <section class="page client-only" id="page-clientportal">
         <div class="topbar">
           <div class="page-header">
-            <h1>Main Street Bistro</h1>
+            <h1>Main Street Hospitality Group</h1>
             <p>Your current Larder review at a glance.</p>
           </div>
           <div class="header-actions">
@@ -3341,13 +3696,13 @@
         <div class="card">
           <div class="card-header">
             <div>
-              <span class="card-title">Main Street Bistro review</span>
+              <span class="card-title">Main Street Hospitality Group review</span>
               <div class="card-meta">Upload vendor documents so Larder can start the cost review.</div>
             </div>
           </div>
           <div class="report-facts" style="margin-top: 1rem; grid-template-columns: repeat(3, minmax(0, 1fr));">
             <div class="report-fact"><span>Files uploaded</span><strong id="client-upload-count">0</strong></div>
-            <div class="report-fact"><span>Approvals needed</span><strong>0</strong></div>
+            <div class="report-fact"><span>Approvals needed</span><strong id="client-approval-needed-count">0</strong></div>
             <div class="report-fact"><span>Status</span><strong>Waiting for files</strong></div>
           </div>
           <div class="workflow-actions" style="justify-content: flex-start; margin-top: 1rem;">
@@ -3375,8 +3730,16 @@
           <div class="approval-panel" id="approved-actions-list"></div>
         </div>
         <div class="card">
-          <div class="empty-state">No approvals yet. Larder will show approval requests here after reviewing uploaded documents.</div>
+          <div class="card-header">
+            <div>
+              <span class="card-title">Ready for decision</span>
+              <div class="card-meta">Each approval shows exactly what Larder will send and what to expect next</div>
+            </div>
+            <span class="badge badge-warning" id="pending-actions-count">0 pending</span>
           </div>
+          <div class="approval-panel" id="pending-actions-list"></div>
+          <div class="empty-state" id="approvals-complete-state" hidden>All approval requests are approved. Larder is now managing vendor follow-up and will return with the next decision.</div>
+        </div>
       </section>
 
       <section class="page client-only" id="page-clientquestions">
@@ -3413,7 +3776,7 @@
         <div class="card">
           <div class="card-header">
             <div>
-              <span class="card-title">Upload files for Main Street Bistro</span>
+              <span class="card-title">Upload files for Main Street Hospitality Group</span>
               <div class="card-meta">Invoices show current spend; contracts, rate cards, quotes, and agreed pricing let Larder confirm savings.</div>
             </div>
             <span class="badge badge-info" id="document-status">No requested documents</span>
@@ -3431,18 +3794,22 @@
       </section>
 
       <section class="page" id="page-addclient">
-        <div class="topbar"><div class="page-header"><h1 id="client-form-title">Add client</h1><p id="client-form-subtitle">Set up a restaurant for a managed vendor savings review</p></div></div>
+        <div class="topbar"><div class="page-header"><h1 id="client-form-title">Add group</h1><p id="client-form-subtitle">Set up a multi-location operator for managed vendor savings.</p></div></div>
         <form class="card" id="add-client-form" style="max-width: 640px;" onsubmit="createClient(event)">
           <div class="form-row">
-            <div><label for="new-client-name">Restaurant name</label><input id="new-client-name" type="text" placeholder="e.g. your restaurant name" required></div>
-            <div><label for="new-client-profile">Restaurant profile</label><input id="new-client-profile" type="text" placeholder="e.g. Fine dining, full-service, QSR, or bar group"></div>
+            <div><label for="new-client-name">Group name</label><input id="new-client-name" type="text" placeholder="e.g. restaurant group name" required></div>
+            <div><label for="new-client-profile">Group profile</label><input id="new-client-profile" type="text" placeholder="e.g. 10-location polished casual, QSR group, bar group"></div>
+          </div>
+          <div class="form-row">
+            <div><label for="new-client-location-count">Locations</label><input id="new-client-location-count" type="number" min="1" inputmode="numeric" value="10"></div>
+            <div><label for="new-client-region">Region</label><select id="new-client-region"><option>Mid-Atlantic</option><option>Northeast</option><option>Southeast</option><option>Midwest</option><option>Southwest</option><option>West Coast</option><option>National</option></select></div>
           </div>
           <div class="form-row">
             <div><label for="new-client-contact-name">Primary contact name</label><input id="new-client-contact-name" type="text" placeholder="CFO, COO, or owner-operator"></div>
             <div><label for="new-client-contact-email">Contact email</label><input id="new-client-contact-email" type="email" placeholder="finance@restaurant.com"></div>
           </div>
-          <label for="new-client-spend">Estimated annual vendor spend</label>
-          <select id="new-client-spend" onchange="syncMonthlyRateToSpend()"><option>Under $500K</option><option>$500K - $1M</option><option selected>$1M - $3M</option><option>$3M - $10M</option><option>Over $10M</option></select>
+          <label for="new-client-spend">Combined annual vendor spend</label>
+          <select id="new-client-spend" onchange="syncMonthlyRateToSpend()"><option>Under $500K</option><option>$500K - $1M</option><option>$1M - $3M</option><option selected>$3M - $10M</option><option>Over $10M</option></select>
           <div class="form-row">
             <div><label for="new-client-monthly-rate">Monthly rate</label><input id="new-client-monthly-rate" type="text" inputmode="decimal" placeholder="e.g. $3,000"></div>
             <div><label for="new-client-success-fee-rate">Success fee rate</label><input id="new-client-success-fee-rate" type="text" inputmode="decimal" placeholder="e.g. 12.5%"></div>
@@ -3459,9 +3826,9 @@
             <label style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink);"><input type="checkbox" name="new-client-category" value="POS & delivery platforms"> POS & delivery platforms</label>
           </div>
           <label for="new-client-notes">Notes for this review</label>
-          <textarea id="new-client-notes" rows="3" placeholder="Restaurant count, service model, distributor mix, processor, renewal deadlines..."></textarea>
+          <textarea id="new-client-notes" rows="3" placeholder="Location mix, shared vendors, distributor mix, processor, renewal deadlines, regional leverage..."></textarea>
           <div class="workflow-actions" style="justify-content: flex-start;">
-            <button class="btn btn-primary" type="submit" id="client-form-submit"><i class="ti ti-check"></i> Add client and start review</button>
+            <button class="btn btn-primary" type="submit" id="client-form-submit"><i class="ti ti-check"></i> Add group and start review</button>
             <button class="btn" type="button" id="client-form-cancel" onclick="cancelClientEdit()" hidden><i class="ti ti-x"></i> Cancel edit</button>
           </div>
           <div class="portal-message" id="add-client-message"></div>
@@ -3513,7 +3880,7 @@
         <div class="card-header">
           <div>
             <span class="card-title" id="reviewed-folder-title">Reviewed files</span>
-            <div class="card-meta" id="reviewed-folder-subtitle">Processed client documents</div>
+            <div class="card-meta" id="reviewed-folder-subtitle">Processed group documents</div>
           </div>
           <span class="badge badge-success" id="reviewed-folder-file-count">0 files</span>
         </div>
@@ -3600,7 +3967,7 @@
   <script>
     const reports = {
       client1: {
-        title: 'Savings report - Client from upload',
+        title: 'Savings report - Group from upload',
         subtitle: 'Restaurant review completed May 2026',
         spend: '$3.2M',
         savings: '$492K',
@@ -3626,7 +3993,7 @@
         ]
       },
       client2: {
-        title: 'Savings report - Client from upload',
+        title: 'Savings report - Group from upload',
         subtitle: 'Restaurant review completed May 2026',
         spend: '$1.8M',
         savings: '$141K',
@@ -3651,7 +4018,7 @@
         ]
       },
       client3: {
-        title: 'Savings report - Client from upload',
+        title: 'Savings report - Group from upload',
         subtitle: 'Restaurant review in progress May 2026',
         spend: '$890K',
         savings: '$73K',
@@ -3686,18 +4053,25 @@
     let workspaceDrafts = {};
     let actionUndoHistory = {};
     let workspaceActions = [];
+    let clientApprovalState = {};
     let selectedDocumentClient = 'all';
     let selectedActionClient = 'all';
     let selectedActionVendor = 'all';
+    let selectedLedgerClient = 'all';
+    let selectedLedgerStage = 'all';
+    let selectedLifecycleClient = 'all';
+    let selectedPricingCategory = 'all';
+    let selectedPricingRegion = 'all';
     let modalReportClient = 'client1';
     let selectedClientSummaryId = null;
     let editingClientId = null;
     let clientUploadedFiles = [];
     let operatorContracts = [];
     let operatorClients = [];
+    let pricingIntel = [];
     let clientQuestions = [];
     let requestedDocuments = [];
-    const CLIENT_PORTAL_NAME = 'Main Street Bistro';
+    const CLIENT_PORTAL_NAME = 'Main Street Hospitality Group';
     const users = {
       operator: {
         name: 'Rebecca Hirschfeld',
@@ -3706,7 +4080,7 @@
       },
       client: {
         name: CLIENT_PORTAL_NAME,
-        roleLabel: 'Client Portal',
+        roleLabel: 'Group Portal',
         role: 'client',
         clientName: CLIENT_PORTAL_NAME
       },
@@ -3773,6 +4147,7 @@
         button.classList.toggle('btn-primary', approved);
         button.textContent = approved ? 'Approved' : 'Approve';
       });
+      clientApprovalState = { ...(store.approvals || {}) };
 
       requestedDocuments = (store.documents || requestedDocuments).map((doc, index) => ({
         ...(requestedDocuments[index] || {}),
@@ -3799,12 +4174,16 @@
       operatorContracts = store.contracts || [];
       operatorClients = store.clients || [];
       workspaceActions = store.actions || [];
+      pricingIntel = store.pricingIntel || [];
 
       updateApprovalStatus(false);
       updateDocumentStatus();
       renderClientList();
       setReportClient(currentReportClient);
       renderActionWorkspace();
+      renderCostLedger();
+      renderContractLifecycle();
+      renderPricingIntelligence();
       renderOperatorDashboard();
       renderClientUploads();
       renderQuestionThread();
@@ -3822,6 +4201,15 @@
       if (state === 'In progress') return 'badge-info';
       if (state === 'In review') return 'badge-warning';
       if (state === 'Ready') return 'badge-success';
+      if (state === 'Verified') return 'badge-success';
+      if (state === 'Variance detected') return 'badge-warning';
+      if (state === 'Vendor action') return 'badge-info';
+      if (state === 'Needs baseline') return 'badge-danger';
+      if (state === 'Deadline risk') return 'badge-danger';
+      if (state === 'Notice window') return 'badge-warning';
+      if (state === 'Escalation watch') return 'badge-warning';
+      if (state === 'Market watch') return 'badge-info';
+      if (state === 'Monitored') return 'badge-success';
       if (state === 'Recommendations ready' || state === 'Actions ready') return 'badge-warning';
       if (state === 'Awaiting approval') return 'badge-warning';
       if (state === 'Approved') return 'badge-success';
@@ -3876,13 +4264,39 @@
       return stages[Math.min(stages.length - 1, Math.max(0, index) + 1)] || 'In intake';
     }
 
+    function parseLifecycleDate(value) {
+      if (!value || /needs|not found|review/i.test(String(value))) return null;
+      const parsed = new Date(value);
+      return Number.isNaN(parsed.getTime()) ? null : parsed;
+    }
+
+    function formatLifecycleDate(value, fallback = 'Needs review') {
+      const date = parseLifecycleDate(value);
+      return date ? date.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }) : fallback;
+    }
+
+    function addDays(date, days) {
+      const copy = new Date(date);
+      copy.setDate(copy.getDate() + days);
+      return copy;
+    }
+
+    function daysUntil(date) {
+      if (!date) return null;
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const target = new Date(date);
+      target.setHours(0, 0, 0, 0);
+      return Math.ceil((target - today) / 86400000);
+    }
+
     function renderOperatorDashboard() {
       const rows = document.getElementById('operator-contract-rows');
       const contracts = operatorContracts || [];
       const clients = operatorClients || [];
       if (rows) {
         if (contracts.length === 0) {
-          rows.innerHTML = '<tr><td colspan="7">No contract records yet. Upload or process a client document to create a review.</td></tr>';
+          rows.innerHTML = '<tr><td colspan="7">No contract records yet. Upload or process a group document to create a review.</td></tr>';
         } else {
           rows.innerHTML = contracts.map(contract => `
             <tr>
@@ -3908,12 +4322,15 @@
         const contractCount = contracts.length;
         const uploadedCount = clientUploadedFiles.filter(file => file.status !== 'Processed').length;
         const generatedActionCount = workspaceActions.filter(action => actionStatusFor(action) !== 'Report final').length;
+        const lifecycleAlertCount = lifecycleRecords().filter(record => ['Deadline risk', 'Notice window', 'Escalation watch'].includes(lifecycleStatusFor(record))).length;
         const actionCount = contracts.filter(contract => normalizeLifecycleState(contract.status) !== 'Report final').length + generatedActionCount;
+        const locationCount = clients.reduce((total, client) => total + clientLocationCount(client), 0);
+        const combinedSpend = clients.reduce((total, client) => total + clientSpendEstimate(client), 0);
         summary.innerHTML = `
-          <div class="pipeline-item"><div><span>Open queue items</span><strong>${uploadedCount + actionCount}</strong></div><i class="ti ti-list-check"></i></div>
-          <div class="pipeline-item"><div><span>Client files</span><strong>${uploadedCount}</strong></div><i class="ti ti-files"></i></div>
-          <div class="pipeline-item"><div><span>Parsed reviews</span><strong>${contractCount}</strong></div><i class="ti ti-file-search"></i></div>
-          <div class="pipeline-item"><div><span>Pending actions</span><strong>${actionCount}</strong></div><i class="ti ti-checklist"></i></div>
+          <div class="pipeline-item"><div><span>Locations monitored</span><strong>${locationCount}</strong></div><i class="ti ti-building-store"></i></div>
+          <div class="pipeline-item"><div><span>Combined spend</span><strong>${formatMoney(combinedSpend)}</strong></div><i class="ti ti-cash"></i></div>
+          <div class="pipeline-item"><div><span>Lifecycle alerts</span><strong>${lifecycleAlertCount}</strong></div><i class="ti ti-calendar-alert"></i></div>
+          <div class="pipeline-item"><div><span>Open work</span><strong>${uploadedCount + actionCount}</strong></div><i class="ti ti-checklist"></i></div>
         `;
       }
       const clientCount = document.getElementById('operator-client-count');
@@ -3933,7 +4350,9 @@
     function syncClientOptions() {
       const selects = [
         document.getElementById('analysis-client'),
-        document.getElementById('document-client-filter')
+        document.getElementById('document-client-filter'),
+        document.getElementById('ledger-client-filter'),
+        document.getElementById('lifecycle-client-filter')
       ].filter(Boolean);
       selects.forEach(select => {
         operatorClients.forEach(client => {
@@ -3962,7 +4381,7 @@
       const clients = documentClientNames();
       selectedDocumentClient = clients.includes(selectedDocumentClient) ? selectedDocumentClient : 'all';
       select.innerHTML = `
-        <option value="all">All clients</option>
+        <option value="all">All groups</option>
         ${clients.map(client => `<option value="${escapeHtml(client)}">${escapeHtml(client)}</option>`).join('')}
       `;
       select.value = selectedDocumentClient;
@@ -3987,7 +4406,7 @@
       if (!card) return;
       syncClientOptions();
       if (!operatorClients.length) {
-        card.innerHTML = '<div class="empty-state">No clients yet. Add a client or have a client upload a source document to start a review.</div>';
+        card.innerHTML = '<div class="empty-state">No restaurant groups yet. Add a group or have an operator upload source documents to start a review.</div>';
         return;
       }
       if (selectedClientSummaryId && !operatorClients.some(client => client.id === selectedClientSummaryId)) {
@@ -4003,8 +4422,8 @@
             <div class="avatar">${escapeHtml(initialsForName(client.name).toUpperCase())}</div>
             <div style="flex: 1; min-width: 0;">
               <p class="vendor-name">${escapeHtml(client.name)}</p>
-              <span class="card-meta">${escapeHtml(client.profile || 'Restaurant')} - ${escapeHtml(client.spendRange || 'Spend not set')}</span>
-              <span class="card-meta">${escapeHtml(categories)}</span>
+              <span class="card-meta">${clientLocationCount(client)} ${clientLocationCount(client) === 1 ? 'location' : 'locations'} / ${escapeHtml(client.profile || 'Restaurant group')} / ${escapeHtml(client.spendRange || 'Spend not set')}</span>
+              <span class="card-meta">${escapeHtml(groupLeverageLabel(client))} / ${escapeHtml(categories)}</span>
             </div>
             <div style="text-align: right;">
               <strong class="positive">${formatMoney(totalSavings)}</strong>
@@ -4049,6 +4468,32 @@
       }, 0);
     }
 
+    function clientLocationCount(client) {
+      const parsed = parseMoney(client?.locationCount || client?.locations || '');
+      return parsed > 0 ? Math.round(parsed) : 1;
+    }
+
+    function clientSpendEstimate(client) {
+      const range = client?.spendRange || '$1M - $3M';
+      const estimates = {
+        'Under $500K': 350000,
+        '$500K - $1M': 750000,
+        '$1M - $3M': 2000000,
+        '$3M - $10M': 8000000,
+        'Over $10M': 14000000
+      };
+      return estimates[range] || estimates['$1M - $3M'];
+    }
+
+    function groupLeverageLabel(client) {
+      const locations = clientLocationCount(client);
+      const spend = clientSpendEstimate(client);
+      if (locations >= 10 || spend >= 8000000) return 'Group leverage: enterprise';
+      if (locations >= 4 || spend >= 3000000) return 'Group leverage: strong';
+      if (locations >= 2 || spend >= 1000000) return 'Group leverage: emerging';
+      return 'Below target group profile';
+    }
+
     function clientSuccessFeeRate(client) {
       const parsed = parseMoney(client?.successFeeRate || '');
       return parsed > 0 ? parsed : 12.5;
@@ -4059,15 +4504,15 @@
     }
 
     const monthlyRateBySpendRange = {
-      'Under $500K': 750,
-      '$500K - $1M': 1500,
-      '$1M - $3M': 3000,
-      '$3M - $10M': 6000,
-      'Over $10M': 10000
+      'Under $500K': 1500,
+      '$500K - $1M': 2500,
+      '$1M - $3M': 4500,
+      '$3M - $10M': 9000,
+      'Over $10M': 15000
     };
 
     function suggestedMonthlyRateForSpend(spendRange) {
-      return monthlyRateBySpendRange[spendRange] || monthlyRateBySpendRange['$1M - $3M'];
+      return monthlyRateBySpendRange[spendRange] || monthlyRateBySpendRange['$3M - $10M'];
     }
 
     function isSuggestedMonthlyRate(value) {
@@ -4122,14 +4567,14 @@
         <div class="card-header">
           <div>
             <span class="card-title">${escapeHtml(client.name)} account summary</span>
-            <div class="card-meta">${escapeHtml(client.profile || 'Restaurant')} / ${escapeHtml(client.spendRange || 'Spend not set')}</div>
+            <div class="card-meta">${clientLocationCount(client)} ${clientLocationCount(client) === 1 ? 'location' : 'locations'} / ${escapeHtml(client.profile || 'Restaurant group')} / ${escapeHtml(client.spendRange || 'Spend not set')} / ${escapeHtml(groupLeverageLabel(client))}</div>
           </div>
           ${statusBadge(client.status || 'Documents needed')}
         </div>
         <div class="report-facts" style="grid-template-columns: repeat(4, minmax(0, 1fr));">
           <div class="report-fact"><span>Total savings</span><strong>${formatMoney(totalSavings)}</strong></div>
           <div class="report-fact"><span>Success fee</span><strong>${formatMoney(successFee)}</strong></div>
-          <div class="report-fact"><span>Monthly rate</span><strong>${escapeHtml(formatMonthlyRate(client))}</strong></div>
+          <div class="report-fact"><span>Locations</span><strong>${clientLocationCount(client)}</strong></div>
           <div class="report-fact"><span>Success fee rate</span><strong>${formatPercent(successFeeRate)}</strong></div>
         </div>
         <div class="report-facts" style="grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 1rem;">
@@ -4141,6 +4586,8 @@
         <div class="detail-grid" style="margin-top: 1rem;">
           <div class="detail-cell"><span>Primary contact</span><strong>${escapeHtml(client.contactName || 'Not added')}</strong></div>
           <div class="detail-cell"><span>Contact email</span><strong>${escapeHtml(client.contactEmail || 'Not added')}</strong></div>
+          <div class="detail-cell"><span>Region</span><strong>${escapeHtml(client.region || 'Mid-Atlantic')}</strong></div>
+          <div class="detail-cell"><span>Combined spend estimate</span><strong>${formatMoney(clientSpendEstimate(client))}</strong></div>
           <div class="detail-cell"><span>Processed files</span><strong>${processedFiles.length}</strong></div>
           <div class="detail-cell"><span>Contracts parsed</span><strong>${contracts.length}</strong></div>
           <div class="detail-cell"><span>Categories to review</span><strong>${escapeHtml(categories.length ? categories.join(', ') : 'No categories selected')}</strong></div>
@@ -4182,6 +4629,7 @@
         </div>
         <div class="workflow-actions" style="justify-content: flex-start; margin-top: 1rem;">
           <button class="btn btn-primary" onclick="startClientDocumentReview('${client.id}')"><i class="ti ti-upload"></i> Upload docs</button>
+          <button class="btn" onclick="setLifecycleClientFilter(${jsString(client.name)}); showPage('lifecycle')"><i class="ti ti-calendar-alert"></i> View lifecycle</button>
           <button class="btn" onclick="setActionClientFilter(${jsString(client.name)}); showPage('report')"><i class="ti ti-chart-bar"></i> View actions</button>
           <button class="btn" onclick="editClient('${client.id}')"><i class="ti ti-pencil"></i> Edit client</button>
         </div>
@@ -4202,13 +4650,13 @@
     function setClientFormMode(mode, client = null) {
       editingClientId = mode === 'edit' ? client?.id || null : null;
       const editing = mode === 'edit';
-      document.getElementById('client-form-title').textContent = editing ? `Edit ${client.name}` : 'Add client';
+      document.getElementById('client-form-title').textContent = editing ? `Edit ${client.name}` : 'Add group';
       document.getElementById('client-form-subtitle').textContent = editing
-        ? 'Update this restaurant account and keep the managed savings review current.'
-        : 'Set up a restaurant for a managed vendor savings review';
+        ? 'Update this restaurant group and keep the managed savings review current.'
+        : 'Set up a multi-location operator for managed vendor savings.';
       document.getElementById('client-form-submit').innerHTML = editing
-        ? '<i class="ti ti-check"></i> Save client'
-        : '<i class="ti ti-check"></i> Add client and start review';
+        ? '<i class="ti ti-check"></i> Save group'
+        : '<i class="ti ti-check"></i> Add group and start review';
       document.getElementById('client-form-cancel').hidden = !editing;
       document.getElementById('add-client-message').textContent = '';
     }
@@ -4218,6 +4666,8 @@
       return {
         name: document.getElementById('new-client-name').value.trim(),
         profile: document.getElementById('new-client-profile').value.trim(),
+        locationCount: document.getElementById('new-client-location-count').value.trim(),
+        region: document.getElementById('new-client-region').value,
         contactName: document.getElementById('new-client-contact-name').value.trim(),
         contactEmail: document.getElementById('new-client-contact-email').value.trim(),
         spendRange: document.getElementById('new-client-spend').value,
@@ -4231,17 +4681,19 @@
     function populateClientForm(client) {
       document.getElementById('new-client-name').value = client.name || '';
       document.getElementById('new-client-profile').value = client.profile || '';
+      document.getElementById('new-client-location-count').value = clientLocationCount(client);
+      document.getElementById('new-client-region').value = client.region || 'Mid-Atlantic';
       document.getElementById('new-client-contact-name').value = client.contactName || '';
       document.getElementById('new-client-contact-email').value = client.contactEmail || '';
-      document.getElementById('new-client-spend').value = client.spendRange || '$1M - $3M';
-      document.getElementById('new-client-monthly-rate').value = client.monthlyRate || formatMoney(suggestedMonthlyRateForSpend(client.spendRange || '$1M - $3M'));
+      document.getElementById('new-client-spend').value = client.spendRange || '$3M - $10M';
+      document.getElementById('new-client-monthly-rate').value = client.monthlyRate || formatMoney(suggestedMonthlyRateForSpend(client.spendRange || '$3M - $10M'));
       document.getElementById('new-client-success-fee-rate').value = client.successFeeRate || '';
       setClientCategorySelection(Array.isArray(client.categories) ? client.categories : []);
       document.getElementById('new-client-notes').value = client.notes || '';
     }
 
     function syncMonthlyRateToSpend(options = {}) {
-      const spend = document.getElementById('new-client-spend')?.value || '$1M - $3M';
+      const spend = document.getElementById('new-client-spend')?.value || '$3M - $10M';
       const monthly = document.getElementById('new-client-monthly-rate');
       if (!monthly) return;
       const current = monthly.value.trim();
@@ -4252,6 +4704,8 @@
 
     function resetClientForm() {
       document.getElementById('add-client-form').reset();
+      document.getElementById('new-client-location-count').value = '10';
+      document.getElementById('new-client-spend').value = '$3M - $10M';
       syncMonthlyRateToSpend({ force: true });
       setClientCategorySelection(['Food distribution', 'Payment processing']);
       setClientFormMode('add');
@@ -4352,7 +4806,7 @@
       renderClientList();
       renderActionWorkspace();
       renderOperatorDashboard();
-      message.textContent = `${savedClient.name} added. Upload their vendor documents to start the review.`;
+      message.textContent = `${savedClient.name} added. Upload group vendor documents to start the review.`;
       startClientDocumentReview(savedClient.id);
     }
 
@@ -4372,6 +4826,7 @@
       });
       if (result?.contracts) {
         operatorContracts = result.contracts;
+        renderContractLifecycle();
         renderOperatorDashboard();
       }
     }
@@ -4613,7 +5068,7 @@
       const current = clients.includes(selectedActionClient) ? selectedActionClient : 'all';
       selectedActionClient = current;
       select.innerHTML = `
-        <option value="all">All clients</option>
+        <option value="all">All groups</option>
         ${clients.map(client => `<option value="${escapeHtml(client)}">${escapeHtml(client)}</option>`).join('')}
       `;
       select.value = current;
@@ -4657,13 +5112,738 @@
       renderActionWorkspace();
     }
 
+    function ledgerStageForAction(action) {
+      if (actionStatusFor(action) === 'Report final') return 'Verified';
+      if (String(action.savings || '').toLowerCase().includes('needs evidence')) return 'Needs baseline';
+      if (['Approved', 'In progress'].includes(actionStatusFor(action))) return 'Vendor action';
+      return 'Variance detected';
+    }
+
+    function ledgerEntryFromAction(action) {
+      const ledger = action.ledger || {};
+      const rows = Array.isArray(action.costMathRows) ? action.costMathRows : [];
+      const rowValue = labels => {
+        const row = rows.find(item => labels.some(label => String(item?.[0] || '').toLowerCase().includes(label)));
+        return row?.[1] || '';
+      };
+      const expectedRow = rows.find(item => String(item?.[0] || '').toLowerCase().startsWith('expected '));
+      const actualCost = Number.isFinite(ledger.actualCost) ? ledger.actualCost : parseMoney(rowValue(['actual all-in cost', 'actual processor cost']));
+      const expectedCost = Number.isFinite(ledger.expectedCost) ? ledger.expectedCost : parseMoney(expectedRow?.[1] || '');
+      const potentialVariance = Number.isFinite(ledger.potentialVariance)
+        ? ledger.potentialVariance
+        : String(action.savings || '').toLowerCase().includes('needs evidence') ? 0 : parseMoney(action.savings);
+      const hasBaseline = ledger.hasBaseline !== undefined ? Boolean(ledger.hasBaseline) : expectedCost > 0 && potentialVariance > 0;
+      const stage = hasBaseline ? (ledger.stage || ledgerStageForAction(action)) : 'Needs baseline';
+      return {
+        id: action.id,
+        client: action.client || 'Client from upload',
+        vendor: action.vendor || action.sourceFile || 'Uploaded vendor',
+        category: action.category || 'Other',
+        sourceFile: action.sourceFile || 'Processed document',
+        varianceType: ledger.varianceType || action.title || 'Vendor cost variance',
+        stage,
+        actualCost,
+        expectedCost: hasBaseline ? expectedCost : 0,
+        potentialVariance,
+        confidence: ledger.confidence || (hasBaseline ? action.priority || 'Medium' : 'Needs evidence'),
+        baselineSource: ledger.baselineSource || rowValue(['evidence baseline source']) || action.evidence || 'Baseline evidence not recorded',
+        formula: ledger.formula || action.costMathHeadline || 'Actual all-in cost minus evidence baseline',
+        entitlementSource: ledger.entitlementSource || (hasBaseline ? 'Document-supported baseline' : 'Contract, rate card, quote, prior invoice, or usage schedule needed'),
+        usageSignal: ledger.usageSignal || 'Normalized to annual run-rate and category usage driver',
+        playbook: ledger.playbook || action.nextStep || 'Prepare category-specific vendor follow-up',
+        evidenceStatus: ledger.evidenceStatus || (hasBaseline ? 'Document-supported' : 'Needs baseline'),
+        action
+      };
+    }
+
+    function ledgerKey(entry) {
+      return [entry.client, entry.vendor, entry.category]
+        .map(value => String(value || '').trim().toLowerCase())
+        .join('::');
+    }
+
+    function dominantLedgerStage(entries) {
+      if (entries.some(entry => entry.stage === 'Needs baseline')) return 'Needs baseline';
+      if (entries.some(entry => entry.stage === 'Vendor action')) return 'Vendor action';
+      if (entries.some(entry => entry.stage === 'Variance detected')) return 'Variance detected';
+      return 'Verified';
+    }
+
+    function aggregateLedgerRecords(entries) {
+      const grouped = new Map();
+      entries.forEach(entry => {
+        const key = ledgerKey(entry);
+        if (!grouped.has(key)) {
+          grouped.set(key, {
+            ...entry,
+            entries: [],
+            varianceTypes: new Set(),
+            sourceFiles: new Set(),
+            actionIds: [],
+            actionCount: 0,
+            potentialVariance: 0
+          });
+        }
+        const record = grouped.get(key);
+        record.entries.push(entry);
+        record.varianceTypes.add(entry.varianceType);
+        record.sourceFiles.add(entry.sourceFile);
+        record.actionIds.push(entry.id);
+        record.actionCount += 1;
+        record.actualCost = Math.max(record.actualCost || 0, entry.actualCost || 0);
+        record.expectedCost = Math.max(record.expectedCost || 0, entry.expectedCost || 0);
+        record.potentialVariance += entry.potentialVariance || 0;
+        if ((entry.potentialVariance || 0) > (record.primaryVariance || 0)) {
+          record.primaryVariance = entry.potentialVariance || 0;
+          record.primaryActionId = entry.id;
+          record.primaryAction = entry.action;
+          record.playbook = entry.playbook;
+          record.formula = entry.formula;
+          record.baselineSource = entry.baselineSource;
+          record.usageSignal = entry.usageSignal;
+          record.entitlementSource = entry.entitlementSource;
+          record.evidenceStatus = entry.evidenceStatus;
+          record.confidence = entry.confidence;
+        }
+      });
+      return [...grouped.values()].map(record => {
+        const entriesForRecord = record.entries || [];
+        const hasBaseline = entriesForRecord.some(entry => entry.expectedCost > 0);
+        const stage = dominantLedgerStage(entriesForRecord);
+        return {
+          ...record,
+          stage,
+          sourceFile: [...record.sourceFiles][0] || record.sourceFile,
+          sourceCount: record.sourceFiles.size,
+          varianceTypes: [...record.varianceTypes],
+          evidenceStatus: hasBaseline ? 'Document-supported' : 'Needs baseline',
+          confidence: hasBaseline ? record.confidence || 'Medium' : 'Needs evidence',
+          primaryActionId: record.primaryActionId || record.actionIds[0],
+          mechanism: {
+            entitlement: hasBaseline ? 'Baseline matched' : 'Baseline gap',
+            usage: record.usageSignal || 'Annual run-rate normalized',
+            playbook: `${record.category} variance playbook`,
+            verification: stage === 'Verified' ? 'Verified on invoice' : 'Awaiting vendor response or future invoice'
+          }
+        };
+      });
+    }
+
+    function ledgerClientNames(entries) {
+      const names = new Set();
+      operatorClients.forEach(client => {
+        if (client.name) names.add(client.name);
+      });
+      entries.forEach(entry => {
+        if (entry.client) names.add(entry.client);
+      });
+      return [...names].sort((a, b) => a.localeCompare(b));
+    }
+
+    function renderLedgerClientFilter(entries) {
+      const select = document.getElementById('ledger-client-filter');
+      if (!select) return;
+      const clients = ledgerClientNames(entries);
+      selectedLedgerClient = clients.includes(selectedLedgerClient) ? selectedLedgerClient : 'all';
+      select.innerHTML = `
+        <option value="all">All groups</option>
+        ${clients.map(client => `<option value="${escapeHtml(client)}">${escapeHtml(client)}</option>`).join('')}
+      `;
+      select.value = selectedLedgerClient;
+      select.disabled = clients.length === 0;
+    }
+
+    function setLedgerClientFilter(clientName) {
+      selectedLedgerClient = clientName || 'all';
+      renderCostLedger();
+    }
+
+    function setLedgerStageFilter(stage) {
+      selectedLedgerStage = stage || 'all';
+      renderCostLedger();
+    }
+
+    function ledgerNextMove(entry) {
+      if (entry.stage === 'Needs baseline') return 'Collect contract, rate card, quote, prior invoice, or usage schedule.';
+      if (entry.stage === 'Variance detected') return entry.playbook || 'Review variance bundle and prepare vendor action.';
+      if (entry.stage === 'Vendor action') return 'Track vendor response and update action status.';
+      if (entry.stage === 'Verified') return 'Confirm future invoice evidence stays clean.';
+      return entry.playbook || 'Review ledger record.';
+    }
+
+    function ledgerEvidenceLabel(entry) {
+      if (entry.stage === 'Needs baseline') return 'Baseline gap';
+      if (entry.expectedCost > 0) return 'Baseline ready';
+      return 'Needs review';
+    }
+
+    function benchmarkForLedgerEntry(entry) {
+      const records = pricingRecords().filter(record =>
+        record.category === entry.category &&
+        record.region === pricingRegionForClient(entry.client) &&
+        record.volumeTier === pricingVolumeTierForClient(entry.client, entry.actualCost || entry.potentialVariance)
+      );
+      if (!records.length) return null;
+      return {
+        count: records.length,
+        medianSavingsRate: median(records.map(record => record.savingsRate)),
+        medianSettledCost: median(records.map(record => record.settledCost))
+      };
+    }
+
+    function renderCostLedger() {
+      const container = document.getElementById('cost-ledger-container');
+      if (!container) return;
+      const entries = aggregateLedgerRecords(uniqueWorkspaceActions(workspaceActions).map(ledgerEntryFromAction));
+      renderLedgerClientFilter(entries);
+      const stageFilter = document.getElementById('ledger-stage-filter');
+      if (stageFilter) stageFilter.value = selectedLedgerStage;
+      const filtered = entries
+        .filter(entry => selectedLedgerClient === 'all' || entry.client === selectedLedgerClient)
+        .filter(entry => selectedLedgerStage === 'all' || entry.stage === selectedLedgerStage)
+        .sort((a, b) => {
+          const stageScore = { 'Vendor action': 4, 'Variance detected': 3, 'Needs baseline': 2, Verified: 1 };
+          const stageDiff = (stageScore[b.stage] || 0) - (stageScore[a.stage] || 0);
+          if (stageDiff) return stageDiff;
+          return b.potentialVariance - a.potentialVariance;
+        });
+      if (!entries.length) {
+        container.innerHTML = '<div class="empty-state">No ledger entries yet. Process a vendor document to create the first cost record.</div>';
+        return;
+      }
+      if (!filtered.length) {
+        container.innerHTML = '<div class="empty-state">No ledger entries match the selected filters.</div>';
+        return;
+      }
+      const potentialVariance = filtered.reduce((total, entry) => total + (entry.potentialVariance || 0), 0);
+      const needsBaseline = filtered.filter(entry => entry.stage === 'Needs baseline').length;
+      const readyForReview = filtered.filter(entry => entry.stage === 'Variance detected').length;
+      const vendorActions = filtered.filter(entry => entry.stage === 'Vendor action').length;
+      container.innerHTML = `
+        <div class="card-header">
+          <div>
+            <span class="card-title">Vendor cost model</span>
+            <div class="card-meta">${escapeHtml(selectedLedgerClient === 'all' ? 'All groups' : selectedLedgerClient)} / ${escapeHtml(selectedLedgerStage === 'all' ? 'All stages' : selectedLedgerStage)} / one row per group, vendor, and category</div>
+          </div>
+          <span class="badge badge-info">${filtered.length} records</span>
+        </div>
+        <div class="ledger-summary">
+          <div><span>Candidate variance</span><strong class="positive">${formatMoney(potentialVariance)}</strong></div>
+          <div><span>Ready for review</span><strong>${readyForReview}</strong></div>
+          <div><span>Need baseline</span><strong>${needsBaseline}</strong></div>
+          <div><span>Vendor follow-up</span><strong>${vendorActions}</strong></div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Vendor</th>
+              <th>Stage</th>
+              <th>Evidence</th>
+              <th>Cost math</th>
+              <th>Larder mechanism</th>
+              <th>Open variance</th>
+              <th>Next move</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${filtered.map(entry => `
+              <tr>
+                <td>
+                  <div class="ledger-row-main">
+                    <p>${escapeHtml(entry.vendor)}</p>
+                    <span>${escapeHtml(entry.client)} / ${escapeHtml(entry.category)} / ${entry.sourceCount} ${entry.sourceCount === 1 ? 'source' : 'sources'} / ${entry.actionCount} linked ${entry.actionCount === 1 ? 'action' : 'actions'}</span>
+                  </div>
+                </td>
+                <td>${statusBadge(entry.stage)}</td>
+                <td>
+                  <div class="ledger-evidence">
+                    <p>${escapeHtml(ledgerEvidenceLabel(entry))}</p>
+                    <span class="card-meta">${escapeHtml(entry.evidenceStatus)} / ${escapeHtml(entry.confidence)}</span>
+                    ${benchmarkForLedgerEntry(entry) ? `<span class="card-meta">${benchmarkForLedgerEntry(entry).count} network comps / ${(benchmarkForLedgerEntry(entry).medianSavingsRate * 100).toFixed(1)}% median savings</span>` : ''}
+                  </div>
+                </td>
+                <td>
+                  <div class="ledger-cost-stack">
+                    <div><span>Actual</span><strong>${entry.actualCost ? formatMoney(entry.actualCost) : 'Needs review'}</strong></div>
+                    <div><span>Baseline</span><strong>${entry.expectedCost ? formatMoney(entry.expectedCost) : 'Needs evidence'}</strong></div>
+                    <div><span>Candidate</span><strong class="positive">${entry.potentialVariance ? formatMoney(entry.potentialVariance) : 'Not dollarized'}</strong></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="ledger-mechanism-stack">
+                    <div><span>Entitle</span><strong>${escapeHtml(entry.mechanism.entitlement)}</strong></div>
+                    <div><span>Usage</span><strong>${escapeHtml(entry.mechanism.usage)}</strong></div>
+                    <div><span>Playbook</span><strong>${escapeHtml(entry.mechanism.playbook)}</strong></div>
+                    <div><span>Verify</span><strong>${escapeHtml(entry.mechanism.verification)}</strong></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="ledger-formula">
+                    <div class="ledger-variance-list">
+                      ${entry.varianceTypes.map(type => `<span class="badge badge-info">${escapeHtml(type)}</span>`).join('')}
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="ledger-action-cell">
+                    <div class="ledger-formula">${escapeHtml(ledgerNextMove(entry))}</div>
+                    <button class="btn btn-mini" onclick="selectWorkspaceAction('${entry.primaryActionId}', true)"><i class="ti ti-circle-check"></i> Open linked action</button>
+                  </div>
+                </td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      `;
+    }
+
+    function lifecycleIdentity(contract) {
+      return [contract.client, contract.vendor, contract.category]
+        .map(value => String(value || '').trim().toLowerCase())
+        .join('::');
+    }
+
+    function extractRenewalDateFromEntries(entries = []) {
+      for (const entry of entries) {
+        const text = [entry.action?.evidence, entry.action?.description, entry.action?.nextStep].filter(Boolean).join(' ');
+        const match = text.match(/\b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?\s+\d{1,2},?\s+20\d{2}\b/i);
+        if (match) return match[0];
+      }
+      return '';
+    }
+
+    function lifecycleRecordFromLedger(record) {
+      const renewalDate = extractRenewalDateFromEntries(record.entries);
+      const text = (record.entries || []).map(entry => [entry.action?.evidence, entry.action?.description, entry.action?.nextStep].filter(Boolean).join(' ')).join(' ').toLowerCase();
+      return {
+        id: `ledger-${lifecycleIdentity(record)}`,
+        source: 'Cost Ledger',
+        client: record.client,
+        vendor: record.vendor,
+        category: record.category,
+        renewalDate: renewalDate || 'Needs review',
+        noticeWindowDays: text.includes('auto-renew') || text.includes('notice') ? 90 : 60,
+        escalationClause: text.includes('escalation') || text.includes('cpi') ? 'Escalation language detected' : 'Needs review',
+        autoRenew: text.includes('auto-renew'),
+        annualValue: record.actualCost ? formatMoney(record.actualCost) : 'Needs review',
+        savings: record.potentialVariance ? formatMoney(record.potentialVariance) : 'TBD',
+        owner: 'Rebecca',
+        status: record.stage === 'Needs baseline' ? 'Needs source file' : 'Monitored',
+        linkedActionId: record.primaryActionId
+      };
+    }
+
+    function lifecycleRecords() {
+      const records = new Map();
+      (operatorContracts || []).forEach(contract => {
+        records.set(lifecycleIdentity(contract), {
+          source: 'Contract register',
+          noticeWindowDays: Number(contract.noticeWindowDays) || 90,
+          escalationClause: contract.escalationClause || 'Needs review',
+          autoRenew: Boolean(contract.autoRenew),
+          ...contract
+        });
+      });
+      aggregateLedgerRecords(uniqueWorkspaceActions(workspaceActions).map(ledgerEntryFromAction)).forEach(record => {
+        const key = lifecycleIdentity(record);
+        if (!records.has(key)) records.set(key, lifecycleRecordFromLedger(record));
+      });
+      return [...records.values()];
+    }
+
+    function lifecycleNoticeDeadline(contract) {
+      const renewal = parseLifecycleDate(contract.renewalDate);
+      if (!renewal) return null;
+      return addDays(renewal, -(Number(contract.noticeWindowDays) || 90));
+    }
+
+    function lifecycleStatusFor(contract) {
+      const renewal = parseLifecycleDate(contract.renewalDate);
+      if (!renewal) return 'Needs baseline';
+      const noticeDeadline = lifecycleNoticeDeadline(contract);
+      const daysToNotice = daysUntil(noticeDeadline);
+      const daysToRenewal = daysUntil(renewal);
+      const hasEscalator = /cpi|escalat|increase|cap/i.test(contract.escalationClause || '');
+      if (daysToNotice !== null && daysToNotice < 0 && daysToRenewal >= 0) return 'Deadline risk';
+      if (daysToNotice !== null && daysToNotice <= 90 && daysToNotice >= 0) return 'Notice window';
+      if (hasEscalator && daysToRenewal !== null && daysToRenewal <= 120 && daysToRenewal >= -30) return 'Escalation watch';
+      if (contract.category === 'Payment processing') return 'Market watch';
+      return 'Monitored';
+    }
+
+    function lifecycleNextMove(contract) {
+      const status = lifecycleStatusFor(contract);
+      if (status === 'Needs baseline') return 'Request agreement, renewal notice, or pricing terms.';
+      if (status === 'Deadline risk') return 'Escalate notice review and prepare renegotiation path.';
+      if (status === 'Notice window') return 'Prepare renewal decision, notice, or counteroffer.';
+      if (status === 'Escalation watch') return 'Compare price increase to clause cap and invoice impact.';
+      if (status === 'Market watch') return 'Benchmark effective rate against current processor offers.';
+      return 'Keep monitored for renewal, escalator, and market changes.';
+    }
+
+    function lifecycleClientNames(records) {
+      const names = new Set();
+      operatorClients.forEach(client => client.name && names.add(client.name));
+      records.forEach(record => record.client && names.add(record.client));
+      return [...names].sort((a, b) => a.localeCompare(b));
+    }
+
+    function renderLifecycleClientFilter(records) {
+      const select = document.getElementById('lifecycle-client-filter');
+      if (!select) return;
+      const clients = lifecycleClientNames(records);
+      selectedLifecycleClient = clients.includes(selectedLifecycleClient) ? selectedLifecycleClient : 'all';
+      select.innerHTML = `
+        <option value="all">All groups</option>
+        ${clients.map(client => `<option value="${escapeHtml(client)}">${escapeHtml(client)}</option>`).join('')}
+      `;
+      select.value = selectedLifecycleClient;
+      select.disabled = clients.length === 0;
+    }
+
+    function setLifecycleClientFilter(clientName) {
+      selectedLifecycleClient = clientName || 'all';
+      renderContractLifecycle();
+    }
+
+    function renderContractLifecycle() {
+      const container = document.getElementById('contract-lifecycle-container');
+      if (!container) return;
+      const allRecords = lifecycleRecords();
+      renderLifecycleClientFilter(allRecords);
+      const records = allRecords
+        .filter(record => selectedLifecycleClient === 'all' || record.client === selectedLifecycleClient)
+        .sort((a, b) => {
+          const score = { 'Deadline risk': 5, 'Notice window': 4, 'Escalation watch': 3, 'Market watch': 2, 'Needs baseline': 1, Monitored: 0 };
+          const diff = (score[lifecycleStatusFor(b)] || 0) - (score[lifecycleStatusFor(a)] || 0);
+          if (diff) return diff;
+          return (daysUntil(lifecycleNoticeDeadline(a)) ?? 9999) - (daysUntil(lifecycleNoticeDeadline(b)) ?? 9999);
+        });
+      if (!allRecords.length) {
+        container.innerHTML = '<div class="empty-state">No lifecycle records yet. Upload agreements, rate cards, renewal notices, or processor statements to start monitoring.</div>';
+        return;
+      }
+      if (!records.length) {
+        container.innerHTML = '<div class="empty-state">No lifecycle records match this client filter.</div>';
+        return;
+      }
+      const urgent = records.filter(record => ['Deadline risk', 'Notice window', 'Escalation watch'].includes(lifecycleStatusFor(record)));
+      const marketWatch = records.filter(record => lifecycleStatusFor(record) === 'Market watch').length;
+      const missingTerms = records.filter(record => lifecycleStatusFor(record) === 'Needs baseline').length;
+      container.innerHTML = `
+        <div class="card-header">
+          <div>
+            <span class="card-title">Contract lifecycle register</span>
+            <div class="card-meta">${escapeHtml(selectedLifecycleClient === 'all' ? 'All groups' : selectedLifecycleClient)} / renewal, notice, escalation, and market monitoring</div>
+          </div>
+          <span class="badge badge-warning">${urgent.length} alerts</span>
+        </div>
+        <div class="ledger-summary">
+          <div><span>Lifecycle records</span><strong>${records.length}</strong></div>
+          <div><span>Notice/escalation alerts</span><strong>${urgent.length}</strong></div>
+          <div><span>Market watches</span><strong>${marketWatch}</strong></div>
+          <div><span>Need terms</span><strong>${missingTerms}</strong></div>
+        </div>
+        <div class="lifecycle-alert-list">
+          ${urgent.length ? urgent.slice(0, 5).map(record => `
+            <div class="lifecycle-alert">
+              <div>
+                <p>${escapeHtml(record.vendor)} / ${escapeHtml(record.client)}</p>
+                <span>${escapeHtml(lifecycleNextMove(record))}</span>
+              </div>
+              ${statusBadge(lifecycleStatusFor(record))}
+            </div>
+          `).join('') : '<div class="empty-state">No renewal or escalation alerts are due right now.</div>'}
+        </div>
+        <table>
+          <thead>
+            <tr><th>Contract</th><th>Status</th><th>Lifecycle terms</th><th>Escalator / market watch</th><th>Next move</th><th>Action</th></tr>
+          </thead>
+          <tbody>
+            ${records.map(record => {
+              const noticeDeadline = lifecycleNoticeDeadline(record);
+              const linkedAction = record.linkedActionId || record.primaryActionId;
+              return `
+                <tr>
+                  <td>
+                    <div class="ledger-row-main">
+                      <p>${escapeHtml(record.vendor)}</p>
+                      <span>${escapeHtml(record.client)} / ${escapeHtml(record.category)} / ${escapeHtml(record.source || record.sourceFile || 'Lifecycle record')}</span>
+                    </div>
+                  </td>
+                  <td>${statusBadge(lifecycleStatusFor(record))}</td>
+                  <td>
+                    <div class="lifecycle-terms">
+                      <div><span>Renewal</span><strong>${formatLifecycleDate(record.renewalDate)}</strong></div>
+                      <div><span>Notice</span><strong>${noticeDeadline ? formatLifecycleDate(noticeDeadline) : 'Needs review'}</strong></div>
+                      <div><span>Window</span><strong>${Number(record.noticeWindowDays) || 90} days</strong></div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="ledger-formula">
+                      <strong>${escapeHtml(record.escalationClause || 'Needs review')}</strong><br>
+                      ${record.category === 'Payment processing' ? 'Processor market watch active for effective-rate changes.' : record.autoRenew ? 'Auto-renewal monitoring active.' : 'Renewal monitoring active.'}
+                    </div>
+                  </td>
+                  <td><div class="ledger-formula">${escapeHtml(lifecycleNextMove(record))}</div></td>
+                  <td>
+                    ${linkedAction ? `<button class="btn btn-mini" onclick="selectWorkspaceAction('${linkedAction}', true)"><i class="ti ti-circle-check"></i> Open action</button>` : `<button class="btn btn-mini" onclick="showPage('analyze')"><i class="ti ti-file-search"></i> Add terms</button>`}
+                  </td>
+                </tr>
+              `;
+            }).join('')}
+          </tbody>
+        </table>
+      `;
+    }
+
+    function clientByName(name) {
+      return operatorClients.find(client => client.name === name) || null;
+    }
+
+    function pricingRegionForClient(clientName) {
+      return clientByName(clientName)?.region || 'Mid-Atlantic';
+    }
+
+    function pricingVolumeTierForClient(clientName, spend = 0) {
+      const range = clientByName(clientName)?.spendRange;
+      if (range) return range;
+      if (spend >= 3000000) return '$3M - $10M';
+      if (spend >= 1000000) return '$1M - $3M';
+      if (spend >= 500000) return '$500K - $1M';
+      return 'Under $500K';
+    }
+
+    function pricingRateLabel(category, settledCost, volume) {
+      if (category === 'Payment processing' && volume > 0) return `${((settledCost / volume) * 100).toFixed(2)}% effective rate`;
+      if (volume > 0) return `${((settledCost / volume) * 100).toFixed(1)}% of reviewed volume`;
+      return formatMoney(settledCost);
+    }
+
+    function actionVolume(action) {
+      const rows = Array.isArray(action.costMathRows) ? action.costMathRows : [];
+      const volumeRow = rows.find(row => /volume|run-rate|annualized/i.test(String(row?.[0] || '')));
+      return parseMoney(volumeRow?.[1] || action.spend || '');
+    }
+
+    function pricingRecordFromAction(action) {
+      const spend = parseMoney(action.spend || '');
+      const savings = String(action.savings || '').toLowerCase().includes('needs evidence') ? 0 : parseMoney(action.savings);
+      const volume = actionVolume(action) || spend;
+      const settledCost = Math.max(0, spend - savings);
+      return {
+        id: `intel-${action.id}`,
+        sourceActionId: action.id,
+        source: 'Closed action',
+        client: action.client || 'Client from upload',
+        vendor: action.vendor || action.sourceFile || 'Vendor',
+        category: action.category || 'Other',
+        region: pricingRegionForClient(action.client),
+        volumeTier: pricingVolumeTierForClient(action.client, volume),
+        annualVolume: volume,
+        incumbentCost: spend,
+        settledCost,
+        savings,
+        savingsRate: spend ? savings / spend : 0,
+        rateLabel: pricingRateLabel(action.category, settledCost, volume),
+        confidence: action.completedAt ? 'Verified' : 'Closed',
+        closedAt: action.completedAt || action.updatedAt || action.createdAt || new Date().toISOString()
+      };
+    }
+
+    function seedPricingIntelRecords() {
+      return Object.values(reports).flatMap(report => (report.categories || []).map(row => {
+        const [category, spendText, savingsText, method, priority] = row;
+        const spend = parseMoney(spendText);
+        const savings = parseMoney(savingsText);
+        const settledCost = Math.max(0, spend - savings);
+        return {
+          id: `seed-${report.title}-${category}`.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+          source: 'Closed report seed',
+          client: report.title.replace('Savings report - ', ''),
+          vendor: method,
+          category,
+          region: 'Mid-Atlantic',
+          volumeTier: pricingVolumeTierForClient('', spend),
+          annualVolume: spend,
+          incumbentCost: spend,
+          settledCost,
+          savings,
+          savingsRate: spend ? savings / spend : 0,
+          rateLabel: pricingRateLabel(category, settledCost, spend),
+          confidence: priority === 'High' ? 'High' : 'Directional',
+          closedAt: report.subtitle || 'May 2026'
+        };
+      }));
+    }
+
+    function pricingRecords() {
+      const persisted = pricingIntel || [];
+      const completedActions = uniqueWorkspaceActions(workspaceActions)
+        .filter(action => actionStatusFor(action) === 'Report final')
+        .map(pricingRecordFromAction);
+      const records = [...persisted, ...completedActions, ...seedPricingIntelRecords()];
+      const byId = new Map();
+      records.forEach(record => {
+        const id = record.id || [record.client, record.vendor, record.category, record.closedAt].join('::');
+        byId.set(id, record);
+      });
+      return [...byId.values()];
+    }
+
+    function benchmarkKey(record) {
+      return [record.category, record.region, record.volumeTier, record.vendor]
+        .map(value => String(value || '').trim().toLowerCase())
+        .join('::');
+    }
+
+    function median(values) {
+      const sorted = values.filter(Number.isFinite).sort((a, b) => a - b);
+      if (!sorted.length) return 0;
+      const mid = Math.floor(sorted.length / 2);
+      return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+    }
+
+    function pricingBenchmarks(records) {
+      const groups = new Map();
+      records.forEach(record => {
+        const key = benchmarkKey(record);
+        if (!groups.has(key)) {
+          groups.set(key, { ...record, records: [] });
+        }
+        groups.get(key).records.push(record);
+      });
+      return [...groups.values()].map(group => {
+        const settled = group.records.map(record => record.settledCost);
+        const savingsRates = group.records.map(record => record.savingsRate);
+        return {
+          ...group,
+          count: group.records.length,
+          medianSettledCost: median(settled),
+          lowSettledCost: Math.min(...settled),
+          highSettledCost: Math.max(...settled),
+          medianSavingsRate: median(savingsRates),
+          latestClose: group.records.map(record => record.closedAt).sort().at(-1)
+        };
+      }).sort((a, b) => b.count - a.count || b.medianSavingsRate - a.medianSavingsRate);
+    }
+
+    function renderPricingFilter(id, values, selectedValue, allLabel) {
+      const select = document.getElementById(id);
+      if (!select) return;
+      const current = values.includes(selectedValue) ? selectedValue : 'all';
+      select.innerHTML = `
+        <option value="all">${allLabel}</option>
+        ${values.map(value => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`).join('')}
+      `;
+      select.value = current;
+      select.disabled = values.length === 0;
+      return current;
+    }
+
+    function setPricingCategoryFilter(category) {
+      selectedPricingCategory = category || 'all';
+      renderPricingIntelligence();
+    }
+
+    function setPricingRegionFilter(region) {
+      selectedPricingRegion = region || 'all';
+      renderPricingIntelligence();
+    }
+
+    function renderPricingIntelligence() {
+      const container = document.getElementById('pricing-intel-container');
+      if (!container) return;
+      const allRecords = pricingRecords();
+      const categories = [...new Set(allRecords.map(record => record.category).filter(Boolean))].sort();
+      const regions = [...new Set(allRecords.map(record => record.region).filter(Boolean))].sort();
+      selectedPricingCategory = renderPricingFilter('pricing-category-filter', categories, selectedPricingCategory, 'All categories') || selectedPricingCategory;
+      selectedPricingRegion = renderPricingFilter('pricing-region-filter', regions, selectedPricingRegion, 'All regions') || selectedPricingRegion;
+      const filtered = allRecords
+        .filter(record => selectedPricingCategory === 'all' || record.category === selectedPricingCategory)
+        .filter(record => selectedPricingRegion === 'all' || record.region === selectedPricingRegion);
+      if (!allRecords.length) {
+        container.innerHTML = '<div class="empty-state">No pricing intelligence yet. Completed actions will become reusable market benchmarks.</div>';
+        return;
+      }
+      const benchmarks = pricingBenchmarks(filtered);
+      const verifiedCount = filtered.filter(record => ['Verified', 'High'].includes(record.confidence)).length;
+      const medianSavings = median(filtered.map(record => record.savingsRate));
+      container.innerHTML = `
+        <div class="card-header">
+          <div>
+            <span class="card-title">Pricing intelligence database</span>
+            <div class="card-meta">${escapeHtml(selectedPricingCategory === 'all' ? 'All categories' : selectedPricingCategory)} / ${escapeHtml(selectedPricingRegion === 'all' ? 'All regions' : selectedPricingRegion)} / closed outcomes become benchmarks</div>
+          </div>
+          <span class="badge badge-success">${filtered.length} data points</span>
+        </div>
+        <div class="ledger-summary">
+          <div><span>Benchmarks</span><strong>${benchmarks.length}</strong></div>
+          <div><span>Verified/high confidence</span><strong>${verifiedCount}</strong></div>
+          <div><span>Median savings</span><strong>${(medianSavings * 100).toFixed(1)}%</strong></div>
+          <div><span>Regions</span><strong>${new Set(filtered.map(record => record.region)).size}</strong></div>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Benchmark</th><th>Network depth</th><th>Settled range</th><th>Median savings</th><th>Latest rate signal</th><th>Use in estimate</th></tr>
+          </thead>
+          <tbody>
+            ${benchmarks.map(benchmark => `
+              <tr>
+                <td>
+                  <div class="ledger-row-main">
+                    <p>${escapeHtml(benchmark.category)}</p>
+                    <span>${escapeHtml(benchmark.region)} / ${escapeHtml(benchmark.volumeTier)} / ${escapeHtml(benchmark.vendor)}</span>
+                  </div>
+                </td>
+                <td>${benchmark.count} ${benchmark.count === 1 ? 'deal' : 'deals'}</td>
+                <td class="amount">${formatMoney(benchmark.lowSettledCost)} - ${formatMoney(benchmark.highSettledCost)}</td>
+                <td class="amount positive">${(benchmark.medianSavingsRate * 100).toFixed(1)}%</td>
+                <td>
+                  <div class="ledger-formula">
+                    <strong>${escapeHtml(benchmark.rateLabel || formatMoney(benchmark.medianSettledCost))}</strong><br>
+                    Latest close: ${escapeHtml(String(benchmark.latestClose || 'Unknown'))}
+                  </div>
+                </td>
+                <td>
+                  <div class="ledger-formula">Use as market baseline for ${escapeHtml(benchmark.category)} accounts in ${escapeHtml(benchmark.region)} at ${escapeHtml(benchmark.volumeTier)} volume.</div>
+                </td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      `;
+    }
+
+    async function addPricingIntelRecord(record, persist = true) {
+      if (!record) return null;
+      const existingIndex = pricingIntel.findIndex(item => item.id === record.id || item.sourceActionId === record.sourceActionId);
+      if (existingIndex >= 0) {
+        pricingIntel[existingIndex] = { ...pricingIntel[existingIndex], ...record };
+      } else {
+        pricingIntel.unshift(record);
+      }
+      renderPricingIntelligence();
+      if (persist) {
+        const result = await apiRequest('/api/pricing-intel', {
+          method: 'POST',
+          body: JSON.stringify(record)
+        });
+        if (result?.pricingIntel) {
+          pricingIntel = result.pricingIntel;
+          renderPricingIntelligence();
+        }
+      }
+      return record;
+    }
+
     function renderActionWorkspace() {
       const container = document.getElementById('action-workspace-container');
       if (!container) return;
       const title = document.getElementById('report-title');
       const subtitle = document.getElementById('report-subtitle');
       if (title) title.textContent = 'Action workspace';
-      if (subtitle) subtitle.textContent = 'Open work created from processed vendor documents.';
+      if (subtitle) subtitle.textContent = 'Execution center for outreach, approvals, vendor response tracking, and invoice verification.';
       const allActions = uniqueWorkspaceActions(workspaceActions);
       renderActionClientFilter(allActions);
       const clientActions = allActions.filter(action => selectedActionClient === 'all' || action.client === selectedActionClient);
@@ -4678,7 +5858,7 @@
         return new Date(b.createdAt || 0) - new Date(a.createdAt || 0);
       });
       if (!allActions.length) {
-        container.innerHTML = '<div class="empty-state">No action workspace yet. Upload or process a client document to create the first review.</div>';
+        container.innerHTML = '<div class="empty-state">No action workspace yet. Upload or process a group document to create the first review.</div>';
         return;
       }
       if (!actions.length) {
@@ -4691,7 +5871,7 @@
       const openActions = actions.filter(action => actionStatusFor(action) !== 'Report final').length;
       const completedActions = actions.length - openActions;
       const evidenceActions = actions.filter(action => String(action.savings || '').toLowerCase().includes('needs evidence')).length;
-      const clientLabel = selectedActionClient === 'all' ? 'All clients' : selectedActionClient;
+      const clientLabel = selectedActionClient === 'all' ? 'All groups' : selectedActionClient;
       const vendorLabel = selectedActionVendor === 'all' ? 'All vendors' : selectedActionVendor;
       container.innerHTML = `
         <div class="card-header">
@@ -5182,6 +6362,7 @@ ${action.evidence}`
       document.getElementById('action-priority-badge').textContent = normalizeLifecycleState(completionStatus);
       document.getElementById('action-priority-badge').className = `badge ${stateBadgeClass(normalizeLifecycleState(completionStatus))}`;
       await updateSelectedActionStatus(completionStatus, completionNote, isFinal ? new Date().toISOString() : '');
+      if (isFinal) await addPricingIntelRecord(pricingRecordFromAction(selectedWorkspaceAction), true);
       renderWorkspaceTools();
       document.getElementById('workspace-message').textContent = isFinal
         ? 'Action completed and moved out of the open queue.'
@@ -6520,6 +7701,12 @@ ${action.evidence}`
       };
     }
 
+    function extractNoticeWindowDays(text) {
+      const match = String(text || '').match(/(\d{2,3})\s*(?:day|days)[^\n]{0,40}(?:notice|prior|before)/i)
+        || String(text || '').match(/(?:notice|prior|before)[^\n]{0,40}(\d{2,3})\s*(?:day|days)/i);
+      return match ? Number(match[1]) : 90;
+    }
+
     function buildAnalysis(client, category, file) {
       const vendor = inferVendorName(file.name, category);
       const lowerText = selectedContractText.toLowerCase();
@@ -6578,6 +7765,14 @@ ${action.evidence}`
           hasBaseline: costMath.hasBaseline,
           managedAction: topFinding?.action || profile.managedAction
         },
+        lifecycle: {
+          renewalDate: renewalDate || 'Needs review',
+          noticeWindowDays: extractNoticeWindowDays(selectedContractText),
+          escalationClause: hasEscalation ? 'Escalation language detected' : 'Needs review',
+          autoRenew: hasAutoRenew,
+          terminationLanguage: hasTermination,
+          marketWatch: category === 'Payment processing'
+        },
         terms: termRows,
         opportunities: [
           ['Potential variance found', costMath.hasBaseline
@@ -6613,6 +7808,19 @@ ${action.evidence}`
         sourceUploadId: uploadId,
         costMathHeadline: analysis.costMath.headline,
         costMathRows: analysis.costMath.rows,
+        ledger: {
+          actualCost: analysis.engine.actualCost || 0,
+          expectedCost: analysis.engine.expectedCost || 0,
+          potentialVariance: analysis.engine.leakage || 0,
+          hasBaseline: analysis.engine.hasBaseline,
+          baselineSource: currentParsedDocument?.expectedBaselineBasis || 'No evidence-based baseline was found in the processed document.',
+          formula: analysis.costMath.headline,
+          entitlementSource: analysis.engine.hasBaseline ? 'Document-supported baseline' : 'Contract, rate card, quote, prior invoice, or usage schedule needed',
+          usageSignal: analysis.engine.profile?.usageUnit ? `Normalized to annual ${analysis.engine.profile.usageUnit}` : 'Normalized to annual run-rate',
+          confidence: analysis.engine.confidence,
+          evidenceStatus: analysis.engine.hasBaseline ? 'Document-supported' : 'Needs baseline',
+          stage: analysis.engine.hasBaseline ? 'Variance detected' : 'Needs baseline'
+        },
         createdAt: new Date().toISOString()
       };
       if (!analysis.findings.length) {
@@ -6630,6 +7838,14 @@ ${action.evidence}`
       }
       return analysis.findings.slice(0, 5).map((finding, index) => ({
         ...base,
+        ledger: {
+          ...base.ledger,
+          varianceType: finding.type,
+          potentialVariance: finding.amount,
+          playbook: finding.action,
+          confidence: finding.confidence || analysis.engine.confidence,
+          stage: 'Variance detected'
+        },
         id: actionIdFromParts([sourceKey, client, category, finding.type, index]),
         title: finding.type,
         description: finding.evidence,
@@ -6639,6 +7855,61 @@ ${action.evidence}`
         nextStep: finding.action,
         evidence: finding.evidence
       }));
+    }
+
+    function lifecycleContractFromAnalysis(analysis, details = {}) {
+      const client = details.client || document.getElementById('analysis-client')?.value || 'Client from upload';
+      const category = details.category || document.getElementById('analysis-category')?.value || 'Other';
+      const file = details.file || selectedContractFile || {};
+      const lifecycle = analysis.lifecycle || {};
+      return {
+        id: actionIdFromParts([client, analysis.vendor, category, 'lifecycle']),
+        client,
+        vendor: analysis.vendor,
+        category,
+        source: file.name || 'Processed document',
+        sourceUploadId: details.uploadId || '',
+        renewalDate: lifecycle.renewalDate || analysis.renewalDate || 'Needs review',
+        noticeWindowDays: Number(lifecycle.noticeWindowDays) || 90,
+        noticeDeadline: parseLifecycleDate(lifecycle.renewalDate || analysis.renewalDate)
+          ? formatLifecycleDate(addDays(parseLifecycleDate(lifecycle.renewalDate || analysis.renewalDate), -(Number(lifecycle.noticeWindowDays) || 90)))
+          : 'Needs review',
+        escalationClause: lifecycle.escalationClause || 'Needs review',
+        autoRenew: Boolean(lifecycle.autoRenew),
+        marketWatch: Boolean(lifecycle.marketWatch),
+        annualValue: formatMoney(analysis.engine.actualCost || 0),
+        savings: analysis.engine.hasBaseline ? formatMoney(analysis.engine.leakage || 0) : 'TBD',
+        risk: analysis.renewalDate || lifecycle.autoRenew || lifecycle.escalationClause !== 'Needs review' ? 'Medium' : 'Unreviewed',
+        status: analysis.renewalDate || lifecycle.autoRenew || lifecycle.marketWatch ? 'Monitored' : 'Needs source file',
+        owner: 'Rebecca',
+        updatedAt: new Date().toISOString(),
+        createdAt: new Date().toISOString()
+      };
+    }
+
+    async function addLifecycleContract(contract, persist = true) {
+      if (!contract) return null;
+      const identity = lifecycleIdentity(contract);
+      const existingIndex = operatorContracts.findIndex(item => item.id === contract.id || lifecycleIdentity(item) === identity);
+      if (existingIndex >= 0) {
+        operatorContracts[existingIndex] = { ...operatorContracts[existingIndex], ...contract, id: operatorContracts[existingIndex].id };
+      } else {
+        operatorContracts.unshift(contract);
+      }
+      renderContractLifecycle();
+      renderOperatorDashboard();
+      if (persist) {
+        const result = await apiRequest('/api/contracts', {
+          method: 'POST',
+          body: JSON.stringify(contract)
+        });
+        if (result?.contracts) {
+          operatorContracts = result.contracts;
+          renderContractLifecycle();
+          renderOperatorDashboard();
+        }
+      }
+      return contract;
     }
 
     async function addWorkspaceActions(actions, persist = true) {
@@ -6654,6 +7925,9 @@ ${action.evidence}`
         }
       });
       renderActionWorkspace();
+      renderCostLedger();
+      renderContractLifecycle();
+      renderPricingIntelligence();
       renderOperatorDashboard();
       if (persist) {
         for (const action of incoming) {
@@ -6773,6 +8047,155 @@ ${action.evidence}`
       if (error) error.textContent = '';
     }
 
+    function showBenchmarkReport() {
+      const main = document.getElementById('auth-login');
+      const teamScreen = document.getElementById('team-credential-screen');
+      const screen = document.getElementById('benchmark-screen');
+      const result = document.getElementById('benchmark-result');
+      if (main) main.hidden = true;
+      if (teamScreen) teamScreen.hidden = true;
+      if (screen) screen.hidden = false;
+      if (result) {
+        result.hidden = true;
+        result.innerHTML = '';
+      }
+      document.getElementById('benchmark-card-volume')?.focus();
+    }
+
+    function hideBenchmarkReport() {
+      const main = document.getElementById('auth-login');
+      const screen = document.getElementById('benchmark-screen');
+      const result = document.getElementById('benchmark-result');
+      if (screen) screen.hidden = true;
+      if (main) main.hidden = false;
+      if (result) {
+        result.hidden = true;
+        result.innerHTML = '';
+      }
+    }
+
+    function benchmarkVolumeTier(volume) {
+      if (volume >= 10000000) return 'Over $10M';
+      if (volume >= 3000000) return '$3M - $10M';
+      if (volume >= 1000000) return '$1M - $3M';
+      if (volume >= 500000) return '$500K - $1M';
+      return 'Under $500K';
+    }
+
+    function benchmarkRegionAdjustment(region) {
+      const adjustments = {
+        'Northeast': 0.0005,
+        'West Coast': 0.0005,
+        'Midwest': -0.0004,
+        'Southeast': -0.0002,
+        'Southwest': -0.0001,
+        'National': -0.0006
+      };
+      return adjustments[region] || 0;
+    }
+
+    function benchmarkProcessorRate(volume, region, locations) {
+      let baseRate = 0.0285;
+      if (volume >= 15000000) baseRate = 0.0215;
+      else if (volume >= 5000000) baseRate = 0.0235;
+      else if (volume >= 1000000) baseRate = 0.0255;
+      else if (volume >= 500000) baseRate = 0.0275;
+      const groupAdjustment = locations >= 10 ? -0.001 : locations >= 5 ? -0.0005 : 0;
+      const tier = benchmarkVolumeTier(volume);
+      const networkRates = pricingRecords()
+        .filter(record => record.category === 'Payment processing')
+        .filter(record => record.annualVolume > 0 && record.settledCost > 0)
+        .filter(record => record.volumeTier === tier)
+        .filter(record => record.region === region || record.region === 'National')
+        .map(record => record.settledCost / record.annualVolume)
+        .filter(rate => rate > 0.01 && rate < 0.05);
+      const networkRate = median(networkRates);
+      return Math.max(0.0175, networkRate || baseRate + benchmarkRegionAdjustment(region) + groupAdjustment);
+    }
+
+    function benchmarkFoodOpportunityRate(foodSpend, locations, region) {
+      const tier = benchmarkVolumeTier(foodSpend);
+      const networkSavings = pricingRecords()
+        .filter(record => /food|broadline|distributor/i.test(record.category || record.vendor || ''))
+        .filter(record => record.volumeTier === tier)
+        .filter(record => record.region === region || record.region === 'National')
+        .map(record => record.savingsRate)
+        .filter(rate => rate > 0 && rate < 0.15);
+      const networkRate = median(networkSavings);
+      if (networkRate) return networkRate;
+      let rate = 0.018;
+      if (foodSpend >= 10000000) rate = 0.038;
+      else if (foodSpend >= 3000000) rate = 0.032;
+      else if (foodSpend >= 1000000) rate = 0.026;
+      if (locations >= 10) rate += 0.004;
+      else if (locations >= 5) rate += 0.002;
+      return rate;
+    }
+
+    function parseBenchmarkRate(value) {
+      const raw = String(value || '').trim();
+      const parsed = parseMoney(raw);
+      if (!parsed) return 0;
+      if (parsed < 1 && !raw.includes('%')) return parsed;
+      return parsed / 100;
+    }
+
+    function benchmarkStatus(rateGap) {
+      if (rateGap >= 0.004) return { label: 'Above market', className: 'badge-danger' };
+      if (rateGap >= 0.0015) return { label: 'Likely above market', className: 'badge-warning' };
+      if (rateGap >= -0.001) return { label: 'Near market', className: 'badge-info' };
+      return { label: 'Below market', className: 'badge-success' };
+    }
+
+    function runBenchmarkReport(event) {
+      event.preventDefault();
+      const result = document.getElementById('benchmark-result');
+      if (!result) return;
+      const groupName = document.getElementById('benchmark-group')?.value?.trim() || 'Your group';
+      const region = document.getElementById('benchmark-region')?.value || 'Mid-Atlantic';
+      const locations = Math.max(1, Math.round(parseMoney(document.getElementById('benchmark-locations')?.value) || 1));
+      const cardVolume = parseMoney(document.getElementById('benchmark-card-volume')?.value);
+      const currentRate = parseBenchmarkRate(document.getElementById('benchmark-current-rate')?.value);
+      const foodSpend = parseMoney(document.getElementById('benchmark-food-spend')?.value);
+      if (!cardVolume || !currentRate || !foodSpend) {
+        result.hidden = false;
+        result.innerHTML = '<div class="empty-state">Enter card volume, processor rate, and food spend to run the benchmark.</div>';
+        return;
+      }
+      const marketRate = benchmarkProcessorRate(cardVolume, region, locations);
+      const processorGap = currentRate - marketRate;
+      const processorOpportunity = Math.max(0, cardVolume * processorGap);
+      const foodRate = benchmarkFoodOpportunityRate(foodSpend, locations, region);
+      const foodOpportunity = foodSpend * foodRate;
+      const totalOpportunity = processorOpportunity + foodOpportunity;
+      const status = benchmarkStatus(processorGap);
+      const marketSource = pricingRecords().some(record => record.category === 'Payment processing') ? 'Larder closed-deal intelligence plus regional priors' : 'Regional market priors';
+      result.hidden = false;
+      result.innerHTML = `
+        <div class="benchmark-verdict">
+          <div>
+            <span class="badge ${status.className}">${status.label}</span>
+            <p>${escapeHtml(groupName)} is benchmarked as a ${locations}-location ${escapeHtml(region)} operator. This is a no-document screen; the next step is statement review before Larder makes a claim.</p>
+          </div>
+          <strong>${formatMoney(totalOpportunity)}/yr</strong>
+        </div>
+        <div class="report-facts">
+          <div class="report-fact"><span>Processor market range</span><strong>${(marketRate * 100).toFixed(2)}%</strong></div>
+          <div class="report-fact"><span>Entered processor rate</span><strong>${(currentRate * 100).toFixed(2)}%</strong></div>
+          <div class="report-fact"><span>Card volume gap</span><strong>${formatMoney(processorOpportunity)}</strong></div>
+          <div class="report-fact"><span>Food spend opportunity</span><strong>${formatMoney(foodOpportunity)}</strong></div>
+        </div>
+        <div class="portal-message">
+          <strong>Benchmark mechanism</strong>
+          <p>${escapeHtml(marketSource)} mapped to region, volume tier, and location count. Prospect inputs stay out of the pricing intelligence database until Larder verifies a closed vendor outcome.</p>
+        </div>
+        <div class="team-login-actions">
+          <button class="btn btn-primary" type="button" onclick="signIn('client')"><i class="ti ti-file-upload"></i> Start full review</button>
+          <button class="btn" type="button" onclick="startProductDemo()"><i class="ti ti-presentation-analytics"></i> See workflow</button>
+        </div>
+      `;
+    }
+
     function showPage(name) {
       if (currentUser?.role === 'demo') {
         name = 'demo';
@@ -6791,6 +8214,10 @@ ${action.evidence}`
         const action = item.getAttribute('onclick') || '';
         if (action.includes("'" + name + "'")) item.classList.add('active');
       });
+      if (name === 'ledger') renderCostLedger();
+      if (name === 'lifecycle') renderContractLifecycle();
+      if (name === 'pricing') renderPricingIntelligence();
+      if (name === 'clientapprovals') updateApprovalStatus(false);
     }
 
     function switchView(view) {
@@ -6814,7 +8241,7 @@ ${action.evidence}`
           ...currentUser,
           name: CLIENT_PORTAL_NAME,
           clientName: CLIENT_PORTAL_NAME,
-          roleLabel: currentUser.roleLabel || 'Client Portal'
+          roleLabel: currentUser.roleLabel || 'Group Portal'
         };
       }
       document.body.classList.remove('auth-view', 'operator-role', 'client-role', 'demo-role', 'operator-view', 'client-view');
@@ -6871,6 +8298,7 @@ ${action.evidence}`
       currentUser = null;
       document.body.className = 'auth-view operator-view';
       hideTeamLogin();
+      hideBenchmarkReport();
       document.querySelectorAll('.view-option').forEach(option => {
         option.classList.toggle('active', option.dataset.viewOption === 'operator');
       });
@@ -6880,14 +8308,14 @@ ${action.evidence}`
     }
 
     async function toggleApproval(button) {
-      const approved = !button.classList.contains('btn-primary');
-      button.classList.toggle('btn-primary', approved);
-      button.textContent = approved ? 'Approved' : 'Approve';
+      const key = button.dataset.approval;
+      const approved = !clientApprovalState[key];
+      clientApprovalState[key] = approved;
       updateApprovalStatus();
       await apiRequest('/api/client/approvals', {
         method: 'POST',
         body: JSON.stringify({
-          approval: button.dataset.approval,
+          approval: key,
           approved
         })
       });
@@ -6898,32 +8326,70 @@ ${action.evidence}`
         savings: '$252K',
         title: 'Authorize payment processor RFP',
         description: 'Larder is sending the processor RFP, managing vendor responses, and comparing proposals.',
-        handle: 'RFP outreach'
+        handle: 'RFP outreach',
+        send: 'Processor RFP with card volume, current effective rate, fee categories, and implementation questions.',
+        recipient: 'Three restaurant-focused processors and the current processor relationship lead.',
+        byWhen: 'Within 1 business day after approval.',
+        expect: 'Vendors may ask for recent statements or POS gateway details. Larder will answer routine pricing questions and bring back only material decisions.'
       },
       distributor: {
         savings: '$181K',
         title: 'Send distributor notice and begin renegotiation',
         description: 'Larder is preparing notice, contacting the vendor, and managing follow-up.',
-        handle: 'Notice + outreach'
+        handle: 'Notice + outreach',
+        send: 'Notice and renegotiation request covering price-file transparency, rebates, review rights, and escalation cap.',
+        recipient: 'Current food distributor account manager and contract contact.',
+        byWhen: 'Before the notice window closes; same day if the deadline is inside 30 days.',
+        expect: 'The distributor may call to preserve the relationship. Larder will keep the tone commercial and summarize any counteroffer before committing.'
       },
       waste: {
         savings: '$40K',
         title: 'Approve waste volume review',
         description: 'Larder is requesting invoice detail, reconciling volume, and preparing a consolidated rate request.',
-        handle: 'Data request'
+        handle: 'Data request',
+        send: 'Document request for invoices, pickup schedules, container sizes, contamination fees, and compactor charges.',
+        recipient: 'Internal location managers first, then the waste provider if vendor confirmation is needed.',
+        byWhen: 'Within 2 business days after approval.',
+        expect: 'Operators may need to forward site-level invoices. Larder reconciles the schedule before contacting the vendor.'
       }
     };
 
-    function updateApprovalStatus(syncReport = true) {
-      const buttons = [...document.querySelectorAll('.approval-btn')];
-      const approvedKeys = buttons
-        .filter(button => button.classList.contains('btn-primary'))
-        .map(button => button.dataset.approval);
+    function approvalPreviewMarkup(item) {
+      return `
+        <div class="approval-preview">
+          <div><span>What Larder sends</span><b>${escapeHtml(item.send)}</b></div>
+          <div><span>To whom</span><b>${escapeHtml(item.recipient)}</b></div>
+          <div><span>By when</span><b>${escapeHtml(item.byWhen)}</b></div>
+          <div><span>Operator should expect</span><b>${escapeHtml(item.expect)}</b></div>
+        </div>
+      `;
+    }
 
-      buttons.forEach(button => {
-        const row = document.querySelector(`[data-approval-row="${button.dataset.approval}"]`);
-        if (row) row.hidden = button.classList.contains('btn-primary');
-      });
+    function updateApprovalStatus(syncReport = true) {
+      const approvalKeys = Object.keys(approvalItems);
+      const approvedKeys = approvalKeys.filter(key => clientApprovalState[key]);
+      const pendingKeys = approvalKeys.filter(key => !clientApprovalState[key]);
+      const pendingList = document.getElementById('pending-actions-list');
+      const pendingCountLabel = document.getElementById('pending-actions-count');
+      const clientApprovalNeededCount = document.getElementById('client-approval-needed-count');
+      if (clientApprovalNeededCount) clientApprovalNeededCount.textContent = pendingKeys.length;
+      if (pendingList && pendingCountLabel) {
+        pendingCountLabel.textContent = pendingKeys.length === 1 ? '1 pending' : `${pendingKeys.length} pending`;
+        pendingList.innerHTML = pendingKeys.map(key => {
+          const item = approvalItems[key];
+          return `
+            <div class="approval-row" data-approval-row="${key}">
+              <div>
+                <strong>${item.savings}</strong>
+                <p>${item.title}</p>
+                <span class="card-meta">${item.description}</span>
+                ${approvalPreviewMarkup(item)}
+              </div>
+              <button class="btn btn-primary approval-btn" data-approval="${key}" onclick="toggleApproval(this)">Approve Larder to send</button>
+            </div>
+          `;
+        }).join('') || '<div class="empty-state">No pending approvals. Larder is managing the approved vendor work.</div>';
+      }
 
       const approvedCount = approvedKeys.length;
       const approvedCard = document.getElementById('approved-actions-card');
@@ -6940,6 +8406,7 @@ ${action.evidence}`
                 <strong>${item.savings}</strong>
                 <p>${item.title}</p>
                 <span class="card-meta">${item.description}</span>
+                ${approvalPreviewMarkup(item)}
                 <div class="approval-impact"><div><span>Status</span><b>Approved</b></div><div><span>Larder handles</span><b>${item.handle}</b></div><div><span>Next update</span><b>Vendor response</b></div></div>
               </div>
               <span class="badge badge-success">Approved</span>
@@ -7036,7 +8503,7 @@ ${action.evidence}`
       if (count) count.textContent = `${openQuestions} open`;
       if (!operatorThread) return;
       if (!clientQuestions.length) {
-        operatorThread.innerHTML = '<div class="empty-state">No client messages yet.</div>';
+        operatorThread.innerHTML = '<div class="empty-state">No group messages yet.</div>';
         return;
       }
       operatorThread.innerHTML = clientQuestions.map(question => `
@@ -7128,7 +8595,7 @@ ${action.evidence}`
       if (uploadCount) uploadCount.textContent = String(clientUploadedFiles.length);
       renderDocumentClientFilter();
       if (clientUploadedFiles.length === 0) {
-        list.innerHTML = '<div class="empty-state">No Main Street Bistro files uploaded yet. Upload one file or a batch of vendor documents to start the review.</div>';
+        list.innerHTML = '<div class="empty-state">No group files uploaded yet. Upload one file or a batch of vendor documents to start the review.</div>';
         renderIntakeQueue();
         renderReviewedDocumentFolders();
         renderOperatorDashboard();
@@ -7198,8 +8665,14 @@ ${action.evidence}`
 	        uploadId: file.id || ''
 	      });
 	      await addWorkspaceActions(actions, true);
+	      await addLifecycleContract(lifecycleContractFromAnalysis(analysis, {
+	        client: file.client,
+	        category: file.category,
+	        file: selectedContractFile,
+	        uploadId: file.id || ''
+	      }), true);
 	      document.getElementById('file-name').textContent = file.name;
-      document.getElementById('file-meta').textContent = `${formatFileSize(file.size)} - client-submitted document`;
+      document.getElementById('file-meta').textContent = `${formatFileSize(file.size)} - group-submitted document`;
       document.getElementById('file-summary').classList.add('show');
 	      setUploadMessage(selectedContractText
 	        ? `${file.name} is parsed and ${actions.length} workspace ${actions.length === 1 ? 'action was' : 'actions were'} created.`
@@ -7301,8 +8774,8 @@ ${action.evidence}`
         list.innerHTML = `
           <div class="focus-item">
             <div>
-              <p>No client-submitted files yet</p>
-              <span>Clients upload source documents in the Documents tab. Operators can add files manually below if something arrives outside the portal.</span>
+              <p>No group-submitted files yet</p>
+              <span>Groups upload source documents in the Documents tab. Operators can add files manually below if something arrives outside the portal.</span>
             </div>
             <button class="btn btn-mini" onclick="showPage('clients')">Clients</button>
           </div>
@@ -7317,7 +8790,7 @@ ${action.evidence}`
               <p>No files for ${escapeHtml(clientLabel)}</p>
               <span>Switch clients, or ask the client to upload invoices, contracts, rate cards, quotes, and renewal notices.</span>
             </div>
-            <button class="btn btn-mini" onclick="setDocumentClientFilter('all')">All clients</button>
+            <button class="btn btn-mini" onclick="setDocumentClientFilter('all')">All groups</button>
           </div>
         `;
         return;
@@ -7328,7 +8801,7 @@ ${action.evidence}`
           <div class="focus-item">
             <div>
               <p>No files need review for ${escapeHtml(clientLabel)}</p>
-              <span>Reviewed files have moved into the client folders below.</span>
+              <span>Reviewed files have moved into the group folders below.</span>
             </div>
             <span class="badge badge-success">Up to date</span>
           </div>
@@ -7396,6 +8869,11 @@ ${action.evidence}`
         analyzing.classList.remove('show');
         renderAnalysis(analysis, client, category, selectedContractFile);
         addWorkspaceActions(workspaceActionsFromAnalysis(analysis, {
+          client,
+          category,
+          file: selectedContractFile
+        }), true);
+        addLifecycleContract(lifecycleContractFromAnalysis(analysis, {
           client,
           category,
           file: selectedContractFile

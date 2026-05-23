@@ -14,6 +14,7 @@ const initialStore = {
   clients: [],
   contracts: [],
   actions: [],
+  pricingIntel: [],
   approvals: {},
   questions: [],
   documents: [],
@@ -22,7 +23,7 @@ const initialStore = {
 
 const users = {
   operator: { name: 'Rebecca Hirschfeld', roleLabel: 'Larder team', role: 'operator' },
-  client: { name: 'Main Street Bistro', roleLabel: 'Client Portal', role: 'client', clientKey: 'client1', clientName: 'Main Street Bistro' },
+  client: { name: 'Main Street Hospitality Group', roleLabel: 'Group Portal', role: 'client', clientKey: 'client1', clientName: 'Main Street Hospitality Group' },
   demo: { name: 'Product walkthrough', roleLabel: 'Product walkthrough', role: 'demo' }
 };
 
@@ -136,6 +137,90 @@ async function handleApi(req, res) {
     return send(res, 200, { contracts: store.contracts || [] });
   }
 
+  if (req.method === 'GET' && url.pathname === '/api/pricing-intel') {
+    const store = await readStore();
+    return send(res, 200, { pricingIntel: store.pricingIntel || [] });
+  }
+
+  if (req.method === 'POST' && url.pathname === '/api/pricing-intel') {
+    const store = await readStore();
+    const body = await readJson(req);
+    const record = {
+      id: body.id || crypto.randomUUID(),
+      sourceActionId: String(body.sourceActionId || ''),
+      source: String(body.source || 'Closed action'),
+      client: String(body.client || 'Client from upload'),
+      vendor: String(body.vendor || 'Vendor'),
+      category: String(body.category || 'Other'),
+      region: String(body.region || 'Mid-Atlantic'),
+      volumeTier: String(body.volumeTier || ''),
+      annualVolume: Number(body.annualVolume) || 0,
+      incumbentCost: Number(body.incumbentCost) || 0,
+      settledCost: Number(body.settledCost) || 0,
+      savings: Number(body.savings) || 0,
+      savingsRate: Number(body.savingsRate) || 0,
+      rateLabel: String(body.rateLabel || ''),
+      confidence: String(body.confidence || 'Closed'),
+      closedAt: body.closedAt || new Date().toISOString(),
+      createdAt: body.createdAt || new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
+    store.pricingIntel ||= [];
+    const existingIndex = store.pricingIntel.findIndex(item =>
+      item.id === record.id ||
+      (record.sourceActionId && item.sourceActionId === record.sourceActionId)
+    );
+    if (existingIndex >= 0) {
+      store.pricingIntel[existingIndex] = { ...store.pricingIntel[existingIndex], ...record, id: store.pricingIntel[existingIndex].id };
+    } else {
+      store.pricingIntel.unshift(record);
+    }
+    await writeStore(store);
+    return send(res, 201, { record, pricingIntel: store.pricingIntel });
+  }
+
+  if (req.method === 'POST' && url.pathname === '/api/contracts') {
+    const store = await readStore();
+    const body = await readJson(req);
+    const contract = {
+      id: body.id || crypto.randomUUID(),
+      client: String(body.client || 'Unassigned client'),
+      vendor: String(body.vendor || 'Vendor'),
+      category: String(body.category || 'Uncategorized'),
+      source: String(body.source || ''),
+      sourceUploadId: String(body.sourceUploadId || ''),
+      uploadId: String(body.uploadId || body.sourceUploadId || ''),
+      uploadUrl: String(body.uploadUrl || ''),
+      status: String(body.status || 'Monitored'),
+      renewalDate: String(body.renewalDate || 'Needs review'),
+      noticeWindowDays: Number(body.noticeWindowDays) || 90,
+      noticeDeadline: String(body.noticeDeadline || 'Needs review'),
+      escalationClause: String(body.escalationClause || 'Needs review'),
+      autoRenew: Boolean(body.autoRenew),
+      marketWatch: Boolean(body.marketWatch),
+      annualValue: String(body.annualValue || 'Needs review'),
+      risk: String(body.risk || 'Unreviewed'),
+      savings: String(body.savings || 'TBD'),
+      owner: String(body.owner || 'Unassigned'),
+      createdAt: body.createdAt || new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
+    store.contracts ||= [];
+    const identity = [contract.client, contract.vendor, contract.category]
+      .map(value => String(value || '').trim().toLowerCase()).join('::');
+    const existingIndex = store.contracts.findIndex(item =>
+      item.id === contract.id ||
+      [item.client, item.vendor, item.category].map(value => String(value || '').trim().toLowerCase()).join('::') === identity
+    );
+    if (existingIndex >= 0) {
+      store.contracts[existingIndex] = { ...store.contracts[existingIndex], ...contract, id: store.contracts[existingIndex].id };
+    } else {
+      store.contracts.unshift(contract);
+    }
+    await writeStore(store);
+    return send(res, 201, { contract, contracts: store.contracts });
+  }
+
   if (req.method === 'POST' && url.pathname === '/api/clients') {
     const store = await readStore();
     const body = await readJson(req);
@@ -145,6 +230,8 @@ async function handleApi(req, res) {
       id: crypto.randomUUID(),
       name,
       profile: String(body.profile || '').trim(),
+      locationCount: String(body.locationCount || '1').trim(),
+      region: String(body.region || 'Mid-Atlantic').trim(),
       contactName: String(body.contactName || '').trim(),
       contactEmail: String(body.contactEmail || '').trim(),
       spendRange: String(body.spendRange || '').trim(),
@@ -174,6 +261,8 @@ async function handleApi(req, res) {
     Object.assign(client, {
       name,
       profile: String(body.profile || '').trim(),
+      locationCount: String(body.locationCount || '1').trim(),
+      region: String(body.region || 'Mid-Atlantic').trim(),
       contactName: String(body.contactName || '').trim(),
       contactEmail: String(body.contactEmail || '').trim(),
       spendRange: String(body.spendRange || '').trim(),
@@ -218,6 +307,7 @@ async function handleApi(req, res) {
       sourceUploadId: String(body.sourceUploadId || ''),
       costMathHeadline: String(body.costMathHeadline || ''),
       costMathRows: Array.isArray(body.costMathRows) ? body.costMathRows : [],
+      ledger: body.ledger && typeof body.ledger === 'object' ? body.ledger : {},
       createdAt: body.createdAt || new Date().toISOString(),
       updatedAt: new Date().toISOString()
     };
@@ -320,6 +410,11 @@ async function handleApi(req, res) {
       owner: body.owner || contract.owner,
       risk: body.risk || contract.risk,
       renewalDate: body.renewalDate || contract.renewalDate,
+      noticeWindowDays: body.noticeWindowDays || contract.noticeWindowDays,
+      noticeDeadline: body.noticeDeadline || contract.noticeDeadline,
+      escalationClause: body.escalationClause || contract.escalationClause,
+      autoRenew: body.autoRenew !== undefined ? Boolean(body.autoRenew) : contract.autoRenew,
+      marketWatch: body.marketWatch !== undefined ? Boolean(body.marketWatch) : contract.marketWatch,
       annualValue: body.annualValue || contract.annualValue,
       savings: body.savings || contract.savings,
       updatedAt: new Date().toISOString()
@@ -360,6 +455,11 @@ async function handleApi(req, res) {
         uploadUrl: upload.url,
         status: 'Uploaded',
         renewalDate: 'Needs review',
+        noticeWindowDays: 90,
+        noticeDeadline: 'Needs review',
+        escalationClause: 'Needs review',
+        autoRenew: false,
+        marketWatch: upload.category === 'Payment processing',
         annualValue: 'Needs review',
         risk: 'Unreviewed',
         savings: 'TBD',
