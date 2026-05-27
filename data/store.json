@@ -2,6 +2,95 @@
   "reports": {},
   "clients": [
     {
+      "id": "0c570ab6-1ca1-41c9-9ea6-0d952c7c71d3",
+      "name": "Restaurant group",
+      "profile": "10-location benchmark lead",
+      "locationCount": "10",
+      "region": "Mid-Atlantic",
+      "contactName": "",
+      "contactEmail": "rmh@group.com",
+      "spendRange": "$3M - $10M",
+      "monthlyRate": "$9,000",
+      "categories": [
+        "Food distribution",
+        "Payment processing"
+      ],
+      "notes": "Free benchmark: $140,000/yr directional opportunity. Card volume $6,000,000, processing fees $200,000 (3.33%), food spend $2,500,000.",
+      "status": "Benchmark complete",
+      "createdAt": "2026-05-25T20:30:29.368Z",
+      "updatedAt": "2026-05-25T20:32:46.641Z"
+    },
+    {
+      "id": "sample-atlas-hospitality-group",
+      "name": "Atlas Hospitality Group",
+      "profile": "12-location premium casual group",
+      "locationCount": "12",
+      "region": "Northeast",
+      "contactName": "Mara Ellison",
+      "contactEmail": "mara@atlashospitality.example",
+      "spendRange": "Over $10M",
+      "monthlyRate": "$15,000",
+      "categories": [
+        "Food distribution",
+        "Payment processing",
+        "Produce",
+        "Proteins & seafood",
+        "Linen & uniforms",
+        "Waste management",
+        "POS & delivery platforms"
+      ],
+      "notes": "High-volume group with shared distributor, processor, linen, and waste vendors across urban locations. Strong fit for lifecycle monitoring and pricing intelligence.",
+      "status": "Actions ready",
+      "createdAt": "2026-05-23T14:15:00.000Z",
+      "updatedAt": "2026-05-23T14:41:00.000Z"
+    },
+    {
+      "id": "sample-maison-verre",
+      "name": "Maison Verre",
+      "profile": "Premium fine dining operator",
+      "locationCount": "2",
+      "region": "Mid-Atlantic",
+      "contactName": "Elena Roth",
+      "contactEmail": "elena@maisonverre.example",
+      "spendRange": "$3M - $10M",
+      "monthlyRate": "$9,000",
+      "categories": [
+        "Food distribution",
+        "Proteins & seafood",
+        "Beverage",
+        "Linen & uniforms",
+        "Pest control",
+        "Equipment maintenance"
+      ],
+      "notes": "Premium restaurant with high ingredient standards, frequent specialty ordering, and enough vendor spend to justify hands-on review.",
+      "status": "In intake",
+      "createdAt": "2026-05-23T14:16:00.000Z",
+      "updatedAt": "2026-05-23T14:41:00.000Z"
+    },
+    {
+      "id": "sample-northstar-dining-collective",
+      "name": "Northstar Dining Collective",
+      "profile": "8-location neighborhood restaurant group",
+      "locationCount": "8",
+      "region": "Southeast",
+      "contactName": "Priya Raman",
+      "contactEmail": "priya@northstardining.example",
+      "spendRange": "$3M - $10M",
+      "monthlyRate": "$9,000",
+      "categories": [
+        "Food distribution",
+        "Payment processing",
+        "Waste management",
+        "Janitorial supplies",
+        "Smallwares",
+        "POS & delivery platforms"
+      ],
+      "notes": "Good fit for shared-vendor leverage, card processing benchmark, and waste schedule review across locations.",
+      "status": "In intake",
+      "createdAt": "2026-05-23T14:17:00.000Z",
+      "updatedAt": "2026-05-23T14:41:00.000Z"
+    },
+    {
       "id": "ef8f4259-8787-43dc-bf67-768de2a770f5",
       "name": "Harbor Lane Cafe",
       "profile": "Cafe",
@@ -9,7 +98,6 @@
       "contactEmail": "chad@hlc.com",
       "spendRange": "$500K - $1M",
       "monthlyRate": "$1,500",
-      "successFeeRate": "",
       "categories": [
         "Food distribution",
         "Payment processing",
@@ -49,6 +137,2904 @@
     }
   ],
   "actions": [
+    {
+      "id": "sample-upload-northstar-processor-northstar-dining-collective-payment-processing-collect-baseline-evidence",
+      "client": "Northstar Dining Collective",
+      "vendor": "03-payment-processor-statement-northstar-payments.pdf",
+      "category": "Payment processing",
+      "title": "Collect baseline evidence for 03-payment-processor-statement-northstar-payments.pdf",
+      "description": "The file was parsed, but it did not contain enough baseline evidence to calculate potential variance.",
+      "savings": "Needs evidence",
+      "spend": "$0",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request the contract, agreed price file, rate card, quote, prior invoice, or usage schedule needed to calculate a document-supported baseline.",
+      "evidence": "No evidence-based baseline was found in this document. Upload the contract, agreed price file, rate card, prior invoice, quote, or usage schedule to calculate potential variance.",
+      "sourceFile": "03-payment-processor-statement-northstar-payments.pdf",
+      "sourceUploadId": "sample-upload-northstar-processor",
+      "costMathHeadline": "Actual processor cost is calculated, but no evidence baseline is available yet",
+      "costMathRows": [
+        [
+          "Card volume reviewed",
+          "$0"
+        ],
+        [
+          "Actual processor cost",
+          "$0"
+        ],
+        [
+          "True all-in rate",
+          "0.00%"
+        ],
+        [
+          "Evidence baseline source",
+          "No evidence-based baseline was found in this document. Upload the contract, agreed price file, rate card, prior invoice, quote, or usage schedule to calculate potential variance."
+        ],
+        [
+          "Expected processor cost",
+          "Not available"
+        ],
+        [
+          "Potential variance",
+          "Needs baseline evidence"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 0,
+        "expectedCost": 0,
+        "potentialVariance": 0,
+        "hasBaseline": false,
+        "baselineSource": "No evidence-based baseline was found in this document. Upload the contract, agreed price file, rate card, prior invoice, quote, or usage schedule to calculate potential variance.",
+        "formula": "Actual processor cost is calculated, but no evidence baseline is available yet",
+        "entitlementSource": "Contract, rate card, quote, prior invoice, or usage schedule needed",
+        "usageSignal": "Normalized to annual card volume",
+        "confidence": "Needs evidence",
+        "evidenceStatus": "Needs baseline",
+        "stage": "Needs baseline"
+      },
+      "createdAt": "2026-05-23T20:53:54.017Z",
+      "updatedAt": "2026-05-23T20:53:54.040Z"
+    },
+    {
+      "id": "sample-upload-northstar-janitorial-northstar-dining-collective-janitorial-supplies-collect-baseline-evidence",
+      "client": "Northstar Dining Collective",
+      "vendor": "12-janitorial-supplies-invoice-brightstock.pdf",
+      "category": "Janitorial supplies",
+      "title": "Collect baseline evidence for 12-janitorial-supplies-invoice-brightstock.pdf",
+      "description": "The file was parsed, but it did not contain enough baseline evidence to calculate potential variance.",
+      "savings": "Needs evidence",
+      "spend": "$0",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request the contract, agreed price file, rate card, quote, prior invoice, or usage schedule needed to calculate a document-supported baseline.",
+      "evidence": "No evidence-based baseline was found in this document. Upload the contract, agreed price file, rate card, prior invoice, quote, or usage schedule to calculate potential variance.",
+      "sourceFile": "12-janitorial-supplies-invoice-brightstock.pdf",
+      "sourceUploadId": "sample-upload-northstar-janitorial",
+      "costMathHeadline": "Actual all-in cost is calculated, but no evidence baseline is available yet",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$0"
+        ],
+        [
+          "Base charges",
+          "$0"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$0"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$0"
+        ],
+        [
+          "Evidence baseline source",
+          "No evidence-based baseline was found in this document. Upload the contract, agreed price file, rate card, prior invoice, quote, or usage schedule to calculate potential variance."
+        ],
+        [
+          "Expected janitorial cost",
+          "Not available"
+        ],
+        [
+          "Potential variance",
+          "Needs baseline evidence"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 0,
+        "expectedCost": 0,
+        "potentialVariance": 0,
+        "hasBaseline": false,
+        "baselineSource": "No evidence-based baseline was found in this document. Upload the contract, agreed price file, rate card, prior invoice, quote, or usage schedule to calculate potential variance.",
+        "formula": "Actual all-in cost is calculated, but no evidence baseline is available yet",
+        "entitlementSource": "Contract, rate card, quote, prior invoice, or usage schedule needed",
+        "usageSignal": "Normalized to annual approved SKU volume",
+        "confidence": "Needs evidence",
+        "evidenceStatus": "Needs baseline",
+        "stage": "Needs baseline"
+      },
+      "createdAt": "2026-05-23T20:53:53.703Z",
+      "updatedAt": "2026-05-23T20:53:53.718Z"
+    },
+    {
+      "id": "sample-upload-northstar-smallwares-northstar-dining-collective-smallwares-collect-baseline-evidence",
+      "client": "Northstar Dining Collective",
+      "vendor": "13-smallwares-order-invoice-marketline.pdf",
+      "category": "Smallwares",
+      "title": "Collect baseline evidence for 13-smallwares-order-invoice-marketline.pdf",
+      "description": "The file was parsed, but it did not contain enough baseline evidence to calculate potential variance.",
+      "savings": "Needs evidence",
+      "spend": "$0",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request the contract, agreed price file, rate card, quote, prior invoice, or usage schedule needed to calculate a document-supported baseline.",
+      "evidence": "No evidence-based baseline was found in this document. Upload the contract, agreed price file, rate card, prior invoice, quote, or usage schedule to calculate potential variance.",
+      "sourceFile": "13-smallwares-order-invoice-marketline.pdf",
+      "sourceUploadId": "sample-upload-northstar-smallwares",
+      "costMathHeadline": "Actual all-in cost is calculated, but no evidence baseline is available yet",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$0"
+        ],
+        [
+          "Base charges",
+          "$0"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$0"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$0"
+        ],
+        [
+          "Evidence baseline source",
+          "No evidence-based baseline was found in this document. Upload the contract, agreed price file, rate card, prior invoice, quote, or usage schedule to calculate potential variance."
+        ],
+        [
+          "Expected smallwares cost",
+          "Not available"
+        ],
+        [
+          "Potential variance",
+          "Needs baseline evidence"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 0,
+        "expectedCost": 0,
+        "potentialVariance": 0,
+        "hasBaseline": false,
+        "baselineSource": "No evidence-based baseline was found in this document. Upload the contract, agreed price file, rate card, prior invoice, quote, or usage schedule to calculate potential variance.",
+        "formula": "Actual all-in cost is calculated, but no evidence baseline is available yet",
+        "entitlementSource": "Contract, rate card, quote, prior invoice, or usage schedule needed",
+        "usageSignal": "Normalized to annual order guide usage",
+        "confidence": "Needs evidence",
+        "evidenceStatus": "Needs baseline",
+        "stage": "Needs baseline"
+      },
+      "createdAt": "2026-05-23T20:53:53.239Z",
+      "updatedAt": "2026-05-23T20:53:53.255Z"
+    },
+    {
+      "id": "sample-upload-maison-proteins-maison-verre-produce-savings-verification-3",
+      "client": "Maison Verre",
+      "vendor": "Atlantic Provisions - Proteins and Seafood Invoice",
+      "category": "Produce",
+      "title": "Savings verification",
+      "description": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "savings": "$89",
+      "spend": "$65,723",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Compare order-guide pricing and substitutions against weekly invoices.",
+      "evidence": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "sourceFile": "11-proteins-seafood-invoice-atlantic-provisions.pdf",
+      "sourceUploadId": "sample-upload-maison-proteins",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$65,723"
+        ],
+        [
+          "Base charges",
+          "$65,459"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$888"
+        ],
+        [
+          "Credits or rebates",
+          "$624"
+        ],
+        [
+          "Actual all-in cost",
+          "$65,723"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected produce cost",
+          "$64,835"
+        ],
+        [
+          "Potential variance",
+          "$888"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 65723,
+        "expectedCost": 64835,
+        "potentialVariance": 88.80000000000001,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual order volume",
+        "confidence": "Medium",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Savings verification",
+        "playbook": "Compare order-guide pricing and substitutions against weekly invoices."
+      },
+      "createdAt": "2026-05-23T19:41:32.666Z",
+      "updatedAt": "2026-05-23T19:41:32.693Z"
+    },
+    {
+      "id": "sample-upload-maison-proteins-maison-verre-produce-missing-rebate-or-credit-2",
+      "client": "Maison Verre",
+      "vendor": "Atlantic Provisions - Proteins and Seafood Invoice",
+      "category": "Produce",
+      "title": "Missing rebate or credit",
+      "description": "$624 in credits or rebates were entered; Larder still checks whether expected credits fully posted.",
+      "savings": "$160",
+      "spend": "$65,723",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile vendor credits, allowances, and prior overpayment recovery against invoices.",
+      "evidence": "$624 in credits or rebates were entered; Larder still checks whether expected credits fully posted.",
+      "sourceFile": "11-proteins-seafood-invoice-atlantic-provisions.pdf",
+      "sourceUploadId": "sample-upload-maison-proteins",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$65,723"
+        ],
+        [
+          "Base charges",
+          "$65,459"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$888"
+        ],
+        [
+          "Credits or rebates",
+          "$624"
+        ],
+        [
+          "Actual all-in cost",
+          "$65,723"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected produce cost",
+          "$64,835"
+        ],
+        [
+          "Potential variance",
+          "$888"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 65723,
+        "expectedCost": 64835,
+        "potentialVariance": 159.84,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual order volume",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Missing rebate or credit",
+        "playbook": "Reconcile vendor credits, allowances, and prior overpayment recovery against invoices."
+      },
+      "createdAt": "2026-05-23T19:41:32.666Z",
+      "updatedAt": "2026-05-23T19:41:32.690Z"
+    },
+    {
+      "id": "sample-upload-maison-proteins-maison-verre-produce-invoice-price-mismatch-1",
+      "client": "Maison Verre",
+      "vendor": "Atlantic Provisions - Proteins and Seafood Invoice",
+      "category": "Produce",
+      "title": "Invoice price mismatch",
+      "description": "Order guide + market check: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "savings": "$462",
+      "spend": "$65,723",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request a price discrepancy report and recover credits for overpayments.",
+      "evidence": "Order guide + market check: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "sourceFile": "11-proteins-seafood-invoice-atlantic-provisions.pdf",
+      "sourceUploadId": "sample-upload-maison-proteins",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$65,723"
+        ],
+        [
+          "Base charges",
+          "$65,459"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$888"
+        ],
+        [
+          "Credits or rebates",
+          "$624"
+        ],
+        [
+          "Actual all-in cost",
+          "$65,723"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected produce cost",
+          "$64,835"
+        ],
+        [
+          "Potential variance",
+          "$888"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 65723,
+        "expectedCost": 64835,
+        "potentialVariance": 461.76,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual order volume",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Invoice price mismatch",
+        "playbook": "Request a price discrepancy report and recover credits for overpayments."
+      },
+      "createdAt": "2026-05-23T19:41:32.666Z",
+      "updatedAt": "2026-05-23T19:41:32.686Z"
+    },
+    {
+      "id": "sample-upload-maison-proteins-maison-verre-produce-fee-creep-0",
+      "client": "Maison Verre",
+      "vendor": "Atlantic Provisions - Proteins and Seafood Invoice",
+      "category": "Produce",
+      "title": "Fee creep",
+      "description": "Fees and add-ons are 1.4% of the calculated actual cost.",
+      "savings": "$888",
+      "spend": "$65,723",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
+      "evidence": "Fees and add-ons are 1.4% of the calculated actual cost.",
+      "sourceFile": "11-proteins-seafood-invoice-atlantic-provisions.pdf",
+      "sourceUploadId": "sample-upload-maison-proteins",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$65,723"
+        ],
+        [
+          "Base charges",
+          "$65,459"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$888"
+        ],
+        [
+          "Credits or rebates",
+          "$624"
+        ],
+        [
+          "Actual all-in cost",
+          "$65,723"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected produce cost",
+          "$64,835"
+        ],
+        [
+          "Potential variance",
+          "$888"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 65723,
+        "expectedCost": 64835,
+        "potentialVariance": 888,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual order volume",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Fee creep",
+        "playbook": "Audit each fee line against contract caps, approved services, and supporting documentation."
+      },
+      "createdAt": "2026-05-23T19:41:32.666Z",
+      "updatedAt": "2026-05-23T19:41:32.675Z"
+    },
+    {
+      "id": "sample-upload-maison-beverage-maison-verre-food-distribution-savings-verification-4",
+      "client": "Maison Verre",
+      "vendor": "Copper Keg Beverage - Invoice",
+      "category": "Food distribution",
+      "title": "Savings verification",
+      "description": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "savings": "$103",
+      "spend": "$81,960",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Audit new invoices against contracted pricing, rebates, and delivery fees.",
+      "evidence": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "sourceFile": "10-beverage-distributor-invoice-copper-keg.pdf",
+      "sourceUploadId": "sample-upload-maison-beverage",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$81,960"
+        ],
+        [
+          "Base charges",
+          "$83,088"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,032"
+        ],
+        [
+          "Credits or rebates",
+          "$2,160"
+        ],
+        [
+          "Actual all-in cost",
+          "$81,960"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected broadline cost",
+          "$80,928"
+        ],
+        [
+          "Potential variance",
+          "$1,032"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 81960,
+        "expectedCost": 80928,
+        "potentialVariance": 103.2,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual purchase volume",
+        "confidence": "Medium",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Savings verification",
+        "playbook": "Audit new invoices against contracted pricing, rebates, and delivery fees."
+      },
+      "createdAt": "2026-05-23T19:41:32.196Z",
+      "updatedAt": "2026-05-23T19:41:32.231Z"
+    },
+    {
+      "id": "sample-upload-maison-beverage-maison-verre-food-distribution-missing-rebate-or-credit-3",
+      "client": "Maison Verre",
+      "vendor": "Copper Keg Beverage - Invoice",
+      "category": "Food distribution",
+      "title": "Missing rebate or credit",
+      "description": "$2,160 in credits or rebates were entered; Larder still checks whether expected credits fully posted.",
+      "savings": "$186",
+      "spend": "$81,960",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile vendor credits, allowances, and prior overpayment recovery against invoices.",
+      "evidence": "$2,160 in credits or rebates were entered; Larder still checks whether expected credits fully posted.",
+      "sourceFile": "10-beverage-distributor-invoice-copper-keg.pdf",
+      "sourceUploadId": "sample-upload-maison-beverage",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$81,960"
+        ],
+        [
+          "Base charges",
+          "$83,088"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,032"
+        ],
+        [
+          "Credits or rebates",
+          "$2,160"
+        ],
+        [
+          "Actual all-in cost",
+          "$81,960"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected broadline cost",
+          "$80,928"
+        ],
+        [
+          "Potential variance",
+          "$1,032"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 81960,
+        "expectedCost": 80928,
+        "potentialVariance": 185.76,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual purchase volume",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Missing rebate or credit",
+        "playbook": "Reconcile vendor credits, allowances, and prior overpayment recovery against invoices."
+      },
+      "createdAt": "2026-05-23T19:41:32.196Z",
+      "updatedAt": "2026-05-23T19:41:32.226Z"
+    },
+    {
+      "id": "sample-upload-maison-beverage-maison-verre-food-distribution-usage-mismatch-2",
+      "client": "Maison Verre",
+      "vendor": "Copper Keg Beverage - Invoice",
+      "category": "Food distribution",
+      "title": "Usage mismatch",
+      "description": "Billing should match actual purchase volume; Larder checks counts, locations, service frequency, and inactive services.",
+      "savings": "$206",
+      "spend": "$81,960",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile billed usage to actual service levels and request corrected billing going forward.",
+      "evidence": "Billing should match actual purchase volume; Larder checks counts, locations, service frequency, and inactive services.",
+      "sourceFile": "10-beverage-distributor-invoice-copper-keg.pdf",
+      "sourceUploadId": "sample-upload-maison-beverage",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$81,960"
+        ],
+        [
+          "Base charges",
+          "$83,088"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,032"
+        ],
+        [
+          "Credits or rebates",
+          "$2,160"
+        ],
+        [
+          "Actual all-in cost",
+          "$81,960"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected broadline cost",
+          "$80,928"
+        ],
+        [
+          "Potential variance",
+          "$1,032"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 81960,
+        "expectedCost": 80928,
+        "potentialVariance": 206.4,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual purchase volume",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Usage mismatch",
+        "playbook": "Reconcile billed usage to actual service levels and request corrected billing going forward."
+      },
+      "createdAt": "2026-05-23T19:41:32.196Z",
+      "updatedAt": "2026-05-23T19:41:32.220Z"
+    },
+    {
+      "id": "sample-upload-maison-beverage-maison-verre-food-distribution-invoice-price-mismatch-1",
+      "client": "Maison Verre",
+      "vendor": "Copper Keg Beverage - Invoice",
+      "category": "Food distribution",
+      "title": "Invoice price mismatch",
+      "description": "Contracted price file + rebates: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "savings": "$537",
+      "spend": "$81,960",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request a price discrepancy report and recover credits for overpayments.",
+      "evidence": "Contracted price file + rebates: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "sourceFile": "10-beverage-distributor-invoice-copper-keg.pdf",
+      "sourceUploadId": "sample-upload-maison-beverage",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$81,960"
+        ],
+        [
+          "Base charges",
+          "$83,088"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,032"
+        ],
+        [
+          "Credits or rebates",
+          "$2,160"
+        ],
+        [
+          "Actual all-in cost",
+          "$81,960"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected broadline cost",
+          "$80,928"
+        ],
+        [
+          "Potential variance",
+          "$1,032"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 81960,
+        "expectedCost": 80928,
+        "potentialVariance": 536.64,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual purchase volume",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Invoice price mismatch",
+        "playbook": "Request a price discrepancy report and recover credits for overpayments."
+      },
+      "createdAt": "2026-05-23T19:41:32.196Z",
+      "updatedAt": "2026-05-23T19:41:32.214Z"
+    },
+    {
+      "id": "sample-upload-maison-beverage-maison-verre-food-distribution-fee-creep-0",
+      "client": "Maison Verre",
+      "vendor": "Copper Keg Beverage - Invoice",
+      "category": "Food distribution",
+      "title": "Fee creep",
+      "description": "Fees and add-ons are 1.3% of the calculated actual cost.",
+      "savings": "$1,032",
+      "spend": "$81,960",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
+      "evidence": "Fees and add-ons are 1.3% of the calculated actual cost.",
+      "sourceFile": "10-beverage-distributor-invoice-copper-keg.pdf",
+      "sourceUploadId": "sample-upload-maison-beverage",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$81,960"
+        ],
+        [
+          "Base charges",
+          "$83,088"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,032"
+        ],
+        [
+          "Credits or rebates",
+          "$2,160"
+        ],
+        [
+          "Actual all-in cost",
+          "$81,960"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected broadline cost",
+          "$80,928"
+        ],
+        [
+          "Potential variance",
+          "$1,032"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 81960,
+        "expectedCost": 80928,
+        "potentialVariance": 1032,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual purchase volume",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Fee creep",
+        "playbook": "Audit each fee line against contract caps, approved services, and supporting documentation."
+      },
+      "createdAt": "2026-05-23T19:41:32.196Z",
+      "updatedAt": "2026-05-23T19:41:32.206Z"
+    },
+    {
+      "id": "sample-upload-maison-pest-maison-verre-pest-control-savings-verification-3",
+      "client": "Maison Verre",
+      "vendor": "Urban Shield Pest Control - Service Invoice",
+      "category": "Pest control",
+      "title": "Savings verification",
+      "description": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "savings": "$29",
+      "spend": "$12,528",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Track renewal windows and confirm billed visits match the service tier.",
+      "evidence": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "sourceFile": "05-pest-control-service-invoice-urban-shield.pdf",
+      "sourceUploadId": "sample-upload-maison-pest",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$12,528"
+        ],
+        [
+          "Base charges",
+          "$12,240"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$288"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$12,528"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected pest control cost",
+          "$12,240"
+        ],
+        [
+          "Potential variance",
+          "$288"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 12528,
+        "expectedCost": 12240,
+        "potentialVariance": 28.8,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual service schedule",
+        "confidence": "Medium",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Savings verification",
+        "playbook": "Track renewal windows and confirm billed visits match the service tier."
+      },
+      "createdAt": "2026-05-23T19:41:31.261Z",
+      "updatedAt": "2026-05-23T19:41:31.294Z"
+    },
+    {
+      "id": "sample-upload-maison-pest-maison-verre-pest-control-usage-mismatch-2",
+      "client": "Maison Verre",
+      "vendor": "Urban Shield Pest Control - Service Invoice",
+      "category": "Pest control",
+      "title": "Usage mismatch",
+      "description": "Billing should match actual service schedule; Larder checks counts, locations, service frequency, and inactive services.",
+      "savings": "$58",
+      "spend": "$12,528",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile billed usage to actual service levels and request corrected billing going forward.",
+      "evidence": "Billing should match actual service schedule; Larder checks counts, locations, service frequency, and inactive services.",
+      "sourceFile": "05-pest-control-service-invoice-urban-shield.pdf",
+      "sourceUploadId": "sample-upload-maison-pest",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$12,528"
+        ],
+        [
+          "Base charges",
+          "$12,240"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$288"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$12,528"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected pest control cost",
+          "$12,240"
+        ],
+        [
+          "Potential variance",
+          "$288"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 12528,
+        "expectedCost": 12240,
+        "potentialVariance": 57.6,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual service schedule",
+        "confidence": "Medium",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Usage mismatch",
+        "playbook": "Reconcile billed usage to actual service levels and request corrected billing going forward."
+      },
+      "createdAt": "2026-05-23T19:41:31.261Z",
+      "updatedAt": "2026-05-23T19:41:31.289Z"
+    },
+    {
+      "id": "sample-upload-maison-pest-maison-verre-pest-control-invoice-price-mismatch-1",
+      "client": "Maison Verre",
+      "vendor": "Urban Shield Pest Control - Service Invoice",
+      "category": "Pest control",
+      "title": "Invoice price mismatch",
+      "description": "Service tier + renewal benchmark: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "savings": "$150",
+      "spend": "$12,528",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request a price discrepancy report and recover credits for overpayments.",
+      "evidence": "Service tier + renewal benchmark: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "sourceFile": "05-pest-control-service-invoice-urban-shield.pdf",
+      "sourceUploadId": "sample-upload-maison-pest",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$12,528"
+        ],
+        [
+          "Base charges",
+          "$12,240"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$288"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$12,528"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected pest control cost",
+          "$12,240"
+        ],
+        [
+          "Potential variance",
+          "$288"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 12528,
+        "expectedCost": 12240,
+        "potentialVariance": 149.76,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual service schedule",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Invoice price mismatch",
+        "playbook": "Request a price discrepancy report and recover credits for overpayments."
+      },
+      "createdAt": "2026-05-23T19:41:31.261Z",
+      "updatedAt": "2026-05-23T19:41:31.283Z"
+    },
+    {
+      "id": "sample-upload-maison-pest-maison-verre-pest-control-fee-creep-0",
+      "client": "Maison Verre",
+      "vendor": "Urban Shield Pest Control - Service Invoice",
+      "category": "Pest control",
+      "title": "Fee creep",
+      "description": "Fees and add-ons are 2.3% of the calculated actual cost.",
+      "savings": "$288",
+      "spend": "$12,528",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
+      "evidence": "Fees and add-ons are 2.3% of the calculated actual cost.",
+      "sourceFile": "05-pest-control-service-invoice-urban-shield.pdf",
+      "sourceUploadId": "sample-upload-maison-pest",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$12,528"
+        ],
+        [
+          "Base charges",
+          "$12,240"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$288"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$12,528"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected pest control cost",
+          "$12,240"
+        ],
+        [
+          "Potential variance",
+          "$288"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 12528,
+        "expectedCost": 12240,
+        "potentialVariance": 288,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual service schedule",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Fee creep",
+        "playbook": "Audit each fee line against contract caps, approved services, and supporting documentation."
+      },
+      "createdAt": "2026-05-23T19:41:31.261Z",
+      "updatedAt": "2026-05-23T19:41:31.273Z"
+    },
+    {
+      "id": "sample-upload-northstar-pos-northstar-dining-collective-payment-processing-savings-verification-4",
+      "client": "Northstar Dining Collective",
+      "vendor": "TableLine POS - Subscription Invoice",
+      "category": "Payment processing",
+      "title": "Savings verification",
+      "description": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "savings": "$155",
+      "spend": "$24,708",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Check every new statement for effective-rate drift and reappearing fees.",
+      "evidence": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "sourceFile": "06-pos-platform-invoice-tableline.pdf",
+      "sourceUploadId": "sample-upload-northstar-pos",
+      "costMathHeadline": "Actual processor cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Card volume reviewed",
+          "$24,708"
+        ],
+        [
+          "Actual processor cost",
+          "$24,708"
+        ],
+        [
+          "True all-in rate",
+          "100.00%"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected processor cost",
+          "$23,160"
+        ],
+        [
+          "Potential variance",
+          "$1,548"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 24708,
+        "expectedCost": 23160,
+        "potentialVariance": 154.8,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual processor cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual card volume",
+        "confidence": "Medium",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Savings verification",
+        "playbook": "Check every new statement for effective-rate drift and reappearing fees."
+      },
+      "createdAt": "2026-05-23T19:06:30.112Z",
+      "updatedAt": "2026-05-23T19:06:30.137Z"
+    },
+    {
+      "id": "sample-upload-northstar-pos-northstar-dining-collective-payment-processing-renewal-leverage-risk-3",
+      "client": "Northstar Dining Collective",
+      "vendor": "TableLine POS - Subscription Invoice",
+      "category": "Payment processing",
+      "title": "Renewal leverage risk",
+      "description": "Renewal or termination language appears present, but no renewal date was found in this document.",
+      "savings": "$248",
+      "spend": "$24,708",
+      "priority": "High",
+      "status": "Actions ready",
+      "nextStep": "Calendar the notice deadline and prepare renegotiation or non-renewal outreach before leverage expires.",
+      "evidence": "Renewal or termination language appears present, but no renewal date was found in this document.",
+      "sourceFile": "06-pos-platform-invoice-tableline.pdf",
+      "sourceUploadId": "sample-upload-northstar-pos",
+      "costMathHeadline": "Actual processor cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Card volume reviewed",
+          "$24,708"
+        ],
+        [
+          "Actual processor cost",
+          "$24,708"
+        ],
+        [
+          "True all-in rate",
+          "100.00%"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected processor cost",
+          "$23,160"
+        ],
+        [
+          "Potential variance",
+          "$1,548"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 24708,
+        "expectedCost": 23160,
+        "potentialVariance": 247.68,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual processor cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual card volume",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Renewal leverage risk",
+        "playbook": "Calendar the notice deadline and prepare renegotiation or non-renewal outreach before leverage expires."
+      },
+      "createdAt": "2026-05-23T19:06:30.112Z",
+      "updatedAt": "2026-05-23T19:06:30.135Z"
+    },
+    {
+      "id": "sample-upload-northstar-pos-northstar-dining-collective-payment-processing-usage-mismatch-2",
+      "client": "Northstar Dining Collective",
+      "vendor": "TableLine POS - Subscription Invoice",
+      "category": "Payment processing",
+      "title": "Usage mismatch",
+      "description": "Billing should match actual card volume; Larder checks counts, locations, service frequency, and inactive services.",
+      "savings": "$310",
+      "spend": "$24,708",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile billed usage to actual service levels and request corrected billing going forward.",
+      "evidence": "Billing should match actual card volume; Larder checks counts, locations, service frequency, and inactive services.",
+      "sourceFile": "06-pos-platform-invoice-tableline.pdf",
+      "sourceUploadId": "sample-upload-northstar-pos",
+      "costMathHeadline": "Actual processor cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Card volume reviewed",
+          "$24,708"
+        ],
+        [
+          "Actual processor cost",
+          "$24,708"
+        ],
+        [
+          "True all-in rate",
+          "100.00%"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected processor cost",
+          "$23,160"
+        ],
+        [
+          "Potential variance",
+          "$1,548"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 24708,
+        "expectedCost": 23160,
+        "potentialVariance": 309.6,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual processor cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual card volume",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Usage mismatch",
+        "playbook": "Reconcile billed usage to actual service levels and request corrected billing going forward."
+      },
+      "createdAt": "2026-05-23T19:06:30.112Z",
+      "updatedAt": "2026-05-23T19:06:30.132Z"
+    },
+    {
+      "id": "sample-upload-northstar-pos-northstar-dining-collective-payment-processing-invoice-price-mismatch-1",
+      "client": "Northstar Dining Collective",
+      "vendor": "TableLine POS - Subscription Invoice",
+      "category": "Payment processing",
+      "title": "Invoice price mismatch",
+      "description": "Effective-rate benchmark: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "savings": "$805",
+      "spend": "$24,708",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request a price discrepancy report and recover credits for overpayments.",
+      "evidence": "Effective-rate benchmark: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "sourceFile": "06-pos-platform-invoice-tableline.pdf",
+      "sourceUploadId": "sample-upload-northstar-pos",
+      "costMathHeadline": "Actual processor cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Card volume reviewed",
+          "$24,708"
+        ],
+        [
+          "Actual processor cost",
+          "$24,708"
+        ],
+        [
+          "True all-in rate",
+          "100.00%"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected processor cost",
+          "$23,160"
+        ],
+        [
+          "Potential variance",
+          "$1,548"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 24708,
+        "expectedCost": 23160,
+        "potentialVariance": 804.96,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual processor cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual card volume",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Invoice price mismatch",
+        "playbook": "Request a price discrepancy report and recover credits for overpayments."
+      },
+      "createdAt": "2026-05-23T19:06:30.112Z",
+      "updatedAt": "2026-05-23T19:06:30.129Z"
+    },
+    {
+      "id": "sample-upload-northstar-pos-northstar-dining-collective-payment-processing-fee-creep-0",
+      "client": "Northstar Dining Collective",
+      "vendor": "TableLine POS - Subscription Invoice",
+      "category": "Payment processing",
+      "title": "Fee creep",
+      "description": "Fees and add-ons are 6.3% of the calculated actual cost.",
+      "savings": "$1,548",
+      "spend": "$24,708",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
+      "evidence": "Fees and add-ons are 6.3% of the calculated actual cost.",
+      "sourceFile": "06-pos-platform-invoice-tableline.pdf",
+      "sourceUploadId": "sample-upload-northstar-pos",
+      "costMathHeadline": "Actual processor cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Card volume reviewed",
+          "$24,708"
+        ],
+        [
+          "Actual processor cost",
+          "$24,708"
+        ],
+        [
+          "True all-in rate",
+          "100.00%"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected processor cost",
+          "$23,160"
+        ],
+        [
+          "Potential variance",
+          "$1,548"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 24708,
+        "expectedCost": 23160,
+        "potentialVariance": 1548,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual processor cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual card volume",
+        "confidence": "Medium",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Fee creep",
+        "playbook": "Audit each fee line against contract caps, approved services, and supporting documentation."
+      },
+      "createdAt": "2026-05-23T19:06:30.112Z",
+      "updatedAt": "2026-05-23T19:06:30.123Z"
+    },
+    {
+      "id": "sample-upload-maison-equipment-maison-verre-equipment-maintenance-savings-verification-3",
+      "client": "Maison Verre",
+      "vendor": "SteadyFix Mechanical - Service Invoice",
+      "category": "Equipment maintenance",
+      "title": "Savings verification",
+      "description": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "savings": "$27",
+      "spend": "$1,591",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Flag duplicate coverage, inactive equipment, and recurring emergency-rate charges.",
+      "evidence": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "sourceFile": "08-equipment-maintenance-contractor-invoice-steadyfix.pdf",
+      "sourceUploadId": "sample-upload-maison-equipment",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$1,591"
+        ],
+        [
+          "Base charges",
+          "$1,321"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$270"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$1,591"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected maintenance cost",
+          "$1,321"
+        ],
+        [
+          "Potential variance",
+          "$270"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 1591,
+        "expectedCost": 1321,
+        "potentialVariance": 27,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual covered assets",
+        "confidence": "Medium",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Savings verification",
+        "playbook": "Flag duplicate coverage, inactive equipment, and recurring emergency-rate charges."
+      },
+      "createdAt": "2026-05-23T19:05:22.859Z",
+      "updatedAt": "2026-05-23T19:05:22.886Z"
+    },
+    {
+      "id": "sample-upload-maison-equipment-maison-verre-equipment-maintenance-usage-mismatch-2",
+      "client": "Maison Verre",
+      "vendor": "SteadyFix Mechanical - Service Invoice",
+      "category": "Equipment maintenance",
+      "title": "Usage mismatch",
+      "description": "Billing should match actual covered assets; Larder checks counts, locations, service frequency, and inactive services.",
+      "savings": "$54",
+      "spend": "$1,591",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile billed usage to actual service levels and request corrected billing going forward.",
+      "evidence": "Billing should match actual covered assets; Larder checks counts, locations, service frequency, and inactive services.",
+      "sourceFile": "08-equipment-maintenance-contractor-invoice-steadyfix.pdf",
+      "sourceUploadId": "sample-upload-maison-equipment",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$1,591"
+        ],
+        [
+          "Base charges",
+          "$1,321"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$270"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$1,591"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected maintenance cost",
+          "$1,321"
+        ],
+        [
+          "Potential variance",
+          "$270"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 1591,
+        "expectedCost": 1321,
+        "potentialVariance": 54,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual covered assets",
+        "confidence": "Medium",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Usage mismatch",
+        "playbook": "Reconcile billed usage to actual service levels and request corrected billing going forward."
+      },
+      "createdAt": "2026-05-23T19:05:22.859Z",
+      "updatedAt": "2026-05-23T19:05:22.883Z"
+    },
+    {
+      "id": "sample-upload-maison-equipment-maison-verre-equipment-maintenance-invoice-price-mismatch-1",
+      "client": "Maison Verre",
+      "vendor": "SteadyFix Mechanical - Service Invoice",
+      "category": "Equipment maintenance",
+      "title": "Invoice price mismatch",
+      "description": "Covered asset list: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "savings": "$140",
+      "spend": "$1,591",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request a price discrepancy report and recover credits for overpayments.",
+      "evidence": "Covered asset list: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "sourceFile": "08-equipment-maintenance-contractor-invoice-steadyfix.pdf",
+      "sourceUploadId": "sample-upload-maison-equipment",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$1,591"
+        ],
+        [
+          "Base charges",
+          "$1,321"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$270"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$1,591"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected maintenance cost",
+          "$1,321"
+        ],
+        [
+          "Potential variance",
+          "$270"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 1591,
+        "expectedCost": 1321,
+        "potentialVariance": 140.4,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual covered assets",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Invoice price mismatch",
+        "playbook": "Request a price discrepancy report and recover credits for overpayments."
+      },
+      "createdAt": "2026-05-23T19:05:22.859Z",
+      "updatedAt": "2026-05-23T19:05:22.878Z"
+    },
+    {
+      "id": "sample-upload-maison-equipment-maison-verre-equipment-maintenance-fee-creep-0",
+      "client": "Maison Verre",
+      "vendor": "SteadyFix Mechanical - Service Invoice",
+      "category": "Equipment maintenance",
+      "title": "Fee creep",
+      "description": "Fees and add-ons are 17.0% of the calculated actual cost.",
+      "savings": "$270",
+      "spend": "$1,591",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
+      "evidence": "Fees and add-ons are 17.0% of the calculated actual cost.",
+      "sourceFile": "08-equipment-maintenance-contractor-invoice-steadyfix.pdf",
+      "sourceUploadId": "sample-upload-maison-equipment",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$1,591"
+        ],
+        [
+          "Base charges",
+          "$1,321"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$270"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$1,591"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected maintenance cost",
+          "$1,321"
+        ],
+        [
+          "Potential variance",
+          "$270"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 1591,
+        "expectedCost": 1321,
+        "potentialVariance": 270,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual covered assets",
+        "confidence": "Medium",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Fee creep",
+        "playbook": "Audit each fee line against contract caps, approved services, and supporting documentation."
+      },
+      "createdAt": "2026-05-23T19:05:22.859Z",
+      "updatedAt": "2026-05-23T19:05:22.870Z"
+    },
+    {
+      "id": "sample-upload-atlas-processor-atlas-hospitality-group-payment-processing-savings-verification-4",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Northstar Payments - Merchant Statement",
+      "category": "Payment processing",
+      "title": "Savings verification",
+      "description": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "savings": "$7,520",
+      "spend": "$302,250",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Check every new statement for effective-rate drift and reappearing fees.",
+      "evidence": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "sourceFile": "03-payment-processor-statement-northstar-payments.pdf",
+      "sourceUploadId": "sample-upload-atlas-processor",
+      "costMathHeadline": "Actual processor cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Card volume reviewed",
+          "$11,018,880"
+        ],
+        [
+          "Actual processor cost",
+          "$302,250"
+        ],
+        [
+          "True all-in rate",
+          "2.74%"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the statement line for interchange and assessment fees as the document-supported baseline. Processor markup, PCI, gateway, monthly, batch, and chargeback fees are treated as reviewable variance."
+        ],
+        [
+          "Expected processor cost",
+          "$227,046"
+        ],
+        [
+          "Potential variance",
+          "$75,204"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 302250,
+        "expectedCost": 227046,
+        "potentialVariance": 7520.400000000001,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the statement line for interchange and assessment fees as the document-supported baseline. Processor markup, PCI, gateway, monthly, batch, and chargeback fees are treated as reviewable variance.",
+        "formula": "Actual processor cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual card volume",
+        "confidence": "Medium",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Savings verification",
+        "playbook": "Check every new statement for effective-rate drift and reappearing fees."
+      },
+      "createdAt": "2026-05-23T18:50:06.734Z",
+      "updatedAt": "2026-05-23T18:50:06.758Z"
+    },
+    {
+      "id": "sample-upload-atlas-processor-atlas-hospitality-group-payment-processing-renewal-leverage-risk-3",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Northstar Payments - Merchant Statement",
+      "category": "Payment processing",
+      "title": "Renewal leverage risk",
+      "description": "Auto-renewal language appears present. Renewal window found as August 15, 2026.",
+      "savings": "$12,033",
+      "spend": "$302,250",
+      "priority": "High",
+      "status": "Actions ready",
+      "nextStep": "Calendar the notice deadline and prepare renegotiation or non-renewal outreach before leverage expires.",
+      "evidence": "Auto-renewal language appears present. Renewal window found as August 15, 2026.",
+      "sourceFile": "03-payment-processor-statement-northstar-payments.pdf",
+      "sourceUploadId": "sample-upload-atlas-processor",
+      "costMathHeadline": "Actual processor cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Card volume reviewed",
+          "$11,018,880"
+        ],
+        [
+          "Actual processor cost",
+          "$302,250"
+        ],
+        [
+          "True all-in rate",
+          "2.74%"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the statement line for interchange and assessment fees as the document-supported baseline. Processor markup, PCI, gateway, monthly, batch, and chargeback fees are treated as reviewable variance."
+        ],
+        [
+          "Expected processor cost",
+          "$227,046"
+        ],
+        [
+          "Potential variance",
+          "$75,204"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 302250,
+        "expectedCost": 227046,
+        "potentialVariance": 12032.64,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the statement line for interchange and assessment fees as the document-supported baseline. Processor markup, PCI, gateway, monthly, batch, and chargeback fees are treated as reviewable variance.",
+        "formula": "Actual processor cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual card volume",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Renewal leverage risk",
+        "playbook": "Calendar the notice deadline and prepare renegotiation or non-renewal outreach before leverage expires."
+      },
+      "createdAt": "2026-05-23T18:50:06.734Z",
+      "updatedAt": "2026-05-23T18:50:06.754Z"
+    },
+    {
+      "id": "sample-upload-atlas-processor-atlas-hospitality-group-payment-processing-missing-rebate-or-credit-2",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Northstar Payments - Merchant Statement",
+      "category": "Payment processing",
+      "title": "Missing rebate or credit",
+      "description": "No credits or rebates were entered, so expected allowances need to be confirmed.",
+      "savings": "$13,537",
+      "spend": "$302,250",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile vendor credits, allowances, and prior overpayment recovery against invoices.",
+      "evidence": "No credits or rebates were entered, so expected allowances need to be confirmed.",
+      "sourceFile": "03-payment-processor-statement-northstar-payments.pdf",
+      "sourceUploadId": "sample-upload-atlas-processor",
+      "costMathHeadline": "Actual processor cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Card volume reviewed",
+          "$11,018,880"
+        ],
+        [
+          "Actual processor cost",
+          "$302,250"
+        ],
+        [
+          "True all-in rate",
+          "2.74%"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the statement line for interchange and assessment fees as the document-supported baseline. Processor markup, PCI, gateway, monthly, batch, and chargeback fees are treated as reviewable variance."
+        ],
+        [
+          "Expected processor cost",
+          "$227,046"
+        ],
+        [
+          "Potential variance",
+          "$75,204"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 302250,
+        "expectedCost": 227046,
+        "potentialVariance": 13536.72,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the statement line for interchange and assessment fees as the document-supported baseline. Processor markup, PCI, gateway, monthly, batch, and chargeback fees are treated as reviewable variance.",
+        "formula": "Actual processor cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual card volume",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Missing rebate or credit",
+        "playbook": "Reconcile vendor credits, allowances, and prior overpayment recovery against invoices."
+      },
+      "createdAt": "2026-05-23T18:50:06.734Z",
+      "updatedAt": "2026-05-23T18:50:06.750Z"
+    },
+    {
+      "id": "sample-upload-atlas-processor-atlas-hospitality-group-payment-processing-usage-mismatch-1",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Northstar Payments - Merchant Statement",
+      "category": "Payment processing",
+      "title": "Usage mismatch",
+      "description": "Billing should match actual card volume; Larder checks counts, locations, service frequency, and inactive services.",
+      "savings": "$15,041",
+      "spend": "$302,250",
+      "priority": "High",
+      "status": "Actions ready",
+      "nextStep": "Reconcile billed usage to actual service levels and request corrected billing going forward.",
+      "evidence": "Billing should match actual card volume; Larder checks counts, locations, service frequency, and inactive services.",
+      "sourceFile": "03-payment-processor-statement-northstar-payments.pdf",
+      "sourceUploadId": "sample-upload-atlas-processor",
+      "costMathHeadline": "Actual processor cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Card volume reviewed",
+          "$11,018,880"
+        ],
+        [
+          "Actual processor cost",
+          "$302,250"
+        ],
+        [
+          "True all-in rate",
+          "2.74%"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the statement line for interchange and assessment fees as the document-supported baseline. Processor markup, PCI, gateway, monthly, batch, and chargeback fees are treated as reviewable variance."
+        ],
+        [
+          "Expected processor cost",
+          "$227,046"
+        ],
+        [
+          "Potential variance",
+          "$75,204"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 302250,
+        "expectedCost": 227046,
+        "potentialVariance": 15040.800000000001,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the statement line for interchange and assessment fees as the document-supported baseline. Processor markup, PCI, gateway, monthly, batch, and chargeback fees are treated as reviewable variance.",
+        "formula": "Actual processor cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual card volume",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Usage mismatch",
+        "playbook": "Reconcile billed usage to actual service levels and request corrected billing going forward."
+      },
+      "createdAt": "2026-05-23T18:50:06.734Z",
+      "updatedAt": "2026-05-23T18:50:06.746Z"
+    },
+    {
+      "id": "sample-upload-atlas-processor-atlas-hospitality-group-payment-processing-fee-creep-0",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Northstar Payments - Merchant Statement",
+      "category": "Payment processing",
+      "title": "Fee creep",
+      "description": "Fees and add-ons are 24.9% of the calculated actual cost.",
+      "savings": "$75,204",
+      "spend": "$302,250",
+      "priority": "High",
+      "status": "Actions ready",
+      "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
+      "evidence": "Fees and add-ons are 24.9% of the calculated actual cost.",
+      "sourceFile": "03-payment-processor-statement-northstar-payments.pdf",
+      "sourceUploadId": "sample-upload-atlas-processor",
+      "costMathHeadline": "Actual processor cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Card volume reviewed",
+          "$11,018,880"
+        ],
+        [
+          "Actual processor cost",
+          "$302,250"
+        ],
+        [
+          "True all-in rate",
+          "2.74%"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the statement line for interchange and assessment fees as the document-supported baseline. Processor markup, PCI, gateway, monthly, batch, and chargeback fees are treated as reviewable variance."
+        ],
+        [
+          "Expected processor cost",
+          "$227,046"
+        ],
+        [
+          "Potential variance",
+          "$75,204"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 302250,
+        "expectedCost": 227046,
+        "potentialVariance": 75204,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the statement line for interchange and assessment fees as the document-supported baseline. Processor markup, PCI, gateway, monthly, batch, and chargeback fees are treated as reviewable variance.",
+        "formula": "Actual processor cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual card volume",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Fee creep",
+        "playbook": "Audit each fee line against contract caps, approved services, and supporting documentation."
+      },
+      "createdAt": "2026-05-23T18:50:06.734Z",
+      "updatedAt": "2026-05-23T18:50:06.740Z"
+    },
+    {
+      "id": "sample-upload-atlas-food-atlas-hospitality-group-food-distribution-renewal-leverage-risk-4",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Riverbend Foods - Supply Agreement Summary",
+      "category": "Food distribution",
+      "title": "Renewal leverage risk",
+      "description": "Auto-renewal language appears present. Renewal window found as July 1, 2027.",
+      "savings": "$2,900",
+      "spend": "$1,450,000",
+      "priority": "High",
+      "status": "Actions ready",
+      "nextStep": "Calendar the notice deadline and prepare renegotiation or non-renewal outreach before leverage expires.",
+      "evidence": "Auto-renewal language appears present. Renewal window found as July 1, 2027.",
+      "sourceFile": "07-food-distribution-agreement-riverbend-foods.pdf",
+      "sourceUploadId": "sample-upload-atlas-food",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$1,450,000"
+        ],
+        [
+          "Base charges",
+          "$1,450,000"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$0"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$1,450,000"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the document's stated annual purchases less the stated 1.25% rebate. Invoice history is still needed to confirm whether the rebate actually posted."
+        ],
+        [
+          "Expected broadline cost",
+          "$1,431,875"
+        ],
+        [
+          "Potential variance",
+          "$18,125"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 1450000,
+        "expectedCost": 1431875,
+        "potentialVariance": 2900,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the document's stated annual purchases less the stated 1.25% rebate. Invoice history is still needed to confirm whether the rebate actually posted.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual purchase volume",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Renewal leverage risk",
+        "playbook": "Calendar the notice deadline and prepare renegotiation or non-renewal outreach before leverage expires."
+      },
+      "createdAt": "2026-05-23T18:50:05.768Z",
+      "updatedAt": "2026-05-23T18:50:05.795Z"
+    },
+    {
+      "id": "sample-upload-atlas-food-atlas-hospitality-group-food-distribution-missing-rebate-or-credit-3",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Riverbend Foods - Supply Agreement Summary",
+      "category": "Food distribution",
+      "title": "Missing rebate or credit",
+      "description": "No credits or rebates were entered, so expected allowances need to be confirmed.",
+      "savings": "$3,263",
+      "spend": "$1,450,000",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile vendor credits, allowances, and prior overpayment recovery against invoices.",
+      "evidence": "No credits or rebates were entered, so expected allowances need to be confirmed.",
+      "sourceFile": "07-food-distribution-agreement-riverbend-foods.pdf",
+      "sourceUploadId": "sample-upload-atlas-food",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$1,450,000"
+        ],
+        [
+          "Base charges",
+          "$1,450,000"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$0"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$1,450,000"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the document's stated annual purchases less the stated 1.25% rebate. Invoice history is still needed to confirm whether the rebate actually posted."
+        ],
+        [
+          "Expected broadline cost",
+          "$1,431,875"
+        ],
+        [
+          "Potential variance",
+          "$18,125"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 1450000,
+        "expectedCost": 1431875,
+        "potentialVariance": 3262.5,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the document's stated annual purchases less the stated 1.25% rebate. Invoice history is still needed to confirm whether the rebate actually posted.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual purchase volume",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Missing rebate or credit",
+        "playbook": "Reconcile vendor credits, allowances, and prior overpayment recovery against invoices."
+      },
+      "createdAt": "2026-05-23T18:50:05.768Z",
+      "updatedAt": "2026-05-23T18:50:05.789Z"
+    },
+    {
+      "id": "sample-upload-atlas-food-atlas-hospitality-group-food-distribution-usage-mismatch-2",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Riverbend Foods - Supply Agreement Summary",
+      "category": "Food distribution",
+      "title": "Usage mismatch",
+      "description": "Billing should match actual purchase volume; Larder checks counts, locations, service frequency, and inactive services.",
+      "savings": "$3,625",
+      "spend": "$1,450,000",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile billed usage to actual service levels and request corrected billing going forward.",
+      "evidence": "Billing should match actual purchase volume; Larder checks counts, locations, service frequency, and inactive services.",
+      "sourceFile": "07-food-distribution-agreement-riverbend-foods.pdf",
+      "sourceUploadId": "sample-upload-atlas-food",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$1,450,000"
+        ],
+        [
+          "Base charges",
+          "$1,450,000"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$0"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$1,450,000"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the document's stated annual purchases less the stated 1.25% rebate. Invoice history is still needed to confirm whether the rebate actually posted."
+        ],
+        [
+          "Expected broadline cost",
+          "$1,431,875"
+        ],
+        [
+          "Potential variance",
+          "$18,125"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 1450000,
+        "expectedCost": 1431875,
+        "potentialVariance": 3625,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the document's stated annual purchases less the stated 1.25% rebate. Invoice history is still needed to confirm whether the rebate actually posted.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual purchase volume",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Usage mismatch",
+        "playbook": "Reconcile billed usage to actual service levels and request corrected billing going forward."
+      },
+      "createdAt": "2026-05-23T18:50:05.768Z",
+      "updatedAt": "2026-05-23T18:50:05.785Z"
+    },
+    {
+      "id": "sample-upload-atlas-food-atlas-hospitality-group-food-distribution-fee-creep-1",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Riverbend Foods - Supply Agreement Summary",
+      "category": "Food distribution",
+      "title": "Fee creep",
+      "description": "Fees and add-ons are 0.0% of the calculated actual cost.",
+      "savings": "$4,350",
+      "spend": "$1,450,000",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
+      "evidence": "Fees and add-ons are 0.0% of the calculated actual cost.",
+      "sourceFile": "07-food-distribution-agreement-riverbend-foods.pdf",
+      "sourceUploadId": "sample-upload-atlas-food",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$1,450,000"
+        ],
+        [
+          "Base charges",
+          "$1,450,000"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$0"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$1,450,000"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the document's stated annual purchases less the stated 1.25% rebate. Invoice history is still needed to confirm whether the rebate actually posted."
+        ],
+        [
+          "Expected broadline cost",
+          "$1,431,875"
+        ],
+        [
+          "Potential variance",
+          "$18,125"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 1450000,
+        "expectedCost": 1431875,
+        "potentialVariance": 4350,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the document's stated annual purchases less the stated 1.25% rebate. Invoice history is still needed to confirm whether the rebate actually posted.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual purchase volume",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Fee creep",
+        "playbook": "Audit each fee line against contract caps, approved services, and supporting documentation."
+      },
+      "createdAt": "2026-05-23T18:50:05.768Z",
+      "updatedAt": "2026-05-23T18:50:05.781Z"
+    },
+    {
+      "id": "sample-upload-atlas-food-atlas-hospitality-group-food-distribution-invoice-price-mismatch-0",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Riverbend Foods - Supply Agreement Summary",
+      "category": "Food distribution",
+      "title": "Invoice price mismatch",
+      "description": "Contracted price file + rebates: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "savings": "$9,425",
+      "spend": "$1,450,000",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request a price discrepancy report and recover credits for overpayments.",
+      "evidence": "Contracted price file + rebates: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "sourceFile": "07-food-distribution-agreement-riverbend-foods.pdf",
+      "sourceUploadId": "sample-upload-atlas-food",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$1,450,000"
+        ],
+        [
+          "Base charges",
+          "$1,450,000"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$0"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$1,450,000"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the document's stated annual purchases less the stated 1.25% rebate. Invoice history is still needed to confirm whether the rebate actually posted."
+        ],
+        [
+          "Expected broadline cost",
+          "$1,431,875"
+        ],
+        [
+          "Potential variance",
+          "$18,125"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 1450000,
+        "expectedCost": 1431875,
+        "potentialVariance": 9425,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the document's stated annual purchases less the stated 1.25% rebate. Invoice history is still needed to confirm whether the rebate actually posted.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual purchase volume",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Invoice price mismatch",
+        "playbook": "Request a price discrepancy report and recover credits for overpayments."
+      },
+      "createdAt": "2026-05-23T18:50:05.768Z",
+      "updatedAt": "2026-05-23T18:50:05.774Z"
+    },
+    {
+      "id": "sample-upload-atlas-linen-atlas-hospitality-group-waste-management-savings-verification-4",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Coastal Linen Service - Monthly Invoice",
+      "category": "Waste management",
+      "title": "Savings verification",
+      "description": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "savings": "$160",
+      "spend": "$21,752",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Compare new invoices with contracted pickup frequency, containers, and surcharge caps.",
+      "evidence": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "sourceFile": "02-linen-service-invoice-coastal-linen.pdf",
+      "sourceUploadId": "sample-upload-atlas-linen",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$21,752"
+        ],
+        [
+          "Base charges",
+          "$21,056"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,596"
+        ],
+        [
+          "Credits or rebates",
+          "$900"
+        ],
+        [
+          "Actual all-in cost",
+          "$21,752"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected waste cost",
+          "$20,156"
+        ],
+        [
+          "Potential variance",
+          "$1,596"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 21752,
+        "expectedCost": 20156,
+        "potentialVariance": 159.60000000000002,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual pickup schedule",
+        "confidence": "Medium",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Savings verification",
+        "playbook": "Compare new invoices with contracted pickup frequency, containers, and surcharge caps."
+      },
+      "createdAt": "2026-05-23T18:50:04.943Z",
+      "updatedAt": "2026-05-23T18:50:04.968Z"
+    },
+    {
+      "id": "sample-upload-atlas-linen-atlas-hospitality-group-waste-management-missing-rebate-or-credit-3",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Coastal Linen Service - Monthly Invoice",
+      "category": "Waste management",
+      "title": "Missing rebate or credit",
+      "description": "$900 in credits or rebates were entered; Larder still checks whether expected credits fully posted.",
+      "savings": "$287",
+      "spend": "$21,752",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile vendor credits, allowances, and prior overpayment recovery against invoices.",
+      "evidence": "$900 in credits or rebates were entered; Larder still checks whether expected credits fully posted.",
+      "sourceFile": "02-linen-service-invoice-coastal-linen.pdf",
+      "sourceUploadId": "sample-upload-atlas-linen",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$21,752"
+        ],
+        [
+          "Base charges",
+          "$21,056"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,596"
+        ],
+        [
+          "Credits or rebates",
+          "$900"
+        ],
+        [
+          "Actual all-in cost",
+          "$21,752"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected waste cost",
+          "$20,156"
+        ],
+        [
+          "Potential variance",
+          "$1,596"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 21752,
+        "expectedCost": 20156,
+        "potentialVariance": 287.28,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual pickup schedule",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Missing rebate or credit",
+        "playbook": "Reconcile vendor credits, allowances, and prior overpayment recovery against invoices."
+      },
+      "createdAt": "2026-05-23T18:50:04.943Z",
+      "updatedAt": "2026-05-23T18:50:04.963Z"
+    },
+    {
+      "id": "sample-upload-atlas-linen-atlas-hospitality-group-waste-management-usage-mismatch-2",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Coastal Linen Service - Monthly Invoice",
+      "category": "Waste management",
+      "title": "Usage mismatch",
+      "description": "Billing should match actual pickup schedule; Larder checks counts, locations, service frequency, and inactive services.",
+      "savings": "$319",
+      "spend": "$21,752",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile billed usage to actual service levels and request corrected billing going forward.",
+      "evidence": "Billing should match actual pickup schedule; Larder checks counts, locations, service frequency, and inactive services.",
+      "sourceFile": "02-linen-service-invoice-coastal-linen.pdf",
+      "sourceUploadId": "sample-upload-atlas-linen",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$21,752"
+        ],
+        [
+          "Base charges",
+          "$21,056"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,596"
+        ],
+        [
+          "Credits or rebates",
+          "$900"
+        ],
+        [
+          "Actual all-in cost",
+          "$21,752"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected waste cost",
+          "$20,156"
+        ],
+        [
+          "Potential variance",
+          "$1,596"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 21752,
+        "expectedCost": 20156,
+        "potentialVariance": 319.20000000000005,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual pickup schedule",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Usage mismatch",
+        "playbook": "Reconcile billed usage to actual service levels and request corrected billing going forward."
+      },
+      "createdAt": "2026-05-23T18:50:04.943Z",
+      "updatedAt": "2026-05-23T18:50:04.959Z"
+    },
+    {
+      "id": "sample-upload-atlas-linen-atlas-hospitality-group-waste-management-invoice-price-mismatch-1",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Coastal Linen Service - Monthly Invoice",
+      "category": "Waste management",
+      "title": "Invoice price mismatch",
+      "description": "Pickup schedule + container mix: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "savings": "$830",
+      "spend": "$21,752",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request a price discrepancy report and recover credits for overpayments.",
+      "evidence": "Pickup schedule + container mix: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "sourceFile": "02-linen-service-invoice-coastal-linen.pdf",
+      "sourceUploadId": "sample-upload-atlas-linen",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$21,752"
+        ],
+        [
+          "Base charges",
+          "$21,056"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,596"
+        ],
+        [
+          "Credits or rebates",
+          "$900"
+        ],
+        [
+          "Actual all-in cost",
+          "$21,752"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected waste cost",
+          "$20,156"
+        ],
+        [
+          "Potential variance",
+          "$1,596"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 21752,
+        "expectedCost": 20156,
+        "potentialVariance": 829.9200000000001,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual pickup schedule",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Invoice price mismatch",
+        "playbook": "Request a price discrepancy report and recover credits for overpayments."
+      },
+      "createdAt": "2026-05-23T18:50:04.943Z",
+      "updatedAt": "2026-05-23T18:50:04.954Z"
+    },
+    {
+      "id": "sample-upload-atlas-linen-atlas-hospitality-group-waste-management-fee-creep-0",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Coastal Linen Service - Monthly Invoice",
+      "category": "Waste management",
+      "title": "Fee creep",
+      "description": "Fees and add-ons are 7.3% of the calculated actual cost.",
+      "savings": "$1,596",
+      "spend": "$21,752",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
+      "evidence": "Fees and add-ons are 7.3% of the calculated actual cost.",
+      "sourceFile": "02-linen-service-invoice-coastal-linen.pdf",
+      "sourceUploadId": "sample-upload-atlas-linen",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$21,752"
+        ],
+        [
+          "Base charges",
+          "$21,056"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$1,596"
+        ],
+        [
+          "Credits or rebates",
+          "$900"
+        ],
+        [
+          "Actual all-in cost",
+          "$21,752"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected waste cost",
+          "$20,156"
+        ],
+        [
+          "Potential variance",
+          "$1,596"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 21752,
+        "expectedCost": 20156,
+        "potentialVariance": 1596,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual pickup schedule",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Fee creep",
+        "playbook": "Audit each fee line against contract caps, approved services, and supporting documentation."
+      },
+      "createdAt": "2026-05-23T18:50:04.943Z",
+      "updatedAt": "2026-05-23T18:50:04.949Z"
+    },
+    {
+      "id": "sample-upload-atlas-waste-atlas-hospitality-group-waste-management-savings-verification-3",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Evergreen Waste Services - Invoice",
+      "category": "Waste management",
+      "title": "Savings verification",
+      "description": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "savings": "$472",
+      "spend": "$37,830",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Compare new invoices with contracted pickup frequency, containers, and surcharge caps.",
+      "evidence": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
+      "sourceFile": "04-waste-service-invoice-evergreen-waste.pdf",
+      "sourceUploadId": "sample-upload-atlas-waste",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$37,830"
+        ],
+        [
+          "Base charges",
+          "$33,108"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$4,722"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$37,830"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected waste cost",
+          "$33,108"
+        ],
+        [
+          "Potential variance",
+          "$4,722"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 37830,
+        "expectedCost": 33108,
+        "potentialVariance": 472.20000000000005,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual pickup schedule",
+        "confidence": "Medium",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Savings verification",
+        "playbook": "Compare new invoices with contracted pickup frequency, containers, and surcharge caps."
+      },
+      "createdAt": "2026-05-23T18:50:04.046Z",
+      "updatedAt": "2026-05-23T18:50:04.077Z"
+    },
+    {
+      "id": "sample-upload-atlas-waste-atlas-hospitality-group-waste-management-usage-mismatch-2",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Evergreen Waste Services - Invoice",
+      "category": "Waste management",
+      "title": "Usage mismatch",
+      "description": "Billing should match actual pickup schedule; Larder checks counts, locations, service frequency, and inactive services.",
+      "savings": "$944",
+      "spend": "$37,830",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Reconcile billed usage to actual service levels and request corrected billing going forward.",
+      "evidence": "Billing should match actual pickup schedule; Larder checks counts, locations, service frequency, and inactive services.",
+      "sourceFile": "04-waste-service-invoice-evergreen-waste.pdf",
+      "sourceUploadId": "sample-upload-atlas-waste",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$37,830"
+        ],
+        [
+          "Base charges",
+          "$33,108"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$4,722"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$37,830"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected waste cost",
+          "$33,108"
+        ],
+        [
+          "Potential variance",
+          "$4,722"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 37830,
+        "expectedCost": 33108,
+        "potentialVariance": 944.4000000000001,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual pickup schedule",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Usage mismatch",
+        "playbook": "Reconcile billed usage to actual service levels and request corrected billing going forward."
+      },
+      "createdAt": "2026-05-23T18:50:04.046Z",
+      "updatedAt": "2026-05-23T18:50:04.072Z"
+    },
+    {
+      "id": "sample-upload-atlas-waste-atlas-hospitality-group-waste-management-invoice-price-mismatch-1",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Evergreen Waste Services - Invoice",
+      "category": "Waste management",
+      "title": "Invoice price mismatch",
+      "description": "Pickup schedule + container mix: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "savings": "$2,455",
+      "spend": "$37,830",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Request a price discrepancy report and recover credits for overpayments.",
+      "evidence": "Pickup schedule + container mix: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
+      "sourceFile": "04-waste-service-invoice-evergreen-waste.pdf",
+      "sourceUploadId": "sample-upload-atlas-waste",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$37,830"
+        ],
+        [
+          "Base charges",
+          "$33,108"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$4,722"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$37,830"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected waste cost",
+          "$33,108"
+        ],
+        [
+          "Potential variance",
+          "$4,722"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 37830,
+        "expectedCost": 33108,
+        "potentialVariance": 2455.44,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual pickup schedule",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Invoice price mismatch",
+        "playbook": "Request a price discrepancy report and recover credits for overpayments."
+      },
+      "createdAt": "2026-05-23T18:50:04.046Z",
+      "updatedAt": "2026-05-23T18:50:04.066Z"
+    },
+    {
+      "id": "sample-upload-atlas-waste-atlas-hospitality-group-waste-management-fee-creep-0",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Evergreen Waste Services - Invoice",
+      "category": "Waste management",
+      "title": "Fee creep",
+      "description": "Fees and add-ons are 12.5% of the calculated actual cost.",
+      "savings": "$4,722",
+      "spend": "$37,830",
+      "priority": "Medium",
+      "status": "Actions ready",
+      "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
+      "evidence": "Fees and add-ons are 12.5% of the calculated actual cost.",
+      "sourceFile": "04-waste-service-invoice-evergreen-waste.pdf",
+      "sourceUploadId": "sample-upload-atlas-waste",
+      "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
+      "costMathRows": [
+        [
+          "Annualized invoice run-rate",
+          "$37,830"
+        ],
+        [
+          "Base charges",
+          "$33,108"
+        ],
+        [
+          "Fees, surcharges, minimums, and add-ons",
+          "$4,722"
+        ],
+        [
+          "Credits or rebates",
+          "$0"
+        ],
+        [
+          "Actual all-in cost",
+          "$37,830"
+        ],
+        [
+          "Evidence baseline source",
+          "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings."
+        ],
+        [
+          "Expected waste cost",
+          "$33,108"
+        ],
+        [
+          "Potential variance",
+          "$4,722"
+        ]
+      ],
+      "ledger": {
+        "actualCost": 37830,
+        "expectedCost": 33108,
+        "potentialVariance": 4722,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual pickup schedule",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Fee creep",
+        "playbook": "Audit each fee line against contract caps, approved services, and supporting documentation."
+      },
+      "createdAt": "2026-05-23T18:50:04.046Z",
+      "updatedAt": "2026-05-23T18:50:04.056Z"
+    },
     {
       "id": "1d1101fe-2ee3-444d-bd23-7d16de15833f-main-street-bistro-smallwares-savings-verification-4",
       "client": "Main Street Bistro",
@@ -540,7 +3526,7 @@
       "nextStep": "Compare order-guide pricing and substitutions against weekly invoices.",
       "evidence": "Negotiated savings only count when future invoices show the corrected price, fee, credit, or service level.",
       "sourceFile": "11-proteins-seafood-invoice-atlantic-provisions.pdf",
-      "sourceUploadId": "ea0f24aa-dc06-44da-bca8-47d07fa76bf4",
+      "sourceUploadId": "",
       "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
       "costMathRows": [
         [
@@ -576,8 +3562,23 @@
           "$888"
         ]
       ],
-      "createdAt": "2026-05-22T01:00:02.313Z",
-      "updatedAt": "2026-05-22T01:00:02.324Z"
+      "createdAt": "2026-05-23T19:41:39.646Z",
+      "updatedAt": "2026-05-23T19:41:39.706Z",
+      "ledger": {
+        "actualCost": 65723,
+        "expectedCost": 64835,
+        "potentialVariance": 88.80000000000001,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual order volume",
+        "confidence": "Medium",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Savings verification",
+        "playbook": "Compare order-guide pricing and substitutions against weekly invoices."
+      }
     },
     {
       "id": "ea0f24aa-dc06-44da-bca8-47d07fa76bf4-main-street-bistro-produce-missing-rebate-or-credit-2",
@@ -593,7 +3594,7 @@
       "nextStep": "Reconcile vendor credits, allowances, and prior overpayment recovery against invoices.",
       "evidence": "$624 in credits or rebates were entered; Larder still checks whether expected credits fully posted.",
       "sourceFile": "11-proteins-seafood-invoice-atlantic-provisions.pdf",
-      "sourceUploadId": "ea0f24aa-dc06-44da-bca8-47d07fa76bf4",
+      "sourceUploadId": "",
       "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
       "costMathRows": [
         [
@@ -629,8 +3630,23 @@
           "$888"
         ]
       ],
-      "createdAt": "2026-05-22T01:00:02.313Z",
-      "updatedAt": "2026-05-22T01:00:02.322Z"
+      "createdAt": "2026-05-23T19:41:39.646Z",
+      "updatedAt": "2026-05-23T19:41:39.701Z",
+      "ledger": {
+        "actualCost": 65723,
+        "expectedCost": 64835,
+        "potentialVariance": 159.84,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual order volume",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Missing rebate or credit",
+        "playbook": "Reconcile vendor credits, allowances, and prior overpayment recovery against invoices."
+      }
     },
     {
       "id": "ea0f24aa-dc06-44da-bca8-47d07fa76bf4-main-street-bistro-produce-invoice-price-mismatch-1",
@@ -646,7 +3662,7 @@
       "nextStep": "Request a price discrepancy report and recover credits for overpayments.",
       "evidence": "Order guide + market check: invoices should match the agreed price file, supplier allowances, rebates, and approved substitutions.",
       "sourceFile": "11-proteins-seafood-invoice-atlantic-provisions.pdf",
-      "sourceUploadId": "ea0f24aa-dc06-44da-bca8-47d07fa76bf4",
+      "sourceUploadId": "",
       "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
       "costMathRows": [
         [
@@ -682,8 +3698,23 @@
           "$888"
         ]
       ],
-      "createdAt": "2026-05-22T01:00:02.313Z",
-      "updatedAt": "2026-05-22T01:00:02.320Z"
+      "createdAt": "2026-05-23T19:41:39.646Z",
+      "updatedAt": "2026-05-23T19:41:39.691Z",
+      "ledger": {
+        "actualCost": 65723,
+        "expectedCost": 64835,
+        "potentialVariance": 461.76,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual order volume",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Invoice price mismatch",
+        "playbook": "Request a price discrepancy report and recover credits for overpayments."
+      }
     },
     {
       "id": "ea0f24aa-dc06-44da-bca8-47d07fa76bf4-main-street-bistro-produce-fee-creep-0",
@@ -699,7 +3730,7 @@
       "nextStep": "Audit each fee line against contract caps, approved services, and supporting documentation.",
       "evidence": "Fees and add-ons are 1.4% of the calculated actual cost.",
       "sourceFile": "11-proteins-seafood-invoice-atlantic-provisions.pdf",
-      "sourceUploadId": "ea0f24aa-dc06-44da-bca8-47d07fa76bf4",
+      "sourceUploadId": "",
       "costMathHeadline": "Actual all-in cost - evidence baseline = potential variance",
       "costMathRows": [
         [
@@ -735,8 +3766,23 @@
           "$888"
         ]
       ],
-      "createdAt": "2026-05-22T01:00:02.313Z",
-      "updatedAt": "2026-05-22T01:00:02.317Z"
+      "createdAt": "2026-05-23T19:41:39.646Z",
+      "updatedAt": "2026-05-23T19:41:39.676Z",
+      "ledger": {
+        "actualCost": 65723,
+        "expectedCost": 64835,
+        "potentialVariance": 888,
+        "hasBaseline": true,
+        "baselineSource": "Evidence baseline uses the invoice line-item charges, removes separately stated fees and add-ons, and applies document credits or rebates. This is document-supported, but still needs contract pricing before it becomes confirmed savings.",
+        "formula": "Actual all-in cost - evidence baseline = potential variance",
+        "entitlementSource": "Document-supported baseline",
+        "usageSignal": "Normalized to annual order volume",
+        "confidence": "High",
+        "evidenceStatus": "Document-supported",
+        "stage": "Variance detected",
+        "varianceType": "Fee creep",
+        "playbook": "Audit each fee line against contract caps, approved services, and supporting documentation."
+      }
     },
     {
       "id": "e5743d0c-9f33-4ef6-8764-c0c94578e50a-main-street-bistro-food-distribution-savings-verification-4",
@@ -3097,13 +6143,493 @@
       "updatedAt": "2026-05-22T00:58:46.868Z"
     }
   ],
-  "contracts": [],
+  "contracts": [
+    {
+      "id": "northstar-dining-collective-03-payment-processor-statement-northstar-payments-pdf-payment-processing-lifecycle",
+      "client": "Northstar Dining Collective",
+      "vendor": "03-payment-processor-statement-northstar-payments.pdf",
+      "category": "Payment processing",
+      "source": "03-payment-processor-statement-northstar-payments.pdf",
+      "sourceUploadId": "sample-upload-northstar-processor",
+      "uploadId": "sample-upload-northstar-processor",
+      "uploadUrl": "",
+      "status": "Monitored",
+      "renewalDate": "Needs review",
+      "noticeWindowDays": 90,
+      "noticeDeadline": "Needs review",
+      "escalationClause": "Needs review",
+      "autoRenew": false,
+      "marketWatch": true,
+      "annualValue": "$0",
+      "risk": "Unreviewed",
+      "savings": "TBD",
+      "owner": "Rebecca",
+      "createdAt": "2026-05-23T20:53:54.044Z",
+      "updatedAt": "2026-05-23T20:53:54.053Z"
+    },
+    {
+      "id": "northstar-dining-collective-12-janitorial-supplies-invoice-brightstock-pdf-janitorial-supplies-lifecycle",
+      "client": "Northstar Dining Collective",
+      "vendor": "12-janitorial-supplies-invoice-brightstock.pdf",
+      "category": "Janitorial supplies",
+      "source": "12-janitorial-supplies-invoice-brightstock.pdf",
+      "sourceUploadId": "sample-upload-northstar-janitorial",
+      "uploadId": "sample-upload-northstar-janitorial",
+      "uploadUrl": "",
+      "status": "Needs source file",
+      "renewalDate": "Needs review",
+      "noticeWindowDays": 90,
+      "noticeDeadline": "Needs review",
+      "escalationClause": "Needs review",
+      "autoRenew": false,
+      "marketWatch": false,
+      "annualValue": "$0",
+      "risk": "Unreviewed",
+      "savings": "TBD",
+      "owner": "Rebecca",
+      "createdAt": "2026-05-23T20:53:53.726Z",
+      "updatedAt": "2026-05-23T20:53:53.735Z"
+    },
+    {
+      "id": "northstar-dining-collective-13-smallwares-order-invoice-marketline-pdf-smallwares-lifecycle",
+      "client": "Northstar Dining Collective",
+      "vendor": "13-smallwares-order-invoice-marketline.pdf",
+      "category": "Smallwares",
+      "source": "13-smallwares-order-invoice-marketline.pdf",
+      "sourceUploadId": "sample-upload-northstar-smallwares",
+      "uploadId": "sample-upload-northstar-smallwares",
+      "uploadUrl": "",
+      "status": "Needs source file",
+      "renewalDate": "Needs review",
+      "noticeWindowDays": 90,
+      "noticeDeadline": "Needs review",
+      "escalationClause": "Needs review",
+      "autoRenew": false,
+      "marketWatch": false,
+      "annualValue": "$0",
+      "risk": "Unreviewed",
+      "savings": "TBD",
+      "owner": "Rebecca",
+      "createdAt": "2026-05-23T20:53:53.262Z",
+      "updatedAt": "2026-05-23T20:53:53.270Z"
+    },
+    {
+      "id": "main-street-bistro-atlantic-provisions-proteins-and-seafood-invoice-produce-lifecycle",
+      "client": "Main Street Bistro",
+      "vendor": "Atlantic Provisions - Proteins and Seafood Invoice",
+      "category": "Produce",
+      "source": "11-proteins-seafood-invoice-atlantic-provisions.pdf",
+      "sourceUploadId": "",
+      "uploadId": "",
+      "uploadUrl": "",
+      "status": "Needs source file",
+      "renewalDate": "Needs review",
+      "noticeWindowDays": 90,
+      "noticeDeadline": "Needs review",
+      "escalationClause": "Needs review",
+      "autoRenew": false,
+      "marketWatch": false,
+      "annualValue": "$65,723",
+      "risk": "Unreviewed",
+      "savings": "$888",
+      "owner": "Rebecca",
+      "createdAt": "2026-05-23T19:41:39.670Z",
+      "updatedAt": "2026-05-23T19:41:39.682Z"
+    },
+    {
+      "id": "maison-verre-atlantic-provisions-proteins-and-seafood-invoice-produce-lifecycle",
+      "client": "Maison Verre",
+      "vendor": "Atlantic Provisions - Proteins and Seafood Invoice",
+      "category": "Produce",
+      "source": "11-proteins-seafood-invoice-atlantic-provisions.pdf",
+      "sourceUploadId": "sample-upload-maison-proteins",
+      "uploadId": "sample-upload-maison-proteins",
+      "uploadUrl": "",
+      "status": "Needs source file",
+      "renewalDate": "Needs review",
+      "noticeWindowDays": 90,
+      "noticeDeadline": "Needs review",
+      "escalationClause": "Needs review",
+      "autoRenew": false,
+      "marketWatch": false,
+      "annualValue": "$65,723",
+      "risk": "Unreviewed",
+      "savings": "$888",
+      "owner": "Rebecca",
+      "createdAt": "2026-05-23T19:41:32.696Z",
+      "updatedAt": "2026-05-23T19:41:32.702Z"
+    },
+    {
+      "id": "maison-verre-copper-keg-beverage-invoice-food-distribution-lifecycle",
+      "client": "Maison Verre",
+      "vendor": "Copper Keg Beverage - Invoice",
+      "category": "Food distribution",
+      "source": "10-beverage-distributor-invoice-copper-keg.pdf",
+      "sourceUploadId": "sample-upload-maison-beverage",
+      "uploadId": "sample-upload-maison-beverage",
+      "uploadUrl": "",
+      "status": "Needs source file",
+      "renewalDate": "Needs review",
+      "noticeWindowDays": 90,
+      "noticeDeadline": "Needs review",
+      "escalationClause": "Needs review",
+      "autoRenew": false,
+      "marketWatch": false,
+      "annualValue": "$81,960",
+      "risk": "Unreviewed",
+      "savings": "$1,032",
+      "owner": "Rebecca",
+      "createdAt": "2026-05-23T19:41:32.233Z",
+      "updatedAt": "2026-05-23T19:41:32.239Z"
+    },
+    {
+      "id": "maison-verre-urban-shield-pest-control-service-invoice-pest-control-lifecycle",
+      "client": "Maison Verre",
+      "vendor": "Urban Shield Pest Control - Service Invoice",
+      "category": "Pest control",
+      "source": "05-pest-control-service-invoice-urban-shield.pdf",
+      "sourceUploadId": "sample-upload-maison-pest",
+      "uploadId": "sample-upload-maison-pest",
+      "uploadUrl": "",
+      "status": "Needs source file",
+      "renewalDate": "Needs review",
+      "noticeWindowDays": 90,
+      "noticeDeadline": "Needs review",
+      "escalationClause": "Needs review",
+      "autoRenew": false,
+      "marketWatch": false,
+      "annualValue": "$12,528",
+      "risk": "Unreviewed",
+      "savings": "$288",
+      "owner": "Rebecca",
+      "createdAt": "2026-05-23T19:41:31.297Z",
+      "updatedAt": "2026-05-23T19:41:31.305Z"
+    },
+    {
+      "id": "northstar-dining-collective-tableline-pos-subscription-invoice-payment-processing-lifecycle",
+      "client": "Northstar Dining Collective",
+      "vendor": "TableLine POS - Subscription Invoice",
+      "category": "Payment processing",
+      "source": "06-pos-platform-invoice-tableline.pdf",
+      "sourceUploadId": "sample-upload-northstar-pos",
+      "uploadId": "sample-upload-northstar-pos",
+      "uploadUrl": "",
+      "status": "Monitored",
+      "renewalDate": "Needs review",
+      "noticeWindowDays": 90,
+      "noticeDeadline": "Needs review",
+      "escalationClause": "Needs review",
+      "autoRenew": true,
+      "marketWatch": true,
+      "annualValue": "$24,708",
+      "risk": "Medium",
+      "savings": "$1,548",
+      "owner": "Rebecca",
+      "createdAt": "2026-05-23T19:06:30.139Z",
+      "updatedAt": "2026-05-23T19:06:30.146Z"
+    },
+    {
+      "id": "maison-verre-steadyfix-mechanical-service-invoice-equipment-maintenance-lifecycle",
+      "client": "Maison Verre",
+      "vendor": "SteadyFix Mechanical - Service Invoice",
+      "category": "Equipment maintenance",
+      "source": "08-equipment-maintenance-contractor-invoice-steadyfix.pdf",
+      "sourceUploadId": "sample-upload-maison-equipment",
+      "uploadId": "sample-upload-maison-equipment",
+      "uploadUrl": "",
+      "status": "Needs source file",
+      "renewalDate": "Needs review",
+      "noticeWindowDays": 90,
+      "noticeDeadline": "Needs review",
+      "escalationClause": "Needs review",
+      "autoRenew": false,
+      "marketWatch": false,
+      "annualValue": "$1,591",
+      "risk": "Unreviewed",
+      "savings": "$270",
+      "owner": "Rebecca",
+      "createdAt": "2026-05-23T19:05:22.889Z",
+      "updatedAt": "2026-05-23T19:05:22.897Z"
+    },
+    {
+      "id": "atlas-hospitality-group-northstar-payments-merchant-statement-payment-processing-lifecycle",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Northstar Payments - Merchant Statement",
+      "category": "Payment processing",
+      "source": "03-payment-processor-statement-northstar-payments.pdf",
+      "sourceUploadId": "sample-upload-atlas-processor",
+      "uploadId": "sample-upload-atlas-processor",
+      "uploadUrl": "",
+      "status": "Monitored",
+      "renewalDate": "August 15, 2026",
+      "noticeWindowDays": 60,
+      "noticeDeadline": "Jun 16, 2026",
+      "escalationClause": "Needs review",
+      "autoRenew": true,
+      "marketWatch": true,
+      "annualValue": "$302,250",
+      "risk": "Medium",
+      "savings": "$75,204",
+      "owner": "Rebecca",
+      "createdAt": "2026-05-23T18:50:06.760Z",
+      "updatedAt": "2026-05-23T18:50:06.763Z"
+    },
+    {
+      "id": "atlas-hospitality-group-riverbend-foods-supply-agreement-summary-food-distribution-lifecycle",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Riverbend Foods - Supply Agreement Summary",
+      "category": "Food distribution",
+      "source": "07-food-distribution-agreement-riverbend-foods.pdf",
+      "sourceUploadId": "sample-upload-atlas-food",
+      "uploadId": "sample-upload-atlas-food",
+      "uploadUrl": "",
+      "status": "Monitored",
+      "renewalDate": "July 1, 2027",
+      "noticeWindowDays": 90,
+      "noticeDeadline": "Apr 2, 2027",
+      "escalationClause": "Needs review",
+      "autoRenew": true,
+      "marketWatch": false,
+      "annualValue": "$1,450,000",
+      "risk": "Medium",
+      "savings": "$18,125",
+      "owner": "Rebecca",
+      "createdAt": "2026-05-23T18:50:05.798Z",
+      "updatedAt": "2026-05-23T18:50:05.804Z"
+    },
+    {
+      "id": "atlas-hospitality-group-coastal-linen-service-monthly-invoice-waste-management-lifecycle",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Coastal Linen Service - Monthly Invoice",
+      "category": "Waste management",
+      "source": "02-linen-service-invoice-coastal-linen.pdf",
+      "sourceUploadId": "sample-upload-atlas-linen",
+      "uploadId": "sample-upload-atlas-linen",
+      "uploadUrl": "",
+      "status": "Needs source file",
+      "renewalDate": "Needs review",
+      "noticeWindowDays": 90,
+      "noticeDeadline": "Needs review",
+      "escalationClause": "Needs review",
+      "autoRenew": false,
+      "marketWatch": false,
+      "annualValue": "$21,752",
+      "risk": "Unreviewed",
+      "savings": "$1,596",
+      "owner": "Rebecca",
+      "createdAt": "2026-05-23T18:50:04.970Z",
+      "updatedAt": "2026-05-23T18:50:04.974Z"
+    },
+    {
+      "id": "atlas-hospitality-group-evergreen-waste-services-invoice-waste-management-lifecycle",
+      "client": "Atlas Hospitality Group",
+      "vendor": "Evergreen Waste Services - Invoice",
+      "category": "Waste management",
+      "source": "04-waste-service-invoice-evergreen-waste.pdf",
+      "sourceUploadId": "sample-upload-atlas-waste",
+      "uploadId": "sample-upload-atlas-waste",
+      "uploadUrl": "",
+      "status": "Needs source file",
+      "renewalDate": "Needs review",
+      "noticeWindowDays": 90,
+      "noticeDeadline": "Needs review",
+      "escalationClause": "Needs review",
+      "autoRenew": false,
+      "marketWatch": false,
+      "annualValue": "$37,830",
+      "risk": "Unreviewed",
+      "savings": "$4,722",
+      "owner": "Rebecca",
+      "createdAt": "2026-05-23T18:50:04.079Z",
+      "updatedAt": "2026-05-23T18:50:04.083Z"
+    }
+  ],
   "approvals": {
     "processor": true
   },
   "questions": [],
   "documents": [],
   "uploads": [
+    {
+      "id": "sample-upload-northstar-pos",
+      "originalName": "06-pos-platform-invoice-tableline.pdf",
+      "storedName": "sample-upload-northstar-pos-06-pos-platform-invoice-tableline.pdf",
+      "url": "/uploads/sample-upload-northstar-pos-06-pos-platform-invoice-tableline.pdf",
+      "size": 1359,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Northstar Dining Collective",
+      "category": "Payment processing",
+      "createdAt": "2026-05-23T14:41:00.000Z",
+      "status": "Processed",
+      "processedAt": "2026-05-23T19:06:30.111Z",
+      "updatedAt": "2026-05-23T19:06:30.160Z"
+    },
+    {
+      "id": "sample-upload-northstar-smallwares",
+      "originalName": "13-smallwares-order-invoice-marketline.pdf",
+      "storedName": "sample-upload-northstar-smallwares-13-smallwares-order-invoice-marketline.pdf",
+      "url": "/uploads/sample-upload-northstar-smallwares-13-smallwares-order-invoice-marketline.pdf",
+      "size": 1284,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Northstar Dining Collective",
+      "category": "Smallwares",
+      "createdAt": "2026-05-23T14:40:00.000Z",
+      "status": "Processed",
+      "processedAt": "2026-05-23T20:53:53.238Z",
+      "updatedAt": "2026-05-23T20:53:53.284Z"
+    },
+    {
+      "id": "sample-upload-northstar-janitorial",
+      "originalName": "12-janitorial-supplies-invoice-brightstock.pdf",
+      "storedName": "sample-upload-northstar-janitorial-12-janitorial-supplies-invoice-brightstock.pdf",
+      "url": "/uploads/sample-upload-northstar-janitorial-12-janitorial-supplies-invoice-brightstock.pdf",
+      "size": 1282,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Northstar Dining Collective",
+      "category": "Janitorial supplies",
+      "createdAt": "2026-05-23T14:39:00.000Z",
+      "status": "Processed",
+      "processedAt": "2026-05-23T20:53:53.702Z",
+      "updatedAt": "2026-05-23T20:53:53.750Z"
+    },
+    {
+      "id": "sample-upload-northstar-processor",
+      "originalName": "03-payment-processor-statement-northstar-payments.pdf",
+      "storedName": "sample-upload-northstar-processor-03-payment-processor-statement-northstar-payments.pdf",
+      "url": "/uploads/sample-upload-northstar-processor-03-payment-processor-statement-northstar-payments.pdf",
+      "size": 1478,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Northstar Dining Collective",
+      "category": "Payment processing",
+      "createdAt": "2026-05-23T14:38:00.000Z",
+      "status": "Processed",
+      "processedAt": "2026-05-23T20:53:54.016Z",
+      "updatedAt": "2026-05-23T20:53:54.067Z"
+    },
+    {
+      "id": "sample-upload-maison-equipment",
+      "originalName": "08-equipment-maintenance-contractor-invoice-steadyfix.pdf",
+      "storedName": "sample-upload-maison-equipment-08-equipment-maintenance-contractor-invoice-steadyfix.pdf",
+      "url": "/uploads/sample-upload-maison-equipment-08-equipment-maintenance-contractor-invoice-steadyfix.pdf",
+      "size": 1407,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Maison Verre",
+      "category": "Equipment maintenance",
+      "createdAt": "2026-05-23T14:37:00.000Z",
+      "status": "Processed",
+      "processedAt": "2026-05-23T19:05:22.856Z",
+      "updatedAt": "2026-05-23T19:05:22.911Z"
+    },
+    {
+      "id": "sample-upload-maison-pest",
+      "originalName": "05-pest-control-service-invoice-urban-shield.pdf",
+      "storedName": "sample-upload-maison-pest-05-pest-control-service-invoice-urban-shield.pdf",
+      "url": "/uploads/sample-upload-maison-pest-05-pest-control-service-invoice-urban-shield.pdf",
+      "size": 1351,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Maison Verre",
+      "category": "Pest control",
+      "createdAt": "2026-05-23T14:36:00.000Z",
+      "status": "Processed",
+      "processedAt": "2026-05-23T19:41:31.260Z",
+      "updatedAt": "2026-05-23T19:41:31.317Z"
+    },
+    {
+      "id": "sample-upload-maison-beverage",
+      "originalName": "10-beverage-distributor-invoice-copper-keg.pdf",
+      "storedName": "sample-upload-maison-beverage-10-beverage-distributor-invoice-copper-keg.pdf",
+      "url": "/uploads/sample-upload-maison-beverage-10-beverage-distributor-invoice-copper-keg.pdf",
+      "size": 1329,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Maison Verre",
+      "category": "Food distribution",
+      "createdAt": "2026-05-23T14:35:00.000Z",
+      "status": "Processed",
+      "processedAt": "2026-05-23T19:41:32.195Z",
+      "updatedAt": "2026-05-23T19:41:32.254Z"
+    },
+    {
+      "id": "sample-upload-maison-proteins",
+      "originalName": "11-proteins-seafood-invoice-atlantic-provisions.pdf",
+      "storedName": "sample-upload-maison-proteins-11-proteins-seafood-invoice-atlantic-provisions.pdf",
+      "url": "/uploads/sample-upload-maison-proteins-11-proteins-seafood-invoice-atlantic-provisions.pdf",
+      "size": 1298,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Maison Verre",
+      "category": "Produce",
+      "createdAt": "2026-05-23T14:34:00.000Z",
+      "status": "Processed",
+      "processedAt": "2026-05-23T19:41:32.665Z",
+      "updatedAt": "2026-05-23T19:41:32.714Z"
+    },
+    {
+      "id": "sample-upload-atlas-waste",
+      "originalName": "04-waste-service-invoice-evergreen-waste.pdf",
+      "storedName": "sample-upload-atlas-waste-04-waste-service-invoice-evergreen-waste.pdf",
+      "url": "/uploads/sample-upload-atlas-waste-04-waste-service-invoice-evergreen-waste.pdf",
+      "size": 1361,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Atlas Hospitality Group",
+      "category": "Waste management",
+      "createdAt": "2026-05-23T14:33:00.000Z",
+      "status": "Processed",
+      "processedAt": "2026-05-23T18:50:04.045Z",
+      "updatedAt": "2026-05-23T18:50:04.091Z"
+    },
+    {
+      "id": "sample-upload-atlas-linen",
+      "originalName": "02-linen-service-invoice-coastal-linen.pdf",
+      "storedName": "sample-upload-atlas-linen-02-linen-service-invoice-coastal-linen.pdf",
+      "url": "/uploads/sample-upload-atlas-linen-02-linen-service-invoice-coastal-linen.pdf",
+      "size": 1398,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Atlas Hospitality Group",
+      "category": "Waste management",
+      "createdAt": "2026-05-23T14:32:00.000Z",
+      "status": "Processed",
+      "processedAt": "2026-05-23T18:50:04.943Z",
+      "updatedAt": "2026-05-23T18:50:04.981Z"
+    },
+    {
+      "id": "sample-upload-atlas-food",
+      "originalName": "07-food-distribution-agreement-riverbend-foods.pdf",
+      "storedName": "sample-upload-atlas-food-07-food-distribution-agreement-riverbend-foods.pdf",
+      "url": "/uploads/sample-upload-atlas-food-07-food-distribution-agreement-riverbend-foods.pdf",
+      "size": 1696,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Atlas Hospitality Group",
+      "category": "Food distribution",
+      "createdAt": "2026-05-23T14:31:00.000Z",
+      "status": "Processed",
+      "processedAt": "2026-05-23T18:50:05.768Z",
+      "updatedAt": "2026-05-23T18:50:05.813Z"
+    },
+    {
+      "id": "sample-upload-atlas-processor",
+      "originalName": "03-payment-processor-statement-northstar-payments.pdf",
+      "storedName": "sample-upload-atlas-processor-03-payment-processor-statement-northstar-payments.pdf",
+      "url": "/uploads/sample-upload-atlas-processor-03-payment-processor-statement-northstar-payments.pdf",
+      "size": 1478,
+      "type": "application/pdf",
+      "scope": "client",
+      "client": "Atlas Hospitality Group",
+      "category": "Payment processing",
+      "createdAt": "2026-05-23T14:30:00.000Z",
+      "status": "Processed",
+      "processedAt": "2026-05-23T18:50:06.733Z",
+      "updatedAt": "2026-05-23T18:50:06.772Z"
+    },
     {
       "id": "1d1101fe-2ee3-444d-bd23-7d16de15833f",
       "originalName": "13-smallwares-order-invoice-marketline.pdf",
@@ -3300,5 +6826,79 @@
       "updatedAt": "2026-05-22T00:58:39.271Z"
     }
   ],
-  "pricingIntel": []
+  "pricingIntel": [],
+  "eventLeads": [
+    {
+      "id": "event-lead-acme",
+      "contactName": "Jordan Blake",
+      "email": "jordan@acme.example",
+      "phone": "(212) 555-0198",
+      "eventType": "Corporate dinner",
+      "preferredDate": "2026-06-18",
+      "guestCount": 72,
+      "estimatedBudget": "$32,000",
+      "specialRequests": "Private room, pescatarian option, AV for short remarks, and a clean deposit link.",
+      "stage": "New Inquiry",
+      "lastContactAt": "2026-05-25T03:10:52.758Z",
+      "createdAt": "2026-05-25T03:10:52.760Z",
+      "updatedAt": "2026-05-25T21:11:43.250Z",
+      "acknowledgmentDraft": "",
+      "proposalDraft": "Private Dining Proposal\n\nHi Jordan Blake,\n\nThank you for considering Larder for your Corporate dinner. Based on your inquiry, we recommend the following direction.\n\nEvent Overview\nDate: 2026-06-18\nGuest count: 72\nEstimated budget: $32,000\nSpecial requests: Private room, pescatarian option, AV for short remarks, and a clean deposit link.\n\nRecommended Package\nA seasonal private dining menu with passed or seated service depending on final room selection. For this event size, we recommend a three-course chef's menu with optional beverage pairing and dedicated service staff.\n\nSpace and Service\nWe will hold the best-fit private or semi-private space once the proposal is approved and the deposit is received. Room setup, timing, AV needs, dietary restrictions, and final guest count will be confirmed in the event brief.\n\nIncluded\nMenu planning, private dining coordination, service staffing, room setup guidance, dietary accommodation tracking, and day-of event brief.\n\nDeposit and Payment Terms\nEstimated total: $32,000\nDeposit due to hold date: $16,000\nFinal payment and final count due before the event according to the signed agreement.\n\nNext Steps\nPlease review the proposal. If the date, guest count, and budget direction look right, we will prepare the event agreement and deposit link.",
+      "proposalSentAt": "",
+      "contractDraft": "",
+      "contractSignedAt": "",
+      "depositStatus": "Not requested",
+      "eventBrief": "",
+      "followUps": []
+    },
+    {
+      "id": "event-lead-fashion-week",
+      "contactName": "Mina Laurent",
+      "email": "mina@atelier.example",
+      "phone": "(646) 555-0121",
+      "eventType": "Buyout",
+      "preferredDate": "2026-09-09",
+      "guestCount": 140,
+      "estimatedBudget": "$86,000",
+      "specialRequests": "Brand dinner during Fashion Week, late-night extension, passed canapes, premium bar, and step-and-repeat.",
+      "stage": "Proposal Sent",
+      "lastContactAt": "2026-05-24T15:10:52.760Z",
+      "createdAt": "2026-05-21T21:10:52.760Z",
+      "updatedAt": "2026-05-24T15:10:52.760Z",
+      "acknowledgmentDraft": "",
+      "proposalDraft": "",
+      "proposalSentAt": "2026-05-24T15:10:52.760Z",
+      "contractDraft": "",
+      "contractSignedAt": "",
+      "depositStatus": "Not requested",
+      "eventBrief": "",
+      "followUps": []
+    },
+    {
+      "id": "event-lead-anniversary",
+      "contactName": "Elena Park",
+      "email": "elena@example.com",
+      "phone": "(202) 555-0144",
+      "eventType": "Private anniversary buyout",
+      "preferredDate": "2026-07-14",
+      "guestCount": 58,
+      "estimatedBudget": "$42,000",
+      "specialRequests": "Full buyout, tasting menu, wine pairing, vegetarian alternate, and low floral arrangements.",
+      "stage": "Contracted",
+      "lastContactAt": "2026-05-25T13:10:52.760Z",
+      "createdAt": "2026-05-18T21:10:52.760Z",
+      "updatedAt": "2026-05-25T13:10:52.760Z",
+      "acknowledgmentDraft": "",
+      "proposalDraft": "",
+      "proposalSentAt": "",
+      "contractDraft": "",
+      "contractSignedAt": "2026-05-25T13:10:52.760Z",
+      "depositStatus": "Paid",
+      "eventBrief": "",
+      "followUps": []
+    }
+  ],
+  "eventMessages": [],
+  "eventContracts": [],
+  "eventPayments": []
 }
