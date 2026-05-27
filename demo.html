@@ -1,0 +1,1413 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Larder | The Revenue Desk for Premium Hospitality Events</title>
+  <style>
+    :root {
+      --bg: #f5f2ec;
+      --surface: #fffdf9;
+      --soft: #ebe4d8;
+      --ink: #191512;
+      --muted: #6d6459;
+      --line: #d8cdbc;
+      --line-soft: #ece3d7;
+      --brand: #27140f;
+      --brand-2: #6c5547;
+      --green: #3f6652;
+      --gold: #8a6f45;
+      --red: #8a4b41;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Avenir Next", Avenir, Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-feature-settings: "tnum" 1;
+    }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+
+    .app {
+      display: grid;
+      grid-template-columns: 232px 1fr;
+      min-height: 100vh;
+    }
+
+    aside {
+      background: #eee8de;
+      border-right: 1px solid var(--line);
+      padding: 24px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .brand h1 {
+      margin: 0;
+      color: var(--brand);
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-weight: 560;
+    }
+
+    .brand p, .note, .muted {
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .brand p {
+      margin: 8px 0 0;
+      font-size: 12px;
+    }
+
+    .brand .tagline {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+      font-weight: 500;
+    }
+
+    .nav {
+      display: grid;
+      gap: 3px;
+    }
+
+    .nav button {
+      border: 0;
+      border-left: 2px solid transparent;
+      background: transparent;
+      color: var(--muted);
+      padding: 10px 8px;
+      text-align: left;
+      font-weight: 500;
+    }
+
+    .nav button.active {
+      border-color: var(--brand);
+      background: transparent;
+      color: var(--brand);
+    }
+
+    .note {
+      margin-top: auto;
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+      font-size: 12px;
+    }
+
+    main {
+      padding: 24px clamp(18px, 4vw, 46px) 44px;
+    }
+
+    .page { display: none; }
+    .page.active { display: block; }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 18px;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 4px 0;
+      color: var(--brand);
+      font-size: clamp(28px, 3vw, 38px);
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      font-weight: 560;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      color: var(--brand);
+      font-size: 20px;
+    }
+
+    p { margin: 0; }
+    .topbar p { max-width: 780px; }
+
+    .launch {
+      min-height: calc(100vh - 68px);
+      display: grid;
+      align-content: space-between;
+      gap: 44px;
+    }
+
+    .launch-hero {
+      max-width: 920px;
+      padding-top: clamp(28px, 8vh, 92px);
+    }
+
+    .launch h2 {
+      max-width: 860px;
+      font-size: clamp(46px, 7vw, 86px);
+      line-height: .96;
+      letter-spacing: -0.045em;
+      font-weight: 520;
+    }
+
+    .launch-copy {
+      max-width: 680px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.45;
+    }
+
+    .launch-actions {
+      margin-top: 28px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .launch-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .launch-grid div {
+      padding: 18px 18px 18px 0;
+      border-right: 1px solid var(--line-soft);
+    }
+
+    .launch-grid div + div {
+      padding-left: 18px;
+    }
+
+    .launch-grid div:last-child {
+      border-right: 0;
+    }
+
+    .launch-grid strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--brand);
+      font-weight: 560;
+    }
+
+    .launch-proof {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn {
+      min-height: 32px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--brand);
+      padding: 7px 11px;
+      font-weight: 520;
+    }
+
+    .btn.primary {
+      background: var(--brand);
+      border-color: var(--brand);
+      color: #fffdf8;
+    }
+
+    .btn.danger {
+      color: var(--red);
+      border-color: #e5beb4;
+      background: #fff5f0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 15px;
+    }
+
+    .span-3 { grid-column: span 3; }
+    .span-4 { grid-column: span 4; }
+    .span-5 { grid-column: span 5; }
+    .span-6 { grid-column: span 6; }
+    .span-7 { grid-column: span 7; }
+    .span-12 { grid-column: 1 / -1; }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--brand);
+      font-size: 12px;
+      font-weight: 560;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #fffefa;
+      color: var(--ink);
+      padding: 9px 10px;
+      border-radius: 0;
+    }
+
+    textarea {
+      min-height: 128px;
+      resize: vertical;
+      line-height: 1.45;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .metric span, .field span, .lead-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .metric strong {
+      display: block;
+      margin-top: 5px;
+      font-size: 24px;
+      letter-spacing: -0.015em;
+      font-weight: 560;
+    }
+
+    .field {
+      border-top: 1px solid var(--line-soft);
+      padding-top: 10px;
+    }
+
+    .field strong {
+      display: block;
+      margin-top: 4px;
+      line-height: 1.35;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .badge {
+      display: inline-flex;
+      width: fit-content;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      padding: 0 0 2px;
+      font-size: 11px;
+      font-weight: 520;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .badge.green { color: var(--green); border-color: #b8c6bb; }
+    .badge.gold { color: var(--gold); border-color: #cdbc9b; }
+    .badge.red { color: var(--red); border-color: #ceb1aa; }
+    .badge.activation, .badge.private { color: var(--muted); border-color: var(--line); }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(190px, 1fr));
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+
+    .column {
+      min-height: 420px;
+      background: rgba(255,253,249,.58);
+      border: 1px solid var(--line);
+      padding: 9px;
+    }
+
+    .column h3 {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 12px;
+      letter-spacing: 0;
+      text-transform: none;
+      margin-bottom: 10px;
+      font-weight: 560;
+    }
+
+    .column.drag-over {
+      outline: 2px solid var(--brand-2);
+      outline-offset: -2px;
+    }
+
+    .lead-card {
+      width: 100%;
+      border: 1px solid var(--line-soft);
+      background: #fffefa;
+      padding: 11px;
+      margin-bottom: 7px;
+      text-align: left;
+      display: grid;
+      gap: 6px;
+    }
+
+    .lead-card:hover { border-color: #b9a58d; background: #fffdf8; }
+    .lead-card strong { font-size: 14px; font-weight: 560; }
+
+    .card-top, .card-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .amount {
+      color: var(--brand);
+      font-weight: 560;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .brief-strip {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--line);
+      background: rgba(255,253,249,.72);
+      margin-bottom: 14px;
+    }
+
+    .brief-strip div {
+      padding: 13px 14px;
+      border-right: 1px solid var(--line-soft);
+    }
+
+    .brief-strip div:last-child { border-right: 0; }
+
+    .brief-strip strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--brand);
+      font-weight: 560;
+    }
+
+    .queue {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .queue-card {
+      border: 1px solid var(--line);
+      background: rgba(255,253,249,.72);
+      padding: 11px;
+      text-align: left;
+      display: grid;
+      gap: 5px;
+    }
+
+    .queue-card strong {
+      color: var(--ink);
+      font-size: 16px;
+      letter-spacing: 0;
+      font-weight: 560;
+    }
+
+    .score {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .guardrail-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .guardrail-list div {
+      border: 1px solid var(--line-soft);
+      background: #fffefa;
+      padding: 9px 10px;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 13px;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      place-items: center;
+      background: rgba(30,20,14,.36);
+      padding: 18px;
+      z-index: 20;
+    }
+
+    .modal.show { display: grid; }
+
+    .modal-card {
+      width: min(1040px, 100%);
+      max-height: 90vh;
+      overflow: auto;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 18px;
+    }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 14px;
+      margin-bottom: 14px;
+    }
+
+    .modal-head h3 {
+      font-size: 26px;
+      letter-spacing: -0.02em;
+      font-weight: 560;
+      margin: 3px 0 0;
+    }
+
+    .work-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 12px;
+      overflow-x: auto;
+    }
+
+    .work-tabs button {
+      border: 0;
+      border-bottom: 3px solid transparent;
+      background: transparent;
+      color: var(--muted);
+      padding: 10px 13px;
+      white-space: nowrap;
+      font-weight: 520;
+    }
+
+    .work-tabs button.active {
+      color: var(--brand);
+      border-color: var(--brand);
+    }
+
+    .message {
+      display: none;
+      border: 1px solid var(--line);
+      background: #fffefa;
+      padding: 10px;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .message.show { display: block; }
+
+    .conditional[hidden] { display: none; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    th, td {
+      border-bottom: 1px solid var(--line-soft);
+      padding: 10px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--brand);
+      font-size: 11px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      font-weight: 560;
+    }
+
+    .public-shell {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .public-card {
+      width: min(980px, 100%);
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .inquiry-intro {
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .intro-facts {
+      display: grid;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .intro-facts div {
+      border-bottom: 1px solid var(--line-soft);
+      padding: 0 0 10px;
+    }
+
+    .intro-facts strong {
+      display: block;
+      color: var(--brand);
+      font-weight: 560;
+    }
+
+    .inquiry-form {
+      border-color: var(--line);
+      box-shadow: none;
+    }
+
+    .form-section {
+      border-top: 1px solid var(--line-soft);
+      padding-top: 14px;
+      margin-top: 14px;
+    }
+
+    .form-section:first-child {
+      border-top: 0;
+      padding-top: 0;
+      margin-top: 0;
+    }
+
+    .section-title {
+      margin: 0 0 12px;
+      color: var(--brand-2);
+      font-size: 12px;
+      font-weight: 560;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .public-card h1 {
+      margin: 0 0 10px;
+      color: var(--brand);
+      font-size: clamp(42px, 7vw, 70px);
+      line-height: .95;
+      letter-spacing: -0.035em;
+      font-weight: 560;
+    }
+
+    @media (max-width: 1000px) {
+      .app { grid-template-columns: 1fr; }
+      aside { position: static; }
+      .grid, .form-grid, .field-grid, .public-card { grid-template-columns: 1fr; }
+      .launch-grid { grid-template-columns: 1fr; }
+      .launch-grid div, .launch-grid div + div { padding: 14px 0; border-right: 0; border-bottom: 1px solid var(--line-soft); }
+      .launch-grid div:last-child { border-bottom: 0; }
+      .span-3, .span-4, .span-5, .span-6, .span-7 { grid-column: 1 / -1; }
+      .pipeline { grid-template-columns: repeat(6, 260px); }
+      .queue { grid-template-columns: 1fr; }
+      .brief-strip { grid-template-columns: 1fr; }
+      .brief-strip div { border-right: 0; border-bottom: 1px solid var(--line-soft); }
+      .brief-strip div:last-child { border-bottom: 0; }
+      .topbar, .modal-head { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app" id="app">
+    <aside>
+      <div class="brand">
+        <h1>Larder</h1>
+        <div class="tagline">The revenue desk for premium hospitality events</div>
+        <p>Turn event inquiries into proposed, followed-up, contracted revenue.</p>
+      </div>
+      <nav class="nav" aria-label="Main">
+        <button class="active" data-page="dashboard" onclick="showPage('dashboard')">Pipeline</button>
+        <button data-page="inquiry" onclick="showPage('inquiry')">Inquiry Form</button>
+        <button data-page="followups" onclick="showPage('followups')">Follow-Ups</button>
+        <button data-page="briefs" onclick="showPage('briefs')">Event Briefs</button>
+        <button data-page="ledger" onclick="showPage('ledger')">Analytics</button>
+      </nav>
+      <div class="note">Built for restaurants that lose event revenue when inquiries sit unanswered, proposals take too long, or follow-up depends on memory.</div>
+    </aside>
+
+    <main>
+      <section class="page" id="page-overview">
+        <div class="launch">
+          <div class="launch-hero">
+            <div class="eyebrow">Larder</div>
+            <h2>The revenue desk for premium hospitality events.</h2>
+            <p class="launch-copy">Premium restaurants receive valuable private dining and brand event inquiries every week. Larder keeps each one moving from first message to proposal, follow-up, contract, deposit, and event brief.</p>
+            <div class="launch-actions">
+              <button class="btn primary" onclick="showPage('dashboard')">View pipeline</button>
+              <button class="btn" onclick="showPage('inquiry')">Open inquiry form</button>
+            </div>
+          </div>
+
+          <div>
+            <div class="launch-grid">
+              <div><strong>Respond faster</strong><span class="muted">New inquiries create a lead and a reviewed acknowledgment draft, so the guest or brand is not left waiting.</span></div>
+              <div><strong>Sell with consistency</strong><span class="muted">Proposal, follow-up, contract, and brief templates adapt for private dining or commercial events.</span></div>
+              <div><strong>See what is slipping</strong><span class="muted">Operators can see stale proposals, unpaid deposits, lost reasons, and booked revenue in one place.</span></div>
+            </div>
+            <div class="launch-proof" style="margin-top:18px;">
+              <span>Built for event managers</span>
+              <span>Useful to owners</span>
+              <span>Designed for premium restaurants and groups</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page active" id="page-dashboard">
+        <div class="topbar">
+          <div>
+            <div class="eyebrow">Event Revenue Desk</div>
+            <h2>Every inquiry has a next step</h2>
+            <p class="muted">Larder helps premium restaurants respond faster, send better proposals, follow up on time, and hand booked events to the floor without rework.</p>
+          </div>
+          <div class="actions">
+            <button class="btn" onclick="showPage('inquiry')">Open public form</button>
+            <button class="btn primary" onclick="loadState()">Refresh</button>
+          </div>
+        </div>
+        <div class="grid" style="margin-bottom:14px;">
+          <div class="panel metric span-3"><span>Open pipeline</span><strong id="metric-open">$0</strong></div>
+          <div class="panel metric span-3"><span>Active inquiries</span><strong id="metric-followups">0</strong></div>
+          <div class="panel metric span-3"><span>Booked or contracted</span><strong id="metric-contracted">0</strong></div>
+          <div class="panel metric span-3"><span>Follow-ups due</span><strong id="metric-age">0</strong></div>
+        </div>
+        <div class="toolbar">
+          <input id="search" type="text" placeholder="Search contact, company, brand, event type, date..." oninput="renderPipeline()" style="max-width:320px;">
+          <select id="type-filter" onchange="renderPipeline()" style="max-width:210px;">
+            <option value="all">All event types</option>
+            <option value="private_dining">Private dining</option>
+            <option value="brand_activation">Brand activation</option>
+          </select>
+          <select id="stage-filter" onchange="renderPipeline()" style="max-width:220px;">
+            <option value="all">All stages</option>
+            <option>New Inquiry</option>
+            <option>Proposal Sent</option>
+            <option>Follow-Up</option>
+            <option>Contracted</option>
+            <option>Closed Won</option>
+            <option>Closed Lost</option>
+          </select>
+        </div>
+        <div class="pipeline" id="pipeline"></div>
+      </section>
+
+      <section class="page" id="page-inquiry">
+        <div class="topbar">
+          <div>
+            <div class="eyebrow">Inquiry Form</div>
+            <h2>A better first touch</h2>
+            <p class="muted">Use this as the venue-facing event inquiry form. Submissions create a lead, draft a warm acknowledgment, and place the inquiry in the pipeline.</p>
+          </div>
+        </div>
+        <div class="public-card">
+          <div class="inquiry-intro">
+            <h1>Plan an event</h1>
+            <p class="muted">Share the basics and the events team will come back with availability, room fit, and proposal direction.</p>
+            <div class="intro-facts">
+              <div><strong>Fast response</strong><span class="muted">The team gets the details in one place instead of chasing email threads.</span></div>
+              <div><strong>Private dining and brand events</strong><span class="muted">Dinners, buyouts, press moments, launches, and agency-led experiences.</span></div>
+              <div><strong>Reviewed by the venue</strong><span class="muted">Drafts are prepared for the coordinator, not sent without approval.</span></div>
+            </div>
+          </div>
+          <form class="panel inquiry-form" id="inquiry-form" onsubmit="submitInquiry(event)">
+            <div class="form-section">
+              <div class="section-title">Event fit</div>
+              <div class="form-grid">
+                <div><label>Event category</label><select id="eventCategory" onchange="syncEventCategoryFields()"><option value="private_dining">Private dining</option><option value="brand_activation">Brand activation</option></select></div>
+                <div><label>Event subtype</label><select id="eventSubtype"></select></div>
+                <div><label>Preferred date</label><input id="preferredDate" type="date" value="2026-07-22"></div>
+                <div><label>Alternate date</label><input id="alternateDate" type="date" value="2026-07-23"></div>
+                <div><label>Guest count</label><input id="guestCount" inputmode="numeric" value="64"></div>
+                <div><label>Estimated budget</label><input id="estimatedBudget" inputmode="decimal" value="$24,000"></div>
+              </div>
+            </div>
+            <div class="form-section">
+              <div class="section-title">Contact</div>
+              <div class="form-grid">
+                <div><label>Contact name</label><input id="contactName" required placeholder="Name"></div>
+                <div><label>Company name</label><input id="companyName" placeholder="Company or host"></div>
+                <div><label>Email</label><input id="email" type="email" required placeholder="name@example.com"></div>
+                <div><label>Phone</label><input id="phone" placeholder="Phone number"></div>
+                <div><label>How they heard about the venue</label><input id="heardFrom" placeholder="Referral, website, planner, concierge"></div>
+              </div>
+            </div>
+            <div class="form-section conditional" id="brand-fields" hidden>
+              <div class="section-title">Brand activation brief</div>
+              <div class="form-grid">
+                <div><label>Brand name</label><input id="brandName" placeholder="Brand"></div>
+                <div><label>Agency name</label><input id="agencyName" placeholder="Agency, if applicable"></div>
+                <div><label>Event objective</label><input id="eventObjective" placeholder="Launch, press dinner, clienteling, content moment"></div>
+                <div><label>Exclusivity required</label><select id="exclusivityRequired"><option value="false">No / unsure</option><option value="true">Yes</option></select></div>
+              </div>
+            </div>
+            <div class="form-section">
+              <label>Special requests</label>
+              <textarea id="specialRequests" placeholder="Timing, room preference, menu notes, dietary restrictions, AV, production, exclusivity, or anything else the team should know."></textarea>
+            </div>
+            <div class="actions" style="margin-top:12px;">
+              <button class="btn primary" type="submit">Submit inquiry</button>
+              <button class="btn" type="button" onclick="fillSampleInquiry()">Fill sample</button>
+              <button class="btn" type="button" onclick="showPage('dashboard')">Back to pipeline</button>
+            </div>
+            <div class="message" id="inquiry-message"></div>
+          </form>
+        </div>
+      </section>
+
+      <section class="page" id="page-followups">
+        <div class="topbar">
+          <div>
+            <div class="eyebrow">Follow-Up Desk</div>
+            <h2>Keep proposals moving</h2>
+            <p class="muted">See which proposals need a touch today, draft the note, and keep date holds from going quiet.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <table>
+            <thead><tr><th>Lead</th><th>Stage</th><th>Age</th><th>Recommended sequence</th><th>Action</th></tr></thead>
+            <tbody id="followup-table"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="page" id="page-briefs">
+        <div class="topbar">
+          <div>
+            <div class="eyebrow">Event Briefs</div>
+            <h2>The handoff after the sale</h2>
+            <p class="muted">Once an event is contracted, Larder prepares the internal brief the kitchen, floor, and production teams need to execute cleanly.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <table>
+            <thead><tr><th>Event</th><th>Date</th><th>Guests</th><th>Deposit</th><th>Brief</th></tr></thead>
+            <tbody id="brief-table"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="page" id="page-ledger">
+        <div class="topbar">
+          <div>
+            <div class="eyebrow">Analytics</div>
+            <h2>What is converting, and what is leaking</h2>
+            <p class="muted">Track event value, response discipline, lost reasons, and revenue mix across private dining and commercial events.</p>
+          </div>
+        </div>
+        <div class="grid">
+          <div class="panel metric span-3"><span>Captured demand</span><strong id="ledger-demand">$0</strong></div>
+          <div class="panel metric span-3"><span>Contracted yield</span><strong id="ledger-yield">0%</strong></div>
+          <div class="panel metric span-3"><span>48h risk leads</span><strong id="ledger-risk">0</strong></div>
+          <div class="panel metric span-3"><span>Closed lost</span><strong id="ledger-lost">0</strong></div>
+          <div class="panel span-12">
+            <table>
+              <thead><tr><th>Event type</th><th>Pipeline</th><th>Average value</th><th>Conversion</th><th>Response time</th></tr></thead>
+              <tbody id="event-type-table"></tbody>
+            </table>
+          </div>
+          <div class="panel span-12">
+            <table>
+              <thead><tr><th>Month</th><th>Private dining revenue</th><th>Brand activation revenue</th><th>Total won</th></tr></thead>
+              <tbody id="revenue-month-table"></tbody>
+            </table>
+          </div>
+          <div class="panel span-6">
+            <table>
+              <thead><tr><th>Lost reason</th><th>Count</th><th>Value</th></tr></thead>
+              <tbody id="lost-reason-table"></tbody>
+            </table>
+          </div>
+          <div class="panel span-6">
+            <table>
+              <thead><tr><th>Follow-up window</th><th>Leads</th><th>Recommended move</th></tr></thead>
+              <tbody id="followup-performance-table"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal" id="lead-modal" onclick="closeModal(event)">
+    <div class="modal-card" id="lead-modal-card"></div>
+  </div>
+
+  <script>
+    const API_BASE = window.location.protocol === 'file:' ? 'http://localhost:4174' : '';
+    const stages = ['New Inquiry', 'Proposal Sent', 'Follow-Up', 'Contracted', 'Closed Won', 'Closed Lost'];
+    const subtypes = {
+      private_dining: ['Corporate dinner', 'Rehearsal dinner', 'Buyout', 'Holiday party', 'Wine dinner', "Chef's table event"],
+      brand_activation: ['Experiential marketing event', 'Product launch', 'Brand buyout', 'Press dinner', 'Agency-booked brand experience']
+    };
+    let leads = [];
+    let messages = [];
+    let contracts = [];
+    let payments = [];
+    let selectedLeadId = null;
+    let activeWorkTab = 'proposal';
+
+    async function api(path, options = {}) {
+      const response = await fetch(`${API_BASE}${path}`, {
+        ...options,
+        headers: {
+          ...(options.body ? { 'Content-Type': 'application/json' } : {}),
+          ...(options.headers || {})
+        }
+      });
+      if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+      return response.json();
+    }
+
+    function money(value) {
+      return (Number(value) || 0).toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+    }
+
+    function parseMoney(value) {
+      return Number(String(value || '').replace(/[^0-9.-]/g, '')) || 0;
+    }
+
+    function hoursSince(value) {
+      if (!value) return 999;
+      return Math.max(0, Math.floor((Date.now() - new Date(value).getTime()) / 36e5));
+    }
+
+    function daysSince(value) {
+      return Math.floor(hoursSince(value) / 24);
+    }
+
+    function leadValue(lead) {
+      return parseMoney(lead.estimatedBudget);
+    }
+
+    function eventCategory(lead) {
+      return lead.eventCategory === 'brand_activation' ? 'brand_activation' : 'private_dining';
+    }
+
+    function eventCategoryLabel(lead) {
+      return eventCategory(lead) === 'brand_activation' ? 'Brand activation' : 'Private dining';
+    }
+
+    function eventBadgeClass(lead) {
+      return eventCategory(lead) === 'brand_activation' ? 'activation' : 'private';
+    }
+
+    function leadScore(lead) {
+      return Number(lead.score) || 0;
+    }
+
+    function followupBadge(lead) {
+      const hours = hoursSince(lead.lastContactAt || lead.createdAt);
+      if (hours >= 48) return ['red', `${hours}h`];
+      if (hours >= 24) return ['gold', `${hours}h`];
+      return ['green', `${hours}h`];
+    }
+
+    function showPage(name) {
+      document.querySelectorAll('.page').forEach(page => page.classList.toggle('active', page.id === `page-${name}`));
+      document.querySelectorAll('.nav button').forEach(button => button.classList.toggle('active', button.dataset.page === name));
+      if (name === 'dashboard') renderPipeline();
+      if (name === 'followups') renderFollowups();
+      if (name === 'briefs') renderBriefs();
+      if (name === 'ledger') renderLedger();
+    }
+
+    async function loadState() {
+      const state = await api('/api/events/state');
+      leads = state.leads || [];
+      messages = state.messages || [];
+      contracts = state.contracts || [];
+      payments = state.payments || [];
+      renderPipeline();
+      renderFollowups();
+      renderBriefs();
+      renderLedger();
+    }
+
+    function updateMetrics() {
+      const open = leads.filter(lead => !['Closed Won', 'Closed Lost'].includes(lead.stage)).reduce((sum, lead) => sum + leadValue(lead), 0);
+      const booked = leads.filter(lead => ['Contracted', 'Closed Won'].includes(lead.stage)).length;
+      const needs = leads.filter(lead => ['Proposal Sent', 'Follow-Up'].includes(lead.stage) && hoursSince(lead.lastContactAt) >= 24).length;
+      document.getElementById('metric-open').textContent = money(open);
+      document.getElementById('metric-followups').textContent = leads.filter(lead => !['Closed Won', 'Closed Lost'].includes(lead.stage)).length;
+      document.getElementById('metric-contracted').textContent = booked;
+      document.getElementById('metric-age').textContent = needs;
+      renderDailyQueue();
+    }
+
+    function renderDailyQueue() {
+      const active = leads.filter(lead => !['Closed Won', 'Closed Lost'].includes(lead.stage));
+      const best = [...active].sort((a, b) => leadScore(b) - leadScore(a))[0];
+      const stale = active.filter(lead => hoursSince(lead.lastContactAt) >= 24).sort((a, b) => hoursSince(b.lastContactAt) - hoursSince(a.lastContactAt))[0];
+      const guardrail = active.find(lead => (lead.guardrails || []).some(item => !/^No major/i.test(item)));
+      const deposits = leads.filter(lead => lead.stage === 'Contracted' && lead.depositStatus !== 'Paid');
+      const cards = [
+        ['Next call', best, best ? `${best.eventType} / ${best.estimatedBudget}` : 'No active leads'],
+        ['Follow-up risk', stale, stale ? `${hoursSince(stale.lastContactAt)}h since last contact` : 'No stale proposals'],
+        ['Review terms', guardrail, guardrail ? (guardrail.guardrails || [])[0] : 'No terms to review'],
+        ['Deposits', deposits[0], deposits.length ? `${deposits.length} event${deposits.length === 1 ? '' : 's'} not fully paid` : 'No deposit cleanup']
+      ];
+      const container = document.getElementById('daily-queue');
+      if (!container) return;
+      container.innerHTML = cards.map(([label, lead, detail]) => `
+        <button class="queue-card" type="button" ${lead ? `onclick="openLead('${lead.id}')"` : ''}>
+          <span class="badge ${label === 'Follow-up risk' ? 'red' : label === 'Deposits' ? 'green' : 'gold'}">${label}</span>
+          <strong>${lead ? escapeHtml(lead.contactName) : 'Clear'}</strong>
+          <span class="muted">${escapeHtml(detail)}</span>
+        </button>
+      `).join('');
+    }
+
+    function renderPipeline() {
+      updateMetrics();
+      const query = document.getElementById('search')?.value?.toLowerCase() || '';
+      const filter = document.getElementById('stage-filter')?.value || 'all';
+      const typeFilter = document.getElementById('type-filter')?.value || 'all';
+      const valueFilter = Number(document.getElementById('value-filter')?.value || 0);
+      const dateFilter = document.getElementById('date-filter')?.value || '';
+      const visible = leads.filter(lead => {
+        const haystack = [lead.contactName, lead.companyName, lead.brandName, lead.email, lead.eventSubtype, lead.eventTypeLabel, lead.preferredDate, lead.specialRequests].join(' ').toLowerCase();
+        const dateMatch = !dateFilter || String(lead.preferredDate || '').startsWith(dateFilter);
+        return (!query || haystack.includes(query))
+          && (filter === 'all' || lead.stage === filter)
+          && (typeFilter === 'all' || eventCategory(lead) === typeFilter)
+          && (!valueFilter || leadValue(lead) >= valueFilter)
+          && dateMatch;
+      });
+      document.getElementById('pipeline').innerHTML = stages.map(stage => {
+        const rows = visible.filter(lead => lead.stage === stage);
+        return `
+          <div class="column" data-stage="${stage}" ondragover="allowDrop(event)" ondragleave="this.classList.remove('drag-over')" ondrop="dropLead(event, '${stage}')">
+            <h3>${stage}<span>${rows.length}</span></h3>
+            ${rows.map(leadCard).join('') || '<div class="muted" style="font-size:13px;">No leads.</div>'}
+          </div>
+        `;
+      }).join('');
+    }
+
+    function leadCard(lead) {
+      const [color, age] = followupBadge(lead);
+      const company = lead.companyName || lead.brandName || 'No company';
+      const type = eventCategory(lead) === 'brand_activation' ? 'Activation' : 'Dining';
+      const details = [lead.eventSubtype || lead.eventType, lead.guestCount ? `${lead.guestCount} guests` : 'Guest count TBD'].filter(Boolean).join(' / ');
+      return `
+        <button class="lead-card" draggable="true" ondragstart="dragLead(event, '${lead.id}')" onclick="openLead('${lead.id}')">
+          <div class="card-top"><strong>${escapeHtml(lead.contactName)}</strong><span class="amount">${escapeHtml(lead.estimatedBudget || '$0')}</span></div>
+          <span>${escapeHtml(company)}</span>
+          <span>${escapeHtml(details)}</span>
+          <div class="card-bottom"><span>${escapeHtml(lead.preferredDate || 'Date TBD')}</span><span class="badge ${color}">${age} since contact</span></div>
+          <div class="card-bottom"><span>${type}</span><span class="score">Priority ${leadScore(lead)}</span></div>
+        </button>
+      `;
+    }
+
+    function dragLead(event, id) {
+      event.dataTransfer.setData('text/plain', id);
+    }
+
+    function allowDrop(event) {
+      event.preventDefault();
+      event.currentTarget.classList.add('drag-over');
+    }
+
+    async function dropLead(event, stage) {
+      event.preventDefault();
+      event.currentTarget.classList.remove('drag-over');
+      const id = event.dataTransfer.getData('text/plain');
+      await updateLead(id, { stage });
+    }
+
+    async function submitInquiry(event) {
+      event.preventDefault();
+      const isActivation = value('eventCategory') === 'brand_activation';
+      const payload = {
+        contactName: value('contactName'),
+        companyName: value('companyName'),
+        email: value('email'),
+        phone: value('phone'),
+        eventCategory: value('eventCategory'),
+        eventSubtype: value('eventSubtype'),
+        eventType: eventCategoryLabel({ eventCategory: value('eventCategory') }),
+        preferredDate: value('preferredDate'),
+        alternateDate: value('alternateDate'),
+        guestCount: Number(value('guestCount')) || 0,
+        estimatedBudget: value('estimatedBudget'),
+        heardFrom: value('heardFrom'),
+        brandName: isActivation ? value('brandName') : '',
+        agencyName: isActivation ? value('agencyName') : '',
+        eventObjective: isActivation ? value('eventObjective') : '',
+        exclusivityRequired: isActivation && value('exclusivityRequired') === 'true',
+        specialRequests: value('specialRequests')
+      };
+      const result = await api('/api/events/inquiries', { method: 'POST', body: JSON.stringify(payload) });
+      leads = result.leads || leads;
+      messages = result.messages || messages;
+      document.getElementById('inquiry-message').classList.add('show');
+      document.getElementById('inquiry-message').innerHTML = `<strong>Inquiry created.</strong><br>The acknowledgment email has been drafted for review.`;
+      selectedLeadId = result.lead.id;
+      renderPipeline();
+      setTimeout(() => openLead(result.lead.id, 'acknowledgment'), 400);
+    }
+
+    function fillSampleInquiry() {
+      document.getElementById('eventCategory').value = 'private_dining';
+      syncEventCategoryFields();
+      document.getElementById('eventSubtype').value = 'Wine dinner';
+      document.getElementById('contactName').value = 'Sofia Martin';
+      document.getElementById('companyName').value = 'Martin & Co.';
+      document.getElementById('email').value = 'sofia@example.com';
+      document.getElementById('phone').value = '(917) 555-0116';
+      document.getElementById('preferredDate').value = '2026-07-22';
+      document.getElementById('alternateDate').value = '2026-07-23';
+      document.getElementById('guestCount').value = '64';
+      document.getElementById('estimatedBudget').value = '$24,000';
+      document.getElementById('heardFrom').value = 'Planner referral';
+      document.getElementById('specialRequests').value = 'Private room, passed canapes to start, two vegetarian guests, and a short welcome toast.';
+    }
+
+    async function updateLead(id, patch) {
+      const result = await api(`/api/events/leads/${id}`, { method: 'PATCH', body: JSON.stringify(patch) });
+      leads = result.leads || leads;
+      renderPipeline();
+      renderFollowups();
+      renderLedger();
+      if (selectedLeadId === id) openLead(id, activeWorkTab);
+    }
+
+    async function generate(kind, id = selectedLeadId, extra = {}) {
+      const result = await api(`/api/events/leads/${id}/generate/${kind}`, { method: 'POST', body: JSON.stringify(extra) });
+      leads = result.leads || leads;
+      contracts = result.contracts || contracts;
+      const lead = result.lead;
+      selectedLeadId = lead.id;
+      openLead(lead.id, kind === 'followup' ? 'followup' : kind);
+    }
+
+    async function sendEmail(type) {
+      const lead = leadById(selectedLeadId);
+      const body = document.getElementById('work-editor').value;
+      const subject = type === 'Proposal' ? `${eventCategoryLabel(lead)} proposal for ${lead.preferredDate || 'your event'}` : type;
+      const result = await api(`/api/events/leads/${lead.id}/send`, {
+        method: 'POST',
+        body: JSON.stringify({ type, to: lead.email, subject, body })
+      });
+      leads = result.leads || leads;
+      messages = result.messages || messages;
+      openLead(lead.id, type === 'Proposal' ? 'proposal' : 'followup');
+    }
+
+    async function signContract() {
+      const signature = document.getElementById('signature').value || 'Signed electronically';
+      const result = await api(`/api/events/leads/${selectedLeadId}/sign`, { method: 'POST', body: JSON.stringify({ signature }) });
+      leads = result.leads || leads;
+      renderPipeline();
+      openLead(selectedLeadId, 'contract');
+    }
+
+    async function collectDeposit() {
+      const result = await api(`/api/events/leads/${selectedLeadId}/deposit`, { method: 'POST', body: JSON.stringify({}) });
+      leads = result.leads || leads;
+      payments = result.payments || payments;
+      openLead(selectedLeadId, 'contract');
+    }
+
+    async function saveLeadStage() {
+      const stage = document.getElementById('lead-stage-select').value;
+      const closeLostReason = document.getElementById('lost-reason').value;
+      await updateLead(selectedLeadId, { stage, closeLostReason: stage === 'Closed Lost' ? closeLostReason : '' });
+    }
+
+    function openLead(id, tab = activeWorkTab) {
+      selectedLeadId = id;
+      activeWorkTab = tab;
+      const lead = leadById(id);
+      const [color, age] = followupBadge(lead);
+      const guardrails = lead.guardrails || [];
+      document.getElementById('lead-modal-card').innerHTML = `
+        <div class="modal-head">
+          <div>
+            <div class="eyebrow">${escapeHtml(lead.stage)} / ${eventCategoryLabel(lead)} / Priority ${leadScore(lead)}</div>
+            <h3>${escapeHtml(lead.contactName)}</h3>
+            <p class="muted">${escapeHtml(lead.companyName || lead.brandName || '')} / ${escapeHtml(lead.eventSubtype || lead.eventType)} / ${lead.guestCount || 'TBD'} guests / ${escapeHtml(lead.preferredDate || 'TBD')}</p>
+          </div>
+          <div class="actions">
+            <span class="badge ${color}">${age} since contact</span>
+            <button class="btn" onclick="closeModal()">Close</button>
+          </div>
+        </div>
+        <div class="field-grid">
+          <div class="field"><span>Email</span><strong>${escapeHtml(lead.email)}</strong></div>
+          <div class="field"><span>Phone</span><strong>${escapeHtml(lead.phone || 'Not provided')}</strong></div>
+          <div class="field"><span>Company / Brand</span><strong>${escapeHtml(lead.companyName || 'N/A')} / ${escapeHtml(lead.brandName || 'N/A')}</strong></div>
+          <div class="field"><span>Agency / Source</span><strong>${escapeHtml(lead.agencyName || 'N/A')} / ${escapeHtml(lead.heardFrom || 'N/A')}</strong></div>
+          <div class="field"><span>Budget</span><strong>${escapeHtml(lead.estimatedBudget || 'TBD')}</strong></div>
+          <div class="field"><span>Deposit</span><strong>${escapeHtml(lead.depositStatus || 'Not requested')}</strong></div>
+          <div class="field"><span>Recommended package</span><strong>${escapeHtml(lead.recommendedPackage || 'Pending')}</strong></div>
+          <div class="field"><span>Recommended room</span><strong>${escapeHtml(lead.recommendedRoom || 'Pending')}</strong></div>
+          <div class="field"><span>Minimum / Deposit</span><strong>${escapeHtml(lead.recommendedMinimum || 'TBD')} / ${escapeHtml(lead.depositAmount || 'TBD')}</strong></div>
+          <div class="field"><span>Margin read</span><strong>${escapeHtml(lead.profitability?.label || 'Pending')} / ${Math.round((lead.profitability?.marginRate || 0) * 100)}%</strong></div>
+        </div>
+        <div class="panel" style="margin-top:14px;">
+          <div class="eyebrow">Review Before Sending</div>
+          <div class="guardrail-list">${guardrails.map(item => `<div>${escapeHtml(item)}</div>`).join('')}</div>
+        </div>
+        ${lead.stage === 'Closed Lost' ? `<div class="panel" style="margin-top:14px;"><div class="eyebrow">Close-Loss Reason</div><p class="muted">${escapeHtml(lead.closeLostReason || 'No reason captured')}</p></div>` : ''}
+        <div class="work-tabs" style="margin-top:14px;">
+          ${['acknowledgment','proposal','followup','contract','brief'].map(name => `<button class="${tab === name ? 'active' : ''}" onclick="openLead('${id}', '${name}')">${labelFor(name)}</button>`).join('')}
+        </div>
+        ${workPanel(lead, tab)}
+        <div class="panel" style="margin-top:14px;">
+          <div class="eyebrow">Stage Control</div>
+          <div class="form-grid" style="margin-top:10px;">
+            <div><label>Move stage</label><select id="lead-stage-select">${stages.map(stage => `<option ${stage === lead.stage ? 'selected' : ''}>${stage}</option>`).join('')}</select></div>
+            <div><label>Close-lost reason</label><select id="lost-reason"><option></option><option>Too expensive</option><option>Date unavailable</option><option>Slow response</option><option>Menu mismatch</option><option>Deposit friction</option><option>Chose competitor</option><option>No reply</option></select></div>
+          </div>
+          <div class="actions" style="margin-top:10px;">
+            <button class="btn" onclick="saveLeadStage()">Save stage</button>
+          </div>
+        </div>
+      `;
+      document.getElementById('lead-modal').classList.add('show');
+    }
+
+    function workPanel(lead, tab) {
+      if (tab === 'acknowledgment') {
+        return editorPanel(lead.acknowledgmentDraft || '', [
+          ['Generate acknowledgment', `generate('acknowledgment')`, 'btn'],
+          ['Send acknowledgment', `sendEmail('Acknowledgment')`, 'btn primary']
+        ]);
+      }
+      if (tab === 'proposal') {
+        return editorPanel(lead.proposalDraft || '', [
+          ['Generate proposal', `generate('proposal')`, 'btn'],
+          ['Open PDF', `window.open('${API_BASE}/api/events/leads/${lead.id}/proposal.pdf', '_blank')`, 'btn'],
+          ['Send proposal', `sendEmail('Proposal')`, 'btn primary']
+        ]);
+      }
+      if (tab === 'followup') {
+        const latest = (lead.followUps || []).at(-1)?.body || '';
+        return editorPanel(latest, [
+          ['Day 1 draft', `generate('followup', '${lead.id}', { day: 1 })`, 'btn'],
+          ['Day 3 draft', `generate('followup', '${lead.id}', { day: 3 })`, 'btn'],
+          ['Day 6 draft', `generate('followup', '${lead.id}', { day: 6 })`, 'btn'],
+          ['Send follow-up', `sendEmail('Follow-up')`, 'btn primary'],
+          ['Pause sequence', `updateLead('${lead.id}', { stage: '${lead.stage}' })`, 'btn danger']
+        ]);
+      }
+      if (tab === 'contract') {
+        return `
+          ${editorPanel(lead.contractDraft || '', [
+            ['Generate contract', `generate('contract')`, 'btn'],
+            ['Save as Contracted', `signContract()`, 'btn primary'],
+            ['Collect deposit', `collectDeposit()`, 'btn']
+          ], false)}
+          <div class="form-grid" style="margin-top:12px;">
+            <div><label>Built-in signature</label><input id="signature" placeholder="Type signer name"></div>
+            <div><label>Stripe status</label><input readonly value="${escapeHtml(lead.depositStatus || 'Not requested')}"></div>
+          </div>
+        `;
+      }
+      return editorPanel(lead.eventBrief || '', [
+        ['Generate event brief', `generate('brief')`, 'btn'],
+        ['Print brief', `window.print()`, 'btn primary']
+      ]);
+    }
+
+    function editorPanel(text, buttons, includeEditor = true) {
+      return `
+        ${includeEditor ? `<textarea id="work-editor">${escapeHtml(text)}</textarea>` : `<textarea id="work-editor">${escapeHtml(text)}</textarea>`}
+        <div class="actions" style="margin-top:10px;">
+          ${buttons.map(([label, action, klass]) => `<button class="${klass}" onclick="${action}">${label}</button>`).join('')}
+        </div>
+      `;
+    }
+
+    function renderFollowups() {
+      const rows = leads.filter(lead => ['Proposal Sent', 'Follow-Up'].includes(lead.stage));
+      document.getElementById('followup-table').innerHTML = rows.map(lead => {
+        const hours = hoursSince(lead.lastContactAt);
+        const activation = eventCategory(lead) === 'brand_activation';
+        const sequence = hours >= 144 ? (activation ? 'Day 6 date-availability urgency touch' : 'Day 6 gentle close') : hours >= 72 ? (activation ? 'Day 3 similar-brand value add' : 'Day 3 social proof touch') : hours >= 24 ? (activation ? 'Day 1 brand-fit check-in' : 'Day 1 soft check-in') : 'On track';
+        return `<tr><td><strong>${escapeHtml(lead.contactName)}</strong><br><span class="badge ${eventBadgeClass(lead)}">${eventCategoryLabel(lead)}</span></td><td>${lead.stage}</td><td>${hours}h</td><td>${sequence}</td><td><button class="btn" onclick="openLead('${lead.id}', 'followup')">Draft</button></td></tr>`;
+      }).join('') || '<tr><td colspan="5">Follow-ups appear here once a proposal has been sent and 24+ hours have passed without a fresh touch.</td></tr>';
+    }
+
+    function renderBriefs() {
+      const rows = leads.filter(lead => ['Contracted', 'Closed Won'].includes(lead.stage));
+      document.getElementById('brief-table').innerHTML = rows.map(lead => `<tr><td><strong>${escapeHtml(lead.contactName)}</strong><br><span class="badge ${eventBadgeClass(lead)}">${eventCategoryLabel(lead)}</span> ${escapeHtml(lead.eventSubtype || '')}</td><td>${escapeHtml(lead.preferredDate || 'TBD')}</td><td>${lead.guestCount || 'TBD'}</td><td>${escapeHtml(lead.depositStatus || 'Not requested')}</td><td><button class="btn" onclick="openLead('${lead.id}', 'brief')">Open brief</button></td></tr>`).join('') || '<tr><td colspan="5">No contracted events yet.</td></tr>';
+    }
+
+    function renderLedger() {
+      const demand = leads.reduce((sum, lead) => sum + leadValue(lead), 0);
+      const wonRows = leads.filter(lead => lead.stage === 'Closed Won');
+      const contracted = wonRows.reduce((sum, lead) => sum + leadValue(lead), 0);
+      const risk = leads.filter(lead => hoursSince(lead.lastContactAt) >= 48 && !['Contracted','Closed Won','Closed Lost'].includes(lead.stage)).length;
+      const lost = leads.filter(lead => lead.stage === 'Closed Lost').length;
+      document.getElementById('ledger-demand').textContent = money(demand);
+      document.getElementById('ledger-yield').textContent = demand ? `${Math.round((contracted / demand) * 100)}%` : '0%';
+      document.getElementById('ledger-risk').textContent = risk;
+      document.getElementById('ledger-lost').textContent = lost;
+      renderEventTypeAnalytics();
+      renderMonthlyRevenue();
+      renderLostReasons();
+      renderFollowupPerformance();
+    }
+
+    function renderEventTypeAnalytics() {
+      const rows = ['private_dining', 'brand_activation'].map(category => {
+        const typeRows = leads.filter(lead => eventCategory(lead) === category);
+        const pipeline = typeRows.filter(lead => !['Closed Won', 'Closed Lost'].includes(lead.stage)).reduce((sum, lead) => sum + leadValue(lead), 0);
+        const avg = typeRows.length ? Math.round(typeRows.reduce((sum, lead) => sum + leadValue(lead), 0) / typeRows.length) : 0;
+        const won = typeRows.filter(lead => lead.stage === 'Closed Won').length;
+        const conversion = typeRows.length ? Math.round((won / typeRows.length) * 100) : 0;
+        const response = typeRows.length ? Math.round(typeRows.reduce((sum, lead) => sum + hoursSince(lead.lastContactAt || lead.createdAt), 0) / typeRows.length) : 0;
+        return { label: category === 'brand_activation' ? 'Brand activation' : 'Private dining', pipeline, avg, conversion, response };
+      });
+      document.getElementById('event-type-table').innerHTML = rows.map(row => `<tr><td><strong>${row.label}</strong></td><td>${money(row.pipeline)}</td><td>${money(row.avg)}</td><td>${row.conversion}%</td><td>${row.response}h</td></tr>`).join('');
+    }
+
+    function renderMonthlyRevenue() {
+      const months = {};
+      leads.filter(lead => lead.stage === 'Closed Won').forEach(lead => {
+        const month = String(lead.preferredDate || lead.updatedAt || '').slice(0, 7) || 'Unscheduled';
+        months[month] ||= { private_dining: 0, brand_activation: 0 };
+        months[month][eventCategory(lead)] += leadValue(lead);
+      });
+      const rows = Object.entries(months).sort(([a], [b]) => a.localeCompare(b));
+      document.getElementById('revenue-month-table').innerHTML = rows.map(([month, values]) => {
+        const total = values.private_dining + values.brand_activation;
+        return `<tr><td><strong>${escapeHtml(month)}</strong></td><td>${money(values.private_dining)}</td><td>${money(values.brand_activation)}</td><td>${money(total)}</td></tr>`;
+      }).join('') || '<tr><td colspan="4">No closed-won revenue yet.</td></tr>';
+    }
+
+    function renderLostReasons() {
+      const reasons = {};
+      leads.filter(lead => lead.stage === 'Closed Lost').forEach(lead => {
+        const reason = lead.closeLostReason || 'No reason captured';
+        reasons[reason] ||= { count: 0, value: 0 };
+        reasons[reason].count += 1;
+        reasons[reason].value += leadValue(lead);
+      });
+      const rows = Object.entries(reasons).sort((a, b) => b[1].value - a[1].value);
+      document.getElementById('lost-reason-table').innerHTML = rows.map(([reason, data]) => `<tr><td><strong>${escapeHtml(reason)}</strong></td><td>${data.count}</td><td>${money(data.value)}</td></tr>`).join('') || '<tr><td colspan="3">No closed-lost reasons yet.</td></tr>';
+    }
+
+    function renderFollowupPerformance() {
+      const buckets = [
+        ['On track', lead => ['Proposal Sent', 'Follow-Up'].includes(lead.stage) && hoursSince(lead.lastContactAt) < 24, 'Hold until the next touch window.'],
+        ['24+ hours', lead => ['Proposal Sent', 'Follow-Up'].includes(lead.stage) && hoursSince(lead.lastContactAt) >= 24 && hoursSince(lead.lastContactAt) < 72, 'Send Day 1 check-in.'],
+        ['72+ hours', lead => ['Proposal Sent', 'Follow-Up'].includes(lead.stage) && hoursSince(lead.lastContactAt) >= 72 && hoursSince(lead.lastContactAt) < 144, 'Send value-add example.'],
+        ['6 days+', lead => ['Proposal Sent', 'Follow-Up'].includes(lead.stage) && hoursSince(lead.lastContactAt) >= 144, 'Send closing touch or mark lost.']
+      ];
+      document.getElementById('followup-performance-table').innerHTML = buckets.map(([label, predicate, move]) => {
+        const count = leads.filter(predicate).length;
+        return `<tr><td><strong>${label}</strong></td><td>${count}</td><td>${move}</td></tr>`;
+      }).join('');
+    }
+
+    function topGroup(items, keyFn) {
+      const totals = {};
+      items.forEach(item => {
+        const key = keyFn(item) || 'Unknown';
+        totals[key] = (totals[key] || 0) + leadValue(item);
+      });
+      const [label, value] = Object.entries(totals).sort((a, b) => b[1] - a[1])[0] || ['No', 0];
+      return { label, value };
+    }
+
+    function leadById(id) {
+      return leads.find(lead => lead.id === id);
+    }
+
+    function syncEventCategoryFields() {
+      const category = value('eventCategory') || 'private_dining';
+      const subtype = document.getElementById('eventSubtype');
+      subtype.innerHTML = (subtypes[category] || subtypes.private_dining).map(item => `<option>${item}</option>`).join('');
+      document.getElementById('brand-fields').hidden = category !== 'brand_activation';
+      document.querySelector('.public-card h1').textContent = category === 'brand_activation' ? 'Plan a brand activation' : 'Plan a private event';
+      document.querySelector('.public-card > div p').textContent = category === 'brand_activation'
+        ? 'Share the brand, objective, dates, and production needs so our team can shape a commercially clear venue proposal.'
+        : 'Share the occasion, date, guest count, and preferences so our team can prepare a thoughtful private dining proposal.';
+    }
+
+    function value(id) {
+      return document.getElementById(id).value.trim();
+    }
+
+    function labelFor(name) {
+      return ({ acknowledgment: 'Acknowledgment', proposal: 'Proposal', followup: 'Follow-Up', contract: 'Contract + Deposit', brief: 'Event Brief' })[name] || name;
+    }
+
+    function closeModal(event) {
+      if (event && event.target.id !== 'lead-modal') return;
+      document.getElementById('lead-modal').classList.remove('show');
+    }
+
+    function escapeHtml(value) {
+      return String(value || '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[char]));
+    }
+
+    syncEventCategoryFields();
+    loadState().then(() => {
+      const initialPage = window.location.hash.replace('#', '');
+      if (initialPage && document.getElementById(`page-${initialPage}`)) showPage(initialPage);
+    }).catch(error => {
+      document.body.innerHTML = `<div class="public-shell"><div class="panel"><h2>Start the Larder server</h2><p class="muted">The private event desk needs the local backend at http://localhost:4174. Run npm start in this folder, then reload.</p><p class="muted">${escapeHtml(error.message)}</p></div></div>`;
+    });
+  </script>
+</body>
+</html>
